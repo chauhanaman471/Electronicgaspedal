@@ -1,0 +1,129 @@
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_irq_stack.s 			page 1
+
+
+   1              	/* ###*B*###
+   2              	; ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3              	;
+   4              	; Copyright (C) 2002-2011  Evidence Srl
+   5              	;
+   6              	; This file is part of ERIKA Enterprise.
+   7              	;
+   8              	; ERIKA Enterprise is free software; you can redistribute it
+   9              	; and/or modify it under the terms of the GNU General Public License
+  10              	; version 2 as published by the Free Software Foundation, 
+  11              	; (with a special exception described below).
+  12              	;
+  13              	; Linking this code statically or dynamically with other modules is
+  14              	; making a combined work based on this code.  Thus, the terms and
+  15              	; conditions of the GNU General Public License cover the whole
+  16              	; combination.
+  17              	;
+  18              	; As a special exception, the copyright holders of this library give you
+  19              	; permission to link this code with independent modules to produce an
+  20              	; executable, regardless of the license terms of these independent
+  21              	; modules, and to copy and distribute the resulting executable under
+  22              	; terms of your choice, provided that you also meet, for each linked
+  23              	; independent module, the terms and conditions of the license of that
+  24              	; module.  An independent module is a module which is not derived from
+  25              	; or based on this library.  If you modify this code, you may extend
+  26              	; this exception to your version of the code, but you are not
+  27              	; obligated to do so.  If you do not wish to do so, delete this
+  28              	; exception statement from your version.
+  29              	;
+  30              	; ERIKA Enterprise is distributed in the hope that it will be
+  31              	; useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32              	; of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33              	; GNU General Public License version 2 for more details.
+  34              	;
+  35              	; You should have received a copy of the GNU General Public License
+  36              	; version 2 along with ERIKA Enterprise; if not, write to the
+  37              	; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38              	; Boston, MA 02110-1301 USA.
+  39              	; ###*E*###
+  40              	
+  41              	; /**
+  42              	; 	@file ee_keil_irq_stack.s
+  43              	; 	@brief Context switch function for multistack on Cortex_MX 
+  44              	; 	@brief Stack switch for ISRs on Cortex_MX. 
+  45              	; 	Implementation of EE_cortex_mx_call_ISR_new_stack() as described in
+  46              	; 	pkg/cpu/cortex_mx/inc/ee_irq_internal.inc
+  47              	; 	@author Gianluca Franchino
+  48              	; 	@author Giuseppe Serano
+  49              	; 	@author Alessandro Biondi
+  50              	; 	@date 2013
+  51              	*/
+  52              	
+  53              	/*
+  54              	; PSoC Port and API Generation
+  55              	; Carlos Fernando Meier Martinez
+  56              	; Hochschule Darmstadt, Germany. 2017.
+  57              	*/
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_irq_stack.s 			page 2
+
+
+  58              	
+  59              	@*******************************************************************************
+  60              	@                         PUBLIC FUNCTIONS
+  61              	@*******************************************************************************
+  62              		.global	EE_cortex_mx_change_IRQ_stack
+  63              		.global	EE_cortex_mx_change_IRQ_stack_back
+  64              	
+  65              		.global	EE_cortex_mx_IRQ_tos
+  66              	
+  67              	
+  68              	@*******************************************************************************
+  69              	@                              DATA SECTION
+  70              	@*******************************************************************************	
+  71              		.data
+  72              	
+  73 0000 00000000 	EE_cortex_mx_tmp_tos:	.word 	0	@ EE_UREG EE_cortex_mx_tmp_tos;
+  74              	
+  75              	@*******************************************************************************
+  76              	@                              CODE SECTION
+  77              	@*******************************************************************************	
+  78              		.text
+  79              	
+  80              	@ kernel code is in ARM-mode
+  81              		.syntax unified
+  82              		.arch armv7e-m
+  83              		.cpu cortex-m4
+  84              	
+  85              	@void EE_cortex_mx_change_IRQ_stack(void);
+  86              	        .type   EE_cortex_mx_change_IRQ_stack, #function
+  87              	EE_cortex_mx_change_IRQ_stack:
+  88              	
+  89 0000 EFF30880 		MRS	R0, MSP						@ R0 = MSP (Main stack Pointer)
+  90 0004 0549     		LDR	R1, =EE_cortex_mx_tmp_tos	@ R1 = address of EE_cortex_m0_tmp_tos
+  91 0006 0860     		STR	R0, [R1]					@ Save MSP in EE_cortex_mx_tmp_tos
+  92 0008 0548     		LDR	R0, =EE_cortex_mx_IRQ_tos 	@ R0 = address of EE_cortex_mx_IRQ_tos
+  93 000a 0068     		LDR	R0, [R0]					@ R0 = IRQ new stack pointer
+  94 000c 80F30888 		MSR	MSP, R0						@ change IRQ stack
+  95              	
+  96 0010 7047     		BX LR 							@ return
+  97              	
+  98              		.size	EE_cortex_mx_change_IRQ_stack, . - EE_cortex_mx_change_IRQ_stack
+  99              	
+ 100              	@*******************************************************************************	
+ 101              	
+ 102              	@void EE_cortex_mx_change_IRQ_stack_back(void);
+ 103              	        .type   EE_cortex_mx_change_IRQ_stack_back, #function
+ 104              	EE_cortex_mx_change_IRQ_stack_back:	
+ 105              	
+ 106 0012 0248     		LDR	R0, =EE_cortex_mx_tmp_tos	@ R0 = address of EE_cortex_mx_tmp_tos
+ 107 0014 0068     		LDR	R0, [R0]					@ R0 = old MSP
+ 108 0016 80F30888 		MSR	MSP, R0						@ Restore the stack pointer
+ 109              	
+ 110 001a 7047     		BX LR							@ return 
+ 111              		
+ 112              		.size	EE_cortex_mx_change_IRQ_stack_back, . - EE_cortex_mx_change_IRQ_stack_back
+ 113              	
+ 114              	@******************************************************************************
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_irq_stack.s 			page 3
+
+
+ 115              	@
+ 116              	@ Tell the assembler that we're done.
+ 117              	@
+ 118              	@******************************************************************************
+ 119 001c 00000000 		.end
+ 119      00000000 

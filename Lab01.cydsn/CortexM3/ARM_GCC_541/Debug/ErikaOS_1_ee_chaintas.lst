@@ -1,0 +1,2807 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ErikaOS_1_ee_chaintas.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EE_oo_ChainTask,"ax",%progbits
+  20              		.align	2
+  21              		.global	EE_oo_ChainTask
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	EE_oo_ChainTask, %function
+  25              	EE_oo_ChainTask:
+  26              	.LFB70:
+  27              		.file 1 "Generated_Source\\PSoC5\\ErikaOS_1_ee_chaintas.c"
+   1:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+   4:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Copyright (C) 2002-2008  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * ERIKA Enterprise is free software; you can redistribute it
+   9:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * ERIKA Enterprise is distributed in the hope that it will be
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 2
+
+
+  31:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** /*
+  42:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Author: 2002 Paolo Gai
+  43:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * CVS: $Id: ee_chaintas.c,v 1.3 2005/07/19 14:01:16 pj Exp $
+  44:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  */
+  45:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  46:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** /*
+  47:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * PSoC Port and API Generation
+  48:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Carlos Fernando Meier Martinez
+  49:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  * Hochschule Darmstadt, Germany. 2017.
+  50:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****  */
+  51:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  52:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #include "ErikaOS_1_ee_internal.inc"
+  53:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  54:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** /* ChainTask: 
+  55:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   - activate a task 
+  56:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     - The task is moved from the running state to the suspended state 
+  57:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       and the other is activated (it can be the same task)
+  58:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     - automatic release of internal resource 
+  59:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     - Rescheduling is issued 
+  60:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     - returns 
+  61:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       E_OS_LIMIT if too many activations
+  62:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       Extended status
+  63:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       E_OS_ID if the task id is invalid
+  64:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       E_OS_RESOURCE if the task still occupy resources
+  65:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       E_OS_CALLLEVEL if called at interrupt level 
+  66:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** */
+  67:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  68:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifndef __OO_NO_CHAINTASK__
+  69:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifndef __PRIVATE_CHAINTASK__
+  70:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** StatusType EE_oo_ChainTask(TaskType TaskID)
+  71:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** {
+  28              		.loc 1 71 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LBB30:
+  38              	.LBB31:
+  39              	.LBB32:
+  40              		.file 2 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_cpu.inc"
+   1:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 3
+
+
+   4:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Copyright (C) 2002-2011  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * ERIKA Enterprise is free software; you can redistribute it
+   9:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * ERIKA Enterprise is distributed in the hope that it will be
+  31:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /** 
+  42:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	@file ee_cpu.h
+  43:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	@brief CPU-dependent part of HAL. Derived from pkg/cpu/pic30/inc/ee_cpu.h
+  44:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	@author Gianluca Franchino
+  45:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	@author Giuseppe Serano
+  46:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	@date 2011
+  47:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** */ 
+  48:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****     
+  49:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /*
+  50:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * PSoC Port and API Generation
+  51:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Carlos Fernando Meier Martinez
+  52:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Hochschule Darmstadt, Germany. 2017.
+  53:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  */
+  54:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  55:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef __INCLUDE_CORTEX_MX_EE_CPU_H__
+  56:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define __INCLUDE_CORTEX_MX_EE_CPU_H__
+  57:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  58:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_eecfg.inc"
+  59:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  60:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 4
+
+
+  61:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __GNU__
+  62:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_common_ee_compiler_gcc.inc"
+  63:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+  64:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  65:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Initial stack offset (in words): Used in multistack. */
+  66:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef CORTEX_MX_INIT_TOS_OFFSET
+  67:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define CORTEX_MX_INIT_TOS_OFFSET 10
+  68:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+  69:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  70:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /*************************************************************************
+  71:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  HAL Types and structures
+  72:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *************************************************************************/
+  73:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  74:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Primitive data types */
+  75:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_common_ee_types.inc"
+  76:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  77:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_UINT32 EE_UREG;
+  78:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_INT32  EE_SREG;
+  79:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_UINT32 EE_FREG;
+  80:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define EE_UREG_SIZE 4
+  81:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  82:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* boolean type */
+  83:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef EE_TYPEBOOL
+  84:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_UREG EE_TYPEBOOL;
+  85:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+  86:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  87:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* boolean true define */
+  88:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef EE_TRUE
+  89:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define EE_TRUE ((EE_TYPEBOOL)1U)
+  90:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+  91:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  92:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* boolean false define */
+  93:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef EE_FALSE
+  94:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define EE_FALSE ((EE_TYPEBOOL)0U)
+  95:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+  96:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+  97:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define	EE_HWREG_PTR		volatile EE_UREG *
+  98:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define	EE_HWREG_ADDR(x)	((EE_HWREG_PTR)(x))
+  99:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define	EE_HWREG(x)		(*EE_HWREG_ADDR(x))
+ 100:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 101:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __GNU__
+ 102:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 103:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Get current SP */
+ 104:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __INLINE__ EE_UINT32  __current_sp(void)
+ 105:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** {
+ 106:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** EE_UINT32 temp;
+ 107:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __ASM ("mov %0, sp" : "=r" (temp) : );
+ 108:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** return temp;
+ 109:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** }
+ 110:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 111:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Set a breakpoint */
+ 112:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define __breakpoint(value)	__ASM ("bkpt "#value)
+ 113:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 114:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+ 115:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 116:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* ISR Priority representation type */
+ 117:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_UREG EE_TYPEISR2PRIO;
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 5
+
+
+ 118:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 119:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Thread IDs */
+ 120:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_INT32 EE_TID;
+ 121:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 122:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Thread IDs - unsigned version*/
+ 123:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** typedef EE_UINT32 EE_UTID;
+ 124:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 125:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Used by the common layer to decide whether to start a new thread */
+ 126:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define TID_IS_STACKED_MARK 0x80000000
+ 127:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 128:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* EE_TYPEIRQ is currently unused */
+ 129:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 130:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* XXX: define EE_TIME? */
+ 131:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 132:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Use the "standard" implementation */
+ 133:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_common_ee_hal_structs.inc"
+ 134:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 135:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /******************************************************************************
+ 136:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  Application dependent data types
+ 137:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  ******************************************************************************/
+ 138:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 139:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef	__HAS_TYPES_H__
+ 140:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include	"types.h"
+ 141:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+ 142:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 143:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /******************************************************************************
+ 144:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  CPU Peripherals
+ 145:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  ******************************************************************************/
+ 146:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 147:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __CORTEX_MX__
+ 148:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_cortex_mx_ee_nvic.inc"
+ 149:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #include "ErikaOS_1_cortex_mx_ee_systick.inc"
+ 150:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+ 151:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 152:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /******************************************************************************
+ 153:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  HAL Variables
+ 154:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  ******************************************************************************/
+ 155:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 156:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __MULTI__
+ 157:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 158:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Top-of-stack of each private stack */
+ 159:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** extern struct EE_TOS EE_cortex_mx_system_tos[];
+ 160:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** //#define	EE_std_system_tos EE_cortex_mx_system_tos
+ 161:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 162:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Index of the current stack */
+ 163:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** extern EE_UREG EE_cortex_mx_active_tos;
+ 164:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define	EE_hal_active_tos EE_cortex_mx_active_tos
+ 165:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 166:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /*extern	EE_UREG EE_pic30_thread_tos[];
+ 167:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define	EE_std_thread_tos EE_pic30_thread_tos */
+ 168:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif /* __MULTI__ */
+ 169:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 170:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /*********************************************************************
+ 171:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  Cortex M0 interrupt disabling/enabling
+ 172:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  *********************************************************************/
+ 173:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 174:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /* Used to check the value returned by EE_cortex_mx_disableIRQ */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 6
+
+
+ 175:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #define EE_cortex_mx_are_IRQs_enabled(ie) ((ie) ^ 1)
+ 176:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 177:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /**
+ 178:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Enable interrupts
+ 179:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  */
+ 180:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __INLINE__ void  EE_cortex_mx_enableIRQ(void)
+ 181:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** {
+ 182:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __IAR__
+ 183:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("cpsie i");
+ 184:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __IAR__ */
+ 185:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __CCS__
+ 186:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("    cpsie    i\n");
+ 187:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __CCS__ */
+ 188:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __KEIL__
+ 189:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__enable_irq();
+ 190:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __KEIL__ */
+ 191:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM volatile("cpsie i");
+ 192:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__KEIL__ */
+ 193:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__CCS__ */
+ 194:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__IAR__ */
+ 195:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** }
+ 196:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 197:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /**
+ 198:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Disable interrupts
+ 199:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  */
+ 200:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __INLINE__ void  EE_cortex_mx_disableIRQ(void)
+ 201:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** {
+ 202:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __IAR__
+ 203:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("cpsid i");
+ 204:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __IAR__ */
+ 205:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __CCS__
+ 206:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("    cpsid    i\n");
+ 207:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __CCS__ */
+ 208:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __KEIL__
+ 209:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__disable_irq();
+ 210:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __KEIL__ */
+ 211:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM volatile("cpsid i");
+ 212:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__KEIL__ */
+ 213:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__CCS__ */
+ 214:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__IAR__ */
+ 215:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** }
+ 216:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 217:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /**
+ 218:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Resume interrupts
+ 219:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  */
+ 220:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __INLINE__ void  EE_cortex_mx_resumeIRQ(EE_FREG f)
+ 221:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** {
+ 222:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __IAR__
+ 223:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__set_PRIMASK(f);
+ 224:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __IAR__ */
+ 225:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __CCS__
+ 226:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("    msr    primask, r0\n");
+ 227:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __CCS__ */
+ 228:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __KEIL__
+ 229:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	register EE_FREG PRIMASK __ASM("primask");
+ 230:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	PRIMASK = f;
+ 231:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __KEIL__ */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 7
+
+
+ 232:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM volatile("msr primask, %0" :: "r" (f));
+ 233:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__KEIL__ */
+ 234:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__CCS__ */
+ 235:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__IAR__ */
+ 236:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** }
+ 237:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 
+ 238:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** /**
+ 239:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  * Suspend interrupts
+ 240:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc ****  */
+ 241:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** __INLINE__ EE_FREG  EE_cortex_mx_suspendIRQ(void)
+ 242:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** {
+ 243:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifndef __CCS__
+ 244:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	EE_FREG istat;
+ 245:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif
+ 246:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __IAR__
+ 247:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	 istat = __get_PRIMASK();
+ 248:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("cpsid i");
+ 249:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __IAR__ */
+ 250:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __CCS__
+ 251:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM ("    mrs     r0, primask\n"
+ 252:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	       "    cpsid   i\n"
+ 253:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	       "    bx      lr\n");
+ 254:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __CCS__ */
+ 255:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #ifdef __KEIL__
+ 256:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	register EE_FREG PRIMASK __ASM("primask");
+ 257:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	istat = PRIMASK;
+ 258:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__disable_irq();
+ 259:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #else	/* __KEIL__ */
+ 260:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM volatile ("mrs %0, primask" : "=r" (istat) );
+  41              		.loc 2 260 0
+  42              		.syntax unified
+  43              	@ 260 "Generated_Source\PSoC5\ErikaOS_1_cortex_mx_ee_cpu.inc" 1
+  44 0002 EFF31082 		mrs r2, primask
+  45              	@ 0 "" 2
+  46              	.LVL1:
+ 261:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** 	__ASM volatile ("cpsid i");
+  47              		.loc 2 261 0
+  48              	@ 261 "Generated_Source\PSoC5\ErikaOS_1_cortex_mx_ee_cpu.inc" 1
+  49 0006 72B6     		cpsid i
+  50              	@ 0 "" 2
+  51              	.LVL2:
+  52              		.thumb
+  53              		.syntax unified
+  54              	.LBE32:
+  55              	.LBE31:
+  56              	.LBE30:
+  57              	.LBB33:
+  58              	.LBB34:
+  59              		.file 3 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_internal.inc"
+   1:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+   4:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Copyright (C) 2002-2008  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * ERIKA Enterprise is free software; you can redistribute it
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 8
+
+
+   9:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * ERIKA Enterprise is distributed in the hope that it will be
+  31:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /*
+  42:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Author: 2002 Paolo Gai
+  43:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * CVS: $Id: ee_internal.h,v 1.6 2006/12/03 22:07:50 pj Exp $
+  44:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  */
+  45:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  46:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /*
+  47:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * PSoC Port and API Generation
+  48:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Carlos Fernando Meier Martinez
+  49:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  * Hochschule Darmstadt, Germany. 2017.
+  50:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  */
+  51:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  52:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifndef PKG_KERNEL_OO_INC_EE_OO_INTERNAL_H
+  53:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define PKG_KERNEL_OO_INC_EE_OO_INTERNAL_H
+  54:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  55:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "ErikaOS_1_ee_oo_common.inc"
+  56:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "ErikaOS_1_ee_oo_intfunc.inc"
+  57:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "ErikaOS_1_ee_oo_irq.inc"
+  58:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #if (__OO_configUSE_TRACE_FACILITY == 1)
+  59:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "trcKernelPort.h" 
+  60:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif
+  61:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /*******************************************************************************
+  62:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *                    New Error Handling Internal Utilities
+  63:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  ******************************************************************************/
+  64:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  65:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* Error Parameters Utilities Macros */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 9
+
+
+  66:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_PARAM(param_name)   EE_os_param param_name
+  67:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_PARAM_VALUE(param_name, param_value)  \
+  68:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   ((param_name).value_param = (param_value))
+  69:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  70:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_PARAM_REF(param_name, param_field, param_ref) \
+  71:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   ((param_name).param_field = (param_ref))
+  72:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  73:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifdef __OO_HAS_ERRORHOOK__
+  74:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* Error Parameters Data Structure Utilities Macros from user space */
+  75:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS()  EE_oo_ErrorHook_parameters error_parameters
+  76:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  77:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_INIT(param1_in,param2_in,param3_in)  \
+  78:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_oo_ErrorHook_parameters error_parameters = { param1_in, param2_in, \
+  79:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     param3_in }
+  80:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  81:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM1_VALUE(param1_value) \
+  82:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param1.value_param = param1_value)
+  83:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM2_VALUE(param2_value) \
+  84:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param2.value_param = param2_value)
+  85:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM3_VALUE(param3_value) \
+  86:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param3.value_param = param3_value)
+  87:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  88:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM1_REF(param_field,param_ref)  \
+  89:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param1.param_field = (param_ref))
+  90:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM2_REF(param_field,param_ref)  \
+  91:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param2.param_field = (param_ref))
+  92:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM3_REF(param_field,param_ref)  \
+  93:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (error_parameters.param3.param_field = (param_ref))
+  94:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #else /* __OO_HAS_ERRORHOOK__ */
+  95:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS()                                    ((void)0)
+  96:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  97:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_INIT(param1_in,param2_in,param3_in)  ((void)0)
+  98:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+  99:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM1_VALUE(param1_value)           ((void)0)
+ 100:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM2_VALUE(param2_value)           ((void)0)
+ 101:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM3_VALUE(param3_value)           ((void)0)
+ 102:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 103:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM1_REF(param_field,param_ref)    ((void)0)
+ 104:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM2_REF(param_field,param_ref)    ((void)0)
+ 105:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ERROR_PARAMETERS_PARAM3_REF(param_field,param_ref)    ((void)0)
+ 106:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* __OO_HAS_ERRORHOOK__ */
+ 107:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 108:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* Error Handling */
+ 109:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifdef __OO_HAS_ERRORHOOK__
+ 110:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifndef  __OO_ERRORHOOK_NOMACROS__
+ 111:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 112:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ void  EE_os_fill_error_data( OSServiceIdType
+ 113:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   ServiceID, EE_os_param param1, EE_os_param param2, EE_os_param param3 )
+ 114:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 115:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   register EE_oo_ErrorHook_parameters * const
+ 116:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     p_errorhook_parameter = EE_oo_get_errorhook_data();
+ 117:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   (*EE_oo_get_errorhook_service_id()) = ServiceID;
+ 118:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   p_errorhook_parameter->param1 = param1;
+ 119:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   p_errorhook_parameter->param2 = param2;
+ 120:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   p_errorhook_parameter->param3 = param3;
+ 121:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** }
+ 122:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #else /* !__OO_ERRORHOOK_NOMACROS__ */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 10
+
+
+ 123:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 124:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_os_fill_error_data(ServiceID,param1,param2,param3) ((void)0)
+ 125:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* !__OO_ERRORHOOK_NOMACROS__ */
+ 126:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 127:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ void  EE_os_notify_error( OSServiceIdType ServiceID,
+ 128:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_os_param param1, EE_os_param param2, EE_os_param param3,
+ 129:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   StatusType Error )
+ 130:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 131:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_ORTI_set_lasterror(Error);
+ 132:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   if ( EE_ErrorHook_nested_flag == 0U )
+ 133:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   {
+ 134:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_os_fill_error_data(ServiceID, param1, param2, param3);
+ 135:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_ErrorHook_nested_flag = 1U;
+ 136:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_oo_call_ErrorHook(Error);
+ 137:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_ErrorHook_nested_flag = 0U;
+ 138:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   }
+ 139:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** }
+ 140:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 141:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifndef __EE_MEMORY_PROTECTION__
+ 142:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ void  EE_os_notify_error_from_us(
+ 143:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   OSServiceIdType ServiceID, const EE_oo_ErrorHook_parameters * const
+ 144:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     error_parameters_ref, StatusType Error )
+ 145:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 146:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   if ( error_parameters_ref != NULL ) {
+ 147:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     register EE_FREG const flag = EE_hal_begin_nested_primitive();
+ 148:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_os_notify_error(ServiceID, error_parameters_ref->param1,
+ 149:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****       error_parameters_ref->param2, error_parameters_ref->param3, Error);
+ 150:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_hal_end_nested_primitive(flag);
+ 151:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   }
+ 152:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** }
+ 153:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #else /* !__EE_MEMORY_PROTECTION__ */
+ 154:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* If MemMap.h support is enabled (i.e. because memory protection): use it */
+ 155:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifdef EE_SUPPORT_MEMMAP_H
+ 156:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* The following code belong to ERIKA API section ee_api_text */
+ 157:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define API_START_SEC_CODE
+ 158:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "MemMap.inc"
+ 159:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* EE_SUPPORT_MEMMAP_H */
+ 160:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 161:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** void EE_os_notify_error_from_us( OSServiceIdType ServiceID,
+ 162:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   const EE_oo_ErrorHook_parameters * const error_parameters_ref,
+ 163:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   StatusType Error );
+ 164:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 165:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifdef EE_SUPPORT_MEMMAP_H
+ 166:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define API_STOP_SEC_CODE
+ 167:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #include "MemMap.inc"
+ 168:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* EE_SUPPORT_MEMMAP_H */
+ 169:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* !__EE_MEMORY_PROTECTION__ */
+ 170:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #else /* __OO_HAS_ERRORHOOK__ */
+ 171:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 172:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* Macro used for remapping to prevent compiler warnings on unused parameters */
+ 173:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_os_notify_error(k,j,x,y,z) EE_os_notify_error_impl(z)
+ 174:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 175:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ void  EE_os_notify_error_impl(StatusType Error)
+ 176:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 177:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_ORTI_set_lasterror(Error);
+ 178:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** }
+ 179:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 11
+
+
+ 180:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* Macro used for remapping to prevent compiler warnings on unused parameters */
+ 181:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_os_notify_error_from_us(x,y,z) EE_os_notify_error_from_us_impl(z)
+ 182:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 183:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ void  EE_os_notify_error_from_us_impl(
+ 184:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   StatusType Error )
+ 185:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 186:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_ORTI_set_lasterror(Error);
+ 187:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** }
+ 188:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* __OO_HAS_ERRORHOOK__ */
+ 189:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 190:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /*******************************************************************************
+ 191:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  *                  Kernel Critical Section Utility Macros
+ 192:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****  ******************************************************************************/
+ 193:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifndef __EE_MEMORY_PROTECTION__
+ 194:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 195:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_DECLARE_CRITICAL_SECTION()  register EE_FREG flag
+ 196:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 197:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ENTER_CRITICAL_SECTION()          \
+ 198:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   do {                                          \
+ 199:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     flag = EE_hal_begin_nested_primitive();     \
+ 200:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_as_tp_active_pause_and_update_budgets(); \
+ 201:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   } while ( 0 )
+ 202:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 203:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_DECLARE_AND_ENTER_CRITICAL_SECTION()  \
+ 204:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_OS_DECLARE_CRITICAL_SECTION();                 \
+ 205:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_OS_ENTER_CRITICAL_SECTION()
+ 206:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 207:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_EXIT_CRITICAL_SECTION()             \
+ 208:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   do {                                            \
+ 209:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_as_tp_active_update_budgets_and_restart(); \
+ 210:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_hal_end_nested_primitive(flag);            \
+ 211:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   } while ( 0 )
+ 212:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 213:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_FOREVER_CRITICAL_SECTION()          \
+ 214:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   do {                                            \
+ 215:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_hal_disableIRQ();                          \
+ 216:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     EE_as_tp_active_pause_and_update_budgets();   \
+ 217:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   } while ( 0 )
+ 218:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 219:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #else /* !__EE_MEMORY_PROTECTION__ */
+ 220:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* TP in any case have to be handled in Service Implementation. Syscall
+ 221:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****    mechanism can be implement in C language and, in that case, a function call
+ 222:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****    cannot be done in syscall handler. */
+ 223:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_DECLARE_CRITICAL_SECTION()            ((void)0)
+ 224:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_ENTER_CRITICAL_SECTION()              \
+ 225:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_as_tp_active_pause_and_update_budgets()
+ 226:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_DECLARE_AND_ENTER_CRITICAL_SECTION()  \
+ 227:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_as_tp_active_pause_and_update_budgets()
+ 228:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_EXIT_CRITICAL_SECTION()               \
+ 229:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_as_tp_active_update_budgets_and_restart()
+ 230:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #define EE_OS_FOREVER_CRITICAL_SECTION()			\
+ 231:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****   EE_as_tp_active_pause_and_update_budgets()
+ 232:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #endif /* !__EE_MEMORY_PROTECTION__ */
+ 233:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** 
+ 234:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** /* return the first stacked task (the running task) without extracting it 
+ 235:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****    we suppose that this function can be called ALSO at interrupt ENABLED!!!
+ 236:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****    (see WaitEvent.c) */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 12
+
+
+ 237:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** #ifndef __PRIVATE_STK_QUERYFIRST__
+ 238:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** __INLINE__ EE_TID  EE_stk_queryfirst(void)
+ 239:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc **** {
+ 240:Generated_Source\PSoC5/ErikaOS_1_ee_oo_internal.inc ****     return EE_stkfirst;  
+  60              		.loc 3 240 0
+  61 0008 144B     		ldr	r3, .L10
+  62 000a 1968     		ldr	r1, [r3]
+  63              	.LBE34:
+  64              	.LBE33:
+  65              	.LBB35:
+  66              	.LBB36:
+  67              		.file 4 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_primitives.inc"
+   1:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+   4:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Copyright (C) 2002-2009  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * ERIKA Enterprise is free software; you can redistribute it
+   9:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * ERIKA Enterprise is distributed in the hope that it will be
+  31:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /*
+  42:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Functions used in HAL implementations, to be included by a specific
+  43:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * ee_internal.h header.
+  44:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Derived from pkg/cpu/pic30/inc/ee_internal.h
+  45:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Author: 2009 Bernardo Dal Seno
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 13
+
+
+  46:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  */
+  47:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  48:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /*
+  49:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * PSoC Port and API Generation
+  50:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Carlos Fernando Meier Martinez
+  51:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Hochschule Darmstadt, Germany. 2017.
+  52:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  */
+  53:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  54:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #ifndef PKG_CPU_COMMON_INC_EE_PRIMITIVES_H
+  55:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #define PKG_CPU_COMMON_INC_EE_PRIMITIVES_H
+  56:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  57:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /*
+  58:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  * Nested Interrupts Handling
+  59:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****  */
+  60:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  61:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /* If MemMap.h support is enabled (i.e. because memory protection): use it */
+  62:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #ifdef EE_SUPPORT_MEMMAP_H
+  63:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /* The following variables belong to ERIKA OS section: ee_kernel_bss */
+  64:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #define OS_START_SEC_VAR_NOINIT
+  65:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #include "MemMap.inc"
+  66:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #endif /* EE_SUPPORT_MEMMAP_H */
+  67:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  68:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** extern EE_UREG EE_IRQ_nesting_level;
+  69:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  70:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /* If MemMap.h support is enabled (i.e. because memory protection): use it */
+  71:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #ifdef EE_SUPPORT_MEMMAP_H
+  72:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #define OS_STOP_SEC_VAR_NOINIT
+  73:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #include "MemMap.inc"
+  74:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** #endif /* EE_SUPPORT_MEMMAP_H */
+  75:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** 
+  76:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** /* can be called with interrupt enabled */
+  77:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** __INLINE__ EE_UREG  EE_hal_get_IRQ_nesting_level(void)
+  78:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc **** {
+  79:Generated_Source\PSoC5/ErikaOS_1_common_ee_primitives.inc ****     return EE_IRQ_nesting_level;
+  68              		.loc 4 79 0
+  69 000c 144B     		ldr	r3, .L10+4
+  70 000e 1B68     		ldr	r3, [r3]
+  71              	.LBE36:
+  72              	.LBE35:
+  72:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   register TaskType current;
+  73:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* Error Value */
+  74:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   register StatusType ev;
+  75:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* Primitive Lock Procedure */
+  76:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   EE_OS_DECLARE_AND_ENTER_CRITICAL_SECTION();
+  77:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  78:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   EE_ORTI_set_service_in(EE_SERVICETRACE_CHAINTASK);
+  79:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  80:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   EE_as_monitoring_the_stack();
+  81:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  82:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   current = EE_stk_queryfirst();
+  83:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  84:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifdef EE_SERVICE_PROTECTION__
+  85:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* [OS093]: If interrupts are disabled/suspended by a Task/OsIsr and the
+  86:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       Task/OsIsr calls any OS service (excluding the interrupt services)
+  87:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       then the Operating System shall ignore the service AND shall return
+  88:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       E_OS_DISABLEDINT if the service returns a StatusType value. */
+  89:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* [OS088]: If an OS-Application makes a service call from the wrong context
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 14
+
+
+  90:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       AND is currently not inside a Category 1 ISR the Operating System module
+  91:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       shall not perform the requested action (the service call shall have no
+  92:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       effect), and return E_OS_CALLEVEL (see [12], section 13.1) or the
+  93:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       "invalid value" of  the service. (BSW11009, BSW11013) */
+  94:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   if ( EE_oo_check_disableint_error() ) {
+  95:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     ev = E_OS_DISABLEDINT;
+  96:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else
+  97:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* EE_SERVICE_PROTECTION__ */
+  98:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+  99:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #if (defined(__OO_EXTENDED_STATUS__)) || (defined(EE_SERVICE_PROTECTION__))
+ 100:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* [OS088]: If an OS-Application makes a service call from the wrong context
+ 101:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       AND is currently not inside a Category 1 ISR the Operating System module
+ 102:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       shall not perform the requested action (the service call shall have no
+ 103:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       effect), and return E_OS_CALLEVEL (see [12], section 13.1) or the
+ 104:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       "invalid value" of  the service. (BSW11009, BSW11013) */
+ 105:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* ChainTask can be callable only by Task */
+ 106:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   /* Check for a call at interrupt level: This must be the FIRST check! */
+ 107:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   if ( (EE_hal_get_IRQ_nesting_level() != 0U) || (current == EE_NIL)
+  73              		.loc 1 107 0
+  74 0010 ABB9     		cbnz	r3, .L5
+  75              		.loc 1 107 0 is_stmt 0 discriminator 1
+  76 0012 B1F1FF3F 		cmp	r1, #-1
+  77 0016 14D0     		beq	.L6
+ 108:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #if !defined (EE_SERVICE_PROTECTION__)
+ 109:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   ) /* If EE_SERVICE_PROTECTION__ is not defined the succeeding
+ 110:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 	 * check is always FALSE, hence it is not needed  */
+ 111:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #else
+ 112:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   || (EE_as_get_execution_context() > TASK_Context) )
+ 113:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif
+ 114:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   {
+ 115:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     ev = E_OS_CALLEVEL;
+ 116:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else
+ 117:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* __OO_EXTENDED_STATUS__ || EE_SERVICE_PROTECTION__ */
+ 118:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 119:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifdef __OO_EXTENDED_STATUS__
+ 120:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifndef __OO_NO_RESOURCES__
+ 121:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* check for busy resources */ 
+ 122:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     if ( EE_th_resource_last[current] != EE_UREG_MINUS1 ) {
+ 123:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OS_RESOURCE;
+ 124:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else
+ 125:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* !__OO_NO_RESOURCES__ */
+ 126:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 127:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifdef EE_AS_USER_SPINLOCKS__
+ 128:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** /* [OS612] In extended status TerminateTask / ChainTask shall return with an
+ 129:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     error (E_OS_SPINLOCK), which can be evaluated in the application.
+ 130:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     (BSW4080021) */
+ 131:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   if ( EE_as_has_spinlocks_locked(current) ) {
+ 132:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     ev = E_OS_SPINLOCK;
+ 133:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else
+ 134:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* EE_AS_USER_SPINLOCKS__ */
+ 135:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* __OO_EXTENDED_STATUS__ */
+ 136:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 137:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #if (defined(__RN_TASK__)) || (defined(EE_AS_RPC__))
+ 138:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   if ( EE_IS_TID_REMOTE(TaskID) ) {
+ 139:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #ifdef EE_AS_RPC__
+ 140:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Tmp Tid (introduced to meet MISRA requirements) */
+ 141:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_TID tmp_tid;
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 15
+
+
+ 142:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 143:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_os_param unmarked_tid;
+ 144:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Two steps macro assignment to meet MISRA 10.3 required rule */
+ 145:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     tmp_tid = EE_UNMARK_REMOTE_TID(TaskID);
+ 146:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     unmarked_tid.value_param = (EE_UREG)tmp_tid;
+ 147:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Forward the request to another CPU in synchronous way */
+ 148:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     ev = EE_as_rpc(OSServiceId_ChainTask, unmarked_tid,
+ 149:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       EE_OS_INVALID_PARAM, EE_OS_INVALID_PARAM);
+ 150:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Like in TerminateTask, we do not have to activate any other task */
+ 151:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_th_terminate_nextask[current] = EE_NIL;
+ 152:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #else /* EE_AS_RPC__ */
+ 153:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_TYPERN_PARAM par;
+ 154:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     par.pending = 1U;
+ 155:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Forward the request to another CPU */
+ 156:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     (void)EE_rn_send((EE_SREG)EE_MARK_REMOTE_TID(TaskID),
+ 157:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       EE_RN_TASK, par);
+ 158:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Like in TerminateTask, we do not have to activate any other task */
+ 159:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_th_terminate_nextask[current] = EE_NIL;
+ 160:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     ev = E_OK;
+ 161:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* EE_AS_RPC__ */
+ 162:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else {
+ 163:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* __RN_TASK__ || EE_AS_RPC__ */
+ 164:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #if (defined(EE_AS_OSAPPLICATIONS__)) && (defined(EE_SERVICE_PROTECTION__))
+ 165:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Check if the TASK Id is valid */
+ 166:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     if ( (TaskID < 0) || (TaskID >= EE_MAX_TASK) ) {
+ 167:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OS_ID;
+ 168:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else if ( EE_TASK_ACCESS_ERR(TaskID, EE_as_active_app) ) {
+ 169:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OS_ACCESS;
+ 170:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else
+ 171:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #elif defined(__OO_EXTENDED_STATUS__)
+ 172:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* Check if the TASK Id is valid */
+ 173:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     if ( (TaskID < 0) || (TaskID >= EE_MAX_TASK) ) {
+  78              		.loc 1 173 0 is_stmt 1
+  79 0018 0428     		cmp	r0, #4
+  80 001a 14D8     		bhi	.L7
+ 174:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OS_ID;
+ 175:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else
+ 176:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* EE_AS_OSAPPLICATIONS__ || E_SERVICE_PROTECTION__ ||
+ 177:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** __OO_EXTENDED_STATUS__ */
+ 178:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /*  Check for pending activations; works also if the task passed as
+ 179:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         parameter inside ChainTask is the calling task;
+ 180:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         see MODISTARC Test 9 */
+ 181:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     if ( (TaskID != current) && (EE_th_rnact[TaskID] == 0U) ) {
+  81              		.loc 1 181 0
+  82 001c 8842     		cmp	r0, r1
+  83 001e 03D0     		beq	.L3
+  84              		.loc 1 181 0 is_stmt 0 discriminator 1
+  85 0020 104B     		ldr	r3, .L10+8
+  86 0022 53F82030 		ldr	r3, [r3, r0, lsl #2]
+  87 0026 83B1     		cbz	r3, .L8
+  88              	.L3:
+ 182:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OS_LIMIT;
+ 183:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else {
+ 184:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       /* [SWS_Os_00469]: The Operating System module shall start an
+ 185:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****           OsTaskTimeFrame when a task is activated successfully.
+ 186:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****           (SRS_Os_11008) */
+ 187:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       /* [SWS_Os_00466]: If an attempt is made to activate a task before the
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 16
+
+
+ 188:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****           end of an OsTaskTimeFrame then the Operating System module shall not
+ 189:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****           perform the activation AND shall call the ProtectionHook()
+ 190:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****           with E_OS_PROTECTION_ARRIVAL. */
+ 191:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       /* Check Interarrival Frame */
+ 192:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       if ( EE_as_tp_handle_interarrival(EE_AS_TP_ID_FROM_TASK(TaskID)) )
+ 193:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       {
+ 194:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         /* Note: the decrement is done now, not in the endcycle! */
+ 195:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         --EE_th_rnact[TaskID];
+  89              		.loc 1 195 0 is_stmt 1
+  90 0028 0E4C     		ldr	r4, .L10+8
+  91 002a 54F82030 		ldr	r3, [r4, r0, lsl #2]
+  92 002e 013B     		subs	r3, r3, #1
+  93 0030 44F82030 		str	r3, [r4, r0, lsl #2]
+ 196:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         /* We have to activate another TASK... */
+ 197:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****         EE_th_terminate_nextask[current] = TaskID;
+  94              		.loc 1 197 0
+  95 0034 0C4B     		ldr	r3, .L10+12
+  96 0036 43F82100 		str	r0, [r3, r1, lsl #2]
+  97              	.LVL3:
+ 198:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       }
+ 199:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****       ev = E_OK;
+  98              		.loc 1 199 0
+  99 003a 0020     		movs	r0, #0
+ 100              	.LVL4:
+ 101 003c 06E0     		b	.L2
+ 102              	.LVL5:
+ 103              	.L5:
+ 115:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else
+ 104              		.loc 1 115 0
+ 105 003e 0220     		movs	r0, #2
+ 106              	.LVL6:
+ 107 0040 04E0     		b	.L2
+ 108              	.LVL7:
+ 109              	.L6:
+ 110 0042 0220     		movs	r0, #2
+ 111              	.LVL8:
+ 112 0044 02E0     		b	.L2
+ 113              	.LVL9:
+ 114              	.L7:
+ 174:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else
+ 115              		.loc 1 174 0
+ 116 0046 0320     		movs	r0, #3
+ 117              	.LVL10:
+ 118 0048 00E0     		b	.L2
+ 119              	.LVL11:
+ 120              	.L8:
+ 182:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     } else {
+ 121              		.loc 1 182 0
+ 122 004a 0420     		movs	r0, #4
+ 123              	.LVL12:
+ 124              	.L2:
+ 200:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     }
+ 201:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #if (defined(__RN_TASK__)) || (defined(EE_AS_RPC__))
+ 202:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   }
+ 203:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** #endif /* __RN_TASK__ || EE_AS_RPC__ */
+ 204:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 205:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   if ( ev != E_OK ) {
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 17
+
+
+ 125              		.loc 1 205 0
+ 126 004c 10B9     		cbnz	r0, .L4
+ 206:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_ORTI_set_lasterror(ev);
+ 207:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_oo_notify_error_ChainTask(TaskID, ev);
+ 208:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   } else {
+ 209:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     /* The following won't never return */
+ 210:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_ORTI_set_service_out(EE_SERVICETRACE_CHAINTASK);
+ 211:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****     EE_hal_terminate_task(current);
+ 127              		.loc 1 211 0
+ 128 004e 0846     		mov	r0, r1
+ 129              	.LVL13:
+ 130 0050 FFF7FEFF 		bl	EE_hal_terminate_task
+ 131              	.LVL14:
+ 132              	.L4:
+ 133              	.LBB37:
+ 134              	.LBB38:
+ 135              	.LBB39:
+ 232:Generated_Source\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc **** #endif	/* !__KEIL__ */
+ 136              		.loc 2 232 0
+ 137              		.syntax unified
+ 138              	@ 232 "Generated_Source\PSoC5\ErikaOS_1_cortex_mx_ee_cpu.inc" 1
+ 139 0054 82F31088 		msr primask, r2
+ 140              	@ 0 "" 2
+ 141              	.LVL15:
+ 142              		.thumb
+ 143              		.syntax unified
+ 144              	.LBE39:
+ 145              	.LBE38:
+ 146              	.LBE37:
+ 212:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   }
+ 213:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 214:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   EE_ORTI_set_service_out(EE_SERVICETRACE_CHAINTASK);
+ 215:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   EE_OS_EXIT_CRITICAL_SECTION();
+ 216:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** 
+ 217:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c ****   return ev;
+ 218:Generated_Source\PSoC5/ErikaOS_1_ee_chaintas.c **** }
+ 147              		.loc 1 218 0
+ 148 0058 10BD     		pop	{r4, pc}
+ 149              	.L11:
+ 150 005a 00BF     		.align	2
+ 151              	.L10:
+ 152 005c 00000000 		.word	EE_stkfirst
+ 153 0060 00000000 		.word	EE_IRQ_nesting_level
+ 154 0064 00000000 		.word	EE_th_rnact
+ 155 0068 00000000 		.word	EE_th_terminate_nextask
+ 156              		.cfi_endproc
+ 157              	.LFE70:
+ 158              		.size	EE_oo_ChainTask, .-EE_oo_ChainTask
+ 159              		.text
+ 160              	.Letext0:
+ 161              		.file 5 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_types.inc"
+ 162              		.file 6 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_common.inc"
+ 163              		.file 7 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_internal.inc"
+ 164              		.file 8 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_context.inc"
+ 165              		.file 9 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_intfunc.inc"
+ 166              		.file 10 "Generated_Source\\PSoC5\\ErikaOS_1_ee_as_internal.inc"
+ 167              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 18
+
+
+ 168              	.Ldebug_info0:
+ 169 0000 A0050000 		.4byte	0x5a0
+ 170 0004 0400     		.2byte	0x4
+ 171 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 172 000a 04       		.byte	0x4
+ 173 000b 01       		.uleb128 0x1
+ 174 000c 45050000 		.4byte	.LASF77
+ 175 0010 0C       		.byte	0xc
+ 176 0011 CC040000 		.4byte	.LASF78
+ 177 0015 8D030000 		.4byte	.LASF79
+ 178 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 179 001d 00000000 		.4byte	0
+ 180 0021 00000000 		.4byte	.Ldebug_line0
+ 181 0025 02       		.uleb128 0x2
+ 182 0026 01       		.byte	0x1
+ 183 0027 06       		.byte	0x6
+ 184 0028 07030000 		.4byte	.LASF0
+ 185 002c 02       		.uleb128 0x2
+ 186 002d 01       		.byte	0x1
+ 187 002e 08       		.byte	0x8
+ 188 002f 94020000 		.4byte	.LASF1
+ 189 0033 02       		.uleb128 0x2
+ 190 0034 02       		.byte	0x2
+ 191 0035 05       		.byte	0x5
+ 192 0036 82000000 		.4byte	.LASF2
+ 193 003a 02       		.uleb128 0x2
+ 194 003b 02       		.byte	0x2
+ 195 003c 07       		.byte	0x7
+ 196 003d F4030000 		.4byte	.LASF3
+ 197 0041 02       		.uleb128 0x2
+ 198 0042 04       		.byte	0x4
+ 199 0043 05       		.byte	0x5
+ 200 0044 E2010000 		.4byte	.LASF4
+ 201 0048 02       		.uleb128 0x2
+ 202 0049 04       		.byte	0x4
+ 203 004a 07       		.byte	0x7
+ 204 004b 68040000 		.4byte	.LASF5
+ 205 004f 02       		.uleb128 0x2
+ 206 0050 08       		.byte	0x8
+ 207 0051 05       		.byte	0x5
+ 208 0052 92010000 		.4byte	.LASF6
+ 209 0056 02       		.uleb128 0x2
+ 210 0057 08       		.byte	0x8
+ 211 0058 07       		.byte	0x7
+ 212 0059 13030000 		.4byte	.LASF7
+ 213 005d 03       		.uleb128 0x3
+ 214 005e 04       		.byte	0x4
+ 215 005f 05       		.byte	0x5
+ 216 0060 696E7400 		.ascii	"int\000"
+ 217 0064 02       		.uleb128 0x2
+ 218 0065 04       		.byte	0x4
+ 219 0066 07       		.byte	0x7
+ 220 0067 57030000 		.4byte	.LASF8
+ 221 006b 02       		.uleb128 0x2
+ 222 006c 08       		.byte	0x8
+ 223 006d 04       		.byte	0x4
+ 224 006e 70020000 		.4byte	.LASF9
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 19
+
+
+ 225 0072 04       		.uleb128 0x4
+ 226 0073 1E000000 		.4byte	.LASF10
+ 227 0077 05       		.byte	0x5
+ 228 0078 3E       		.byte	0x3e
+ 229 0079 2C000000 		.4byte	0x2c
+ 230 007d 04       		.uleb128 0x4
+ 231 007e A0010000 		.4byte	.LASF11
+ 232 0082 05       		.byte	0x5
+ 233 0083 3F       		.byte	0x3f
+ 234 0084 25000000 		.4byte	0x25
+ 235 0088 04       		.uleb128 0x4
+ 236 0089 25040000 		.4byte	.LASF12
+ 237 008d 05       		.byte	0x5
+ 238 008e 52       		.byte	0x52
+ 239 008f 3A000000 		.4byte	0x3a
+ 240 0093 04       		.uleb128 0x4
+ 241 0094 84030000 		.4byte	.LASF13
+ 242 0098 05       		.byte	0x5
+ 243 0099 53       		.byte	0x53
+ 244 009a 5D000000 		.4byte	0x5d
+ 245 009e 04       		.uleb128 0x4
+ 246 009f D3000000 		.4byte	.LASF14
+ 247 00a3 05       		.byte	0x5
+ 248 00a4 54       		.byte	0x54
+ 249 00a5 64000000 		.4byte	0x64
+ 250 00a9 04       		.uleb128 0x4
+ 251 00aa 35000000 		.4byte	.LASF15
+ 252 00ae 02       		.byte	0x2
+ 253 00af 4D       		.byte	0x4d
+ 254 00b0 9E000000 		.4byte	0x9e
+ 255 00b4 04       		.uleb128 0x4
+ 256 00b5 B5000000 		.4byte	.LASF16
+ 257 00b9 02       		.byte	0x2
+ 258 00ba 4F       		.byte	0x4f
+ 259 00bb 9E000000 		.4byte	0x9e
+ 260 00bf 04       		.uleb128 0x4
+ 261 00c0 7A040000 		.4byte	.LASF17
+ 262 00c4 02       		.byte	0x2
+ 263 00c5 54       		.byte	0x54
+ 264 00c6 A9000000 		.4byte	0xa9
+ 265 00ca 04       		.uleb128 0x4
+ 266 00cb EE000000 		.4byte	.LASF18
+ 267 00cf 02       		.byte	0x2
+ 268 00d0 78       		.byte	0x78
+ 269 00d1 93000000 		.4byte	0x93
+ 270 00d5 05       		.uleb128 0x5
+ 271 00d6 C1010000 		.4byte	.LASF19
+ 272 00da 06       		.byte	0x6
+ 273 00db 1101     		.2byte	0x111
+ 274 00dd 88000000 		.4byte	0x88
+ 275 00e1 05       		.uleb128 0x5
+ 276 00e2 8B020000 		.4byte	.LASF20
+ 277 00e6 06       		.byte	0x6
+ 278 00e7 F701     		.2byte	0x1f7
+ 279 00e9 CA000000 		.4byte	0xca
+ 280 00ed 05       		.uleb128 0x5
+ 281 00ee 46020000 		.4byte	.LASF21
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 20
+
+
+ 282 00f2 06       		.byte	0x6
+ 283 00f3 3502     		.2byte	0x235
+ 284 00f5 A9000000 		.4byte	0xa9
+ 285 00f9 05       		.uleb128 0x5
+ 286 00fa 5E020000 		.4byte	.LASF22
+ 287 00fe 06       		.byte	0x6
+ 288 00ff 5D02     		.2byte	0x25d
+ 289 0101 A9000000 		.4byte	0xa9
+ 290 0105 05       		.uleb128 0x5
+ 291 0106 09050000 		.4byte	.LASF23
+ 292 010a 06       		.byte	0x6
+ 293 010b 6C02     		.2byte	0x26c
+ 294 010d A9000000 		.4byte	0xa9
+ 295 0111 06       		.uleb128 0x6
+ 296 0112 0C       		.byte	0xc
+ 297 0113 06       		.byte	0x6
+ 298 0114 7202     		.2byte	0x272
+ 299 0116 42010000 		.4byte	0x142
+ 300 011a 07       		.uleb128 0x7
+ 301 011b EB010000 		.4byte	.LASF24
+ 302 011f 06       		.byte	0x6
+ 303 0120 7302     		.2byte	0x273
+ 304 0122 ED000000 		.4byte	0xed
+ 305 0126 00       		.byte	0
+ 306 0127 07       		.uleb128 0x7
+ 307 0128 3D000000 		.4byte	.LASF25
+ 308 012c 06       		.byte	0x6
+ 309 012d 7402     		.2byte	0x274
+ 310 012f ED000000 		.4byte	0xed
+ 311 0133 04       		.byte	0x4
+ 312 0134 07       		.uleb128 0x7
+ 313 0135 F5000000 		.4byte	.LASF26
+ 314 0139 06       		.byte	0x6
+ 315 013a 7502     		.2byte	0x275
+ 316 013c ED000000 		.4byte	0xed
+ 317 0140 08       		.byte	0x8
+ 318 0141 00       		.byte	0
+ 319 0142 05       		.uleb128 0x5
+ 320 0143 19020000 		.4byte	.LASF27
+ 321 0147 06       		.byte	0x6
+ 322 0148 7A02     		.2byte	0x27a
+ 323 014a 11010000 		.4byte	0x111
+ 324 014e 06       		.uleb128 0x6
+ 325 014f 08       		.byte	0x8
+ 326 0150 06       		.byte	0x6
+ 327 0151 7D02     		.2byte	0x27d
+ 328 0153 72010000 		.4byte	0x172
+ 329 0157 07       		.uleb128 0x7
+ 330 0158 FE000000 		.4byte	.LASF28
+ 331 015c 06       		.byte	0x6
+ 332 015d 7E02     		.2byte	0x27e
+ 333 015f ED000000 		.4byte	0xed
+ 334 0163 00       		.byte	0
+ 335 0164 07       		.uleb128 0x7
+ 336 0165 17060000 		.4byte	.LASF29
+ 337 0169 06       		.byte	0x6
+ 338 016a 7F02     		.2byte	0x27f
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 21
+
+
+ 339 016c F9000000 		.4byte	0xf9
+ 340 0170 04       		.byte	0x4
+ 341 0171 00       		.byte	0
+ 342 0172 05       		.uleb128 0x5
+ 343 0173 6E010000 		.4byte	.LASF30
+ 344 0177 06       		.byte	0x6
+ 345 0178 8002     		.2byte	0x280
+ 346 017a 4E010000 		.4byte	0x14e
+ 347 017e 08       		.uleb128 0x8
+ 348 017f 01       		.byte	0x1
+ 349 0180 2C000000 		.4byte	0x2c
+ 350 0184 06       		.byte	0x6
+ 351 0185 8A02     		.2byte	0x28a
+ 352 0187 98010000 		.4byte	0x198
+ 353 018b 09       		.uleb128 0x9
+ 354 018c C3040000 		.4byte	.LASF31
+ 355 0190 00       		.byte	0
+ 356 0191 09       		.uleb128 0x9
+ 357 0192 D1010000 		.4byte	.LASF32
+ 358 0196 01       		.byte	0x1
+ 359 0197 00       		.byte	0
+ 360 0198 05       		.uleb128 0x5
+ 361 0199 23010000 		.4byte	.LASF33
+ 362 019d 06       		.byte	0x6
+ 363 019e 8D02     		.2byte	0x28d
+ 364 01a0 7E010000 		.4byte	0x17e
+ 365 01a4 05       		.uleb128 0x5
+ 366 01a5 BD000000 		.4byte	.LASF34
+ 367 01a9 06       		.byte	0x6
+ 368 01aa 9002     		.2byte	0x290
+ 369 01ac 98010000 		.4byte	0x198
+ 370 01b0 06       		.uleb128 0x6
+ 371 01b1 0C       		.byte	0xc
+ 372 01b2 06       		.byte	0x6
+ 373 01b3 9402     		.2byte	0x294
+ 374 01b5 DF010000 		.4byte	0x1df
+ 375 01b9 0A       		.uleb128 0xa
+ 376 01ba 6300     		.ascii	"c\000"
+ 377 01bc 06       		.byte	0x6
+ 378 01bd 9602     		.2byte	0x296
+ 379 01bf 05010000 		.4byte	0x105
+ 380 01c3 00       		.byte	0
+ 381 01c4 07       		.uleb128 0x7
+ 382 01c5 AD000000 		.4byte	.LASF35
+ 383 01c9 06       		.byte	0x6
+ 384 01ca 9802     		.2byte	0x298
+ 385 01cc F9000000 		.4byte	0xf9
+ 386 01d0 04       		.byte	0x4
+ 387 01d1 07       		.uleb128 0x7
+ 388 01d2 19000000 		.4byte	.LASF36
+ 389 01d6 06       		.byte	0x6
+ 390 01d7 9A02     		.2byte	0x29a
+ 391 01d9 A4010000 		.4byte	0x1a4
+ 392 01dd 08       		.byte	0x8
+ 393 01de 00       		.byte	0
+ 394 01df 05       		.uleb128 0x5
+ 395 01e0 07040000 		.4byte	.LASF37
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 22
+
+
+ 396 01e4 06       		.byte	0x6
+ 397 01e5 9B02     		.2byte	0x29b
+ 398 01e7 B0010000 		.4byte	0x1b0
+ 399 01eb 06       		.uleb128 0x6
+ 400 01ec 10       		.byte	0x10
+ 401 01ed 06       		.byte	0x6
+ 402 01ee 9F02     		.2byte	0x29f
+ 403 01f0 29020000 		.4byte	0x229
+ 404 01f4 07       		.uleb128 0x7
+ 405 01f5 FB040000 		.4byte	.LASF38
+ 406 01f9 06       		.byte	0x6
+ 407 01fa A002     		.2byte	0x2a0
+ 408 01fc BF000000 		.4byte	0xbf
+ 409 0200 00       		.byte	0
+ 410 0201 07       		.uleb128 0x7
+ 411 0202 D3050000 		.4byte	.LASF39
+ 412 0206 06       		.byte	0x6
+ 413 0207 A102     		.2byte	0x2a1
+ 414 0209 ED000000 		.4byte	0xed
+ 415 020d 04       		.byte	0x4
+ 416 020e 07       		.uleb128 0x7
+ 417 020f A7000000 		.4byte	.LASF40
+ 418 0213 06       		.byte	0x6
+ 419 0214 A202     		.2byte	0x2a2
+ 420 0216 ED000000 		.4byte	0xed
+ 421 021a 08       		.byte	0x8
+ 422 021b 07       		.uleb128 0x7
+ 423 021c F4050000 		.4byte	.LASF41
+ 424 0220 06       		.byte	0x6
+ 425 0221 A302     		.2byte	0x2a3
+ 426 0223 F9000000 		.4byte	0xf9
+ 427 0227 0C       		.byte	0xc
+ 428 0228 00       		.byte	0
+ 429 0229 05       		.uleb128 0x5
+ 430 022a FB010000 		.4byte	.LASF42
+ 431 022e 06       		.byte	0x6
+ 432 022f A402     		.2byte	0x2a4
+ 433 0231 EB010000 		.4byte	0x1eb
+ 434 0235 05       		.uleb128 0x5
+ 435 0236 8C000000 		.4byte	.LASF43
+ 436 023a 06       		.byte	0x6
+ 437 023b 2103     		.2byte	0x321
+ 438 023d 2C000000 		.4byte	0x2c
+ 439 0241 0B       		.uleb128 0xb
+ 440 0242 D6020000 		.4byte	.LASF80
+ 441 0246 02       		.byte	0x2
+ 442 0247 F1       		.byte	0xf1
+ 443 0248 B4000000 		.4byte	0xb4
+ 444 024c 03       		.byte	0x3
+ 445 024d 5D020000 		.4byte	0x25d
+ 446 0251 0C       		.uleb128 0xc
+ 447 0252 04010000 		.4byte	.LASF52
+ 448 0256 02       		.byte	0x2
+ 449 0257 F4       		.byte	0xf4
+ 450 0258 B4000000 		.4byte	0xb4
+ 451 025c 00       		.byte	0
+ 452 025d 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 23
+
+
+ 453 025e 2F040000 		.4byte	.LASF44
+ 454 0262 02       		.byte	0x2
+ 455 0263 DC       		.byte	0xdc
+ 456 0264 03       		.byte	0x3
+ 457 0265 73020000 		.4byte	0x273
+ 458 0269 0E       		.uleb128 0xe
+ 459 026a 6600     		.ascii	"f\000"
+ 460 026c 02       		.byte	0x2
+ 461 026d DC       		.byte	0xdc
+ 462 026e B4000000 		.4byte	0xb4
+ 463 0272 00       		.byte	0
+ 464 0273 0F       		.uleb128 0xf
+ 465 0274 5D000000 		.4byte	.LASF45
+ 466 0278 06       		.byte	0x6
+ 467 0279 9703     		.2byte	0x397
+ 468 027b 03       		.byte	0x3
+ 469 027c 8D020000 		.4byte	0x28d
+ 470 0280 10       		.uleb128 0x10
+ 471 0281 73727600 		.ascii	"srv\000"
+ 472 0285 06       		.byte	0x6
+ 473 0286 9703     		.2byte	0x397
+ 474 0288 72000000 		.4byte	0x72
+ 475 028c 00       		.byte	0
+ 476 028d 11       		.uleb128 0x11
+ 477 028e 92040000 		.4byte	.LASF46
+ 478 0292 04       		.byte	0x4
+ 479 0293 4D       		.byte	0x4d
+ 480 0294 A9000000 		.4byte	0xa9
+ 481 0298 03       		.byte	0x3
+ 482 0299 11       		.uleb128 0x11
+ 483 029a 45030000 		.4byte	.LASF47
+ 484 029e 03       		.byte	0x3
+ 485 029f EE       		.byte	0xee
+ 486 02a0 CA000000 		.4byte	0xca
+ 487 02a4 03       		.byte	0x3
+ 488 02a5 12       		.uleb128 0x12
+ 489 02a6 2A030000 		.4byte	.LASF81
+ 490 02aa 0A       		.byte	0xa
+ 491 02ab AB01     		.2byte	0x1ab
+ 492 02ad 03       		.byte	0x3
+ 493 02ae 0F       		.uleb128 0xf
+ 494 02af 57010000 		.4byte	.LASF48
+ 495 02b3 06       		.byte	0x6
+ 496 02b4 A303     		.2byte	0x3a3
+ 497 02b6 03       		.byte	0x3
+ 498 02b7 C7020000 		.4byte	0x2c7
+ 499 02bb 10       		.uleb128 0x10
+ 500 02bc 696400   		.ascii	"id\000"
+ 501 02bf 06       		.byte	0x6
+ 502 02c0 A303     		.2byte	0x3a3
+ 503 02c2 72000000 		.4byte	0x72
+ 504 02c6 00       		.byte	0
+ 505 02c7 11       		.uleb128 0x11
+ 506 02c8 F9050000 		.4byte	.LASF49
+ 507 02cc 07       		.byte	0x7
+ 508 02cd 60       		.byte	0x60
+ 509 02ce B4000000 		.4byte	0xb4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 24
+
+
+ 510 02d2 03       		.byte	0x3
+ 511 02d3 0F       		.uleb128 0xf
+ 512 02d4 BE020000 		.4byte	.LASF50
+ 513 02d8 06       		.byte	0x6
+ 514 02d9 A803     		.2byte	0x3a8
+ 515 02db 03       		.byte	0x3
+ 516 02dc EC020000 		.4byte	0x2ec
+ 517 02e0 10       		.uleb128 0x10
+ 518 02e1 696400   		.ascii	"id\000"
+ 519 02e4 06       		.byte	0x6
+ 520 02e5 A803     		.2byte	0x3a8
+ 521 02e7 72000000 		.4byte	0x72
+ 522 02eb 00       		.byte	0
+ 523 02ec 0D       		.uleb128 0xd
+ 524 02ed A2020000 		.4byte	.LASF51
+ 525 02f1 07       		.byte	0x7
+ 526 02f2 68       		.byte	0x68
+ 527 02f3 03       		.byte	0x3
+ 528 02f4 02030000 		.4byte	0x302
+ 529 02f8 0E       		.uleb128 0xe
+ 530 02f9 6600     		.ascii	"f\000"
+ 531 02fb 07       		.byte	0x7
+ 532 02fc 68       		.byte	0x68
+ 533 02fd B4000000 		.4byte	0xb4
+ 534 0301 00       		.byte	0
+ 535 0302 13       		.uleb128 0x13
+ 536 0303 97000000 		.4byte	.LASF82
+ 537 0307 01       		.byte	0x1
+ 538 0308 46       		.byte	0x46
+ 539 0309 35020000 		.4byte	0x235
+ 540 030d 00000000 		.4byte	.LFB70
+ 541 0311 6C000000 		.4byte	.LFE70-.LFB70
+ 542 0315 01       		.uleb128 0x1
+ 543 0316 9C       		.byte	0x9c
+ 544 0317 E5030000 		.4byte	0x3e5
+ 545 031b 14       		.uleb128 0x14
+ 546 031c 7D030000 		.4byte	.LASF83
+ 547 0320 01       		.byte	0x1
+ 548 0321 46       		.byte	0x46
+ 549 0322 E1000000 		.4byte	0xe1
+ 550 0326 00000000 		.4byte	.LLST0
+ 551 032a 0C       		.uleb128 0xc
+ 552 032b 2D050000 		.4byte	.LASF53
+ 553 032f 01       		.byte	0x1
+ 554 0330 48       		.byte	0x48
+ 555 0331 E1000000 		.4byte	0xe1
+ 556 0335 15       		.uleb128 0x15
+ 557 0336 657600   		.ascii	"ev\000"
+ 558 0339 01       		.byte	0x1
+ 559 033a 4A       		.byte	0x4a
+ 560 033b 35020000 		.4byte	0x235
+ 561 033f 88000000 		.4byte	.LLST1
+ 562 0343 16       		.uleb128 0x16
+ 563 0344 35050000 		.4byte	.LASF54
+ 564 0348 01       		.byte	0x1
+ 565 0349 4C       		.byte	0x4c
+ 566 034a B4000000 		.4byte	0xb4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 25
+
+
+ 567 034e 01       		.uleb128 0x1
+ 568 034f 52       		.byte	0x52
+ 569 0350 17       		.uleb128 0x17
+ 570 0351 C7020000 		.4byte	0x2c7
+ 571 0355 02000000 		.4byte	.LBB30
+ 572 0359 06000000 		.4byte	.LBE30-.LBB30
+ 573 035d 01       		.byte	0x1
+ 574 035e 4C       		.byte	0x4c
+ 575 035f 87030000 		.4byte	0x387
+ 576 0363 18       		.uleb128 0x18
+ 577 0364 41020000 		.4byte	0x241
+ 578 0368 02000000 		.4byte	.LBB31
+ 579 036c 06000000 		.4byte	.LBE31-.LBB31
+ 580 0370 07       		.byte	0x7
+ 581 0371 62       		.byte	0x62
+ 582 0372 19       		.uleb128 0x19
+ 583 0373 02000000 		.4byte	.LBB32
+ 584 0377 06000000 		.4byte	.LBE32-.LBB32
+ 585 037b 1A       		.uleb128 0x1a
+ 586 037c 51020000 		.4byte	0x251
+ 587 0380 B2000000 		.4byte	.LLST2
+ 588 0384 00       		.byte	0
+ 589 0385 00       		.byte	0
+ 590 0386 00       		.byte	0
+ 591 0387 1B       		.uleb128 0x1b
+ 592 0388 99020000 		.4byte	0x299
+ 593 038c 08000000 		.4byte	.LBB33
+ 594 0390 04000000 		.4byte	.LBE33-.LBB33
+ 595 0394 01       		.byte	0x1
+ 596 0395 52       		.byte	0x52
+ 597 0396 1B       		.uleb128 0x1b
+ 598 0397 8D020000 		.4byte	0x28d
+ 599 039b 0C000000 		.4byte	.LBB35
+ 600 039f 04000000 		.4byte	.LBE35-.LBB35
+ 601 03a3 01       		.byte	0x1
+ 602 03a4 6B       		.byte	0x6b
+ 603 03a5 17       		.uleb128 0x17
+ 604 03a6 EC020000 		.4byte	0x2ec
+ 605 03aa 54000000 		.4byte	.LBB37
+ 606 03ae 04000000 		.4byte	.LBE37-.LBB37
+ 607 03b2 01       		.byte	0x1
+ 608 03b3 D7       		.byte	0xd7
+ 609 03b4 DB030000 		.4byte	0x3db
+ 610 03b8 1C       		.uleb128 0x1c
+ 611 03b9 F8020000 		.4byte	0x2f8
+ 612 03bd C5000000 		.4byte	.LLST3
+ 613 03c1 18       		.uleb128 0x18
+ 614 03c2 5D020000 		.4byte	0x25d
+ 615 03c6 54000000 		.4byte	.LBB38
+ 616 03ca 04000000 		.4byte	.LBE38-.LBB38
+ 617 03ce 07       		.byte	0x7
+ 618 03cf 6A       		.byte	0x6a
+ 619 03d0 1C       		.uleb128 0x1c
+ 620 03d1 69020000 		.4byte	0x269
+ 621 03d5 C5000000 		.4byte	.LLST3
+ 622 03d9 00       		.byte	0
+ 623 03da 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 26
+
+
+ 624 03db 1D       		.uleb128 0x1d
+ 625 03dc 54000000 		.4byte	.LVL14
+ 626 03e0 98050000 		.4byte	0x598
+ 627 03e4 00       		.byte	0
+ 628 03e5 1E       		.uleb128 0x1e
+ 629 03e6 42010000 		.4byte	.LASF55
+ 630 03ea 04       		.byte	0x4
+ 631 03eb 44       		.byte	0x44
+ 632 03ec A9000000 		.4byte	0xa9
+ 633 03f0 1E       		.uleb128 0x1e
+ 634 03f1 00000000 		.4byte	.LASF56
+ 635 03f5 08       		.byte	0x8
+ 636 03f6 48       		.byte	0x48
+ 637 03f7 CA000000 		.4byte	0xca
+ 638 03fb 1F       		.uleb128 0x1f
+ 639 03fc 12040000 		.4byte	0x412
+ 640 0400 0B040000 		.4byte	0x40b
+ 641 0404 20       		.uleb128 0x20
+ 642 0405 0B040000 		.4byte	0x40b
+ 643 0409 04       		.byte	0x4
+ 644 040a 00       		.byte	0
+ 645 040b 02       		.uleb128 0x2
+ 646 040c 04       		.byte	0x4
+ 647 040d 07       		.byte	0x7
+ 648 040e 00050000 		.4byte	.LASF57
+ 649 0412 21       		.uleb128 0x21
+ 650 0413 A9000000 		.4byte	0xa9
+ 651 0417 1E       		.uleb128 0x1e
+ 652 0418 DD000000 		.4byte	.LASF58
+ 653 041c 06       		.byte	0x6
+ 654 041d B2       		.byte	0xb2
+ 655 041e 22040000 		.4byte	0x422
+ 656 0422 21       		.uleb128 0x21
+ 657 0423 FB030000 		.4byte	0x3fb
+ 658 0427 1E       		.uleb128 0x1e
+ 659 0428 AF040000 		.4byte	.LASF59
+ 660 042c 06       		.byte	0x6
+ 661 042d B3       		.byte	0xb3
+ 662 042e 32040000 		.4byte	0x432
+ 663 0432 21       		.uleb128 0x21
+ 664 0433 FB030000 		.4byte	0x3fb
+ 665 0437 1F       		.uleb128 0x1f
+ 666 0438 A9000000 		.4byte	0xa9
+ 667 043c 47040000 		.4byte	0x447
+ 668 0440 20       		.uleb128 0x20
+ 669 0441 0B040000 		.4byte	0x40b
+ 670 0445 04       		.byte	0x4
+ 671 0446 00       		.byte	0
+ 672 0447 1E       		.uleb128 0x1e
+ 673 0448 64030000 		.4byte	.LASF60
+ 674 044c 06       		.byte	0x6
+ 675 044d CA       		.byte	0xca
+ 676 044e 37040000 		.4byte	0x437
+ 677 0452 1F       		.uleb128 0x1f
+ 678 0453 CA000000 		.4byte	0xca
+ 679 0457 62040000 		.4byte	0x462
+ 680 045b 20       		.uleb128 0x20
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 27
+
+
+ 681 045c 0B040000 		.4byte	0x40b
+ 682 0460 04       		.byte	0x4
+ 683 0461 00       		.byte	0
+ 684 0462 1E       		.uleb128 0x1e
+ 685 0463 3A050000 		.4byte	.LASF61
+ 686 0467 06       		.byte	0x6
+ 687 0468 D2       		.byte	0xd2
+ 688 0469 52040000 		.4byte	0x452
+ 689 046d 1E       		.uleb128 0x1e
+ 690 046e 71030000 		.4byte	.LASF62
+ 691 0472 06       		.byte	0x6
+ 692 0473 DA       		.byte	0xda
+ 693 0474 37040000 		.4byte	0x437
+ 694 0478 1E       		.uleb128 0x1e
+ 695 0479 15050000 		.4byte	.LASF63
+ 696 047d 06       		.byte	0x6
+ 697 047e DE       		.byte	0xde
+ 698 047f 52040000 		.4byte	0x452
+ 699 0483 1E       		.uleb128 0x1e
+ 700 0484 86040000 		.4byte	.LASF64
+ 701 0488 06       		.byte	0x6
+ 702 0489 E2       		.byte	0xe2
+ 703 048a CA000000 		.4byte	0xca
+ 704 048e 1E       		.uleb128 0x1e
+ 705 048f 4F020000 		.4byte	.LASF65
+ 706 0493 06       		.byte	0x6
+ 707 0494 F7       		.byte	0xf7
+ 708 0495 A9000000 		.4byte	0xa9
+ 709 0499 22       		.uleb128 0x22
+ 710 049a 27000000 		.4byte	.LASF66
+ 711 049e 06       		.byte	0x6
+ 712 049f 3F01     		.2byte	0x13f
+ 713 04a1 D5000000 		.4byte	0xd5
+ 714 04a5 22       		.uleb128 0x22
+ 715 04a6 4A000000 		.4byte	.LASF67
+ 716 04aa 06       		.byte	0x6
+ 717 04ab 5C01     		.2byte	0x15c
+ 718 04ad 37040000 		.4byte	0x437
+ 719 04b1 1F       		.uleb128 0x1f
+ 720 04b2 BF000000 		.4byte	0xbf
+ 721 04b6 C1040000 		.4byte	0x4c1
+ 722 04ba 20       		.uleb128 0x20
+ 723 04bb 0B040000 		.4byte	0x40b
+ 724 04bf 04       		.byte	0x4
+ 725 04c0 00       		.byte	0
+ 726 04c1 22       		.uleb128 0x22
+ 727 04c2 71000000 		.4byte	.LASF68
+ 728 04c6 06       		.byte	0x6
+ 729 04c7 6701     		.2byte	0x167
+ 730 04c9 B1040000 		.4byte	0x4b1
+ 731 04cd 1F       		.uleb128 0x1f
+ 732 04ce DD040000 		.4byte	0x4dd
+ 733 04d2 DD040000 		.4byte	0x4dd
+ 734 04d6 20       		.uleb128 0x20
+ 735 04d7 0B040000 		.4byte	0x40b
+ 736 04db 00       		.byte	0
+ 737 04dc 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 28
+
+
+ 738 04dd 21       		.uleb128 0x21
+ 739 04de 42010000 		.4byte	0x142
+ 740 04e2 22       		.uleb128 0x22
+ 741 04e3 7C020000 		.4byte	.LASF69
+ 742 04e7 06       		.byte	0x6
+ 743 04e8 CA02     		.2byte	0x2ca
+ 744 04ea EE040000 		.4byte	0x4ee
+ 745 04ee 21       		.uleb128 0x21
+ 746 04ef CD040000 		.4byte	0x4cd
+ 747 04f3 1F       		.uleb128 0x1f
+ 748 04f4 03050000 		.4byte	0x503
+ 749 04f8 03050000 		.4byte	0x503
+ 750 04fc 20       		.uleb128 0x20
+ 751 04fd 0B040000 		.4byte	0x40b
+ 752 0501 00       		.byte	0
+ 753 0502 00       		.byte	0
+ 754 0503 21       		.uleb128 0x21
+ 755 0504 DF010000 		.4byte	0x1df
+ 756 0508 22       		.uleb128 0x22
+ 757 0509 0A010000 		.4byte	.LASF70
+ 758 050d 06       		.byte	0x6
+ 759 050e DD02     		.2byte	0x2dd
+ 760 0510 14050000 		.4byte	0x514
+ 761 0514 21       		.uleb128 0x21
+ 762 0515 F3040000 		.4byte	0x4f3
+ 763 0519 1F       		.uleb128 0x1f
+ 764 051a 72010000 		.4byte	0x172
+ 765 051e 29050000 		.4byte	0x529
+ 766 0522 20       		.uleb128 0x20
+ 767 0523 0B040000 		.4byte	0x40b
+ 768 0527 00       		.byte	0
+ 769 0528 00       		.byte	0
+ 770 0529 22       		.uleb128 0x22
+ 771 052a 46040000 		.4byte	.LASF71
+ 772 052e 06       		.byte	0x6
+ 773 052f FB02     		.2byte	0x2fb
+ 774 0531 19050000 		.4byte	0x519
+ 775 0535 1F       		.uleb128 0x1f
+ 776 0536 29020000 		.4byte	0x229
+ 777 053a 45050000 		.4byte	0x545
+ 778 053e 20       		.uleb128 0x20
+ 779 053f 0B040000 		.4byte	0x40b
+ 780 0543 00       		.byte	0
+ 781 0544 00       		.byte	0
+ 782 0545 22       		.uleb128 0x22
+ 783 0546 EE020000 		.4byte	.LASF72
+ 784 054a 06       		.byte	0x6
+ 785 054b 0403     		.2byte	0x304
+ 786 054d 35050000 		.4byte	0x535
+ 787 0551 1E       		.uleb128 0x1e
+ 788 0552 DC050000 		.4byte	.LASF73
+ 789 0556 09       		.byte	0x9
+ 790 0557 40       		.byte	0x40
+ 791 0558 A9000000 		.4byte	0xa9
+ 792 055c 1E       		.uleb128 0x1e
+ 793 055d A8010000 		.4byte	.LASF74
+ 794 0561 09       		.byte	0x9
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 29
+
+
+ 795 0562 47       		.byte	0x47
+ 796 0563 B4000000 		.4byte	0xb4
+ 797 0567 1E       		.uleb128 0x1e
+ 798 0568 55040000 		.4byte	.LASF75
+ 799 056c 09       		.byte	0x9
+ 800 056d 4A       		.byte	0x4a
+ 801 056e A9000000 		.4byte	0xa9
+ 802 0572 1F       		.uleb128 0x1f
+ 803 0573 82050000 		.4byte	0x582
+ 804 0577 82050000 		.4byte	0x582
+ 805 057b 20       		.uleb128 0x20
+ 806 057c 0B040000 		.4byte	0x40b
+ 807 0580 FF       		.byte	0xff
+ 808 0581 00       		.byte	0
+ 809 0582 21       		.uleb128 0x21
+ 810 0583 7D000000 		.4byte	0x7d
+ 811 0587 22       		.uleb128 0x22
+ 812 0588 85010000 		.4byte	.LASF76
+ 813 058c 03       		.byte	0x3
+ 814 058d AB01     		.2byte	0x1ab
+ 815 058f 93050000 		.4byte	0x593
+ 816 0593 21       		.uleb128 0x21
+ 817 0594 72050000 		.4byte	0x572
+ 818 0598 23       		.uleb128 0x23
+ 819 0599 30020000 		.4byte	.LASF84
+ 820 059d 30020000 		.4byte	.LASF84
+ 821 05a1 07       		.byte	0x7
+ 822 05a2 C0       		.byte	0xc0
+ 823 05a3 00       		.byte	0
+ 824              		.section	.debug_abbrev,"",%progbits
+ 825              	.Ldebug_abbrev0:
+ 826 0000 01       		.uleb128 0x1
+ 827 0001 11       		.uleb128 0x11
+ 828 0002 01       		.byte	0x1
+ 829 0003 25       		.uleb128 0x25
+ 830 0004 0E       		.uleb128 0xe
+ 831 0005 13       		.uleb128 0x13
+ 832 0006 0B       		.uleb128 0xb
+ 833 0007 03       		.uleb128 0x3
+ 834 0008 0E       		.uleb128 0xe
+ 835 0009 1B       		.uleb128 0x1b
+ 836 000a 0E       		.uleb128 0xe
+ 837 000b 55       		.uleb128 0x55
+ 838 000c 17       		.uleb128 0x17
+ 839 000d 11       		.uleb128 0x11
+ 840 000e 01       		.uleb128 0x1
+ 841 000f 10       		.uleb128 0x10
+ 842 0010 17       		.uleb128 0x17
+ 843 0011 00       		.byte	0
+ 844 0012 00       		.byte	0
+ 845 0013 02       		.uleb128 0x2
+ 846 0014 24       		.uleb128 0x24
+ 847 0015 00       		.byte	0
+ 848 0016 0B       		.uleb128 0xb
+ 849 0017 0B       		.uleb128 0xb
+ 850 0018 3E       		.uleb128 0x3e
+ 851 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 30
+
+
+ 852 001a 03       		.uleb128 0x3
+ 853 001b 0E       		.uleb128 0xe
+ 854 001c 00       		.byte	0
+ 855 001d 00       		.byte	0
+ 856 001e 03       		.uleb128 0x3
+ 857 001f 24       		.uleb128 0x24
+ 858 0020 00       		.byte	0
+ 859 0021 0B       		.uleb128 0xb
+ 860 0022 0B       		.uleb128 0xb
+ 861 0023 3E       		.uleb128 0x3e
+ 862 0024 0B       		.uleb128 0xb
+ 863 0025 03       		.uleb128 0x3
+ 864 0026 08       		.uleb128 0x8
+ 865 0027 00       		.byte	0
+ 866 0028 00       		.byte	0
+ 867 0029 04       		.uleb128 0x4
+ 868 002a 16       		.uleb128 0x16
+ 869 002b 00       		.byte	0
+ 870 002c 03       		.uleb128 0x3
+ 871 002d 0E       		.uleb128 0xe
+ 872 002e 3A       		.uleb128 0x3a
+ 873 002f 0B       		.uleb128 0xb
+ 874 0030 3B       		.uleb128 0x3b
+ 875 0031 0B       		.uleb128 0xb
+ 876 0032 49       		.uleb128 0x49
+ 877 0033 13       		.uleb128 0x13
+ 878 0034 00       		.byte	0
+ 879 0035 00       		.byte	0
+ 880 0036 05       		.uleb128 0x5
+ 881 0037 16       		.uleb128 0x16
+ 882 0038 00       		.byte	0
+ 883 0039 03       		.uleb128 0x3
+ 884 003a 0E       		.uleb128 0xe
+ 885 003b 3A       		.uleb128 0x3a
+ 886 003c 0B       		.uleb128 0xb
+ 887 003d 3B       		.uleb128 0x3b
+ 888 003e 05       		.uleb128 0x5
+ 889 003f 49       		.uleb128 0x49
+ 890 0040 13       		.uleb128 0x13
+ 891 0041 00       		.byte	0
+ 892 0042 00       		.byte	0
+ 893 0043 06       		.uleb128 0x6
+ 894 0044 13       		.uleb128 0x13
+ 895 0045 01       		.byte	0x1
+ 896 0046 0B       		.uleb128 0xb
+ 897 0047 0B       		.uleb128 0xb
+ 898 0048 3A       		.uleb128 0x3a
+ 899 0049 0B       		.uleb128 0xb
+ 900 004a 3B       		.uleb128 0x3b
+ 901 004b 05       		.uleb128 0x5
+ 902 004c 01       		.uleb128 0x1
+ 903 004d 13       		.uleb128 0x13
+ 904 004e 00       		.byte	0
+ 905 004f 00       		.byte	0
+ 906 0050 07       		.uleb128 0x7
+ 907 0051 0D       		.uleb128 0xd
+ 908 0052 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 31
+
+
+ 909 0053 03       		.uleb128 0x3
+ 910 0054 0E       		.uleb128 0xe
+ 911 0055 3A       		.uleb128 0x3a
+ 912 0056 0B       		.uleb128 0xb
+ 913 0057 3B       		.uleb128 0x3b
+ 914 0058 05       		.uleb128 0x5
+ 915 0059 49       		.uleb128 0x49
+ 916 005a 13       		.uleb128 0x13
+ 917 005b 38       		.uleb128 0x38
+ 918 005c 0B       		.uleb128 0xb
+ 919 005d 00       		.byte	0
+ 920 005e 00       		.byte	0
+ 921 005f 08       		.uleb128 0x8
+ 922 0060 04       		.uleb128 0x4
+ 923 0061 01       		.byte	0x1
+ 924 0062 0B       		.uleb128 0xb
+ 925 0063 0B       		.uleb128 0xb
+ 926 0064 49       		.uleb128 0x49
+ 927 0065 13       		.uleb128 0x13
+ 928 0066 3A       		.uleb128 0x3a
+ 929 0067 0B       		.uleb128 0xb
+ 930 0068 3B       		.uleb128 0x3b
+ 931 0069 05       		.uleb128 0x5
+ 932 006a 01       		.uleb128 0x1
+ 933 006b 13       		.uleb128 0x13
+ 934 006c 00       		.byte	0
+ 935 006d 00       		.byte	0
+ 936 006e 09       		.uleb128 0x9
+ 937 006f 28       		.uleb128 0x28
+ 938 0070 00       		.byte	0
+ 939 0071 03       		.uleb128 0x3
+ 940 0072 0E       		.uleb128 0xe
+ 941 0073 1C       		.uleb128 0x1c
+ 942 0074 0B       		.uleb128 0xb
+ 943 0075 00       		.byte	0
+ 944 0076 00       		.byte	0
+ 945 0077 0A       		.uleb128 0xa
+ 946 0078 0D       		.uleb128 0xd
+ 947 0079 00       		.byte	0
+ 948 007a 03       		.uleb128 0x3
+ 949 007b 08       		.uleb128 0x8
+ 950 007c 3A       		.uleb128 0x3a
+ 951 007d 0B       		.uleb128 0xb
+ 952 007e 3B       		.uleb128 0x3b
+ 953 007f 05       		.uleb128 0x5
+ 954 0080 49       		.uleb128 0x49
+ 955 0081 13       		.uleb128 0x13
+ 956 0082 38       		.uleb128 0x38
+ 957 0083 0B       		.uleb128 0xb
+ 958 0084 00       		.byte	0
+ 959 0085 00       		.byte	0
+ 960 0086 0B       		.uleb128 0xb
+ 961 0087 2E       		.uleb128 0x2e
+ 962 0088 01       		.byte	0x1
+ 963 0089 03       		.uleb128 0x3
+ 964 008a 0E       		.uleb128 0xe
+ 965 008b 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 32
+
+
+ 966 008c 0B       		.uleb128 0xb
+ 967 008d 3B       		.uleb128 0x3b
+ 968 008e 0B       		.uleb128 0xb
+ 969 008f 27       		.uleb128 0x27
+ 970 0090 19       		.uleb128 0x19
+ 971 0091 49       		.uleb128 0x49
+ 972 0092 13       		.uleb128 0x13
+ 973 0093 20       		.uleb128 0x20
+ 974 0094 0B       		.uleb128 0xb
+ 975 0095 01       		.uleb128 0x1
+ 976 0096 13       		.uleb128 0x13
+ 977 0097 00       		.byte	0
+ 978 0098 00       		.byte	0
+ 979 0099 0C       		.uleb128 0xc
+ 980 009a 34       		.uleb128 0x34
+ 981 009b 00       		.byte	0
+ 982 009c 03       		.uleb128 0x3
+ 983 009d 0E       		.uleb128 0xe
+ 984 009e 3A       		.uleb128 0x3a
+ 985 009f 0B       		.uleb128 0xb
+ 986 00a0 3B       		.uleb128 0x3b
+ 987 00a1 0B       		.uleb128 0xb
+ 988 00a2 49       		.uleb128 0x49
+ 989 00a3 13       		.uleb128 0x13
+ 990 00a4 00       		.byte	0
+ 991 00a5 00       		.byte	0
+ 992 00a6 0D       		.uleb128 0xd
+ 993 00a7 2E       		.uleb128 0x2e
+ 994 00a8 01       		.byte	0x1
+ 995 00a9 03       		.uleb128 0x3
+ 996 00aa 0E       		.uleb128 0xe
+ 997 00ab 3A       		.uleb128 0x3a
+ 998 00ac 0B       		.uleb128 0xb
+ 999 00ad 3B       		.uleb128 0x3b
+ 1000 00ae 0B       		.uleb128 0xb
+ 1001 00af 27       		.uleb128 0x27
+ 1002 00b0 19       		.uleb128 0x19
+ 1003 00b1 20       		.uleb128 0x20
+ 1004 00b2 0B       		.uleb128 0xb
+ 1005 00b3 01       		.uleb128 0x1
+ 1006 00b4 13       		.uleb128 0x13
+ 1007 00b5 00       		.byte	0
+ 1008 00b6 00       		.byte	0
+ 1009 00b7 0E       		.uleb128 0xe
+ 1010 00b8 05       		.uleb128 0x5
+ 1011 00b9 00       		.byte	0
+ 1012 00ba 03       		.uleb128 0x3
+ 1013 00bb 08       		.uleb128 0x8
+ 1014 00bc 3A       		.uleb128 0x3a
+ 1015 00bd 0B       		.uleb128 0xb
+ 1016 00be 3B       		.uleb128 0x3b
+ 1017 00bf 0B       		.uleb128 0xb
+ 1018 00c0 49       		.uleb128 0x49
+ 1019 00c1 13       		.uleb128 0x13
+ 1020 00c2 00       		.byte	0
+ 1021 00c3 00       		.byte	0
+ 1022 00c4 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 33
+
+
+ 1023 00c5 2E       		.uleb128 0x2e
+ 1024 00c6 01       		.byte	0x1
+ 1025 00c7 03       		.uleb128 0x3
+ 1026 00c8 0E       		.uleb128 0xe
+ 1027 00c9 3A       		.uleb128 0x3a
+ 1028 00ca 0B       		.uleb128 0xb
+ 1029 00cb 3B       		.uleb128 0x3b
+ 1030 00cc 05       		.uleb128 0x5
+ 1031 00cd 27       		.uleb128 0x27
+ 1032 00ce 19       		.uleb128 0x19
+ 1033 00cf 20       		.uleb128 0x20
+ 1034 00d0 0B       		.uleb128 0xb
+ 1035 00d1 01       		.uleb128 0x1
+ 1036 00d2 13       		.uleb128 0x13
+ 1037 00d3 00       		.byte	0
+ 1038 00d4 00       		.byte	0
+ 1039 00d5 10       		.uleb128 0x10
+ 1040 00d6 05       		.uleb128 0x5
+ 1041 00d7 00       		.byte	0
+ 1042 00d8 03       		.uleb128 0x3
+ 1043 00d9 08       		.uleb128 0x8
+ 1044 00da 3A       		.uleb128 0x3a
+ 1045 00db 0B       		.uleb128 0xb
+ 1046 00dc 3B       		.uleb128 0x3b
+ 1047 00dd 05       		.uleb128 0x5
+ 1048 00de 49       		.uleb128 0x49
+ 1049 00df 13       		.uleb128 0x13
+ 1050 00e0 00       		.byte	0
+ 1051 00e1 00       		.byte	0
+ 1052 00e2 11       		.uleb128 0x11
+ 1053 00e3 2E       		.uleb128 0x2e
+ 1054 00e4 00       		.byte	0
+ 1055 00e5 03       		.uleb128 0x3
+ 1056 00e6 0E       		.uleb128 0xe
+ 1057 00e7 3A       		.uleb128 0x3a
+ 1058 00e8 0B       		.uleb128 0xb
+ 1059 00e9 3B       		.uleb128 0x3b
+ 1060 00ea 0B       		.uleb128 0xb
+ 1061 00eb 27       		.uleb128 0x27
+ 1062 00ec 19       		.uleb128 0x19
+ 1063 00ed 49       		.uleb128 0x49
+ 1064 00ee 13       		.uleb128 0x13
+ 1065 00ef 20       		.uleb128 0x20
+ 1066 00f0 0B       		.uleb128 0xb
+ 1067 00f1 00       		.byte	0
+ 1068 00f2 00       		.byte	0
+ 1069 00f3 12       		.uleb128 0x12
+ 1070 00f4 2E       		.uleb128 0x2e
+ 1071 00f5 00       		.byte	0
+ 1072 00f6 03       		.uleb128 0x3
+ 1073 00f7 0E       		.uleb128 0xe
+ 1074 00f8 3A       		.uleb128 0x3a
+ 1075 00f9 0B       		.uleb128 0xb
+ 1076 00fa 3B       		.uleb128 0x3b
+ 1077 00fb 05       		.uleb128 0x5
+ 1078 00fc 27       		.uleb128 0x27
+ 1079 00fd 19       		.uleb128 0x19
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 34
+
+
+ 1080 00fe 20       		.uleb128 0x20
+ 1081 00ff 0B       		.uleb128 0xb
+ 1082 0100 00       		.byte	0
+ 1083 0101 00       		.byte	0
+ 1084 0102 13       		.uleb128 0x13
+ 1085 0103 2E       		.uleb128 0x2e
+ 1086 0104 01       		.byte	0x1
+ 1087 0105 3F       		.uleb128 0x3f
+ 1088 0106 19       		.uleb128 0x19
+ 1089 0107 03       		.uleb128 0x3
+ 1090 0108 0E       		.uleb128 0xe
+ 1091 0109 3A       		.uleb128 0x3a
+ 1092 010a 0B       		.uleb128 0xb
+ 1093 010b 3B       		.uleb128 0x3b
+ 1094 010c 0B       		.uleb128 0xb
+ 1095 010d 27       		.uleb128 0x27
+ 1096 010e 19       		.uleb128 0x19
+ 1097 010f 49       		.uleb128 0x49
+ 1098 0110 13       		.uleb128 0x13
+ 1099 0111 11       		.uleb128 0x11
+ 1100 0112 01       		.uleb128 0x1
+ 1101 0113 12       		.uleb128 0x12
+ 1102 0114 06       		.uleb128 0x6
+ 1103 0115 40       		.uleb128 0x40
+ 1104 0116 18       		.uleb128 0x18
+ 1105 0117 9742     		.uleb128 0x2117
+ 1106 0119 19       		.uleb128 0x19
+ 1107 011a 01       		.uleb128 0x1
+ 1108 011b 13       		.uleb128 0x13
+ 1109 011c 00       		.byte	0
+ 1110 011d 00       		.byte	0
+ 1111 011e 14       		.uleb128 0x14
+ 1112 011f 05       		.uleb128 0x5
+ 1113 0120 00       		.byte	0
+ 1114 0121 03       		.uleb128 0x3
+ 1115 0122 0E       		.uleb128 0xe
+ 1116 0123 3A       		.uleb128 0x3a
+ 1117 0124 0B       		.uleb128 0xb
+ 1118 0125 3B       		.uleb128 0x3b
+ 1119 0126 0B       		.uleb128 0xb
+ 1120 0127 49       		.uleb128 0x49
+ 1121 0128 13       		.uleb128 0x13
+ 1122 0129 02       		.uleb128 0x2
+ 1123 012a 17       		.uleb128 0x17
+ 1124 012b 00       		.byte	0
+ 1125 012c 00       		.byte	0
+ 1126 012d 15       		.uleb128 0x15
+ 1127 012e 34       		.uleb128 0x34
+ 1128 012f 00       		.byte	0
+ 1129 0130 03       		.uleb128 0x3
+ 1130 0131 08       		.uleb128 0x8
+ 1131 0132 3A       		.uleb128 0x3a
+ 1132 0133 0B       		.uleb128 0xb
+ 1133 0134 3B       		.uleb128 0x3b
+ 1134 0135 0B       		.uleb128 0xb
+ 1135 0136 49       		.uleb128 0x49
+ 1136 0137 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 35
+
+
+ 1137 0138 02       		.uleb128 0x2
+ 1138 0139 17       		.uleb128 0x17
+ 1139 013a 00       		.byte	0
+ 1140 013b 00       		.byte	0
+ 1141 013c 16       		.uleb128 0x16
+ 1142 013d 34       		.uleb128 0x34
+ 1143 013e 00       		.byte	0
+ 1144 013f 03       		.uleb128 0x3
+ 1145 0140 0E       		.uleb128 0xe
+ 1146 0141 3A       		.uleb128 0x3a
+ 1147 0142 0B       		.uleb128 0xb
+ 1148 0143 3B       		.uleb128 0x3b
+ 1149 0144 0B       		.uleb128 0xb
+ 1150 0145 49       		.uleb128 0x49
+ 1151 0146 13       		.uleb128 0x13
+ 1152 0147 02       		.uleb128 0x2
+ 1153 0148 18       		.uleb128 0x18
+ 1154 0149 00       		.byte	0
+ 1155 014a 00       		.byte	0
+ 1156 014b 17       		.uleb128 0x17
+ 1157 014c 1D       		.uleb128 0x1d
+ 1158 014d 01       		.byte	0x1
+ 1159 014e 31       		.uleb128 0x31
+ 1160 014f 13       		.uleb128 0x13
+ 1161 0150 11       		.uleb128 0x11
+ 1162 0151 01       		.uleb128 0x1
+ 1163 0152 12       		.uleb128 0x12
+ 1164 0153 06       		.uleb128 0x6
+ 1165 0154 58       		.uleb128 0x58
+ 1166 0155 0B       		.uleb128 0xb
+ 1167 0156 59       		.uleb128 0x59
+ 1168 0157 0B       		.uleb128 0xb
+ 1169 0158 01       		.uleb128 0x1
+ 1170 0159 13       		.uleb128 0x13
+ 1171 015a 00       		.byte	0
+ 1172 015b 00       		.byte	0
+ 1173 015c 18       		.uleb128 0x18
+ 1174 015d 1D       		.uleb128 0x1d
+ 1175 015e 01       		.byte	0x1
+ 1176 015f 31       		.uleb128 0x31
+ 1177 0160 13       		.uleb128 0x13
+ 1178 0161 11       		.uleb128 0x11
+ 1179 0162 01       		.uleb128 0x1
+ 1180 0163 12       		.uleb128 0x12
+ 1181 0164 06       		.uleb128 0x6
+ 1182 0165 58       		.uleb128 0x58
+ 1183 0166 0B       		.uleb128 0xb
+ 1184 0167 59       		.uleb128 0x59
+ 1185 0168 0B       		.uleb128 0xb
+ 1186 0169 00       		.byte	0
+ 1187 016a 00       		.byte	0
+ 1188 016b 19       		.uleb128 0x19
+ 1189 016c 0B       		.uleb128 0xb
+ 1190 016d 01       		.byte	0x1
+ 1191 016e 11       		.uleb128 0x11
+ 1192 016f 01       		.uleb128 0x1
+ 1193 0170 12       		.uleb128 0x12
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 36
+
+
+ 1194 0171 06       		.uleb128 0x6
+ 1195 0172 00       		.byte	0
+ 1196 0173 00       		.byte	0
+ 1197 0174 1A       		.uleb128 0x1a
+ 1198 0175 34       		.uleb128 0x34
+ 1199 0176 00       		.byte	0
+ 1200 0177 31       		.uleb128 0x31
+ 1201 0178 13       		.uleb128 0x13
+ 1202 0179 02       		.uleb128 0x2
+ 1203 017a 17       		.uleb128 0x17
+ 1204 017b 00       		.byte	0
+ 1205 017c 00       		.byte	0
+ 1206 017d 1B       		.uleb128 0x1b
+ 1207 017e 1D       		.uleb128 0x1d
+ 1208 017f 00       		.byte	0
+ 1209 0180 31       		.uleb128 0x31
+ 1210 0181 13       		.uleb128 0x13
+ 1211 0182 11       		.uleb128 0x11
+ 1212 0183 01       		.uleb128 0x1
+ 1213 0184 12       		.uleb128 0x12
+ 1214 0185 06       		.uleb128 0x6
+ 1215 0186 58       		.uleb128 0x58
+ 1216 0187 0B       		.uleb128 0xb
+ 1217 0188 59       		.uleb128 0x59
+ 1218 0189 0B       		.uleb128 0xb
+ 1219 018a 00       		.byte	0
+ 1220 018b 00       		.byte	0
+ 1221 018c 1C       		.uleb128 0x1c
+ 1222 018d 05       		.uleb128 0x5
+ 1223 018e 00       		.byte	0
+ 1224 018f 31       		.uleb128 0x31
+ 1225 0190 13       		.uleb128 0x13
+ 1226 0191 02       		.uleb128 0x2
+ 1227 0192 17       		.uleb128 0x17
+ 1228 0193 00       		.byte	0
+ 1229 0194 00       		.byte	0
+ 1230 0195 1D       		.uleb128 0x1d
+ 1231 0196 898201   		.uleb128 0x4109
+ 1232 0199 00       		.byte	0
+ 1233 019a 11       		.uleb128 0x11
+ 1234 019b 01       		.uleb128 0x1
+ 1235 019c 31       		.uleb128 0x31
+ 1236 019d 13       		.uleb128 0x13
+ 1237 019e 00       		.byte	0
+ 1238 019f 00       		.byte	0
+ 1239 01a0 1E       		.uleb128 0x1e
+ 1240 01a1 34       		.uleb128 0x34
+ 1241 01a2 00       		.byte	0
+ 1242 01a3 03       		.uleb128 0x3
+ 1243 01a4 0E       		.uleb128 0xe
+ 1244 01a5 3A       		.uleb128 0x3a
+ 1245 01a6 0B       		.uleb128 0xb
+ 1246 01a7 3B       		.uleb128 0x3b
+ 1247 01a8 0B       		.uleb128 0xb
+ 1248 01a9 49       		.uleb128 0x49
+ 1249 01aa 13       		.uleb128 0x13
+ 1250 01ab 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 37
+
+
+ 1251 01ac 19       		.uleb128 0x19
+ 1252 01ad 3C       		.uleb128 0x3c
+ 1253 01ae 19       		.uleb128 0x19
+ 1254 01af 00       		.byte	0
+ 1255 01b0 00       		.byte	0
+ 1256 01b1 1F       		.uleb128 0x1f
+ 1257 01b2 01       		.uleb128 0x1
+ 1258 01b3 01       		.byte	0x1
+ 1259 01b4 49       		.uleb128 0x49
+ 1260 01b5 13       		.uleb128 0x13
+ 1261 01b6 01       		.uleb128 0x1
+ 1262 01b7 13       		.uleb128 0x13
+ 1263 01b8 00       		.byte	0
+ 1264 01b9 00       		.byte	0
+ 1265 01ba 20       		.uleb128 0x20
+ 1266 01bb 21       		.uleb128 0x21
+ 1267 01bc 00       		.byte	0
+ 1268 01bd 49       		.uleb128 0x49
+ 1269 01be 13       		.uleb128 0x13
+ 1270 01bf 2F       		.uleb128 0x2f
+ 1271 01c0 0B       		.uleb128 0xb
+ 1272 01c1 00       		.byte	0
+ 1273 01c2 00       		.byte	0
+ 1274 01c3 21       		.uleb128 0x21
+ 1275 01c4 26       		.uleb128 0x26
+ 1276 01c5 00       		.byte	0
+ 1277 01c6 49       		.uleb128 0x49
+ 1278 01c7 13       		.uleb128 0x13
+ 1279 01c8 00       		.byte	0
+ 1280 01c9 00       		.byte	0
+ 1281 01ca 22       		.uleb128 0x22
+ 1282 01cb 34       		.uleb128 0x34
+ 1283 01cc 00       		.byte	0
+ 1284 01cd 03       		.uleb128 0x3
+ 1285 01ce 0E       		.uleb128 0xe
+ 1286 01cf 3A       		.uleb128 0x3a
+ 1287 01d0 0B       		.uleb128 0xb
+ 1288 01d1 3B       		.uleb128 0x3b
+ 1289 01d2 05       		.uleb128 0x5
+ 1290 01d3 49       		.uleb128 0x49
+ 1291 01d4 13       		.uleb128 0x13
+ 1292 01d5 3F       		.uleb128 0x3f
+ 1293 01d6 19       		.uleb128 0x19
+ 1294 01d7 3C       		.uleb128 0x3c
+ 1295 01d8 19       		.uleb128 0x19
+ 1296 01d9 00       		.byte	0
+ 1297 01da 00       		.byte	0
+ 1298 01db 23       		.uleb128 0x23
+ 1299 01dc 2E       		.uleb128 0x2e
+ 1300 01dd 00       		.byte	0
+ 1301 01de 3F       		.uleb128 0x3f
+ 1302 01df 19       		.uleb128 0x19
+ 1303 01e0 3C       		.uleb128 0x3c
+ 1304 01e1 19       		.uleb128 0x19
+ 1305 01e2 6E       		.uleb128 0x6e
+ 1306 01e3 0E       		.uleb128 0xe
+ 1307 01e4 03       		.uleb128 0x3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 38
+
+
+ 1308 01e5 0E       		.uleb128 0xe
+ 1309 01e6 3A       		.uleb128 0x3a
+ 1310 01e7 0B       		.uleb128 0xb
+ 1311 01e8 3B       		.uleb128 0x3b
+ 1312 01e9 0B       		.uleb128 0xb
+ 1313 01ea 00       		.byte	0
+ 1314 01eb 00       		.byte	0
+ 1315 01ec 00       		.byte	0
+ 1316              		.section	.debug_loc,"",%progbits
+ 1317              	.Ldebug_loc0:
+ 1318              	.LLST0:
+ 1319 0000 00000000 		.4byte	.LVL0
+ 1320 0004 3C000000 		.4byte	.LVL4
+ 1321 0008 0100     		.2byte	0x1
+ 1322 000a 50       		.byte	0x50
+ 1323 000b 3C000000 		.4byte	.LVL4
+ 1324 000f 3E000000 		.4byte	.LVL5
+ 1325 0013 0700     		.2byte	0x7
+ 1326 0015 71       		.byte	0x71
+ 1327 0016 00       		.sleb128 0
+ 1328 0017 32       		.byte	0x32
+ 1329 0018 24       		.byte	0x24
+ 1330 0019 73       		.byte	0x73
+ 1331 001a 00       		.sleb128 0
+ 1332 001b 22       		.byte	0x22
+ 1333 001c 3E000000 		.4byte	.LVL5
+ 1334 0020 40000000 		.4byte	.LVL6
+ 1335 0024 0100     		.2byte	0x1
+ 1336 0026 50       		.byte	0x50
+ 1337 0027 40000000 		.4byte	.LVL6
+ 1338 002b 42000000 		.4byte	.LVL7
+ 1339 002f 0400     		.2byte	0x4
+ 1340 0031 F3       		.byte	0xf3
+ 1341 0032 01       		.uleb128 0x1
+ 1342 0033 50       		.byte	0x50
+ 1343 0034 9F       		.byte	0x9f
+ 1344 0035 42000000 		.4byte	.LVL7
+ 1345 0039 44000000 		.4byte	.LVL8
+ 1346 003d 0100     		.2byte	0x1
+ 1347 003f 50       		.byte	0x50
+ 1348 0040 44000000 		.4byte	.LVL8
+ 1349 0044 46000000 		.4byte	.LVL9
+ 1350 0048 0400     		.2byte	0x4
+ 1351 004a F3       		.byte	0xf3
+ 1352 004b 01       		.uleb128 0x1
+ 1353 004c 50       		.byte	0x50
+ 1354 004d 9F       		.byte	0x9f
+ 1355 004e 46000000 		.4byte	.LVL9
+ 1356 0052 48000000 		.4byte	.LVL10
+ 1357 0056 0100     		.2byte	0x1
+ 1358 0058 50       		.byte	0x50
+ 1359 0059 48000000 		.4byte	.LVL10
+ 1360 005d 4A000000 		.4byte	.LVL11
+ 1361 0061 0400     		.2byte	0x4
+ 1362 0063 F3       		.byte	0xf3
+ 1363 0064 01       		.uleb128 0x1
+ 1364 0065 50       		.byte	0x50
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 39
+
+
+ 1365 0066 9F       		.byte	0x9f
+ 1366 0067 4A000000 		.4byte	.LVL11
+ 1367 006b 4C000000 		.4byte	.LVL12
+ 1368 006f 0100     		.2byte	0x1
+ 1369 0071 50       		.byte	0x50
+ 1370 0072 4C000000 		.4byte	.LVL12
+ 1371 0076 6C000000 		.4byte	.LFE70
+ 1372 007a 0400     		.2byte	0x4
+ 1373 007c F3       		.byte	0xf3
+ 1374 007d 01       		.uleb128 0x1
+ 1375 007e 50       		.byte	0x50
+ 1376 007f 9F       		.byte	0x9f
+ 1377 0080 00000000 		.4byte	0
+ 1378 0084 00000000 		.4byte	0
+ 1379              	.LLST1:
+ 1380 0088 3A000000 		.4byte	.LVL3
+ 1381 008c 3E000000 		.4byte	.LVL5
+ 1382 0090 0200     		.2byte	0x2
+ 1383 0092 30       		.byte	0x30
+ 1384 0093 9F       		.byte	0x9f
+ 1385 0094 4C000000 		.4byte	.LVL12
+ 1386 0098 50000000 		.4byte	.LVL13
+ 1387 009c 0100     		.2byte	0x1
+ 1388 009e 50       		.byte	0x50
+ 1389 009f 54000000 		.4byte	.LVL14
+ 1390 00a3 6C000000 		.4byte	.LFE70
+ 1391 00a7 0100     		.2byte	0x1
+ 1392 00a9 50       		.byte	0x50
+ 1393 00aa 00000000 		.4byte	0
+ 1394 00ae 00000000 		.4byte	0
+ 1395              	.LLST2:
+ 1396 00b2 06000000 		.4byte	.LVL1
+ 1397 00b6 08000000 		.4byte	.LVL2
+ 1398 00ba 0100     		.2byte	0x1
+ 1399 00bc 52       		.byte	0x52
+ 1400 00bd 00000000 		.4byte	0
+ 1401 00c1 00000000 		.4byte	0
+ 1402              	.LLST3:
+ 1403 00c5 54000000 		.4byte	.LVL14
+ 1404 00c9 58000000 		.4byte	.LVL15
+ 1405 00cd 0100     		.2byte	0x1
+ 1406 00cf 52       		.byte	0x52
+ 1407 00d0 00000000 		.4byte	0
+ 1408 00d4 00000000 		.4byte	0
+ 1409              		.section	.debug_aranges,"",%progbits
+ 1410 0000 1C000000 		.4byte	0x1c
+ 1411 0004 0200     		.2byte	0x2
+ 1412 0006 00000000 		.4byte	.Ldebug_info0
+ 1413 000a 04       		.byte	0x4
+ 1414 000b 00       		.byte	0
+ 1415 000c 0000     		.2byte	0
+ 1416 000e 0000     		.2byte	0
+ 1417 0010 00000000 		.4byte	.LFB70
+ 1418 0014 6C000000 		.4byte	.LFE70-.LFB70
+ 1419 0018 00000000 		.4byte	0
+ 1420 001c 00000000 		.4byte	0
+ 1421              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 40
+
+
+ 1422              	.Ldebug_ranges0:
+ 1423 0000 00000000 		.4byte	.LFB70
+ 1424 0004 6C000000 		.4byte	.LFE70
+ 1425 0008 00000000 		.4byte	0
+ 1426 000c 00000000 		.4byte	0
+ 1427              		.section	.debug_line,"",%progbits
+ 1428              	.Ldebug_line0:
+ 1429 0000 D3010000 		.section	.debug_str,"MS",%progbits,1
+ 1429      02007801 
+ 1429      00000201 
+ 1429      FB0E0D00 
+ 1429      01010101 
+ 1430              	.LASF56:
+ 1431 0000 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1431      74645F65 
+ 1431      6E646379 
+ 1431      636C655F 
+ 1431      6E657874 
+ 1432              	.LASF36:
+ 1433 0019 6B696E64 		.ascii	"kind\000"
+ 1433      00
+ 1434              	.LASF10:
+ 1435 001e 45455F55 		.ascii	"EE_UINT8\000"
+ 1435      494E5438 
+ 1435      00
+ 1436              	.LASF66:
+ 1437 0027 45455F72 		.ascii	"EE_rq_bitmask\000"
+ 1437      715F6269 
+ 1437      746D6173 
+ 1437      6B00
+ 1438              	.LASF15:
+ 1439 0035 45455F55 		.ascii	"EE_UREG\000"
+ 1439      52454700 
+ 1440              	.LASF25:
+ 1441 003d 7469636B 		.ascii	"ticksperbase\000"
+ 1441      73706572 
+ 1441      62617365 
+ 1441      00
+ 1442              	.LASF67:
+ 1443 004a 45455F74 		.ascii	"EE_th_event_active\000"
+ 1443      685F6576 
+ 1443      656E745F 
+ 1443      61637469 
+ 1443      766500
+ 1444              	.LASF45:
+ 1445 005d 45455F4F 		.ascii	"EE_ORTI_set_service\000"
+ 1445      5254495F 
+ 1445      7365745F 
+ 1445      73657276 
+ 1445      69636500 
+ 1446              	.LASF68:
+ 1447 0071 45455F74 		.ascii	"EE_th_waswaiting\000"
+ 1447      685F7761 
+ 1447      73776169 
+ 1447      74696E67 
+ 1447      00
+ 1448              	.LASF2:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 41
+
+
+ 1449 0082 73686F72 		.ascii	"short int\000"
+ 1449      7420696E 
+ 1449      7400
+ 1450              	.LASF43:
+ 1451 008c 53746174 		.ascii	"StatusType\000"
+ 1451      75735479 
+ 1451      706500
+ 1452              	.LASF82:
+ 1453 0097 45455F6F 		.ascii	"EE_oo_ChainTask\000"
+ 1453      6F5F4368 
+ 1453      61696E54 
+ 1453      61736B00 
+ 1454              	.LASF40:
+ 1455 00a7 64656C74 		.ascii	"delta\000"
+ 1455      6100
+ 1456              	.LASF35:
+ 1457 00ad 73706563 		.ascii	"spec_id\000"
+ 1457      5F696400 
+ 1458              	.LASF16:
+ 1459 00b5 45455F46 		.ascii	"EE_FREG\000"
+ 1459      52454700 
+ 1460              	.LASF34:
+ 1461 00bd 436F756E 		.ascii	"CounterObjectKindType\000"
+ 1461      7465724F 
+ 1461      626A6563 
+ 1461      744B696E 
+ 1461      64547970 
+ 1462              	.LASF14:
+ 1463 00d3 45455F55 		.ascii	"EE_UINT32\000"
+ 1463      494E5433 
+ 1463      3200
+ 1464              	.LASF58:
+ 1465 00dd 45455F74 		.ascii	"EE_th_ready_prio\000"
+ 1465      685F7265 
+ 1465      6164795F 
+ 1465      7072696F 
+ 1465      00
+ 1466              	.LASF18:
+ 1467 00ee 45455F54 		.ascii	"EE_TID\000"
+ 1467      494400
+ 1468              	.LASF26:
+ 1469 00f5 6D696E63 		.ascii	"mincycle\000"
+ 1469      79636C65 
+ 1469      00
+ 1470              	.LASF28:
+ 1471 00fe 76616C75 		.ascii	"value\000"
+ 1471      6500
+ 1472              	.LASF52:
+ 1473 0104 69737461 		.ascii	"istat\000"
+ 1473      7400
+ 1474              	.LASF70:
+ 1475 010a 45455F6F 		.ascii	"EE_oo_counter_object_ROM\000"
+ 1475      6F5F636F 
+ 1475      756E7465 
+ 1475      725F6F62 
+ 1475      6A656374 
+ 1476              	.LASF33:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 42
+
+
+ 1477 0123 45455F6F 		.ascii	"EE_oo_counter_object_kind_type\000"
+ 1477      6F5F636F 
+ 1477      756E7465 
+ 1477      725F6F62 
+ 1477      6A656374 
+ 1478              	.LASF55:
+ 1479 0142 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1479      52515F6E 
+ 1479      65737469 
+ 1479      6E675F6C 
+ 1479      6576656C 
+ 1480              	.LASF48:
+ 1481 0157 45455F4F 		.ascii	"EE_ORTI_set_service_in\000"
+ 1481      5254495F 
+ 1481      7365745F 
+ 1481      73657276 
+ 1481      6963655F 
+ 1482              	.LASF30:
+ 1483 016e 45455F6F 		.ascii	"EE_oo_counter_RAM_type\000"
+ 1483      6F5F636F 
+ 1483      756E7465 
+ 1483      725F5241 
+ 1483      4D5F7479 
+ 1484              	.LASF76:
+ 1485 0185 45455F72 		.ascii	"EE_rq_lookup\000"
+ 1485      715F6C6F 
+ 1485      6F6B7570 
+ 1485      00
+ 1486              	.LASF6:
+ 1487 0192 6C6F6E67 		.ascii	"long long int\000"
+ 1487      206C6F6E 
+ 1487      6720696E 
+ 1487      7400
+ 1488              	.LASF11:
+ 1489 01a0 45455F49 		.ascii	"EE_INT8\000"
+ 1489      4E543800 
+ 1490              	.LASF74:
+ 1491 01a8 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1491      6F5F4952 
+ 1491      515F7375 
+ 1491      7370656E 
+ 1491      645F7374 
+ 1492              	.LASF19:
+ 1493 01c1 45455F54 		.ascii	"EE_TYPE_RQ_MASK\000"
+ 1493      5950455F 
+ 1493      52515F4D 
+ 1493      41534B00 
+ 1494              	.LASF32:
+ 1495 01d1 45455F53 		.ascii	"EE_SCHEDULETABLE\000"
+ 1495      43484544 
+ 1495      554C4554 
+ 1495      41424C45 
+ 1495      00
+ 1496              	.LASF4:
+ 1497 01e2 6C6F6E67 		.ascii	"long int\000"
+ 1497      20696E74 
+ 1497      00
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 43
+
+
+ 1498              	.LASF24:
+ 1499 01eb 6D617861 		.ascii	"maxallowedvalue\000"
+ 1499      6C6C6F77 
+ 1499      65647661 
+ 1499      6C756500 
+ 1500              	.LASF42:
+ 1501 01fb 45455F6F 		.ascii	"EE_oo_counter_object_RAM_type\000"
+ 1501      6F5F636F 
+ 1501      756E7465 
+ 1501      725F6F62 
+ 1501      6A656374 
+ 1502              	.LASF27:
+ 1503 0219 45455F6F 		.ascii	"EE_oo_counter_ROM_type\000"
+ 1503      6F5F636F 
+ 1503      756E7465 
+ 1503      725F524F 
+ 1503      4D5F7479 
+ 1504              	.LASF84:
+ 1505 0230 45455F68 		.ascii	"EE_hal_terminate_task\000"
+ 1505      616C5F74 
+ 1505      65726D69 
+ 1505      6E617465 
+ 1505      5F746173 
+ 1506              	.LASF21:
+ 1507 0246 5469636B 		.ascii	"TickType\000"
+ 1507      54797065 
+ 1507      00
+ 1508              	.LASF65:
+ 1509 024f 45455F73 		.ascii	"EE_sys_ceiling\000"
+ 1509      79735F63 
+ 1509      65696C69 
+ 1509      6E6700
+ 1510              	.LASF22:
+ 1511 025e 436F756E 		.ascii	"CounterObjectType\000"
+ 1511      7465724F 
+ 1511      626A6563 
+ 1511      74547970 
+ 1511      6500
+ 1512              	.LASF9:
+ 1513 0270 6C6F6E67 		.ascii	"long double\000"
+ 1513      20646F75 
+ 1513      626C6500 
+ 1514              	.LASF69:
+ 1515 027c 45455F63 		.ascii	"EE_counter_ROM\000"
+ 1515      6F756E74 
+ 1515      65725F52 
+ 1515      4F4D00
+ 1516              	.LASF20:
+ 1517 028b 5461736B 		.ascii	"TaskType\000"
+ 1517      54797065 
+ 1517      00
+ 1518              	.LASF1:
+ 1519 0294 756E7369 		.ascii	"unsigned char\000"
+ 1519      676E6564 
+ 1519      20636861 
+ 1519      7200
+ 1520              	.LASF51:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 44
+
+
+ 1521 02a2 45455F68 		.ascii	"EE_hal_end_nested_primitive\000"
+ 1521      616C5F65 
+ 1521      6E645F6E 
+ 1521      65737465 
+ 1521      645F7072 
+ 1522              	.LASF50:
+ 1523 02be 45455F4F 		.ascii	"EE_ORTI_set_service_out\000"
+ 1523      5254495F 
+ 1523      7365745F 
+ 1523      73657276 
+ 1523      6963655F 
+ 1524              	.LASF80:
+ 1525 02d6 45455F63 		.ascii	"EE_cortex_mx_suspendIRQ\000"
+ 1525      6F727465 
+ 1525      785F6D78 
+ 1525      5F737573 
+ 1525      70656E64 
+ 1526              	.LASF72:
+ 1527 02ee 45455F6F 		.ascii	"EE_oo_counter_object_RAM\000"
+ 1527      6F5F636F 
+ 1527      756E7465 
+ 1527      725F6F62 
+ 1527      6A656374 
+ 1528              	.LASF0:
+ 1529 0307 7369676E 		.ascii	"signed char\000"
+ 1529      65642063 
+ 1529      68617200 
+ 1530              	.LASF7:
+ 1531 0313 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1531      206C6F6E 
+ 1531      6720756E 
+ 1531      7369676E 
+ 1531      65642069 
+ 1532              	.LASF81:
+ 1533 032a 45455F61 		.ascii	"EE_as_monitoring_the_stack\000"
+ 1533      735F6D6F 
+ 1533      6E69746F 
+ 1533      72696E67 
+ 1533      5F746865 
+ 1534              	.LASF47:
+ 1535 0345 45455F73 		.ascii	"EE_stk_queryfirst\000"
+ 1535      746B5F71 
+ 1535      75657279 
+ 1535      66697273 
+ 1535      7400
+ 1536              	.LASF8:
+ 1537 0357 756E7369 		.ascii	"unsigned int\000"
+ 1537      676E6564 
+ 1537      20696E74 
+ 1537      00
+ 1538              	.LASF60:
+ 1539 0364 45455F74 		.ascii	"EE_th_status\000"
+ 1539      685F7374 
+ 1539      61747573 
+ 1539      00
+ 1540              	.LASF62:
+ 1541 0371 45455F74 		.ascii	"EE_th_rnact\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 45
+
+
+ 1541      685F726E 
+ 1541      61637400 
+ 1542              	.LASF83:
+ 1543 037d 5461736B 		.ascii	"TaskID\000"
+ 1543      494400
+ 1544              	.LASF13:
+ 1545 0384 45455F49 		.ascii	"EE_INT32\000"
+ 1545      4E543332 
+ 1545      00
+ 1546              	.LASF79:
+ 1547 038d 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1547      73657273 
+ 1547      5C417375 
+ 1547      735C4465 
+ 1547      736B746F 
+ 1548 03b9 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 1548      30315C45 
+ 1548      6C656374 
+ 1548      726F6E69 
+ 1548      635F4761 
+ 1549 03e8 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1549      312E6379 
+ 1549      64736E00 
+ 1550              	.LASF3:
+ 1551 03f4 73686F72 		.ascii	"short unsigned int\000"
+ 1551      7420756E 
+ 1551      7369676E 
+ 1551      65642069 
+ 1551      6E7400
+ 1552              	.LASF37:
+ 1553 0407 45455F6F 		.ascii	"EE_oo_counter_object_ROM_type\000"
+ 1553      6F5F636F 
+ 1553      756E7465 
+ 1553      725F6F62 
+ 1553      6A656374 
+ 1554              	.LASF12:
+ 1555 0425 45455F55 		.ascii	"EE_UINT16\000"
+ 1555      494E5431 
+ 1555      3600
+ 1556              	.LASF44:
+ 1557 042f 45455F63 		.ascii	"EE_cortex_mx_resumeIRQ\000"
+ 1557      6F727465 
+ 1557      785F6D78 
+ 1557      5F726573 
+ 1557      756D6549 
+ 1558              	.LASF71:
+ 1559 0446 45455F63 		.ascii	"EE_counter_RAM\000"
+ 1559      6F756E74 
+ 1559      65725F52 
+ 1559      414D00
+ 1560              	.LASF75:
+ 1561 0455 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1561      70706C69 
+ 1561      63617469 
+ 1561      6F6E4D6F 
+ 1561      646500
+ 1562              	.LASF5:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 46
+
+
+ 1563 0468 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1563      20756E73 
+ 1563      69676E65 
+ 1563      6420696E 
+ 1563      7400
+ 1564              	.LASF17:
+ 1565 047a 45455F54 		.ascii	"EE_TYPEBOOL\000"
+ 1565      59504542 
+ 1565      4F4F4C00 
+ 1566              	.LASF64:
+ 1567 0486 45455F73 		.ascii	"EE_stkfirst\000"
+ 1567      746B6669 
+ 1567      72737400 
+ 1568              	.LASF46:
+ 1569 0492 45455F68 		.ascii	"EE_hal_get_IRQ_nesting_level\000"
+ 1569      616C5F67 
+ 1569      65745F49 
+ 1569      52515F6E 
+ 1569      65737469 
+ 1570              	.LASF59:
+ 1571 04af 45455F74 		.ascii	"EE_th_dispatch_prio\000"
+ 1571      685F6469 
+ 1571      73706174 
+ 1571      63685F70 
+ 1571      72696F00 
+ 1572              	.LASF31:
+ 1573 04c3 45455F41 		.ascii	"EE_ALARM\000"
+ 1573      4C41524D 
+ 1573      00
+ 1574              	.LASF78:
+ 1575 04cc 47656E65 		.ascii	"Generated_Source\\PSoC5\\ErikaOS_1_ee_chaintas.c\000"
+ 1575      72617465 
+ 1575      645F536F 
+ 1575      75726365 
+ 1575      5C50536F 
+ 1576              	.LASF38:
+ 1577 04fb 75736564 		.ascii	"used\000"
+ 1577      00
+ 1578              	.LASF57:
+ 1579 0500 73697A65 		.ascii	"sizetype\000"
+ 1579      74797065 
+ 1579      00
+ 1580              	.LASF23:
+ 1581 0509 436F756E 		.ascii	"CounterType\000"
+ 1581      74657254 
+ 1581      79706500 
+ 1582              	.LASF63:
+ 1583 0515 45455F74 		.ascii	"EE_th_terminate_nextask\000"
+ 1583      685F7465 
+ 1583      726D696E 
+ 1583      6174655F 
+ 1583      6E657874 
+ 1584              	.LASF53:
+ 1585 052d 63757272 		.ascii	"current\000"
+ 1585      656E7400 
+ 1586              	.LASF54:
+ 1587 0535 666C6167 		.ascii	"flag\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4J49p5.s 			page 47
+
+
+ 1587      00
+ 1588              	.LASF61:
+ 1589 053a 45455F74 		.ascii	"EE_th_next\000"
+ 1589      685F6E65 
+ 1589      787400
+ 1590              	.LASF77:
+ 1591 0545 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1591      43313120 
+ 1591      352E342E 
+ 1591      31203230 
+ 1591      31363036 
+ 1592 0578 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1592      20726576 
+ 1592      6973696F 
+ 1592      6E203233 
+ 1592      37373135 
+ 1593 05ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1593      66756E63 
+ 1593      74696F6E 
+ 1593      2D736563 
+ 1593      74696F6E 
+ 1594              	.LASF39:
+ 1595 05d3 636E7463 		.ascii	"cntcycle\000"
+ 1595      79636C65 
+ 1595      00
+ 1596              	.LASF73:
+ 1597 05dc 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1597      6F5F4952 
+ 1597      515F6469 
+ 1597      7361626C 
+ 1597      655F636F 
+ 1598              	.LASF41:
+ 1599 05f4 6E657874 		.ascii	"next\000"
+ 1599      00
+ 1600              	.LASF49:
+ 1601 05f9 45455F68 		.ascii	"EE_hal_begin_nested_primitive\000"
+ 1601      616C5F62 
+ 1601      6567696E 
+ 1601      5F6E6573 
+ 1601      7465645F 
+ 1602              	.LASF29:
+ 1603 0617 66697273 		.ascii	"first\000"
+ 1603      7400
+ 1604              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

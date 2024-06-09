@@ -1,0 +1,131 @@
+signalclasses:
+    sc_joystick:
+        datatrigger: 
+    sc_speed:
+        datatrigger:
+
+signalpools:
+    sp_common:
+        start: ADR_SP_COMMON_START
+        end: ADR_SP_COMMON_END
+        signals:
+            so_joystick:
+                    class: sc_joystick
+                    inDriver: default
+                    outDriver: 0
+                    onDataUpdate: ev_joystick_onData
+                    onDataUpdateTask: 
+                    onDataError: 0
+                    onDataErrorTask: 
+            so_speed:
+                    class: sc_speed
+                    inDriver: 0
+                    outDriver: 0
+                    onDataUpdate: ev_speed_onData
+                    onDataUpdateTask: 
+                    onDataError: 0
+                    onDataErrorTask: 
+            so_enginesignal:
+                    class: sc_speed
+                    inDriver: 0
+                    outDriver: default
+                    onDataUpdate: 0
+                    onDataUpdateTask: 
+                    onDataError: 0
+                    onDataErrorTask: 
+            so_brakeLight:
+                    class: sc_speed
+                    inDriver: 0
+                    outDriver: default
+                    onDataUpdate: 0
+                    onDataUpdateTask: 
+                    onDataError: 0
+                    onDataErrorTask:
+
+tasks:
+    tsk_io:
+        timertickperiod: 1
+        mode: Cyclic
+        signalpoolsRO: sp_common
+        signalpoolsRW: sp_common
+        events: 
+        runnables:
+                REMOTE_readJoystick_run:
+                    task: tsk_io
+                    cycletime: 10
+                    events: 
+                    signalIN: 
+                    signalOUT: so_joystick
+            
+                ENGINE_setEngine_run:
+                    task: tsk_io
+                    cycletime: 100
+                    events: 
+                    signalIN: so_speed
+                    signalOUT: so_enginesignal
+            
+    tsk_control:
+        timertickperiod: 1
+        mode: Cyclic and Event
+        signalpoolsRO: sp_common
+        signalpoolsRW: sp_common
+        events: ev_joystick_onData
+        runnables:
+                CONTROL_calcControl_run:
+                    task: tsk_control
+                    cycletime: 0
+                    events: ev_joystick_onData
+                    signalIN: so_joystick
+                    signalOUT: so_speed
+            
+    tsk_brakelight:
+        timertickperiod: 1
+        mode: Cyclic and Event
+        signalpoolsRO: sp_common
+        signalpoolsRW: sp_common
+        events: ev_speed_onData
+        runnables:
+                BRAKELIGHT_setBrakeLight_run:
+                    task: tsk_brakelight
+                    cycletime: 0
+                    events: ev_speed_onData
+                    signalIN: so_speed
+                    signalOUT: so_brakeLight
+
+swc:
+    swc_remote:
+        runnables:
+                REMOTE_readJoystick_run:
+                    task: tsk_io
+                    cycletime: 10
+                    events: 
+                    signalIN: 
+                    signalOUT: so_joystick
+            
+    swc_control:
+        runnables:
+                CONTROL_calcControl_run:
+                    task: tsk_control
+                    cycletime: 0
+                    events: ev_joystick_onData
+                    signalIN: so_joystick
+                    signalOUT: so_speed
+            
+    swc_Engine:
+        runnables:
+                ENGINE_setEngine_run:
+                    task: tsk_io
+                    cycletime: 100
+                    events: 
+                    signalIN: so_speed
+                    signalOUT: so_enginesignal
+            
+    swc_BrakeLight:
+        runnables:
+                BRAKELIGHT_setBrakeLight_run:
+                    task: tsk_brakelight
+                    cycletime: 0
+                    events: ev_speed_onData
+                    signalIN: so_speed
+                    signalOUT: so_brakeLight
+

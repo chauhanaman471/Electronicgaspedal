@@ -1,0 +1,1093 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"RGB_PWM_red_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RGB_PWM_red_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	RGB_PWM_red_SaveConfig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	RGB_PWM_red_SaveConfig, %function
+  25              	RGB_PWM_red_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\RGB_PWM_red_PM.c"
+   1:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * File Name: RGB_PWM_red_PM.c
+   3:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Version 3.30
+   4:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+   5:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Description:
+   6:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  This file provides the power management source code to API for the
+   7:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  PWM.
+   8:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+   9:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Note:
+  10:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  11:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  18:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** #include "RGB_PWM_red.h"
+  19:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  20:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** static RGB_PWM_red_backupStruct RGB_PWM_red_backup;
+  21:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  22:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  23:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** /*******************************************************************************
+  24:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Function Name: RGB_PWM_red_SaveConfig
+  25:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** ********************************************************************************
+  26:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  27:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Summary:
+  28:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  Saves the current user configuration of the component.
+  29:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  30:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Parameters:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 2
+
+
+  31:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+  32:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  33:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Return:
+  34:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+  35:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  36:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Global variables:
+  37:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  RGB_PWM_red_backup:  Variables of this global structure are modified to
+  38:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  39:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  called.
+  40:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  41:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *******************************************************************************/
+  42:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** void RGB_PWM_red_SaveConfig(void) 
+  43:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  44:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  45:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     #if(!RGB_PWM_red_UsingFixedFunction)
+  46:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if(!RGB_PWM_red_PWMModeIsCenterAligned)
+  47:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.PWMPeriod = RGB_PWM_red_ReadPeriod();
+  36              		.loc 1 47 0
+  37 0002 FFF7FEFF 		bl	RGB_PWM_red_ReadPeriod
+  38              	.LVL0:
+  39 0006 044C     		ldr	r4, .L3
+  40 0008 A080     		strh	r0, [r4, #4]	@ movhi
+  48:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif /* (!RGB_PWM_red_PWMModeIsCenterAligned) */
+  49:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         RGB_PWM_red_backup.PWMUdb = RGB_PWM_red_ReadCounter();
+  41              		.loc 1 49 0
+  42 000a FFF7FEFF 		bl	RGB_PWM_red_ReadCounter
+  43              	.LVL1:
+  44 000e 6080     		strh	r0, [r4, #2]	@ movhi
+  50:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if (RGB_PWM_red_UseStatus)
+  51:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.InterruptMaskValue = RGB_PWM_red_STATUS_MASK;
+  52:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif /* (RGB_PWM_red_UseStatus) */
+  53:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  54:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if(RGB_PWM_red_DeadBandMode == RGB_PWM_red__B_PWM__DBM_256_CLOCKS || \
+  55:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_DeadBandMode == RGB_PWM_red__B_PWM__DBM_2_4_CLOCKS)
+  56:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.PWMdeadBandValue = RGB_PWM_red_ReadDeadTime();
+  57:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  59:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if(RGB_PWM_red_KillModeMinTime)
+  60:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****              RGB_PWM_red_backup.PWMKillCounterPeriod = RGB_PWM_red_ReadKillTime();
+  61:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif /* (RGB_PWM_red_KillModeMinTime) */
+  62:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  63:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if(RGB_PWM_red_UseControl)
+  64:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.PWMControlRegister = RGB_PWM_red_ReadControlRegister();
+  45              		.loc 1 64 0
+  46 0010 FFF7FEFF 		bl	RGB_PWM_red_ReadControlRegister
+  47              	.LVL2:
+  48 0014 A071     		strb	r0, [r4, #6]
+  49 0016 10BD     		pop	{r4, pc}
+  50              	.L4:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 3
+
+
+  51              		.align	2
+  52              	.L3:
+  53 0018 00000000 		.word	.LANCHOR0
+  54              		.cfi_endproc
+  55              	.LFE0:
+  56              		.size	RGB_PWM_red_SaveConfig, .-RGB_PWM_red_SaveConfig
+  57              		.section	.text.RGB_PWM_red_RestoreConfig,"ax",%progbits
+  58              		.align	2
+  59              		.global	RGB_PWM_red_RestoreConfig
+  60              		.thumb
+  61              		.thumb_func
+  62              		.type	RGB_PWM_red_RestoreConfig, %function
+  63              	RGB_PWM_red_RestoreConfig:
+  64              	.LFB1:
+  65:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif /* (RGB_PWM_red_UseControl) */
+  66:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     #endif  /* (!RGB_PWM_red_UsingFixedFunction) */
+  67:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** }
+  68:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  69:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  70:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** /*******************************************************************************
+  71:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Function Name: RGB_PWM_red_RestoreConfig
+  72:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** ********************************************************************************
+  73:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  74:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Summary:
+  75:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  Restores the current user configuration of the component.
+  76:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  77:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Parameters:
+  78:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+  79:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  80:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Return:
+  81:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+  82:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  83:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Global variables:
+  84:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  RGB_PWM_red_backup:  Variables of this global structure are used to
+  85:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  86:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+  87:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *******************************************************************************/
+  88:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** void RGB_PWM_red_RestoreConfig(void) 
+  89:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** {
+  65              		.loc 1 89 0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69 0000 10B5     		push	{r4, lr}
+  70              		.cfi_def_cfa_offset 8
+  71              		.cfi_offset 4, -8
+  72              		.cfi_offset 14, -4
+  90:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #if(!RGB_PWM_red_UsingFixedFunction)
+  91:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #if(!RGB_PWM_red_PWMModeIsCenterAligned)
+  92:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_WritePeriod(RGB_PWM_red_backup.PWMPeriod);
+  73              		.loc 1 92 0
+  74 0002 054C     		ldr	r4, .L7
+  75 0004 A088     		ldrh	r0, [r4, #4]
+  76 0006 FFF7FEFF 		bl	RGB_PWM_red_WritePeriod
+  77              	.LVL3:
+  93:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #endif /* (!RGB_PWM_red_PWMModeIsCenterAligned) */
+  94:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 4
+
+
+  95:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_WriteCounter(RGB_PWM_red_backup.PWMUdb);
+  78              		.loc 1 95 0
+  79 000a 6088     		ldrh	r0, [r4, #2]
+  80 000c FFF7FEFF 		bl	RGB_PWM_red_WriteCounter
+  81              	.LVL4:
+  96:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+  97:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #if (RGB_PWM_red_UseStatus)
+  98:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_STATUS_MASK = RGB_PWM_red_backup.InterruptMaskValue;
+  99:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #endif /* (RGB_PWM_red_UseStatus) */
+ 100:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 101:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #if(RGB_PWM_red_DeadBandMode == RGB_PWM_red__B_PWM__DBM_256_CLOCKS || \
+ 102:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_DeadBandMode == RGB_PWM_red__B_PWM__DBM_2_4_CLOCKS)
+ 103:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_WriteDeadTime(RGB_PWM_red_backup.PWMdeadBandValue);
+ 104:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 105:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 106:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #if(RGB_PWM_red_KillModeMinTime)
+ 107:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_WriteKillTime(RGB_PWM_red_backup.PWMKillCounterPeriod);
+ 108:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #endif /* (RGB_PWM_red_KillModeMinTime) */
+ 109:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 110:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #if(RGB_PWM_red_UseControl)
+ 111:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****                 RGB_PWM_red_WriteControlRegister(RGB_PWM_red_backup.PWMControlRegister);
+  82              		.loc 1 111 0
+  83 0010 A079     		ldrb	r0, [r4, #6]	@ zero_extendqisi2
+  84 0012 FFF7FEFF 		bl	RGB_PWM_red_WriteControlRegister
+  85              	.LVL5:
+  86 0016 10BD     		pop	{r4, pc}
+  87              	.L8:
+  88              		.align	2
+  89              	.L7:
+  90 0018 00000000 		.word	.LANCHOR0
+  91              		.cfi_endproc
+  92              	.LFE1:
+  93              		.size	RGB_PWM_red_RestoreConfig, .-RGB_PWM_red_RestoreConfig
+  94              		.section	.text.RGB_PWM_red_Sleep,"ax",%progbits
+  95              		.align	2
+  96              		.global	RGB_PWM_red_Sleep
+  97              		.thumb
+  98              		.thumb_func
+  99              		.type	RGB_PWM_red_Sleep, %function
+ 100              	RGB_PWM_red_Sleep:
+ 101              	.LFB2:
+ 112:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             #endif /* (RGB_PWM_red_UseControl) */
+ 113:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         #endif  /* (!RGB_PWM_red_UsingFixedFunction) */
+ 114:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     }
+ 115:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 116:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 117:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** /*******************************************************************************
+ 118:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Function Name: RGB_PWM_red_Sleep
+ 119:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** ********************************************************************************
+ 120:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 121:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Summary:
+ 122:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  Disables block's operation and saves the user configuration. Should be called
+ 123:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  just prior to entering sleep.
+ 124:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 125:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Parameters:
+ 126:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+ 127:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 5
+
+
+ 128:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Return:
+ 129:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+ 130:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 131:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Global variables:
+ 132:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  RGB_PWM_red_backup.PWMEnableState:  Is modified depending on the enable
+ 133:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  state of the block before entering sleep mode.
+ 134:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 135:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** void RGB_PWM_red_Sleep(void) 
+ 137:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** {
+ 102              		.loc 1 137 0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106 0000 08B5     		push	{r3, lr}
+ 107              		.cfi_def_cfa_offset 8
+ 108              		.cfi_offset 3, -8
+ 109              		.cfi_offset 14, -4
+ 138:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     #if(RGB_PWM_red_UseControl)
+ 139:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         if(RGB_PWM_red_CTRL_ENABLE == (RGB_PWM_red_CONTROL & RGB_PWM_red_CTRL_ENABLE))
+ 110              		.loc 1 139 0
+ 111 0002 084B     		ldr	r3, .L13
+ 112 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 113 0006 13F0800F 		tst	r3, #128
+ 114 000a 03D0     		beq	.L10
+ 140:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         {
+ 141:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             /*Component is enabled */
+ 142:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.PWMEnableState = 1u;
+ 115              		.loc 1 142 0
+ 116 000c 0122     		movs	r2, #1
+ 117 000e 064B     		ldr	r3, .L13+4
+ 118 0010 1A70     		strb	r2, [r3]
+ 119 0012 02E0     		b	.L11
+ 120              	.L10:
+ 143:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         }
+ 144:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         else
+ 145:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         {
+ 146:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             /* Component is disabled */
+ 147:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****             RGB_PWM_red_backup.PWMEnableState = 0u;
+ 121              		.loc 1 147 0
+ 122 0014 0022     		movs	r2, #0
+ 123 0016 044B     		ldr	r3, .L13+4
+ 124 0018 1A70     		strb	r2, [r3]
+ 125              	.L11:
+ 148:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         }
+ 149:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     #endif /* (RGB_PWM_red_UseControl) */
+ 150:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 151:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     /* Stop component */
+ 152:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     RGB_PWM_red_Stop();
+ 126              		.loc 1 152 0
+ 127 001a FFF7FEFF 		bl	RGB_PWM_red_Stop
+ 128              	.LVL6:
+ 153:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 154:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     /* Save registers configuration */
+ 155:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     RGB_PWM_red_SaveConfig();
+ 129              		.loc 1 155 0
+ 130 001e FFF7FEFF 		bl	RGB_PWM_red_SaveConfig
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 6
+
+
+ 131              	.LVL7:
+ 132 0022 08BD     		pop	{r3, pc}
+ 133              	.L14:
+ 134              		.align	2
+ 135              	.L13:
+ 136 0024 7C640040 		.word	1073767548
+ 137 0028 00000000 		.word	.LANCHOR0
+ 138              		.cfi_endproc
+ 139              	.LFE2:
+ 140              		.size	RGB_PWM_red_Sleep, .-RGB_PWM_red_Sleep
+ 141              		.section	.text.RGB_PWM_red_Wakeup,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	RGB_PWM_red_Wakeup
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	RGB_PWM_red_Wakeup, %function
+ 147              	RGB_PWM_red_Wakeup:
+ 148              	.LFB3:
+ 156:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** }
+ 157:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 158:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 159:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** /*******************************************************************************
+ 160:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Function Name: RGB_PWM_red_Wakeup
+ 161:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** ********************************************************************************
+ 162:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 163:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Summary:
+ 164:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  Restores and enables the user configuration. Should be called just after
+ 165:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  awaking from sleep.
+ 166:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 167:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Parameters:
+ 168:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+ 169:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 170:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Return:
+ 171:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  None
+ 172:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 173:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** * Global variables:
+ 174:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  RGB_PWM_red_backup.pwmEnable:  Is used to restore the enable state of
+ 175:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *  block on wakeup from sleep mode.
+ 176:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *
+ 177:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** void RGB_PWM_red_Wakeup(void) 
+ 179:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** {
+ 149              		.loc 1 179 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153 0000 08B5     		push	{r3, lr}
+ 154              		.cfi_def_cfa_offset 8
+ 155              		.cfi_offset 3, -8
+ 156              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****      /* Restore registers values */
+ 181:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     RGB_PWM_red_RestoreConfig();
+ 157              		.loc 1 181 0
+ 158 0002 FFF7FEFF 		bl	RGB_PWM_red_RestoreConfig
+ 159              	.LVL8:
+ 182:Generated_Source\PSoC5/RGB_PWM_red_PM.c **** 
+ 183:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     if(RGB_PWM_red_backup.PWMEnableState != 0u)
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 7
+
+
+ 160              		.loc 1 183 0
+ 161 0006 034B     		ldr	r3, .L18
+ 162 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 163 000a 0BB1     		cbz	r3, .L15
+ 184:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****     {
+ 185:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         /* Enable component's operation */
+ 186:Generated_Source\PSoC5/RGB_PWM_red_PM.c ****         RGB_PWM_red_Enable();
+ 164              		.loc 1 186 0
+ 165 000c FFF7FEFF 		bl	RGB_PWM_red_Enable
+ 166              	.LVL9:
+ 167              	.L15:
+ 168 0010 08BD     		pop	{r3, pc}
+ 169              	.L19:
+ 170 0012 00BF     		.align	2
+ 171              	.L18:
+ 172 0014 00000000 		.word	.LANCHOR0
+ 173              		.cfi_endproc
+ 174              	.LFE3:
+ 175              		.size	RGB_PWM_red_Wakeup, .-RGB_PWM_red_Wakeup
+ 176              		.bss
+ 177              		.align	2
+ 178              		.set	.LANCHOR0,. + 0
+ 179              		.type	RGB_PWM_red_backup, %object
+ 180              		.size	RGB_PWM_red_backup, 8
+ 181              	RGB_PWM_red_backup:
+ 182 0000 00000000 		.space	8
+ 182      00000000 
+ 183              		.text
+ 184              	.Letext0:
+ 185              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 186              		.file 3 "Generated_Source\\PSoC5\\RGB_PWM_red.h"
+ 187              		.section	.debug_info,"",%progbits
+ 188              	.Ldebug_info0:
+ 189 0000 13020000 		.4byte	0x213
+ 190 0004 0400     		.2byte	0x4
+ 191 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 192 000a 04       		.byte	0x4
+ 193 000b 01       		.uleb128 0x1
+ 194 000c DA000000 		.4byte	.LASF34
+ 195 0010 0C       		.byte	0xc
+ 196 0011 11020000 		.4byte	.LASF35
+ 197 0015 53020000 		.4byte	.LASF36
+ 198 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 199 001d 00000000 		.4byte	0
+ 200 0021 00000000 		.4byte	.Ldebug_line0
+ 201 0025 02       		.uleb128 0x2
+ 202 0026 01       		.byte	0x1
+ 203 0027 06       		.byte	0x6
+ 204 0028 48030000 		.4byte	.LASF0
+ 205 002c 02       		.uleb128 0x2
+ 206 002d 01       		.byte	0x1
+ 207 002e 08       		.byte	0x8
+ 208 002f CC000000 		.4byte	.LASF1
+ 209 0033 02       		.uleb128 0x2
+ 210 0034 02       		.byte	0x2
+ 211 0035 05       		.byte	0x5
+ 212 0036 FA020000 		.4byte	.LASF2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 8
+
+
+ 213 003a 02       		.uleb128 0x2
+ 214 003b 02       		.byte	0x2
+ 215 003c 07       		.byte	0x7
+ 216 003d 42000000 		.4byte	.LASF3
+ 217 0041 02       		.uleb128 0x2
+ 218 0042 04       		.byte	0x4
+ 219 0043 05       		.byte	0x5
+ 220 0044 2C030000 		.4byte	.LASF4
+ 221 0048 02       		.uleb128 0x2
+ 222 0049 04       		.byte	0x4
+ 223 004a 07       		.byte	0x7
+ 224 004b 77010000 		.4byte	.LASF5
+ 225 004f 02       		.uleb128 0x2
+ 226 0050 08       		.byte	0x8
+ 227 0051 05       		.byte	0x5
+ 228 0052 D4020000 		.4byte	.LASF6
+ 229 0056 02       		.uleb128 0x2
+ 230 0057 08       		.byte	0x8
+ 231 0058 07       		.byte	0x7
+ 232 0059 FA010000 		.4byte	.LASF7
+ 233 005d 03       		.uleb128 0x3
+ 234 005e 04       		.byte	0x4
+ 235 005f 05       		.byte	0x5
+ 236 0060 696E7400 		.ascii	"int\000"
+ 237 0064 02       		.uleb128 0x2
+ 238 0065 04       		.byte	0x4
+ 239 0066 07       		.byte	0x7
+ 240 0067 ED010000 		.4byte	.LASF8
+ 241 006b 04       		.uleb128 0x4
+ 242 006c 89010000 		.4byte	.LASF9
+ 243 0070 02       		.byte	0x2
+ 244 0071 E801     		.2byte	0x1e8
+ 245 0073 2C000000 		.4byte	0x2c
+ 246 0077 04       		.uleb128 0x4
+ 247 0078 D4010000 		.4byte	.LASF10
+ 248 007c 02       		.byte	0x2
+ 249 007d E901     		.2byte	0x1e9
+ 250 007f 3A000000 		.4byte	0x3a
+ 251 0083 02       		.uleb128 0x2
+ 252 0084 04       		.byte	0x4
+ 253 0085 04       		.byte	0x4
+ 254 0086 A6000000 		.4byte	.LASF11
+ 255 008a 02       		.uleb128 0x2
+ 256 008b 08       		.byte	0x8
+ 257 008c 04       		.byte	0x4
+ 258 008d CD010000 		.4byte	.LASF12
+ 259 0091 02       		.uleb128 0x2
+ 260 0092 01       		.byte	0x1
+ 261 0093 08       		.byte	0x8
+ 262 0094 E2020000 		.4byte	.LASF13
+ 263 0098 04       		.uleb128 0x4
+ 264 0099 BA020000 		.4byte	.LASF14
+ 265 009d 02       		.byte	0x2
+ 266 009e 9202     		.2byte	0x292
+ 267 00a0 A4000000 		.4byte	0xa4
+ 268 00a4 05       		.uleb128 0x5
+ 269 00a5 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 9
+
+
+ 270 00a9 02       		.uleb128 0x2
+ 271 00aa 08       		.byte	0x8
+ 272 00ab 04       		.byte	0x4
+ 273 00ac BF020000 		.4byte	.LASF15
+ 274 00b0 02       		.uleb128 0x2
+ 275 00b1 04       		.byte	0x4
+ 276 00b2 07       		.byte	0x7
+ 277 00b3 CB020000 		.4byte	.LASF16
+ 278 00b7 06       		.uleb128 0x6
+ 279 00b8 08       		.byte	0x8
+ 280 00b9 03       		.byte	0x3
+ 281 00ba 6B       		.byte	0x6b
+ 282 00bb F0000000 		.4byte	0xf0
+ 283 00bf 07       		.uleb128 0x7
+ 284 00c0 68010000 		.4byte	.LASF17
+ 285 00c4 03       		.byte	0x3
+ 286 00c5 6E       		.byte	0x6e
+ 287 00c6 6B000000 		.4byte	0x6b
+ 288 00ca 00       		.byte	0
+ 289 00cb 07       		.uleb128 0x7
+ 290 00cc 00000000 		.4byte	.LASF18
+ 291 00d0 03       		.byte	0x3
+ 292 00d1 71       		.byte	0x71
+ 293 00d2 77000000 		.4byte	0x77
+ 294 00d6 02       		.byte	0x2
+ 295 00d7 07       		.uleb128 0x7
+ 296 00d8 07000000 		.4byte	.LASF19
+ 297 00dc 03       		.byte	0x3
+ 298 00dd 73       		.byte	0x73
+ 299 00de 77000000 		.4byte	0x77
+ 300 00e2 04       		.byte	0x4
+ 301 00e3 07       		.uleb128 0x7
+ 302 00e4 8F010000 		.4byte	.LASF20
+ 303 00e8 03       		.byte	0x3
+ 304 00e9 86       		.byte	0x86
+ 305 00ea 6B000000 		.4byte	0x6b
+ 306 00ee 06       		.byte	0x6
+ 307 00ef 00       		.byte	0
+ 308 00f0 08       		.uleb128 0x8
+ 309 00f1 55000000 		.4byte	.LASF21
+ 310 00f5 03       		.byte	0x3
+ 311 00f6 8B       		.byte	0x8b
+ 312 00f7 B7000000 		.4byte	0xb7
+ 313 00fb 09       		.uleb128 0x9
+ 314 00fc 8F000000 		.4byte	.LASF22
+ 315 0100 01       		.byte	0x1
+ 316 0101 2A       		.byte	0x2a
+ 317 0102 00000000 		.4byte	.LFB0
+ 318 0106 1C000000 		.4byte	.LFE0-.LFB0
+ 319 010a 01       		.uleb128 0x1
+ 320 010b 9C       		.byte	0x9c
+ 321 010c 2C010000 		.4byte	0x12c
+ 322 0110 0A       		.uleb128 0xa
+ 323 0111 06000000 		.4byte	.LVL0
+ 324 0115 BE010000 		.4byte	0x1be
+ 325 0119 0A       		.uleb128 0xa
+ 326 011a 0E000000 		.4byte	.LVL1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 10
+
+
+ 327 011e C9010000 		.4byte	0x1c9
+ 328 0122 0A       		.uleb128 0xa
+ 329 0123 14000000 		.4byte	.LVL2
+ 330 0127 D4010000 		.4byte	0x1d4
+ 331 012b 00       		.byte	0
+ 332 012c 09       		.uleb128 0x9
+ 333 012d 39020000 		.4byte	.LASF23
+ 334 0131 01       		.byte	0x1
+ 335 0132 58       		.byte	0x58
+ 336 0133 00000000 		.4byte	.LFB1
+ 337 0137 1C000000 		.4byte	.LFE1-.LFB1
+ 338 013b 01       		.uleb128 0x1
+ 339 013c 9C       		.byte	0x9c
+ 340 013d 5D010000 		.4byte	0x15d
+ 341 0141 0A       		.uleb128 0xa
+ 342 0142 0A000000 		.4byte	.LVL3
+ 343 0146 DF010000 		.4byte	0x1df
+ 344 014a 0A       		.uleb128 0xa
+ 345 014b 10000000 		.4byte	.LVL4
+ 346 014f EA010000 		.4byte	0x1ea
+ 347 0153 0A       		.uleb128 0xa
+ 348 0154 16000000 		.4byte	.LVL5
+ 349 0158 F5010000 		.4byte	0x1f5
+ 350 015c 00       		.byte	0
+ 351 015d 09       		.uleb128 0x9
+ 352 015e DB010000 		.4byte	.LASF24
+ 353 0162 01       		.byte	0x1
+ 354 0163 88       		.byte	0x88
+ 355 0164 00000000 		.4byte	.LFB2
+ 356 0168 2C000000 		.4byte	.LFE2-.LFB2
+ 357 016c 01       		.uleb128 0x1
+ 358 016d 9C       		.byte	0x9c
+ 359 016e 85010000 		.4byte	0x185
+ 360 0172 0A       		.uleb128 0xa
+ 361 0173 1E000000 		.4byte	.LVL6
+ 362 0177 00020000 		.4byte	0x200
+ 363 017b 0A       		.uleb128 0xa
+ 364 017c 22000000 		.4byte	.LVL7
+ 365 0180 FB000000 		.4byte	0xfb
+ 366 0184 00       		.byte	0
+ 367 0185 09       		.uleb128 0x9
+ 368 0186 35030000 		.4byte	.LASF25
+ 369 018a 01       		.byte	0x1
+ 370 018b B2       		.byte	0xb2
+ 371 018c 00000000 		.4byte	.LFB3
+ 372 0190 18000000 		.4byte	.LFE3-.LFB3
+ 373 0194 01       		.uleb128 0x1
+ 374 0195 9C       		.byte	0x9c
+ 375 0196 AD010000 		.4byte	0x1ad
+ 376 019a 0A       		.uleb128 0xa
+ 377 019b 06000000 		.4byte	.LVL8
+ 378 019f 2C010000 		.4byte	0x12c
+ 379 01a3 0A       		.uleb128 0xa
+ 380 01a4 10000000 		.4byte	.LVL9
+ 381 01a8 0B020000 		.4byte	0x20b
+ 382 01ac 00       		.byte	0
+ 383 01ad 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 11
+
+
+ 384 01ae E7020000 		.4byte	.LASF37
+ 385 01b2 01       		.byte	0x1
+ 386 01b3 14       		.byte	0x14
+ 387 01b4 F0000000 		.4byte	0xf0
+ 388 01b8 05       		.uleb128 0x5
+ 389 01b9 03       		.byte	0x3
+ 390 01ba 00000000 		.4byte	RGB_PWM_red_backup
+ 391 01be 0C       		.uleb128 0xc
+ 392 01bf 15030000 		.4byte	.LASF26
+ 393 01c3 15030000 		.4byte	.LASF26
+ 394 01c7 03       		.byte	0x3
+ 395 01c8 C0       		.byte	0xc0
+ 396 01c9 0C       		.uleb128 0xc
+ 397 01ca A2010000 		.4byte	.LASF27
+ 398 01ce A2010000 		.4byte	.LASF27
+ 399 01d2 03       		.byte	0x3
+ 400 01d3 B3       		.byte	0xb3
+ 401 01d4 0C       		.uleb128 0xc
+ 402 01d5 AC000000 		.4byte	.LASF28
+ 403 01d9 AC000000 		.4byte	.LASF28
+ 404 01dd 03       		.byte	0x3
+ 405 01de 9D       		.byte	0x9d
+ 406 01df 0C       		.uleb128 0xc
+ 407 01e0 11000000 		.4byte	.LASF29
+ 408 01e4 11000000 		.4byte	.LASF29
+ 409 01e8 03       		.byte	0x3
+ 410 01e9 BE       		.byte	0xbe
+ 411 01ea 0C       		.uleb128 0xc
+ 412 01eb 29000000 		.4byte	.LASF30
+ 413 01ef 29000000 		.4byte	.LASF30
+ 414 01f3 03       		.byte	0x3
+ 415 01f4 BA       		.byte	0xba
+ 416 01f5 0C       		.uleb128 0xc
+ 417 01f6 6E000000 		.4byte	.LASF31
+ 418 01fa 6E000000 		.4byte	.LASF31
+ 419 01fe 03       		.byte	0x3
+ 420 01ff 9E       		.byte	0x9e
+ 421 0200 0C       		.uleb128 0xc
+ 422 0201 04030000 		.4byte	.LASF32
+ 423 0205 04030000 		.4byte	.LASF32
+ 424 0209 03       		.byte	0x3
+ 425 020a 93       		.byte	0x93
+ 426 020b 0C       		.uleb128 0xc
+ 427 020c BA010000 		.4byte	.LASF33
+ 428 0210 BA010000 		.4byte	.LASF33
+ 429 0214 03       		.byte	0x3
+ 430 0215 DB       		.byte	0xdb
+ 431 0216 00       		.byte	0
+ 432              		.section	.debug_abbrev,"",%progbits
+ 433              	.Ldebug_abbrev0:
+ 434 0000 01       		.uleb128 0x1
+ 435 0001 11       		.uleb128 0x11
+ 436 0002 01       		.byte	0x1
+ 437 0003 25       		.uleb128 0x25
+ 438 0004 0E       		.uleb128 0xe
+ 439 0005 13       		.uleb128 0x13
+ 440 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 12
+
+
+ 441 0007 03       		.uleb128 0x3
+ 442 0008 0E       		.uleb128 0xe
+ 443 0009 1B       		.uleb128 0x1b
+ 444 000a 0E       		.uleb128 0xe
+ 445 000b 55       		.uleb128 0x55
+ 446 000c 17       		.uleb128 0x17
+ 447 000d 11       		.uleb128 0x11
+ 448 000e 01       		.uleb128 0x1
+ 449 000f 10       		.uleb128 0x10
+ 450 0010 17       		.uleb128 0x17
+ 451 0011 00       		.byte	0
+ 452 0012 00       		.byte	0
+ 453 0013 02       		.uleb128 0x2
+ 454 0014 24       		.uleb128 0x24
+ 455 0015 00       		.byte	0
+ 456 0016 0B       		.uleb128 0xb
+ 457 0017 0B       		.uleb128 0xb
+ 458 0018 3E       		.uleb128 0x3e
+ 459 0019 0B       		.uleb128 0xb
+ 460 001a 03       		.uleb128 0x3
+ 461 001b 0E       		.uleb128 0xe
+ 462 001c 00       		.byte	0
+ 463 001d 00       		.byte	0
+ 464 001e 03       		.uleb128 0x3
+ 465 001f 24       		.uleb128 0x24
+ 466 0020 00       		.byte	0
+ 467 0021 0B       		.uleb128 0xb
+ 468 0022 0B       		.uleb128 0xb
+ 469 0023 3E       		.uleb128 0x3e
+ 470 0024 0B       		.uleb128 0xb
+ 471 0025 03       		.uleb128 0x3
+ 472 0026 08       		.uleb128 0x8
+ 473 0027 00       		.byte	0
+ 474 0028 00       		.byte	0
+ 475 0029 04       		.uleb128 0x4
+ 476 002a 16       		.uleb128 0x16
+ 477 002b 00       		.byte	0
+ 478 002c 03       		.uleb128 0x3
+ 479 002d 0E       		.uleb128 0xe
+ 480 002e 3A       		.uleb128 0x3a
+ 481 002f 0B       		.uleb128 0xb
+ 482 0030 3B       		.uleb128 0x3b
+ 483 0031 05       		.uleb128 0x5
+ 484 0032 49       		.uleb128 0x49
+ 485 0033 13       		.uleb128 0x13
+ 486 0034 00       		.byte	0
+ 487 0035 00       		.byte	0
+ 488 0036 05       		.uleb128 0x5
+ 489 0037 35       		.uleb128 0x35
+ 490 0038 00       		.byte	0
+ 491 0039 49       		.uleb128 0x49
+ 492 003a 13       		.uleb128 0x13
+ 493 003b 00       		.byte	0
+ 494 003c 00       		.byte	0
+ 495 003d 06       		.uleb128 0x6
+ 496 003e 13       		.uleb128 0x13
+ 497 003f 01       		.byte	0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 13
+
+
+ 498 0040 0B       		.uleb128 0xb
+ 499 0041 0B       		.uleb128 0xb
+ 500 0042 3A       		.uleb128 0x3a
+ 501 0043 0B       		.uleb128 0xb
+ 502 0044 3B       		.uleb128 0x3b
+ 503 0045 0B       		.uleb128 0xb
+ 504 0046 01       		.uleb128 0x1
+ 505 0047 13       		.uleb128 0x13
+ 506 0048 00       		.byte	0
+ 507 0049 00       		.byte	0
+ 508 004a 07       		.uleb128 0x7
+ 509 004b 0D       		.uleb128 0xd
+ 510 004c 00       		.byte	0
+ 511 004d 03       		.uleb128 0x3
+ 512 004e 0E       		.uleb128 0xe
+ 513 004f 3A       		.uleb128 0x3a
+ 514 0050 0B       		.uleb128 0xb
+ 515 0051 3B       		.uleb128 0x3b
+ 516 0052 0B       		.uleb128 0xb
+ 517 0053 49       		.uleb128 0x49
+ 518 0054 13       		.uleb128 0x13
+ 519 0055 38       		.uleb128 0x38
+ 520 0056 0B       		.uleb128 0xb
+ 521 0057 00       		.byte	0
+ 522 0058 00       		.byte	0
+ 523 0059 08       		.uleb128 0x8
+ 524 005a 16       		.uleb128 0x16
+ 525 005b 00       		.byte	0
+ 526 005c 03       		.uleb128 0x3
+ 527 005d 0E       		.uleb128 0xe
+ 528 005e 3A       		.uleb128 0x3a
+ 529 005f 0B       		.uleb128 0xb
+ 530 0060 3B       		.uleb128 0x3b
+ 531 0061 0B       		.uleb128 0xb
+ 532 0062 49       		.uleb128 0x49
+ 533 0063 13       		.uleb128 0x13
+ 534 0064 00       		.byte	0
+ 535 0065 00       		.byte	0
+ 536 0066 09       		.uleb128 0x9
+ 537 0067 2E       		.uleb128 0x2e
+ 538 0068 01       		.byte	0x1
+ 539 0069 3F       		.uleb128 0x3f
+ 540 006a 19       		.uleb128 0x19
+ 541 006b 03       		.uleb128 0x3
+ 542 006c 0E       		.uleb128 0xe
+ 543 006d 3A       		.uleb128 0x3a
+ 544 006e 0B       		.uleb128 0xb
+ 545 006f 3B       		.uleb128 0x3b
+ 546 0070 0B       		.uleb128 0xb
+ 547 0071 27       		.uleb128 0x27
+ 548 0072 19       		.uleb128 0x19
+ 549 0073 11       		.uleb128 0x11
+ 550 0074 01       		.uleb128 0x1
+ 551 0075 12       		.uleb128 0x12
+ 552 0076 06       		.uleb128 0x6
+ 553 0077 40       		.uleb128 0x40
+ 554 0078 18       		.uleb128 0x18
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 14
+
+
+ 555 0079 9742     		.uleb128 0x2117
+ 556 007b 19       		.uleb128 0x19
+ 557 007c 01       		.uleb128 0x1
+ 558 007d 13       		.uleb128 0x13
+ 559 007e 00       		.byte	0
+ 560 007f 00       		.byte	0
+ 561 0080 0A       		.uleb128 0xa
+ 562 0081 898201   		.uleb128 0x4109
+ 563 0084 00       		.byte	0
+ 564 0085 11       		.uleb128 0x11
+ 565 0086 01       		.uleb128 0x1
+ 566 0087 31       		.uleb128 0x31
+ 567 0088 13       		.uleb128 0x13
+ 568 0089 00       		.byte	0
+ 569 008a 00       		.byte	0
+ 570 008b 0B       		.uleb128 0xb
+ 571 008c 34       		.uleb128 0x34
+ 572 008d 00       		.byte	0
+ 573 008e 03       		.uleb128 0x3
+ 574 008f 0E       		.uleb128 0xe
+ 575 0090 3A       		.uleb128 0x3a
+ 576 0091 0B       		.uleb128 0xb
+ 577 0092 3B       		.uleb128 0x3b
+ 578 0093 0B       		.uleb128 0xb
+ 579 0094 49       		.uleb128 0x49
+ 580 0095 13       		.uleb128 0x13
+ 581 0096 02       		.uleb128 0x2
+ 582 0097 18       		.uleb128 0x18
+ 583 0098 00       		.byte	0
+ 584 0099 00       		.byte	0
+ 585 009a 0C       		.uleb128 0xc
+ 586 009b 2E       		.uleb128 0x2e
+ 587 009c 00       		.byte	0
+ 588 009d 3F       		.uleb128 0x3f
+ 589 009e 19       		.uleb128 0x19
+ 590 009f 3C       		.uleb128 0x3c
+ 591 00a0 19       		.uleb128 0x19
+ 592 00a1 6E       		.uleb128 0x6e
+ 593 00a2 0E       		.uleb128 0xe
+ 594 00a3 03       		.uleb128 0x3
+ 595 00a4 0E       		.uleb128 0xe
+ 596 00a5 3A       		.uleb128 0x3a
+ 597 00a6 0B       		.uleb128 0xb
+ 598 00a7 3B       		.uleb128 0x3b
+ 599 00a8 0B       		.uleb128 0xb
+ 600 00a9 00       		.byte	0
+ 601 00aa 00       		.byte	0
+ 602 00ab 00       		.byte	0
+ 603              		.section	.debug_aranges,"",%progbits
+ 604 0000 34000000 		.4byte	0x34
+ 605 0004 0200     		.2byte	0x2
+ 606 0006 00000000 		.4byte	.Ldebug_info0
+ 607 000a 04       		.byte	0x4
+ 608 000b 00       		.byte	0
+ 609 000c 0000     		.2byte	0
+ 610 000e 0000     		.2byte	0
+ 611 0010 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 15
+
+
+ 612 0014 1C000000 		.4byte	.LFE0-.LFB0
+ 613 0018 00000000 		.4byte	.LFB1
+ 614 001c 1C000000 		.4byte	.LFE1-.LFB1
+ 615 0020 00000000 		.4byte	.LFB2
+ 616 0024 2C000000 		.4byte	.LFE2-.LFB2
+ 617 0028 00000000 		.4byte	.LFB3
+ 618 002c 18000000 		.4byte	.LFE3-.LFB3
+ 619 0030 00000000 		.4byte	0
+ 620 0034 00000000 		.4byte	0
+ 621              		.section	.debug_ranges,"",%progbits
+ 622              	.Ldebug_ranges0:
+ 623 0000 00000000 		.4byte	.LFB0
+ 624 0004 1C000000 		.4byte	.LFE0
+ 625 0008 00000000 		.4byte	.LFB1
+ 626 000c 1C000000 		.4byte	.LFE1
+ 627 0010 00000000 		.4byte	.LFB2
+ 628 0014 2C000000 		.4byte	.LFE2
+ 629 0018 00000000 		.4byte	.LFB3
+ 630 001c 18000000 		.4byte	.LFE3
+ 631 0020 00000000 		.4byte	0
+ 632 0024 00000000 		.4byte	0
+ 633              		.section	.debug_line,"",%progbits
+ 634              	.Ldebug_line0:
+ 635 0000 B3000000 		.section	.debug_str,"MS",%progbits,1
+ 635      02005C00 
+ 635      00000201 
+ 635      FB0E0D00 
+ 635      01010101 
+ 636              	.LASF18:
+ 637 0000 50574D55 		.ascii	"PWMUdb\000"
+ 637      646200
+ 638              	.LASF19:
+ 639 0007 50574D50 		.ascii	"PWMPeriod\000"
+ 639      6572696F 
+ 639      6400
+ 640              	.LASF29:
+ 641 0011 5247425F 		.ascii	"RGB_PWM_red_WritePeriod\000"
+ 641      50574D5F 
+ 641      7265645F 
+ 641      57726974 
+ 641      65506572 
+ 642              	.LASF30:
+ 643 0029 5247425F 		.ascii	"RGB_PWM_red_WriteCounter\000"
+ 643      50574D5F 
+ 643      7265645F 
+ 643      57726974 
+ 643      65436F75 
+ 644              	.LASF3:
+ 645 0042 73686F72 		.ascii	"short unsigned int\000"
+ 645      7420756E 
+ 645      7369676E 
+ 645      65642069 
+ 645      6E7400
+ 646              	.LASF21:
+ 647 0055 5247425F 		.ascii	"RGB_PWM_red_backupStruct\000"
+ 647      50574D5F 
+ 647      7265645F 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 16
+
+
+ 647      6261636B 
+ 647      75705374 
+ 648              	.LASF31:
+ 649 006e 5247425F 		.ascii	"RGB_PWM_red_WriteControlRegister\000"
+ 649      50574D5F 
+ 649      7265645F 
+ 649      57726974 
+ 649      65436F6E 
+ 650              	.LASF22:
+ 651 008f 5247425F 		.ascii	"RGB_PWM_red_SaveConfig\000"
+ 651      50574D5F 
+ 651      7265645F 
+ 651      53617665 
+ 651      436F6E66 
+ 652              	.LASF11:
+ 653 00a6 666C6F61 		.ascii	"float\000"
+ 653      7400
+ 654              	.LASF28:
+ 655 00ac 5247425F 		.ascii	"RGB_PWM_red_ReadControlRegister\000"
+ 655      50574D5F 
+ 655      7265645F 
+ 655      52656164 
+ 655      436F6E74 
+ 656              	.LASF1:
+ 657 00cc 756E7369 		.ascii	"unsigned char\000"
+ 657      676E6564 
+ 657      20636861 
+ 657      7200
+ 658              	.LASF34:
+ 659 00da 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 659      43313120 
+ 659      352E342E 
+ 659      31203230 
+ 659      31363036 
+ 660 010d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 660      20726576 
+ 660      6973696F 
+ 660      6E203233 
+ 660      37373135 
+ 661 0140 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 661      66756E63 
+ 661      74696F6E 
+ 661      2D736563 
+ 661      74696F6E 
+ 662              	.LASF17:
+ 663 0168 50574D45 		.ascii	"PWMEnableState\000"
+ 663      6E61626C 
+ 663      65537461 
+ 663      746500
+ 664              	.LASF5:
+ 665 0177 6C6F6E67 		.ascii	"long unsigned int\000"
+ 665      20756E73 
+ 665      69676E65 
+ 665      6420696E 
+ 665      7400
+ 666              	.LASF9:
+ 667 0189 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 17
+
+
+ 667      3800
+ 668              	.LASF20:
+ 669 018f 50574D43 		.ascii	"PWMControlRegister\000"
+ 669      6F6E7472 
+ 669      6F6C5265 
+ 669      67697374 
+ 669      657200
+ 670              	.LASF27:
+ 671 01a2 5247425F 		.ascii	"RGB_PWM_red_ReadCounter\000"
+ 671      50574D5F 
+ 671      7265645F 
+ 671      52656164 
+ 671      436F756E 
+ 672              	.LASF33:
+ 673 01ba 5247425F 		.ascii	"RGB_PWM_red_Enable\000"
+ 673      50574D5F 
+ 673      7265645F 
+ 673      456E6162 
+ 673      6C6500
+ 674              	.LASF12:
+ 675 01cd 646F7562 		.ascii	"double\000"
+ 675      6C6500
+ 676              	.LASF10:
+ 677 01d4 75696E74 		.ascii	"uint16\000"
+ 677      313600
+ 678              	.LASF24:
+ 679 01db 5247425F 		.ascii	"RGB_PWM_red_Sleep\000"
+ 679      50574D5F 
+ 679      7265645F 
+ 679      536C6565 
+ 679      7000
+ 680              	.LASF8:
+ 681 01ed 756E7369 		.ascii	"unsigned int\000"
+ 681      676E6564 
+ 681      20696E74 
+ 681      00
+ 682              	.LASF7:
+ 683 01fa 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 683      206C6F6E 
+ 683      6720756E 
+ 683      7369676E 
+ 683      65642069 
+ 684              	.LASF35:
+ 685 0211 47656E65 		.ascii	"Generated_Source\\PSoC5\\RGB_PWM_red_PM.c\000"
+ 685      72617465 
+ 685      645F536F 
+ 685      75726365 
+ 685      5C50536F 
+ 686              	.LASF23:
+ 687 0239 5247425F 		.ascii	"RGB_PWM_red_RestoreConfig\000"
+ 687      50574D5F 
+ 687      7265645F 
+ 687      52657374 
+ 687      6F726543 
+ 688              	.LASF36:
+ 689 0253 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 689      73657273 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 18
+
+
+ 689      5C417375 
+ 689      735C4465 
+ 689      736B746F 
+ 690 027f 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 690      30315C45 
+ 690      6C656374 
+ 690      726F6E69 
+ 690      635F4761 
+ 691 02ae 4C616230 		.ascii	"Lab01.cydsn\000"
+ 691      312E6379 
+ 691      64736E00 
+ 692              	.LASF14:
+ 693 02ba 72656738 		.ascii	"reg8\000"
+ 693      00
+ 694              	.LASF15:
+ 695 02bf 6C6F6E67 		.ascii	"long double\000"
+ 695      20646F75 
+ 695      626C6500 
+ 696              	.LASF16:
+ 697 02cb 73697A65 		.ascii	"sizetype\000"
+ 697      74797065 
+ 697      00
+ 698              	.LASF6:
+ 699 02d4 6C6F6E67 		.ascii	"long long int\000"
+ 699      206C6F6E 
+ 699      6720696E 
+ 699      7400
+ 700              	.LASF13:
+ 701 02e2 63686172 		.ascii	"char\000"
+ 701      00
+ 702              	.LASF37:
+ 703 02e7 5247425F 		.ascii	"RGB_PWM_red_backup\000"
+ 703      50574D5F 
+ 703      7265645F 
+ 703      6261636B 
+ 703      757000
+ 704              	.LASF2:
+ 705 02fa 73686F72 		.ascii	"short int\000"
+ 705      7420696E 
+ 705      7400
+ 706              	.LASF32:
+ 707 0304 5247425F 		.ascii	"RGB_PWM_red_Stop\000"
+ 707      50574D5F 
+ 707      7265645F 
+ 707      53746F70 
+ 707      00
+ 708              	.LASF26:
+ 709 0315 5247425F 		.ascii	"RGB_PWM_red_ReadPeriod\000"
+ 709      50574D5F 
+ 709      7265645F 
+ 709      52656164 
+ 709      50657269 
+ 710              	.LASF4:
+ 711 032c 6C6F6E67 		.ascii	"long int\000"
+ 711      20696E74 
+ 711      00
+ 712              	.LASF25:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccRFTvBC.s 			page 19
+
+
+ 713 0335 5247425F 		.ascii	"RGB_PWM_red_Wakeup\000"
+ 713      50574D5F 
+ 713      7265645F 
+ 713      57616B65 
+ 713      757000
+ 714              	.LASF0:
+ 715 0348 7369676E 		.ascii	"signed char\000"
+ 715      65642063 
+ 715      68617200 
+ 716              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,6 @@
+C:\Users\Asus\Desktop\HDA\Semester_2\EAA\Lab\Lab01\Electronic_Gaspedal\Electronic_Gaspedal\Lab01.cydsn\Lab01.cyprj|f2f81f3a-ebb1-4bfd-a808-e62fe5bc30ff
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|af3f139f-4102-420a-aa5d-ce2889ced282
+C:\Users\Asus\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|ad018614-fb9b-4fd1-bcb5-8c30ebb34f94
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c85f4032-b2ea-4f7c-ba1b-457942854ac6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f2073700-923b-474e-98f0-f713acd8c73f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|daf2541d-1eba-46d3-b75d-716641caf709

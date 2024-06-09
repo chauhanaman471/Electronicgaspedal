@@ -1,0 +1,1366 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ErikaOS_1_ee_lookup.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	EE_rq_lookup
+  20              		.comm	EE_oo_IRQ_suspend_status,4,4
+  21              		.comm	EE_oo_IRQ_disable_count,4,4
+  22              		.section	.rodata
+  23              		.align	2
+  24              		.type	EE_rq_lookup, %object
+  25              		.size	EE_rq_lookup, 256
+  26              	EE_rq_lookup:
+  27 0000 FF       		.byte	-1
+  28 0001 00       		.byte	0
+  29 0002 01       		.byte	1
+  30 0003 01       		.byte	1
+  31 0004 02       		.byte	2
+  32 0005 02       		.byte	2
+  33 0006 02       		.byte	2
+  34 0007 02       		.byte	2
+  35 0008 03       		.byte	3
+  36 0009 03       		.byte	3
+  37 000a 03       		.byte	3
+  38 000b 03       		.byte	3
+  39 000c 03       		.byte	3
+  40 000d 03       		.byte	3
+  41 000e 03       		.byte	3
+  42 000f 03       		.byte	3
+  43 0010 04       		.byte	4
+  44 0011 04       		.byte	4
+  45 0012 04       		.byte	4
+  46 0013 04       		.byte	4
+  47 0014 04       		.byte	4
+  48 0015 04       		.byte	4
+  49 0016 04       		.byte	4
+  50 0017 04       		.byte	4
+  51 0018 04       		.byte	4
+  52 0019 04       		.byte	4
+  53 001a 04       		.byte	4
+  54 001b 04       		.byte	4
+  55 001c 04       		.byte	4
+  56 001d 04       		.byte	4
+  57 001e 04       		.byte	4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 2
+
+
+  58 001f 04       		.byte	4
+  59 0020 05       		.byte	5
+  60 0021 05       		.byte	5
+  61 0022 05       		.byte	5
+  62 0023 05       		.byte	5
+  63 0024 05       		.byte	5
+  64 0025 05       		.byte	5
+  65 0026 05       		.byte	5
+  66 0027 05       		.byte	5
+  67 0028 05       		.byte	5
+  68 0029 05       		.byte	5
+  69 002a 05       		.byte	5
+  70 002b 05       		.byte	5
+  71 002c 05       		.byte	5
+  72 002d 05       		.byte	5
+  73 002e 05       		.byte	5
+  74 002f 05       		.byte	5
+  75 0030 05       		.byte	5
+  76 0031 05       		.byte	5
+  77 0032 05       		.byte	5
+  78 0033 05       		.byte	5
+  79 0034 05       		.byte	5
+  80 0035 05       		.byte	5
+  81 0036 05       		.byte	5
+  82 0037 05       		.byte	5
+  83 0038 05       		.byte	5
+  84 0039 05       		.byte	5
+  85 003a 05       		.byte	5
+  86 003b 05       		.byte	5
+  87 003c 05       		.byte	5
+  88 003d 05       		.byte	5
+  89 003e 05       		.byte	5
+  90 003f 05       		.byte	5
+  91 0040 06       		.byte	6
+  92 0041 06       		.byte	6
+  93 0042 06       		.byte	6
+  94 0043 06       		.byte	6
+  95 0044 06       		.byte	6
+  96 0045 06       		.byte	6
+  97 0046 06       		.byte	6
+  98 0047 06       		.byte	6
+  99 0048 06       		.byte	6
+ 100 0049 06       		.byte	6
+ 101 004a 06       		.byte	6
+ 102 004b 06       		.byte	6
+ 103 004c 06       		.byte	6
+ 104 004d 06       		.byte	6
+ 105 004e 06       		.byte	6
+ 106 004f 06       		.byte	6
+ 107 0050 06       		.byte	6
+ 108 0051 06       		.byte	6
+ 109 0052 06       		.byte	6
+ 110 0053 06       		.byte	6
+ 111 0054 06       		.byte	6
+ 112 0055 06       		.byte	6
+ 113 0056 06       		.byte	6
+ 114 0057 06       		.byte	6
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 3
+
+
+ 115 0058 06       		.byte	6
+ 116 0059 06       		.byte	6
+ 117 005a 06       		.byte	6
+ 118 005b 06       		.byte	6
+ 119 005c 06       		.byte	6
+ 120 005d 06       		.byte	6
+ 121 005e 06       		.byte	6
+ 122 005f 06       		.byte	6
+ 123 0060 06       		.byte	6
+ 124 0061 06       		.byte	6
+ 125 0062 06       		.byte	6
+ 126 0063 06       		.byte	6
+ 127 0064 06       		.byte	6
+ 128 0065 06       		.byte	6
+ 129 0066 06       		.byte	6
+ 130 0067 06       		.byte	6
+ 131 0068 06       		.byte	6
+ 132 0069 06       		.byte	6
+ 133 006a 06       		.byte	6
+ 134 006b 06       		.byte	6
+ 135 006c 06       		.byte	6
+ 136 006d 06       		.byte	6
+ 137 006e 06       		.byte	6
+ 138 006f 06       		.byte	6
+ 139 0070 06       		.byte	6
+ 140 0071 06       		.byte	6
+ 141 0072 06       		.byte	6
+ 142 0073 06       		.byte	6
+ 143 0074 06       		.byte	6
+ 144 0075 06       		.byte	6
+ 145 0076 06       		.byte	6
+ 146 0077 06       		.byte	6
+ 147 0078 06       		.byte	6
+ 148 0079 06       		.byte	6
+ 149 007a 06       		.byte	6
+ 150 007b 06       		.byte	6
+ 151 007c 06       		.byte	6
+ 152 007d 06       		.byte	6
+ 153 007e 06       		.byte	6
+ 154 007f 06       		.byte	6
+ 155 0080 07       		.byte	7
+ 156 0081 07       		.byte	7
+ 157 0082 07       		.byte	7
+ 158 0083 07       		.byte	7
+ 159 0084 07       		.byte	7
+ 160 0085 07       		.byte	7
+ 161 0086 07       		.byte	7
+ 162 0087 07       		.byte	7
+ 163 0088 07       		.byte	7
+ 164 0089 07       		.byte	7
+ 165 008a 07       		.byte	7
+ 166 008b 07       		.byte	7
+ 167 008c 07       		.byte	7
+ 168 008d 07       		.byte	7
+ 169 008e 07       		.byte	7
+ 170 008f 07       		.byte	7
+ 171 0090 07       		.byte	7
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 4
+
+
+ 172 0091 07       		.byte	7
+ 173 0092 07       		.byte	7
+ 174 0093 07       		.byte	7
+ 175 0094 07       		.byte	7
+ 176 0095 07       		.byte	7
+ 177 0096 07       		.byte	7
+ 178 0097 07       		.byte	7
+ 179 0098 07       		.byte	7
+ 180 0099 07       		.byte	7
+ 181 009a 07       		.byte	7
+ 182 009b 07       		.byte	7
+ 183 009c 07       		.byte	7
+ 184 009d 07       		.byte	7
+ 185 009e 07       		.byte	7
+ 186 009f 07       		.byte	7
+ 187 00a0 07       		.byte	7
+ 188 00a1 07       		.byte	7
+ 189 00a2 07       		.byte	7
+ 190 00a3 07       		.byte	7
+ 191 00a4 07       		.byte	7
+ 192 00a5 07       		.byte	7
+ 193 00a6 07       		.byte	7
+ 194 00a7 07       		.byte	7
+ 195 00a8 07       		.byte	7
+ 196 00a9 07       		.byte	7
+ 197 00aa 07       		.byte	7
+ 198 00ab 07       		.byte	7
+ 199 00ac 07       		.byte	7
+ 200 00ad 07       		.byte	7
+ 201 00ae 07       		.byte	7
+ 202 00af 07       		.byte	7
+ 203 00b0 07       		.byte	7
+ 204 00b1 07       		.byte	7
+ 205 00b2 07       		.byte	7
+ 206 00b3 07       		.byte	7
+ 207 00b4 07       		.byte	7
+ 208 00b5 07       		.byte	7
+ 209 00b6 07       		.byte	7
+ 210 00b7 07       		.byte	7
+ 211 00b8 07       		.byte	7
+ 212 00b9 07       		.byte	7
+ 213 00ba 07       		.byte	7
+ 214 00bb 07       		.byte	7
+ 215 00bc 07       		.byte	7
+ 216 00bd 07       		.byte	7
+ 217 00be 07       		.byte	7
+ 218 00bf 07       		.byte	7
+ 219 00c0 07       		.byte	7
+ 220 00c1 07       		.byte	7
+ 221 00c2 07       		.byte	7
+ 222 00c3 07       		.byte	7
+ 223 00c4 07       		.byte	7
+ 224 00c5 07       		.byte	7
+ 225 00c6 07       		.byte	7
+ 226 00c7 07       		.byte	7
+ 227 00c8 07       		.byte	7
+ 228 00c9 07       		.byte	7
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 5
+
+
+ 229 00ca 07       		.byte	7
+ 230 00cb 07       		.byte	7
+ 231 00cc 07       		.byte	7
+ 232 00cd 07       		.byte	7
+ 233 00ce 07       		.byte	7
+ 234 00cf 07       		.byte	7
+ 235 00d0 07       		.byte	7
+ 236 00d1 07       		.byte	7
+ 237 00d2 07       		.byte	7
+ 238 00d3 07       		.byte	7
+ 239 00d4 07       		.byte	7
+ 240 00d5 07       		.byte	7
+ 241 00d6 07       		.byte	7
+ 242 00d7 07       		.byte	7
+ 243 00d8 07       		.byte	7
+ 244 00d9 07       		.byte	7
+ 245 00da 07       		.byte	7
+ 246 00db 07       		.byte	7
+ 247 00dc 07       		.byte	7
+ 248 00dd 07       		.byte	7
+ 249 00de 07       		.byte	7
+ 250 00df 07       		.byte	7
+ 251 00e0 07       		.byte	7
+ 252 00e1 07       		.byte	7
+ 253 00e2 07       		.byte	7
+ 254 00e3 07       		.byte	7
+ 255 00e4 07       		.byte	7
+ 256 00e5 07       		.byte	7
+ 257 00e6 07       		.byte	7
+ 258 00e7 07       		.byte	7
+ 259 00e8 07       		.byte	7
+ 260 00e9 07       		.byte	7
+ 261 00ea 07       		.byte	7
+ 262 00eb 07       		.byte	7
+ 263 00ec 07       		.byte	7
+ 264 00ed 07       		.byte	7
+ 265 00ee 07       		.byte	7
+ 266 00ef 07       		.byte	7
+ 267 00f0 07       		.byte	7
+ 268 00f1 07       		.byte	7
+ 269 00f2 07       		.byte	7
+ 270 00f3 07       		.byte	7
+ 271 00f4 07       		.byte	7
+ 272 00f5 07       		.byte	7
+ 273 00f6 07       		.byte	7
+ 274 00f7 07       		.byte	7
+ 275 00f8 07       		.byte	7
+ 276 00f9 07       		.byte	7
+ 277 00fa 07       		.byte	7
+ 278 00fb 07       		.byte	7
+ 279 00fc 07       		.byte	7
+ 280 00fd 07       		.byte	7
+ 281 00fe 07       		.byte	7
+ 282 00ff 07       		.byte	7
+ 283              		.text
+ 284              	.Letext0:
+ 285              		.file 1 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_types.inc"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 6
+
+
+ 286              		.file 2 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 287              		.file 3 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_common.inc"
+ 288              		.file 4 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_primitives.inc"
+ 289              		.file 5 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_context.inc"
+ 290              		.file 6 "Generated_Source\\PSoC5\\ErikaOS_1_ee_lookup.c"
+ 291              		.file 7 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_intfunc.inc"
+ 292              		.section	.debug_info,"",%progbits
+ 293              	.Ldebug_info0:
+ 294 0000 CC030000 		.4byte	0x3cc
+ 295 0004 0400     		.2byte	0x4
+ 296 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 297 000a 04       		.byte	0x4
+ 298 000b 01       		.uleb128 0x1
+ 299 000c E9030000 		.4byte	.LASF62
+ 300 0010 0C       		.byte	0xc
+ 301 0011 A6000000 		.4byte	.LASF63
+ 302 0015 B5020000 		.4byte	.LASF64
+ 303 0019 00000000 		.4byte	.Ldebug_line0
+ 304 001d 02       		.uleb128 0x2
+ 305 001e 01       		.byte	0x1
+ 306 001f 06       		.byte	0x6
+ 307 0020 57020000 		.4byte	.LASF0
+ 308 0024 02       		.uleb128 0x2
+ 309 0025 01       		.byte	0x1
+ 310 0026 08       		.byte	0x8
+ 311 0027 30020000 		.4byte	.LASF1
+ 312 002b 02       		.uleb128 0x2
+ 313 002c 02       		.byte	0x2
+ 314 002d 05       		.byte	0x5
+ 315 002e 4C000000 		.4byte	.LASF2
+ 316 0032 02       		.uleb128 0x2
+ 317 0033 02       		.byte	0x2
+ 318 0034 07       		.byte	0x7
+ 319 0035 1C030000 		.4byte	.LASF3
+ 320 0039 02       		.uleb128 0x2
+ 321 003a 04       		.byte	0x4
+ 322 003b 05       		.byte	0x5
+ 323 003c 96010000 		.4byte	.LASF4
+ 324 0040 02       		.uleb128 0x2
+ 325 0041 04       		.byte	0x4
+ 326 0042 07       		.byte	0x7
+ 327 0043 79030000 		.4byte	.LASF5
+ 328 0047 02       		.uleb128 0x2
+ 329 0048 08       		.byte	0x8
+ 330 0049 05       		.byte	0x5
+ 331 004a 46010000 		.4byte	.LASF6
+ 332 004e 02       		.uleb128 0x2
+ 333 004f 08       		.byte	0x8
+ 334 0050 07       		.byte	0x7
+ 335 0051 63020000 		.4byte	.LASF7
+ 336 0055 03       		.uleb128 0x3
+ 337 0056 04       		.byte	0x4
+ 338 0057 05       		.byte	0x5
+ 339 0058 696E7400 		.ascii	"int\000"
+ 340 005c 02       		.uleb128 0x2
+ 341 005d 04       		.byte	0x4
+ 342 005e 07       		.byte	0x7
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 7
+
+
+ 343 005f 7A020000 		.4byte	.LASF8
+ 344 0063 02       		.uleb128 0x2
+ 345 0064 08       		.byte	0x8
+ 346 0065 04       		.byte	0x4
+ 347 0066 15020000 		.4byte	.LASF9
+ 348 006a 04       		.uleb128 0x4
+ 349 006b 54010000 		.4byte	.LASF10
+ 350 006f 01       		.byte	0x1
+ 351 0070 3F       		.byte	0x3f
+ 352 0071 1D000000 		.4byte	0x1d
+ 353 0075 04       		.uleb128 0x4
+ 354 0076 4D030000 		.4byte	.LASF11
+ 355 007a 01       		.byte	0x1
+ 356 007b 52       		.byte	0x52
+ 357 007c 32000000 		.4byte	0x32
+ 358 0080 04       		.uleb128 0x4
+ 359 0081 AC020000 		.4byte	.LASF12
+ 360 0085 01       		.byte	0x1
+ 361 0086 53       		.byte	0x53
+ 362 0087 55000000 		.4byte	0x55
+ 363 008b 04       		.uleb128 0x4
+ 364 008c 8B000000 		.4byte	.LASF13
+ 365 0090 01       		.byte	0x1
+ 366 0091 54       		.byte	0x54
+ 367 0092 5C000000 		.4byte	0x5c
+ 368 0096 04       		.uleb128 0x4
+ 369 0097 13000000 		.4byte	.LASF14
+ 370 009b 02       		.byte	0x2
+ 371 009c 4D       		.byte	0x4d
+ 372 009d 8B000000 		.4byte	0x8b
+ 373 00a1 04       		.uleb128 0x4
+ 374 00a2 6D000000 		.4byte	.LASF15
+ 375 00a6 02       		.byte	0x2
+ 376 00a7 4F       		.byte	0x4f
+ 377 00a8 8B000000 		.4byte	0x8b
+ 378 00ac 04       		.uleb128 0x4
+ 379 00ad 8B030000 		.4byte	.LASF16
+ 380 00b1 02       		.byte	0x2
+ 381 00b2 54       		.byte	0x54
+ 382 00b3 96000000 		.4byte	0x96
+ 383 00b7 04       		.uleb128 0x4
+ 384 00b8 AF010000 		.4byte	.LASF17
+ 385 00bc 02       		.byte	0x2
+ 386 00bd 78       		.byte	0x78
+ 387 00be 80000000 		.4byte	0x80
+ 388 00c2 05       		.uleb128 0x5
+ 389 00c3 75010000 		.4byte	.LASF18
+ 390 00c7 03       		.byte	0x3
+ 391 00c8 1101     		.2byte	0x111
+ 392 00ca 75000000 		.4byte	0x75
+ 393 00ce 05       		.uleb128 0x5
+ 394 00cf EB010000 		.4byte	.LASF19
+ 395 00d3 03       		.byte	0x3
+ 396 00d4 3502     		.2byte	0x235
+ 397 00d6 96000000 		.4byte	0x96
+ 398 00da 05       		.uleb128 0x5
+ 399 00db 03020000 		.4byte	.LASF20
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 8
+
+
+ 400 00df 03       		.byte	0x3
+ 401 00e0 5D02     		.2byte	0x25d
+ 402 00e2 96000000 		.4byte	0x96
+ 403 00e6 05       		.uleb128 0x5
+ 404 00e7 B1030000 		.4byte	.LASF21
+ 405 00eb 03       		.byte	0x3
+ 406 00ec 6C02     		.2byte	0x26c
+ 407 00ee 96000000 		.4byte	0x96
+ 408 00f2 06       		.uleb128 0x6
+ 409 00f3 0C       		.byte	0xc
+ 410 00f4 03       		.byte	0x3
+ 411 00f5 7202     		.2byte	0x272
+ 412 00f7 23010000 		.4byte	0x123
+ 413 00fb 07       		.uleb128 0x7
+ 414 00fc 9F010000 		.4byte	.LASF22
+ 415 0100 03       		.byte	0x3
+ 416 0101 7302     		.2byte	0x273
+ 417 0103 CE000000 		.4byte	0xce
+ 418 0107 00       		.byte	0
+ 419 0108 07       		.uleb128 0x7
+ 420 0109 1B000000 		.4byte	.LASF23
+ 421 010d 03       		.byte	0x3
+ 422 010e 7402     		.2byte	0x274
+ 423 0110 CE000000 		.4byte	0xce
+ 424 0114 04       		.byte	0x4
+ 425 0115 07       		.uleb128 0x7
+ 426 0116 D3000000 		.4byte	.LASF24
+ 427 011a 03       		.byte	0x3
+ 428 011b 7502     		.2byte	0x275
+ 429 011d CE000000 		.4byte	0xce
+ 430 0121 08       		.byte	0x8
+ 431 0122 00       		.byte	0
+ 432 0123 05       		.uleb128 0x5
+ 433 0124 D4010000 		.4byte	.LASF25
+ 434 0128 03       		.byte	0x3
+ 435 0129 7A02     		.2byte	0x27a
+ 436 012b F2000000 		.4byte	0xf2
+ 437 012f 06       		.uleb128 0x6
+ 438 0130 08       		.byte	0x8
+ 439 0131 03       		.byte	0x3
+ 440 0132 7D02     		.2byte	0x27d
+ 441 0134 53010000 		.4byte	0x153
+ 442 0138 07       		.uleb128 0x7
+ 443 0139 DC000000 		.4byte	.LASF26
+ 444 013d 03       		.byte	0x3
+ 445 013e 7E02     		.2byte	0x27e
+ 446 0140 CE000000 		.4byte	0xce
+ 447 0144 00       		.byte	0
+ 448 0145 07       		.uleb128 0x7
+ 449 0146 AA040000 		.4byte	.LASF27
+ 450 014a 03       		.byte	0x3
+ 451 014b 7F02     		.2byte	0x27f
+ 452 014d DA000000 		.4byte	0xda
+ 453 0151 04       		.byte	0x4
+ 454 0152 00       		.byte	0
+ 455 0153 05       		.uleb128 0x5
+ 456 0154 2F010000 		.4byte	.LASF28
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 9
+
+
+ 457 0158 03       		.byte	0x3
+ 458 0159 8002     		.2byte	0x280
+ 459 015b 2F010000 		.4byte	0x12f
+ 460 015f 08       		.uleb128 0x8
+ 461 0160 01       		.byte	0x1
+ 462 0161 24000000 		.4byte	0x24
+ 463 0165 03       		.byte	0x3
+ 464 0166 8A02     		.2byte	0x28a
+ 465 0168 79010000 		.4byte	0x179
+ 466 016c 09       		.uleb128 0x9
+ 467 016d A3030000 		.4byte	.LASF29
+ 468 0171 00       		.byte	0
+ 469 0172 09       		.uleb128 0x9
+ 470 0173 85010000 		.4byte	.LASF30
+ 471 0177 01       		.byte	0x1
+ 472 0178 00       		.byte	0
+ 473 0179 05       		.uleb128 0x5
+ 474 017a FB000000 		.4byte	.LASF31
+ 475 017e 03       		.byte	0x3
+ 476 017f 8D02     		.2byte	0x28d
+ 477 0181 5F010000 		.4byte	0x15f
+ 478 0185 05       		.uleb128 0x5
+ 479 0186 75000000 		.4byte	.LASF32
+ 480 018a 03       		.byte	0x3
+ 481 018b 9002     		.2byte	0x290
+ 482 018d 79010000 		.4byte	0x179
+ 483 0191 06       		.uleb128 0x6
+ 484 0192 0C       		.byte	0xc
+ 485 0193 03       		.byte	0x3
+ 486 0194 9402     		.2byte	0x294
+ 487 0196 C0010000 		.4byte	0x1c0
+ 488 019a 0A       		.uleb128 0xa
+ 489 019b 6300     		.ascii	"c\000"
+ 490 019d 03       		.byte	0x3
+ 491 019e 9602     		.2byte	0x296
+ 492 01a0 E6000000 		.4byte	0xe6
+ 493 01a4 00       		.byte	0
+ 494 01a5 07       		.uleb128 0x7
+ 495 01a6 65000000 		.4byte	.LASF33
+ 496 01aa 03       		.byte	0x3
+ 497 01ab 9802     		.2byte	0x298
+ 498 01ad DA000000 		.4byte	0xda
+ 499 01b1 04       		.byte	0x4
+ 500 01b2 07       		.uleb128 0x7
+ 501 01b3 00000000 		.4byte	.LASF34
+ 502 01b7 03       		.byte	0x3
+ 503 01b8 9A02     		.2byte	0x29a
+ 504 01ba 85010000 		.4byte	0x185
+ 505 01be 08       		.byte	0x8
+ 506 01bf 00       		.byte	0
+ 507 01c0 05       		.uleb128 0x5
+ 508 01c1 2F030000 		.4byte	.LASF35
+ 509 01c5 03       		.byte	0x3
+ 510 01c6 9B02     		.2byte	0x29b
+ 511 01c8 91010000 		.4byte	0x191
+ 512 01cc 06       		.uleb128 0x6
+ 513 01cd 10       		.byte	0x10
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 10
+
+
+ 514 01ce 03       		.byte	0x3
+ 515 01cf 9F02     		.2byte	0x29f
+ 516 01d1 0A020000 		.4byte	0x20a
+ 517 01d5 07       		.uleb128 0x7
+ 518 01d6 AC030000 		.4byte	.LASF36
+ 519 01da 03       		.byte	0x3
+ 520 01db A002     		.2byte	0x2a0
+ 521 01dd AC000000 		.4byte	0xac
+ 522 01e1 00       		.byte	0
+ 523 01e2 07       		.uleb128 0x7
+ 524 01e3 77040000 		.4byte	.LASF37
+ 525 01e7 03       		.byte	0x3
+ 526 01e8 A102     		.2byte	0x2a1
+ 527 01ea CE000000 		.4byte	0xce
+ 528 01ee 04       		.byte	0x4
+ 529 01ef 07       		.uleb128 0x7
+ 530 01f0 5F000000 		.4byte	.LASF38
+ 531 01f4 03       		.byte	0x3
+ 532 01f5 A202     		.2byte	0x2a2
+ 533 01f7 CE000000 		.4byte	0xce
+ 534 01fb 08       		.byte	0x8
+ 535 01fc 07       		.uleb128 0x7
+ 536 01fd 98040000 		.4byte	.LASF39
+ 537 0201 03       		.byte	0x3
+ 538 0202 A302     		.2byte	0x2a3
+ 539 0204 DA000000 		.4byte	0xda
+ 540 0208 0C       		.byte	0xc
+ 541 0209 00       		.byte	0
+ 542 020a 05       		.uleb128 0x5
+ 543 020b B6010000 		.4byte	.LASF40
+ 544 020f 03       		.byte	0x3
+ 545 0210 A402     		.2byte	0x2a4
+ 546 0212 CC010000 		.4byte	0x1cc
+ 547 0216 0B       		.uleb128 0xb
+ 548 0217 1A010000 		.4byte	.LASF41
+ 549 021b 04       		.byte	0x4
+ 550 021c 44       		.byte	0x44
+ 551 021d 96000000 		.4byte	0x96
+ 552 0221 0B       		.uleb128 0xb
+ 553 0222 93020000 		.4byte	.LASF42
+ 554 0226 05       		.byte	0x5
+ 555 0227 48       		.byte	0x48
+ 556 0228 B7000000 		.4byte	0xb7
+ 557 022c 0C       		.uleb128 0xc
+ 558 022d 43020000 		.4byte	0x243
+ 559 0231 3C020000 		.4byte	0x23c
+ 560 0235 0D       		.uleb128 0xd
+ 561 0236 3C020000 		.4byte	0x23c
+ 562 023a 04       		.byte	0x4
+ 563 023b 00       		.byte	0
+ 564 023c 02       		.uleb128 0x2
+ 565 023d 04       		.byte	0x4
+ 566 023e 07       		.byte	0x7
+ 567 023f 56000000 		.4byte	.LASF43
+ 568 0243 0E       		.uleb128 0xe
+ 569 0244 96000000 		.4byte	0x96
+ 570 0248 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 11
+
+
+ 571 0249 95000000 		.4byte	.LASF44
+ 572 024d 03       		.byte	0x3
+ 573 024e B2       		.byte	0xb2
+ 574 024f 53020000 		.4byte	0x253
+ 575 0253 0E       		.uleb128 0xe
+ 576 0254 2C020000 		.4byte	0x22c
+ 577 0258 0B       		.uleb128 0xb
+ 578 0259 CA030000 		.4byte	.LASF45
+ 579 025d 03       		.byte	0x3
+ 580 025e B3       		.byte	0xb3
+ 581 025f 63020000 		.4byte	0x263
+ 582 0263 0E       		.uleb128 0xe
+ 583 0264 2C020000 		.4byte	0x22c
+ 584 0268 0C       		.uleb128 0xc
+ 585 0269 96000000 		.4byte	0x96
+ 586 026d 78020000 		.4byte	0x278
+ 587 0271 0D       		.uleb128 0xd
+ 588 0272 3C020000 		.4byte	0x23c
+ 589 0276 04       		.byte	0x4
+ 590 0277 00       		.byte	0
+ 591 0278 0B       		.uleb128 0xb
+ 592 0279 BD030000 		.4byte	.LASF46
+ 593 027d 03       		.byte	0x3
+ 594 027e CA       		.byte	0xca
+ 595 027f 68020000 		.4byte	0x268
+ 596 0283 0C       		.uleb128 0xc
+ 597 0284 B7000000 		.4byte	0xb7
+ 598 0288 93020000 		.4byte	0x293
+ 599 028c 0D       		.uleb128 0xd
+ 600 028d 3C020000 		.4byte	0x23c
+ 601 0291 04       		.byte	0x4
+ 602 0292 00       		.byte	0
+ 603 0293 0B       		.uleb128 0xb
+ 604 0294 DE030000 		.4byte	.LASF47
+ 605 0298 03       		.byte	0x3
+ 606 0299 D2       		.byte	0xd2
+ 607 029a 83020000 		.4byte	0x283
+ 608 029e 0B       		.uleb128 0xb
+ 609 029f 87020000 		.4byte	.LASF48
+ 610 02a3 03       		.byte	0x3
+ 611 02a4 DA       		.byte	0xda
+ 612 02a5 68020000 		.4byte	0x268
+ 613 02a9 0B       		.uleb128 0xb
+ 614 02aa 97030000 		.4byte	.LASF49
+ 615 02ae 03       		.byte	0x3
+ 616 02af E2       		.byte	0xe2
+ 617 02b0 B7000000 		.4byte	0xb7
+ 618 02b4 0B       		.uleb128 0xb
+ 619 02b5 F4010000 		.4byte	.LASF50
+ 620 02b9 03       		.byte	0x3
+ 621 02ba F7       		.byte	0xf7
+ 622 02bb 96000000 		.4byte	0x96
+ 623 02bf 0F       		.uleb128 0xf
+ 624 02c0 05000000 		.4byte	.LASF51
+ 625 02c4 03       		.byte	0x3
+ 626 02c5 3F01     		.2byte	0x13f
+ 627 02c7 C2000000 		.4byte	0xc2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 12
+
+
+ 628 02cb 0F       		.uleb128 0xf
+ 629 02cc 28000000 		.4byte	.LASF52
+ 630 02d0 03       		.byte	0x3
+ 631 02d1 5C01     		.2byte	0x15c
+ 632 02d3 68020000 		.4byte	0x268
+ 633 02d7 0C       		.uleb128 0xc
+ 634 02d8 AC000000 		.4byte	0xac
+ 635 02dc E7020000 		.4byte	0x2e7
+ 636 02e0 0D       		.uleb128 0xd
+ 637 02e1 3C020000 		.4byte	0x23c
+ 638 02e5 04       		.byte	0x4
+ 639 02e6 00       		.byte	0
+ 640 02e7 0F       		.uleb128 0xf
+ 641 02e8 3B000000 		.4byte	.LASF53
+ 642 02ec 03       		.byte	0x3
+ 643 02ed 6701     		.2byte	0x167
+ 644 02ef D7020000 		.4byte	0x2d7
+ 645 02f3 0C       		.uleb128 0xc
+ 646 02f4 03030000 		.4byte	0x303
+ 647 02f8 03030000 		.4byte	0x303
+ 648 02fc 0D       		.uleb128 0xd
+ 649 02fd 3C020000 		.4byte	0x23c
+ 650 0301 00       		.byte	0
+ 651 0302 00       		.byte	0
+ 652 0303 0E       		.uleb128 0xe
+ 653 0304 23010000 		.4byte	0x123
+ 654 0308 0F       		.uleb128 0xf
+ 655 0309 21020000 		.4byte	.LASF54
+ 656 030d 03       		.byte	0x3
+ 657 030e CA02     		.2byte	0x2ca
+ 658 0310 14030000 		.4byte	0x314
+ 659 0314 0E       		.uleb128 0xe
+ 660 0315 F3020000 		.4byte	0x2f3
+ 661 0319 0C       		.uleb128 0xc
+ 662 031a 29030000 		.4byte	0x329
+ 663 031e 29030000 		.4byte	0x329
+ 664 0322 0D       		.uleb128 0xd
+ 665 0323 3C020000 		.4byte	0x23c
+ 666 0327 00       		.byte	0
+ 667 0328 00       		.byte	0
+ 668 0329 0E       		.uleb128 0xe
+ 669 032a C0010000 		.4byte	0x1c0
+ 670 032e 0F       		.uleb128 0xf
+ 671 032f E2000000 		.4byte	.LASF55
+ 672 0333 03       		.byte	0x3
+ 673 0334 DD02     		.2byte	0x2dd
+ 674 0336 3A030000 		.4byte	0x33a
+ 675 033a 0E       		.uleb128 0xe
+ 676 033b 19030000 		.4byte	0x319
+ 677 033f 0C       		.uleb128 0xc
+ 678 0340 53010000 		.4byte	0x153
+ 679 0344 4F030000 		.4byte	0x34f
+ 680 0348 0D       		.uleb128 0xd
+ 681 0349 3C020000 		.4byte	0x23c
+ 682 034d 00       		.byte	0
+ 683 034e 00       		.byte	0
+ 684 034f 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 13
+
+
+ 685 0350 57030000 		.4byte	.LASF56
+ 686 0354 03       		.byte	0x3
+ 687 0355 FB02     		.2byte	0x2fb
+ 688 0357 3F030000 		.4byte	0x33f
+ 689 035b 0C       		.uleb128 0xc
+ 690 035c 0A020000 		.4byte	0x20a
+ 691 0360 6B030000 		.4byte	0x36b
+ 692 0364 0D       		.uleb128 0xd
+ 693 0365 3C020000 		.4byte	0x23c
+ 694 0369 00       		.byte	0
+ 695 036a 00       		.byte	0
+ 696 036b 0F       		.uleb128 0xf
+ 697 036c 3E020000 		.4byte	.LASF57
+ 698 0370 03       		.byte	0x3
+ 699 0371 0403     		.2byte	0x304
+ 700 0373 5B030000 		.4byte	0x35b
+ 701 0377 10       		.uleb128 0x10
+ 702 0378 80040000 		.4byte	.LASF58
+ 703 037c 06       		.byte	0x6
+ 704 037d 41       		.byte	0x41
+ 705 037e 96000000 		.4byte	0x96
+ 706 0382 05       		.uleb128 0x5
+ 707 0383 03       		.byte	0x3
+ 708 0384 00000000 		.4byte	EE_oo_IRQ_disable_count
+ 709 0388 10       		.uleb128 0x10
+ 710 0389 5C010000 		.4byte	.LASF59
+ 711 038d 06       		.byte	0x6
+ 712 038e 48       		.byte	0x48
+ 713 038f A1000000 		.4byte	0xa1
+ 714 0393 05       		.uleb128 0x5
+ 715 0394 03       		.byte	0x3
+ 716 0395 00000000 		.4byte	EE_oo_IRQ_suspend_status
+ 717 0399 0B       		.uleb128 0xb
+ 718 039a 66030000 		.4byte	.LASF60
+ 719 039e 07       		.byte	0x7
+ 720 039f 4A       		.byte	0x4a
+ 721 03a0 96000000 		.4byte	0x96
+ 722 03a4 0C       		.uleb128 0xc
+ 723 03a5 B4030000 		.4byte	0x3b4
+ 724 03a9 B4030000 		.4byte	0x3b4
+ 725 03ad 0D       		.uleb128 0xd
+ 726 03ae 3C020000 		.4byte	0x23c
+ 727 03b2 FF       		.byte	0xff
+ 728 03b3 00       		.byte	0
+ 729 03b4 0E       		.uleb128 0xe
+ 730 03b5 6A000000 		.4byte	0x6a
+ 731 03b9 10       		.uleb128 0x10
+ 732 03ba 9D040000 		.4byte	.LASF61
+ 733 03be 06       		.byte	0x6
+ 734 03bf 51       		.byte	0x51
+ 735 03c0 CA030000 		.4byte	0x3ca
+ 736 03c4 05       		.uleb128 0x5
+ 737 03c5 03       		.byte	0x3
+ 738 03c6 00000000 		.4byte	EE_rq_lookup
+ 739 03ca 0E       		.uleb128 0xe
+ 740 03cb A4030000 		.4byte	0x3a4
+ 741 03cf 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 14
+
+
+ 742              		.section	.debug_abbrev,"",%progbits
+ 743              	.Ldebug_abbrev0:
+ 744 0000 01       		.uleb128 0x1
+ 745 0001 11       		.uleb128 0x11
+ 746 0002 01       		.byte	0x1
+ 747 0003 25       		.uleb128 0x25
+ 748 0004 0E       		.uleb128 0xe
+ 749 0005 13       		.uleb128 0x13
+ 750 0006 0B       		.uleb128 0xb
+ 751 0007 03       		.uleb128 0x3
+ 752 0008 0E       		.uleb128 0xe
+ 753 0009 1B       		.uleb128 0x1b
+ 754 000a 0E       		.uleb128 0xe
+ 755 000b 10       		.uleb128 0x10
+ 756 000c 17       		.uleb128 0x17
+ 757 000d 00       		.byte	0
+ 758 000e 00       		.byte	0
+ 759 000f 02       		.uleb128 0x2
+ 760 0010 24       		.uleb128 0x24
+ 761 0011 00       		.byte	0
+ 762 0012 0B       		.uleb128 0xb
+ 763 0013 0B       		.uleb128 0xb
+ 764 0014 3E       		.uleb128 0x3e
+ 765 0015 0B       		.uleb128 0xb
+ 766 0016 03       		.uleb128 0x3
+ 767 0017 0E       		.uleb128 0xe
+ 768 0018 00       		.byte	0
+ 769 0019 00       		.byte	0
+ 770 001a 03       		.uleb128 0x3
+ 771 001b 24       		.uleb128 0x24
+ 772 001c 00       		.byte	0
+ 773 001d 0B       		.uleb128 0xb
+ 774 001e 0B       		.uleb128 0xb
+ 775 001f 3E       		.uleb128 0x3e
+ 776 0020 0B       		.uleb128 0xb
+ 777 0021 03       		.uleb128 0x3
+ 778 0022 08       		.uleb128 0x8
+ 779 0023 00       		.byte	0
+ 780 0024 00       		.byte	0
+ 781 0025 04       		.uleb128 0x4
+ 782 0026 16       		.uleb128 0x16
+ 783 0027 00       		.byte	0
+ 784 0028 03       		.uleb128 0x3
+ 785 0029 0E       		.uleb128 0xe
+ 786 002a 3A       		.uleb128 0x3a
+ 787 002b 0B       		.uleb128 0xb
+ 788 002c 3B       		.uleb128 0x3b
+ 789 002d 0B       		.uleb128 0xb
+ 790 002e 49       		.uleb128 0x49
+ 791 002f 13       		.uleb128 0x13
+ 792 0030 00       		.byte	0
+ 793 0031 00       		.byte	0
+ 794 0032 05       		.uleb128 0x5
+ 795 0033 16       		.uleb128 0x16
+ 796 0034 00       		.byte	0
+ 797 0035 03       		.uleb128 0x3
+ 798 0036 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 15
+
+
+ 799 0037 3A       		.uleb128 0x3a
+ 800 0038 0B       		.uleb128 0xb
+ 801 0039 3B       		.uleb128 0x3b
+ 802 003a 05       		.uleb128 0x5
+ 803 003b 49       		.uleb128 0x49
+ 804 003c 13       		.uleb128 0x13
+ 805 003d 00       		.byte	0
+ 806 003e 00       		.byte	0
+ 807 003f 06       		.uleb128 0x6
+ 808 0040 13       		.uleb128 0x13
+ 809 0041 01       		.byte	0x1
+ 810 0042 0B       		.uleb128 0xb
+ 811 0043 0B       		.uleb128 0xb
+ 812 0044 3A       		.uleb128 0x3a
+ 813 0045 0B       		.uleb128 0xb
+ 814 0046 3B       		.uleb128 0x3b
+ 815 0047 05       		.uleb128 0x5
+ 816 0048 01       		.uleb128 0x1
+ 817 0049 13       		.uleb128 0x13
+ 818 004a 00       		.byte	0
+ 819 004b 00       		.byte	0
+ 820 004c 07       		.uleb128 0x7
+ 821 004d 0D       		.uleb128 0xd
+ 822 004e 00       		.byte	0
+ 823 004f 03       		.uleb128 0x3
+ 824 0050 0E       		.uleb128 0xe
+ 825 0051 3A       		.uleb128 0x3a
+ 826 0052 0B       		.uleb128 0xb
+ 827 0053 3B       		.uleb128 0x3b
+ 828 0054 05       		.uleb128 0x5
+ 829 0055 49       		.uleb128 0x49
+ 830 0056 13       		.uleb128 0x13
+ 831 0057 38       		.uleb128 0x38
+ 832 0058 0B       		.uleb128 0xb
+ 833 0059 00       		.byte	0
+ 834 005a 00       		.byte	0
+ 835 005b 08       		.uleb128 0x8
+ 836 005c 04       		.uleb128 0x4
+ 837 005d 01       		.byte	0x1
+ 838 005e 0B       		.uleb128 0xb
+ 839 005f 0B       		.uleb128 0xb
+ 840 0060 49       		.uleb128 0x49
+ 841 0061 13       		.uleb128 0x13
+ 842 0062 3A       		.uleb128 0x3a
+ 843 0063 0B       		.uleb128 0xb
+ 844 0064 3B       		.uleb128 0x3b
+ 845 0065 05       		.uleb128 0x5
+ 846 0066 01       		.uleb128 0x1
+ 847 0067 13       		.uleb128 0x13
+ 848 0068 00       		.byte	0
+ 849 0069 00       		.byte	0
+ 850 006a 09       		.uleb128 0x9
+ 851 006b 28       		.uleb128 0x28
+ 852 006c 00       		.byte	0
+ 853 006d 03       		.uleb128 0x3
+ 854 006e 0E       		.uleb128 0xe
+ 855 006f 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 16
+
+
+ 856 0070 0B       		.uleb128 0xb
+ 857 0071 00       		.byte	0
+ 858 0072 00       		.byte	0
+ 859 0073 0A       		.uleb128 0xa
+ 860 0074 0D       		.uleb128 0xd
+ 861 0075 00       		.byte	0
+ 862 0076 03       		.uleb128 0x3
+ 863 0077 08       		.uleb128 0x8
+ 864 0078 3A       		.uleb128 0x3a
+ 865 0079 0B       		.uleb128 0xb
+ 866 007a 3B       		.uleb128 0x3b
+ 867 007b 05       		.uleb128 0x5
+ 868 007c 49       		.uleb128 0x49
+ 869 007d 13       		.uleb128 0x13
+ 870 007e 38       		.uleb128 0x38
+ 871 007f 0B       		.uleb128 0xb
+ 872 0080 00       		.byte	0
+ 873 0081 00       		.byte	0
+ 874 0082 0B       		.uleb128 0xb
+ 875 0083 34       		.uleb128 0x34
+ 876 0084 00       		.byte	0
+ 877 0085 03       		.uleb128 0x3
+ 878 0086 0E       		.uleb128 0xe
+ 879 0087 3A       		.uleb128 0x3a
+ 880 0088 0B       		.uleb128 0xb
+ 881 0089 3B       		.uleb128 0x3b
+ 882 008a 0B       		.uleb128 0xb
+ 883 008b 49       		.uleb128 0x49
+ 884 008c 13       		.uleb128 0x13
+ 885 008d 3F       		.uleb128 0x3f
+ 886 008e 19       		.uleb128 0x19
+ 887 008f 3C       		.uleb128 0x3c
+ 888 0090 19       		.uleb128 0x19
+ 889 0091 00       		.byte	0
+ 890 0092 00       		.byte	0
+ 891 0093 0C       		.uleb128 0xc
+ 892 0094 01       		.uleb128 0x1
+ 893 0095 01       		.byte	0x1
+ 894 0096 49       		.uleb128 0x49
+ 895 0097 13       		.uleb128 0x13
+ 896 0098 01       		.uleb128 0x1
+ 897 0099 13       		.uleb128 0x13
+ 898 009a 00       		.byte	0
+ 899 009b 00       		.byte	0
+ 900 009c 0D       		.uleb128 0xd
+ 901 009d 21       		.uleb128 0x21
+ 902 009e 00       		.byte	0
+ 903 009f 49       		.uleb128 0x49
+ 904 00a0 13       		.uleb128 0x13
+ 905 00a1 2F       		.uleb128 0x2f
+ 906 00a2 0B       		.uleb128 0xb
+ 907 00a3 00       		.byte	0
+ 908 00a4 00       		.byte	0
+ 909 00a5 0E       		.uleb128 0xe
+ 910 00a6 26       		.uleb128 0x26
+ 911 00a7 00       		.byte	0
+ 912 00a8 49       		.uleb128 0x49
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 17
+
+
+ 913 00a9 13       		.uleb128 0x13
+ 914 00aa 00       		.byte	0
+ 915 00ab 00       		.byte	0
+ 916 00ac 0F       		.uleb128 0xf
+ 917 00ad 34       		.uleb128 0x34
+ 918 00ae 00       		.byte	0
+ 919 00af 03       		.uleb128 0x3
+ 920 00b0 0E       		.uleb128 0xe
+ 921 00b1 3A       		.uleb128 0x3a
+ 922 00b2 0B       		.uleb128 0xb
+ 923 00b3 3B       		.uleb128 0x3b
+ 924 00b4 05       		.uleb128 0x5
+ 925 00b5 49       		.uleb128 0x49
+ 926 00b6 13       		.uleb128 0x13
+ 927 00b7 3F       		.uleb128 0x3f
+ 928 00b8 19       		.uleb128 0x19
+ 929 00b9 3C       		.uleb128 0x3c
+ 930 00ba 19       		.uleb128 0x19
+ 931 00bb 00       		.byte	0
+ 932 00bc 00       		.byte	0
+ 933 00bd 10       		.uleb128 0x10
+ 934 00be 34       		.uleb128 0x34
+ 935 00bf 00       		.byte	0
+ 936 00c0 03       		.uleb128 0x3
+ 937 00c1 0E       		.uleb128 0xe
+ 938 00c2 3A       		.uleb128 0x3a
+ 939 00c3 0B       		.uleb128 0xb
+ 940 00c4 3B       		.uleb128 0x3b
+ 941 00c5 0B       		.uleb128 0xb
+ 942 00c6 49       		.uleb128 0x49
+ 943 00c7 13       		.uleb128 0x13
+ 944 00c8 3F       		.uleb128 0x3f
+ 945 00c9 19       		.uleb128 0x19
+ 946 00ca 02       		.uleb128 0x2
+ 947 00cb 18       		.uleb128 0x18
+ 948 00cc 00       		.byte	0
+ 949 00cd 00       		.byte	0
+ 950 00ce 00       		.byte	0
+ 951              		.section	.debug_aranges,"",%progbits
+ 952 0000 14000000 		.4byte	0x14
+ 953 0004 0200     		.2byte	0x2
+ 954 0006 00000000 		.4byte	.Ldebug_info0
+ 955 000a 04       		.byte	0x4
+ 956 000b 00       		.byte	0
+ 957 000c 0000     		.2byte	0
+ 958 000e 0000     		.2byte	0
+ 959 0010 00000000 		.4byte	0
+ 960 0014 00000000 		.4byte	0
+ 961              		.section	.debug_line,"",%progbits
+ 962              	.Ldebug_line0:
+ 963 0000 15010000 		.section	.debug_str,"MS",%progbits,1
+ 963      02000F01 
+ 963      00000201 
+ 963      FB0E0D00 
+ 963      01010101 
+ 964              	.LASF34:
+ 965 0000 6B696E64 		.ascii	"kind\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 18
+
+
+ 965      00
+ 966              	.LASF51:
+ 967 0005 45455F72 		.ascii	"EE_rq_bitmask\000"
+ 967      715F6269 
+ 967      746D6173 
+ 967      6B00
+ 968              	.LASF14:
+ 969 0013 45455F55 		.ascii	"EE_UREG\000"
+ 969      52454700 
+ 970              	.LASF23:
+ 971 001b 7469636B 		.ascii	"ticksperbase\000"
+ 971      73706572 
+ 971      62617365 
+ 971      00
+ 972              	.LASF52:
+ 973 0028 45455F74 		.ascii	"EE_th_event_active\000"
+ 973      685F6576 
+ 973      656E745F 
+ 973      61637469 
+ 973      766500
+ 974              	.LASF53:
+ 975 003b 45455F74 		.ascii	"EE_th_waswaiting\000"
+ 975      685F7761 
+ 975      73776169 
+ 975      74696E67 
+ 975      00
+ 976              	.LASF2:
+ 977 004c 73686F72 		.ascii	"short int\000"
+ 977      7420696E 
+ 977      7400
+ 978              	.LASF43:
+ 979 0056 73697A65 		.ascii	"sizetype\000"
+ 979      74797065 
+ 979      00
+ 980              	.LASF38:
+ 981 005f 64656C74 		.ascii	"delta\000"
+ 981      6100
+ 982              	.LASF33:
+ 983 0065 73706563 		.ascii	"spec_id\000"
+ 983      5F696400 
+ 984              	.LASF15:
+ 985 006d 45455F46 		.ascii	"EE_FREG\000"
+ 985      52454700 
+ 986              	.LASF32:
+ 987 0075 436F756E 		.ascii	"CounterObjectKindType\000"
+ 987      7465724F 
+ 987      626A6563 
+ 987      744B696E 
+ 987      64547970 
+ 988              	.LASF13:
+ 989 008b 45455F55 		.ascii	"EE_UINT32\000"
+ 989      494E5433 
+ 989      3200
+ 990              	.LASF44:
+ 991 0095 45455F74 		.ascii	"EE_th_ready_prio\000"
+ 991      685F7265 
+ 991      6164795F 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 19
+
+
+ 991      7072696F 
+ 991      00
+ 992              	.LASF63:
+ 993 00a6 47656E65 		.ascii	"Generated_Source\\PSoC5\\ErikaOS_1_ee_lookup.c\000"
+ 993      72617465 
+ 993      645F536F 
+ 993      75726365 
+ 993      5C50536F 
+ 994              	.LASF24:
+ 995 00d3 6D696E63 		.ascii	"mincycle\000"
+ 995      79636C65 
+ 995      00
+ 996              	.LASF26:
+ 997 00dc 76616C75 		.ascii	"value\000"
+ 997      6500
+ 998              	.LASF55:
+ 999 00e2 45455F6F 		.ascii	"EE_oo_counter_object_ROM\000"
+ 999      6F5F636F 
+ 999      756E7465 
+ 999      725F6F62 
+ 999      6A656374 
+ 1000              	.LASF31:
+ 1001 00fb 45455F6F 		.ascii	"EE_oo_counter_object_kind_type\000"
+ 1001      6F5F636F 
+ 1001      756E7465 
+ 1001      725F6F62 
+ 1001      6A656374 
+ 1002              	.LASF41:
+ 1003 011a 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1003      52515F6E 
+ 1003      65737469 
+ 1003      6E675F6C 
+ 1003      6576656C 
+ 1004              	.LASF28:
+ 1005 012f 45455F6F 		.ascii	"EE_oo_counter_RAM_type\000"
+ 1005      6F5F636F 
+ 1005      756E7465 
+ 1005      725F5241 
+ 1005      4D5F7479 
+ 1006              	.LASF6:
+ 1007 0146 6C6F6E67 		.ascii	"long long int\000"
+ 1007      206C6F6E 
+ 1007      6720696E 
+ 1007      7400
+ 1008              	.LASF10:
+ 1009 0154 45455F49 		.ascii	"EE_INT8\000"
+ 1009      4E543800 
+ 1010              	.LASF59:
+ 1011 015c 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1011      6F5F4952 
+ 1011      515F7375 
+ 1011      7370656E 
+ 1011      645F7374 
+ 1012              	.LASF18:
+ 1013 0175 45455F54 		.ascii	"EE_TYPE_RQ_MASK\000"
+ 1013      5950455F 
+ 1013      52515F4D 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 20
+
+
+ 1013      41534B00 
+ 1014              	.LASF30:
+ 1015 0185 45455F53 		.ascii	"EE_SCHEDULETABLE\000"
+ 1015      43484544 
+ 1015      554C4554 
+ 1015      41424C45 
+ 1015      00
+ 1016              	.LASF4:
+ 1017 0196 6C6F6E67 		.ascii	"long int\000"
+ 1017      20696E74 
+ 1017      00
+ 1018              	.LASF22:
+ 1019 019f 6D617861 		.ascii	"maxallowedvalue\000"
+ 1019      6C6C6F77 
+ 1019      65647661 
+ 1019      6C756500 
+ 1020              	.LASF17:
+ 1021 01af 45455F54 		.ascii	"EE_TID\000"
+ 1021      494400
+ 1022              	.LASF40:
+ 1023 01b6 45455F6F 		.ascii	"EE_oo_counter_object_RAM_type\000"
+ 1023      6F5F636F 
+ 1023      756E7465 
+ 1023      725F6F62 
+ 1023      6A656374 
+ 1024              	.LASF25:
+ 1025 01d4 45455F6F 		.ascii	"EE_oo_counter_ROM_type\000"
+ 1025      6F5F636F 
+ 1025      756E7465 
+ 1025      725F524F 
+ 1025      4D5F7479 
+ 1026              	.LASF19:
+ 1027 01eb 5469636B 		.ascii	"TickType\000"
+ 1027      54797065 
+ 1027      00
+ 1028              	.LASF50:
+ 1029 01f4 45455F73 		.ascii	"EE_sys_ceiling\000"
+ 1029      79735F63 
+ 1029      65696C69 
+ 1029      6E6700
+ 1030              	.LASF20:
+ 1031 0203 436F756E 		.ascii	"CounterObjectType\000"
+ 1031      7465724F 
+ 1031      626A6563 
+ 1031      74547970 
+ 1031      6500
+ 1032              	.LASF9:
+ 1033 0215 6C6F6E67 		.ascii	"long double\000"
+ 1033      20646F75 
+ 1033      626C6500 
+ 1034              	.LASF54:
+ 1035 0221 45455F63 		.ascii	"EE_counter_ROM\000"
+ 1035      6F756E74 
+ 1035      65725F52 
+ 1035      4F4D00
+ 1036              	.LASF1:
+ 1037 0230 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 21
+
+
+ 1037      676E6564 
+ 1037      20636861 
+ 1037      7200
+ 1038              	.LASF57:
+ 1039 023e 45455F6F 		.ascii	"EE_oo_counter_object_RAM\000"
+ 1039      6F5F636F 
+ 1039      756E7465 
+ 1039      725F6F62 
+ 1039      6A656374 
+ 1040              	.LASF0:
+ 1041 0257 7369676E 		.ascii	"signed char\000"
+ 1041      65642063 
+ 1041      68617200 
+ 1042              	.LASF7:
+ 1043 0263 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1043      206C6F6E 
+ 1043      6720756E 
+ 1043      7369676E 
+ 1043      65642069 
+ 1044              	.LASF8:
+ 1045 027a 756E7369 		.ascii	"unsigned int\000"
+ 1045      676E6564 
+ 1045      20696E74 
+ 1045      00
+ 1046              	.LASF48:
+ 1047 0287 45455F74 		.ascii	"EE_th_rnact\000"
+ 1047      685F726E 
+ 1047      61637400 
+ 1048              	.LASF42:
+ 1049 0293 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1049      74645F65 
+ 1049      6E646379 
+ 1049      636C655F 
+ 1049      6E657874 
+ 1050              	.LASF12:
+ 1051 02ac 45455F49 		.ascii	"EE_INT32\000"
+ 1051      4E543332 
+ 1051      00
+ 1052              	.LASF64:
+ 1053 02b5 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1053      73657273 
+ 1053      5C417375 
+ 1053      735C4465 
+ 1053      736B746F 
+ 1054 02e1 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 1054      30315C45 
+ 1054      6C656374 
+ 1054      726F6E69 
+ 1054      635F4761 
+ 1055 0310 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1055      312E6379 
+ 1055      64736E00 
+ 1056              	.LASF3:
+ 1057 031c 73686F72 		.ascii	"short unsigned int\000"
+ 1057      7420756E 
+ 1057      7369676E 
+ 1057      65642069 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 22
+
+
+ 1057      6E7400
+ 1058              	.LASF35:
+ 1059 032f 45455F6F 		.ascii	"EE_oo_counter_object_ROM_type\000"
+ 1059      6F5F636F 
+ 1059      756E7465 
+ 1059      725F6F62 
+ 1059      6A656374 
+ 1060              	.LASF11:
+ 1061 034d 45455F55 		.ascii	"EE_UINT16\000"
+ 1061      494E5431 
+ 1061      3600
+ 1062              	.LASF56:
+ 1063 0357 45455F63 		.ascii	"EE_counter_RAM\000"
+ 1063      6F756E74 
+ 1063      65725F52 
+ 1063      414D00
+ 1064              	.LASF60:
+ 1065 0366 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1065      70706C69 
+ 1065      63617469 
+ 1065      6F6E4D6F 
+ 1065      646500
+ 1066              	.LASF5:
+ 1067 0379 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1067      20756E73 
+ 1067      69676E65 
+ 1067      6420696E 
+ 1067      7400
+ 1068              	.LASF16:
+ 1069 038b 45455F54 		.ascii	"EE_TYPEBOOL\000"
+ 1069      59504542 
+ 1069      4F4F4C00 
+ 1070              	.LASF49:
+ 1071 0397 45455F73 		.ascii	"EE_stkfirst\000"
+ 1071      746B6669 
+ 1071      72737400 
+ 1072              	.LASF29:
+ 1073 03a3 45455F41 		.ascii	"EE_ALARM\000"
+ 1073      4C41524D 
+ 1073      00
+ 1074              	.LASF36:
+ 1075 03ac 75736564 		.ascii	"used\000"
+ 1075      00
+ 1076              	.LASF21:
+ 1077 03b1 436F756E 		.ascii	"CounterType\000"
+ 1077      74657254 
+ 1077      79706500 
+ 1078              	.LASF46:
+ 1079 03bd 45455F74 		.ascii	"EE_th_status\000"
+ 1079      685F7374 
+ 1079      61747573 
+ 1079      00
+ 1080              	.LASF45:
+ 1081 03ca 45455F74 		.ascii	"EE_th_dispatch_prio\000"
+ 1081      685F6469 
+ 1081      73706174 
+ 1081      63685F70 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccigf2HS.s 			page 23
+
+
+ 1081      72696F00 
+ 1082              	.LASF47:
+ 1083 03de 45455F74 		.ascii	"EE_th_next\000"
+ 1083      685F6E65 
+ 1083      787400
+ 1084              	.LASF62:
+ 1085 03e9 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1085      43313120 
+ 1085      352E342E 
+ 1085      31203230 
+ 1085      31363036 
+ 1086 041c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1086      20726576 
+ 1086      6973696F 
+ 1086      6E203233 
+ 1086      37373135 
+ 1087 044f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1087      66756E63 
+ 1087      74696F6E 
+ 1087      2D736563 
+ 1087      74696F6E 
+ 1088              	.LASF37:
+ 1089 0477 636E7463 		.ascii	"cntcycle\000"
+ 1089      79636C65 
+ 1089      00
+ 1090              	.LASF58:
+ 1091 0480 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1091      6F5F4952 
+ 1091      515F6469 
+ 1091      7361626C 
+ 1091      655F636F 
+ 1092              	.LASF39:
+ 1093 0498 6E657874 		.ascii	"next\000"
+ 1093      00
+ 1094              	.LASF61:
+ 1095 049d 45455F72 		.ascii	"EE_rq_lookup\000"
+ 1095      715F6C6F 
+ 1095      6F6B7570 
+ 1095      00
+ 1096              	.LASF27:
+ 1097 04aa 66697273 		.ascii	"first\000"
+ 1097      7400
+ 1098              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

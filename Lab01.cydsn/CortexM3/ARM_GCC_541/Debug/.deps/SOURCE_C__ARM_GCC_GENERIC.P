@@ -1,0 +1,180 @@
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/CortexM3/ARM_GCC_541/Debug/swc_remote.o : C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CYDMAC.H C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CYFITTER.H C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyDmac.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyFlash.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyLib.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CySpc.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ISR_definition.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_compiler_gcc.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_hal_structs.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_irqstub.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_primitives.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_types.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_context.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_irq.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_irq_cng_cont.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_nvic.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_systick.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_api.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_as_kernel.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_as_timing_prot.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_irq.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_api.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_common.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_inline.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_intfunc.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_irq.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_kernel.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_rtdruid_versions.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_tracing.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_eecfg.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_event_definition.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_IRQ.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_IntClock.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_SAR.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_TempBuf_dma.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_X.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_X_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_Y.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_Y_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_green.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_green_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_red.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_red_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_yellow.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_yellow_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/PWM_Clock.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_B.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_B_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_G.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_G_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_blue.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_green.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_red.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_R.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_R_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/UART_LOG.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/UART_LOG_IntClock.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/WD_Button.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/WD_Button_aliases.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/core_cm3.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyPm.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevice.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevice_trm.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyfitter.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cypins.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cytypes.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/isr_Button.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/project.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/bsw/derivate.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/bsw/global.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/rte.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/rte_types.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_joystick.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_joystick_type.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_speed.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_speed_type.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sp_common.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/WatchDogTimer.h C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/swc_remote.c C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/swc_remote.h 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CYDMAC.H : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CYFITTER.H : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ISR_definition.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_compiler_gcc.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_hal_structs.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_irqstub.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_primitives.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_common_ee_types.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_context.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_irq.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_irq_cng_cont.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_nvic.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_cortex_mx_ee_systick.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_api.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_as_kernel.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_as_timing_prot.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_irq.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_api.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_common.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_inline.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_intfunc.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_irq.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_oo_kernel.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_rtdruid_versions.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_ee_tracing.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_eecfg.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/ErikaOS_1_event_definition.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_IRQ.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_IntClock.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_SAR.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_ADC_XY_TempBuf_dma.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_X.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_X_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_Y.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/JOYSTICK_Y_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_green.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_green_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_red.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_red_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_yellow.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/LED_yellow_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/PWM_Clock.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_B.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_B_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_G.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_G_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_blue.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_green.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_PWM_red.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_R.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/RGB_R_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/UART_LOG.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/UART_LOG_IntClock.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/WD_Button.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/WD_Button_aliases.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/isr_Button.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/project.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/bsw/derivate.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/bsw/global.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/rte.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/rte_types.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_joystick.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_joystick_type.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_speed.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sc_speed_type.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/rte/sp_common.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/WatchDogTimer.h : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/swc_remote.c : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/sources/asw/swc_remote.h : 
+

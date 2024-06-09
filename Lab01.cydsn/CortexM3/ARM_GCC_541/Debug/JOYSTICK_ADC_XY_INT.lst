@@ -1,0 +1,391 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"JOYSTICK_ADC_XY_INT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.JOYSTICK_ADC_XY_ISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	JOYSTICK_ADC_XY_ISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	JOYSTICK_ADC_XY_ISR, %function
+  25              	JOYSTICK_ADC_XY_ISR:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_INT.c"
+   1:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * File Name: JOYSTICK_ADC_XY_INT.c
+   3:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * Version 2.10
+   4:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *
+   5:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *  Description:
+   6:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *    This file contains the code that operates during the interrupt
+   7:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *    service routine.
+   8:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *
+   9:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *   Note:
+  10:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *
+  11:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * Copyright 2012-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  18:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** #include "JOYSTICK_ADC_XY.h"
+  19:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  20:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  21:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  22:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** /******************************************************************************
+  23:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * Custom Declarations and Variables
+  24:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** * - add user inlcude files, prototypes and variables between the following
+  25:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** *   #START and #END tags
+  26:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** ******************************************************************************/
+  27:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** /* `#START SEQ_ADC_SYS_VAR`  */
+  28:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  29:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** /* `#END`  */
+  30:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 2
+
+
+  31:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** #if(JOYSTICK_ADC_XY_IRQ_REMOVE == 0u)
+  32:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  33:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c **** 
+  34:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     /******************************************************************************
+  35:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     * Function Name: JOYSTICK_ADC_XY_ISR
+  36:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *******************************************************************************
+  37:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *
+  38:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     * Summary:
+  39:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *  Handle Interrupt Service Routine.
+  40:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *
+  41:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     * Parameters:
+  42:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *  None.
+  43:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *
+  44:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     * Return:
+  45:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *  None.
+  46:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *
+  47:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     * Reentrant:
+  48:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *  No.
+  49:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     *
+  50:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     ******************************************************************************/
+  51:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     CY_ISR( JOYSTICK_ADC_XY_ISR )
+  52:Generated_Source\PSoC5/JOYSTICK_ADC_XY_INT.c ****     {
+  28              		.loc 1 52 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE0:
+  36              		.size	JOYSTICK_ADC_XY_ISR, .-JOYSTICK_ADC_XY_ISR
+  37 0002 00BF     		.text
+  38              	.Letext0:
+  39              		.section	.debug_info,"",%progbits
+  40              	.Ldebug_info0:
+  41 0000 9C000000 		.4byte	0x9c
+  42 0004 0400     		.2byte	0x4
+  43 0006 00000000 		.4byte	.Ldebug_abbrev0
+  44 000a 04       		.byte	0x4
+  45 000b 01       		.uleb128 0x1
+  46 000c AF000000 		.4byte	.LASF14
+  47 0010 0C       		.byte	0xc
+  48 0011 82000000 		.4byte	.LASF15
+  49 0015 0E000000 		.4byte	.LASF16
+  50 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  51 001d 00000000 		.4byte	0
+  52 0021 00000000 		.4byte	.Ldebug_line0
+  53 0025 02       		.uleb128 0x2
+  54 0026 01       		.byte	0x1
+  55 0027 06       		.byte	0x6
+  56 0028 B6010000 		.4byte	.LASF0
+  57 002c 02       		.uleb128 0x2
+  58 002d 01       		.byte	0x1
+  59 002e 08       		.byte	0x8
+  60 002f 6C010000 		.4byte	.LASF1
+  61 0033 02       		.uleb128 0x2
+  62 0034 02       		.byte	0x2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 3
+
+
+  63 0035 05       		.byte	0x5
+  64 0036 CE010000 		.4byte	.LASF2
+  65 003a 02       		.uleb128 0x2
+  66 003b 02       		.byte	0x2
+  67 003c 07       		.byte	0x7
+  68 003d A3010000 		.4byte	.LASF3
+  69 0041 02       		.uleb128 0x2
+  70 0042 04       		.byte	0x4
+  71 0043 05       		.byte	0x5
+  72 0044 9A010000 		.4byte	.LASF4
+  73 0048 02       		.uleb128 0x2
+  74 0049 04       		.byte	0x4
+  75 004a 07       		.byte	0x7
+  76 004b 3D010000 		.4byte	.LASF5
+  77 004f 02       		.uleb128 0x2
+  78 0050 08       		.byte	0x8
+  79 0051 05       		.byte	0x5
+  80 0052 00000000 		.4byte	.LASF6
+  81 0056 02       		.uleb128 0x2
+  82 0057 08       		.byte	0x8
+  83 0058 07       		.byte	0x7
+  84 0059 4F010000 		.4byte	.LASF7
+  85 005d 03       		.uleb128 0x3
+  86 005e 04       		.byte	0x4
+  87 005f 05       		.byte	0x5
+  88 0060 696E7400 		.ascii	"int\000"
+  89 0064 02       		.uleb128 0x2
+  90 0065 04       		.byte	0x4
+  91 0066 07       		.byte	0x7
+  92 0067 75000000 		.4byte	.LASF8
+  93 006b 02       		.uleb128 0x2
+  94 006c 04       		.byte	0x4
+  95 006d 04       		.byte	0x4
+  96 006e 66010000 		.4byte	.LASF9
+  97 0072 02       		.uleb128 0x2
+  98 0073 08       		.byte	0x8
+  99 0074 04       		.byte	0x4
+ 100 0075 93010000 		.4byte	.LASF10
+ 101 0079 02       		.uleb128 0x2
+ 102 007a 01       		.byte	0x1
+ 103 007b 08       		.byte	0x8
+ 104 007c 7A010000 		.4byte	.LASF11
+ 105 0080 02       		.uleb128 0x2
+ 106 0081 08       		.byte	0x8
+ 107 0082 04       		.byte	0x4
+ 108 0083 C2010000 		.4byte	.LASF12
+ 109 0087 02       		.uleb128 0x2
+ 110 0088 04       		.byte	0x4
+ 111 0089 07       		.byte	0x7
+ 112 008a D8010000 		.4byte	.LASF13
+ 113 008e 04       		.uleb128 0x4
+ 114 008f 7F010000 		.4byte	.LASF17
+ 115 0093 01       		.byte	0x1
+ 116 0094 33       		.byte	0x33
+ 117 0095 00000000 		.4byte	.LFB0
+ 118 0099 02000000 		.4byte	.LFE0-.LFB0
+ 119 009d 01       		.uleb128 0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 4
+
+
+ 120 009e 9C       		.byte	0x9c
+ 121 009f 00       		.byte	0
+ 122              		.section	.debug_abbrev,"",%progbits
+ 123              	.Ldebug_abbrev0:
+ 124 0000 01       		.uleb128 0x1
+ 125 0001 11       		.uleb128 0x11
+ 126 0002 01       		.byte	0x1
+ 127 0003 25       		.uleb128 0x25
+ 128 0004 0E       		.uleb128 0xe
+ 129 0005 13       		.uleb128 0x13
+ 130 0006 0B       		.uleb128 0xb
+ 131 0007 03       		.uleb128 0x3
+ 132 0008 0E       		.uleb128 0xe
+ 133 0009 1B       		.uleb128 0x1b
+ 134 000a 0E       		.uleb128 0xe
+ 135 000b 55       		.uleb128 0x55
+ 136 000c 17       		.uleb128 0x17
+ 137 000d 11       		.uleb128 0x11
+ 138 000e 01       		.uleb128 0x1
+ 139 000f 10       		.uleb128 0x10
+ 140 0010 17       		.uleb128 0x17
+ 141 0011 00       		.byte	0
+ 142 0012 00       		.byte	0
+ 143 0013 02       		.uleb128 0x2
+ 144 0014 24       		.uleb128 0x24
+ 145 0015 00       		.byte	0
+ 146 0016 0B       		.uleb128 0xb
+ 147 0017 0B       		.uleb128 0xb
+ 148 0018 3E       		.uleb128 0x3e
+ 149 0019 0B       		.uleb128 0xb
+ 150 001a 03       		.uleb128 0x3
+ 151 001b 0E       		.uleb128 0xe
+ 152 001c 00       		.byte	0
+ 153 001d 00       		.byte	0
+ 154 001e 03       		.uleb128 0x3
+ 155 001f 24       		.uleb128 0x24
+ 156 0020 00       		.byte	0
+ 157 0021 0B       		.uleb128 0xb
+ 158 0022 0B       		.uleb128 0xb
+ 159 0023 3E       		.uleb128 0x3e
+ 160 0024 0B       		.uleb128 0xb
+ 161 0025 03       		.uleb128 0x3
+ 162 0026 08       		.uleb128 0x8
+ 163 0027 00       		.byte	0
+ 164 0028 00       		.byte	0
+ 165 0029 04       		.uleb128 0x4
+ 166 002a 2E       		.uleb128 0x2e
+ 167 002b 00       		.byte	0
+ 168 002c 3F       		.uleb128 0x3f
+ 169 002d 19       		.uleb128 0x19
+ 170 002e 03       		.uleb128 0x3
+ 171 002f 0E       		.uleb128 0xe
+ 172 0030 3A       		.uleb128 0x3a
+ 173 0031 0B       		.uleb128 0xb
+ 174 0032 3B       		.uleb128 0x3b
+ 175 0033 0B       		.uleb128 0xb
+ 176 0034 27       		.uleb128 0x27
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 5
+
+
+ 177 0035 19       		.uleb128 0x19
+ 178 0036 11       		.uleb128 0x11
+ 179 0037 01       		.uleb128 0x1
+ 180 0038 12       		.uleb128 0x12
+ 181 0039 06       		.uleb128 0x6
+ 182 003a 40       		.uleb128 0x40
+ 183 003b 18       		.uleb128 0x18
+ 184 003c 9742     		.uleb128 0x2117
+ 185 003e 19       		.uleb128 0x19
+ 186 003f 00       		.byte	0
+ 187 0040 00       		.byte	0
+ 188 0041 00       		.byte	0
+ 189              		.section	.debug_aranges,"",%progbits
+ 190 0000 1C000000 		.4byte	0x1c
+ 191 0004 0200     		.2byte	0x2
+ 192 0006 00000000 		.4byte	.Ldebug_info0
+ 193 000a 04       		.byte	0x4
+ 194 000b 00       		.byte	0
+ 195 000c 0000     		.2byte	0
+ 196 000e 0000     		.2byte	0
+ 197 0010 00000000 		.4byte	.LFB0
+ 198 0014 02000000 		.4byte	.LFE0-.LFB0
+ 199 0018 00000000 		.4byte	0
+ 200 001c 00000000 		.4byte	0
+ 201              		.section	.debug_ranges,"",%progbits
+ 202              	.Ldebug_ranges0:
+ 203 0000 00000000 		.4byte	.LFB0
+ 204 0004 02000000 		.4byte	.LFE0
+ 205 0008 00000000 		.4byte	0
+ 206 000c 00000000 		.4byte	0
+ 207              		.section	.debug_line,"",%progbits
+ 208              	.Ldebug_line0:
+ 209 0000 58000000 		.section	.debug_str,"MS",%progbits,1
+ 209      02004300 
+ 209      00000201 
+ 209      FB0E0D00 
+ 209      01010101 
+ 210              	.LASF6:
+ 211 0000 6C6F6E67 		.ascii	"long long int\000"
+ 211      206C6F6E 
+ 211      6720696E 
+ 211      7400
+ 212              	.LASF16:
+ 213 000e 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 213      73657273 
+ 213      5C417375 
+ 213      735C4465 
+ 213      736B746F 
+ 214 003a 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 214      30315C45 
+ 214      6C656374 
+ 214      726F6E69 
+ 214      635F4761 
+ 215 0069 4C616230 		.ascii	"Lab01.cydsn\000"
+ 215      312E6379 
+ 215      64736E00 
+ 216              	.LASF8:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 6
+
+
+ 217 0075 756E7369 		.ascii	"unsigned int\000"
+ 217      676E6564 
+ 217      20696E74 
+ 217      00
+ 218              	.LASF15:
+ 219 0082 47656E65 		.ascii	"Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_INT.c\000"
+ 219      72617465 
+ 219      645F536F 
+ 219      75726365 
+ 219      5C50536F 
+ 220              	.LASF14:
+ 221 00af 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 221      43313120 
+ 221      352E342E 
+ 221      31203230 
+ 221      31363036 
+ 222 00e2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 222      20726576 
+ 222      6973696F 
+ 222      6E203233 
+ 222      37373135 
+ 223 0115 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 223      66756E63 
+ 223      74696F6E 
+ 223      2D736563 
+ 223      74696F6E 
+ 224              	.LASF5:
+ 225 013d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 225      20756E73 
+ 225      69676E65 
+ 225      6420696E 
+ 225      7400
+ 226              	.LASF7:
+ 227 014f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 227      206C6F6E 
+ 227      6720756E 
+ 227      7369676E 
+ 227      65642069 
+ 228              	.LASF9:
+ 229 0166 666C6F61 		.ascii	"float\000"
+ 229      7400
+ 230              	.LASF1:
+ 231 016c 756E7369 		.ascii	"unsigned char\000"
+ 231      676E6564 
+ 231      20636861 
+ 231      7200
+ 232              	.LASF11:
+ 233 017a 63686172 		.ascii	"char\000"
+ 233      00
+ 234              	.LASF17:
+ 235 017f 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_ISR\000"
+ 235      5449434B 
+ 235      5F414443 
+ 235      5F58595F 
+ 235      49535200 
+ 236              	.LASF10:
+ 237 0193 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cc4OsDQ5.s 			page 7
+
+
+ 237      6C6500
+ 238              	.LASF4:
+ 239 019a 6C6F6E67 		.ascii	"long int\000"
+ 239      20696E74 
+ 239      00
+ 240              	.LASF3:
+ 241 01a3 73686F72 		.ascii	"short unsigned int\000"
+ 241      7420756E 
+ 241      7369676E 
+ 241      65642069 
+ 241      6E7400
+ 242              	.LASF0:
+ 243 01b6 7369676E 		.ascii	"signed char\000"
+ 243      65642063 
+ 243      68617200 
+ 244              	.LASF12:
+ 245 01c2 6C6F6E67 		.ascii	"long double\000"
+ 245      20646F75 
+ 245      626C6500 
+ 246              	.LASF2:
+ 247 01ce 73686F72 		.ascii	"short int\000"
+ 247      7420696E 
+ 247      7400
+ 248              	.LASF13:
+ 249 01d8 73697A65 		.ascii	"sizetype\000"
+ 249      74797065 
+ 249      00
+ 250              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

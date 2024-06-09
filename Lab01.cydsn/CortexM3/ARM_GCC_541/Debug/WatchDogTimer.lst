@@ -1,0 +1,1443 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"WatchDogTimer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.WD_Start,"ax",%progbits
+  20              		.align	2
+  21              		.global	WD_Start
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	WD_Start, %function
+  25              	WD_Start:
+  26              	.LFB111:
+  27              		.file 1 "sources\\asw\\WatchDogTimer.c"
+   1:sources\asw/WatchDogTimer.c **** #include "global.h"
+   2:sources\asw/WatchDogTimer.c **** #include <stdio.h>
+   3:sources\asw/WatchDogTimer.c **** #include <stdlib.h>
+   4:sources\asw/WatchDogTimer.c **** #include "WatchDogTimer.h"
+   5:sources\asw/WatchDogTimer.c **** 
+   6:sources\asw/WatchDogTimer.c **** static uint8_t WD_RunnableAliveBitField;
+   7:sources\asw/WatchDogTimer.c **** 
+   8:sources\asw/WatchDogTimer.c **** //Function Implementation
+   9:sources\asw/WatchDogTimer.c **** 
+  10:sources\asw/WatchDogTimer.c **** /**
+  11:sources\asw/WatchDogTimer.c **** * Activate the Watchdog Trigger
+  12:sources\asw/WatchDogTimer.c **** * \param WDT_TimeOut_t timeout - [IN] Timeout Period
+  13:sources\asw/WatchDogTimer.c **** * @return RC_SUCCESS
+  14:sources\asw/WatchDogTimer.c **** */
+  15:sources\asw/WatchDogTimer.c **** RC_t WD_Start( WDT_TimeOut_t timeout)
+  16:sources\asw/WatchDogTimer.c **** {
+  28              		.loc 1 16 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  17:sources\asw/WatchDogTimer.c ****     CyWdtStart(timeout, CYWDT_LPMODE_NOCHANGE);
+  37              		.loc 1 17 0
+  38 0002 0021     		movs	r1, #0
+  39 0004 FFF7FEFF 		bl	CyWdtStart
+  40              	.LVL1:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 2
+
+
+  18:sources\asw/WatchDogTimer.c ****     return RC_SUCCESS;
+  19:sources\asw/WatchDogTimer.c **** }
+  41              		.loc 1 19 0
+  42 0008 0020     		movs	r0, #0
+  43 000a 08BD     		pop	{r3, pc}
+  44              		.cfi_endproc
+  45              	.LFE111:
+  46              		.size	WD_Start, .-WD_Start
+  47              		.section	.text.WD_Trigger,"ax",%progbits
+  48              		.align	2
+  49              		.global	WD_Trigger
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	WD_Trigger, %function
+  53              	WD_Trigger:
+  54              	.LFB112:
+  20:sources\asw/WatchDogTimer.c **** 
+  21:sources\asw/WatchDogTimer.c **** /**
+  22:sources\asw/WatchDogTimer.c **** * Service the Watchdog Trigger
+  23:sources\asw/WatchDogTimer.c **** * @return RC_SUCCESS
+  24:sources\asw/WatchDogTimer.c **** */
+  25:sources\asw/WatchDogTimer.c **** RC_t WD_Trigger()
+  26:sources\asw/WatchDogTimer.c **** {
+  55              		.loc 1 26 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59 0000 08B5     		push	{r3, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 3, -8
+  62              		.cfi_offset 14, -4
+  27:sources\asw/WatchDogTimer.c ****     //If every runnable sends alive bit i.e. 0x0f = 0000 1111 then clear watchdog timer and reset b
+  28:sources\asw/WatchDogTimer.c ****     if(WD_RunnableAliveBitField == 0x0f)
+  63              		.loc 1 28 0
+  64 0002 054B     		ldr	r3, .L6
+  65 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  66 0006 0F2B     		cmp	r3, #15
+  67 0008 04D1     		bne	.L4
+  29:sources\asw/WatchDogTimer.c ****     {
+  30:sources\asw/WatchDogTimer.c ****         CyWdtClear();
+  68              		.loc 1 30 0
+  69 000a FFF7FEFF 		bl	CyWdtClear
+  70              	.LVL2:
+  31:sources\asw/WatchDogTimer.c ****         WD_RunnableAliveBitField = 0;
+  71              		.loc 1 31 0
+  72 000e 0022     		movs	r2, #0
+  73 0010 014B     		ldr	r3, .L6
+  74 0012 1A70     		strb	r2, [r3]
+  75              	.L4:
+  32:sources\asw/WatchDogTimer.c ****     }    
+  33:sources\asw/WatchDogTimer.c ****     return RC_SUCCESS;
+  34:sources\asw/WatchDogTimer.c **** }
+  76              		.loc 1 34 0
+  77 0014 0020     		movs	r0, #0
+  78 0016 08BD     		pop	{r3, pc}
+  79              	.L7:
+  80              		.align	2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 3
+
+
+  81              	.L6:
+  82 0018 00000000 		.word	.LANCHOR0
+  83              		.cfi_endproc
+  84              	.LFE112:
+  85              		.size	WD_Trigger, .-WD_Trigger
+  86              		.section	.text.WD_CheckResetBit,"ax",%progbits
+  87              		.align	2
+  88              		.global	WD_CheckResetBit
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	WD_CheckResetBit, %function
+  92              	WD_CheckResetBit:
+  93              	.LFB113:
+  35:sources\asw/WatchDogTimer.c **** 
+  36:sources\asw/WatchDogTimer.c **** /**
+  37:sources\asw/WatchDogTimer.c **** * Checks the watchdog bit
+  38:sources\asw/WatchDogTimer.c **** * @return TRUE if watchdog reset bit was set
+  39:sources\asw/WatchDogTimer.c **** */
+  40:sources\asw/WatchDogTimer.c **** boolean_t WD_CheckResetBit()
+  41:sources\asw/WatchDogTimer.c **** {
+  94              		.loc 1 41 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  42:sources\asw/WatchDogTimer.c ****     //Check if watchdog is source of reset by checking the watchdog reset bit in status register
+  43:sources\asw/WatchDogTimer.c ****     if(CyResetStatus & CY_RESET_WD)
+  99              		.loc 1 43 0
+ 100 0000 044B     		ldr	r3, .L10
+ 101 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 102 0004 03F00803 		and	r3, r3, #8
+ 103 0008 03F0FF00 		and	r0, r3, #255
+ 104 000c 03B1     		cbz	r3, .L9
+  44:sources\asw/WatchDogTimer.c ****     {
+  45:sources\asw/WatchDogTimer.c ****         return TRUE;
+ 105              		.loc 1 45 0
+ 106 000e 0120     		movs	r0, #1
+ 107              	.L9:
+  46:sources\asw/WatchDogTimer.c ****     }
+  47:sources\asw/WatchDogTimer.c ****     else
+  48:sources\asw/WatchDogTimer.c ****     {
+  49:sources\asw/WatchDogTimer.c ****         return FALSE;
+  50:sources\asw/WatchDogTimer.c ****     }
+  51:sources\asw/WatchDogTimer.c **** }
+ 108              		.loc 1 51 0
+ 109 0010 7047     		bx	lr
+ 110              	.L11:
+ 111 0012 00BF     		.align	2
+ 112              	.L10:
+ 113 0014 00000000 		.word	CyResetStatus
+ 114              		.cfi_endproc
+ 115              	.LFE113:
+ 116              		.size	WD_CheckResetBit, .-WD_CheckResetBit
+ 117              		.section	.text.WD_Alive,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	WD_Alive
+ 120              		.thumb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 4
+
+
+ 121              		.thumb_func
+ 122              		.type	WD_Alive, %function
+ 123              	WD_Alive:
+ 124              	.LFB114:
+  52:sources\asw/WatchDogTimer.c **** 
+  53:sources\asw/WatchDogTimer.c **** /**
+  54:sources\asw/WatchDogTimer.c **** * This function sets the bit at the corresponding position.
+  55:sources\asw/WatchDogTimer.c **** * It is called by every runnable using a uniqe position.
+  56:sources\asw/WatchDogTimer.c **** * 0 = JoyStick_run, 1 = Control_run, 2 = Engine_run, 3 = brakelight_run
+  57:sources\asw/WatchDogTimer.c **** * @return RC_SUCCESS
+  58:sources\asw/WatchDogTimer.c **** */
+  59:sources\asw/WatchDogTimer.c **** RC_t WD_Alive(uint8_t myBitPosition)
+  60:sources\asw/WatchDogTimer.c **** {
+ 125              		.loc 1 60 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130              	.LVL3:
+  61:sources\asw/WatchDogTimer.c ****     /*
+  62:sources\asw/WatchDogTimer.c ****     Let say joystick runnable sends alive bit i.e. myBitPosition = 0
+  63:sources\asw/WatchDogTimer.c ****     Initial value of WD_RunnableAliveBitField = 0000 0000
+  64:sources\asw/WatchDogTimer.c ****     left shift 1U by 0 i.e. 0000 0001 <<0 ==> 0000 0001
+  65:sources\asw/WatchDogTimer.c ****     Bitwise OR between (1U << myBitPositon) and WD_RunnableAliveBitField ==> 0000 0001
+  66:sources\asw/WatchDogTimer.c ****     so for second runnable ==> 0000 0011
+  67:sources\asw/WatchDogTimer.c ****     Third runnable ==> 0000 0111
+  68:sources\asw/WatchDogTimer.c ****     Fourth runnable ==> 0000 1111
+  69:sources\asw/WatchDogTimer.c ****     */
+  70:sources\asw/WatchDogTimer.c ****     WD_RunnableAliveBitField |= (1U) << myBitPosition;
+ 131              		.loc 1 70 0
+ 132 0000 0123     		movs	r3, #1
+ 133 0002 03FA00F0 		lsl	r0, r3, r0
+ 134              	.LVL4:
+ 135 0006 034A     		ldr	r2, .L13
+ 136 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 137 000a 1843     		orrs	r0, r0, r3
+ 138 000c 1070     		strb	r0, [r2]
+  71:sources\asw/WatchDogTimer.c ****     
+  72:sources\asw/WatchDogTimer.c ****     return RC_SUCCESS;
+  73:sources\asw/WatchDogTimer.c **** }...
+ 139              		.loc 1 73 0
+ 140 000e 0020     		movs	r0, #0
+ 141 0010 7047     		bx	lr
+ 142              	.L14:
+ 143 0012 00BF     		.align	2
+ 144              	.L13:
+ 145 0014 00000000 		.word	.LANCHOR0
+ 146              		.cfi_endproc
+ 147              	.LFE114:
+ 148              		.size	WD_Alive, .-WD_Alive
+ 149              		.bss
+ 150              		.set	.LANCHOR0,. + 0
+ 151              		.type	WD_RunnableAliveBitField, %object
+ 152              		.size	WD_RunnableAliveBitField, 1
+ 153              	WD_RunnableAliveBitField:
+ 154 0000 00       		.space	1
+ 155              		.text
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 5
+
+
+ 156              	.Letext0:
+ 157              		.file 2 ".\\sources\\bsw/global.h"
+ 158              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 159              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 160              		.file 5 "Generated_Source\\PSoC5/cytypes.h"
+ 161              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 162              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 163              		.file 8 "sources\\asw\\WatchDogTimer.h"
+ 164              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 165              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 166              		.file 11 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 167              		.file 12 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 168              		.file 13 "Generated_Source\\PSoC5/core_cm3.h"
+ 169              		.section	.debug_info,"",%progbits
+ 170              	.Ldebug_info0:
+ 171 0000 F5020000 		.4byte	0x2f5
+ 172 0004 0400     		.2byte	0x4
+ 173 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 174 000a 04       		.byte	0x4
+ 175 000b 01       		.uleb128 0x1
+ 176 000c 45030000 		.4byte	.LASF69
+ 177 0010 0C       		.byte	0xc
+ 178 0011 35010000 		.4byte	.LASF70
+ 179 0015 CB020000 		.4byte	.LASF71
+ 180 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 181 001d 00000000 		.4byte	0
+ 182 0021 00000000 		.4byte	.Ldebug_line0
+ 183 0025 02       		.uleb128 0x2
+ 184 0026 01       		.byte	0x1
+ 185 0027 06       		.byte	0x6
+ 186 0028 44020000 		.4byte	.LASF0
+ 187 002c 03       		.uleb128 0x3
+ 188 002d AC000000 		.4byte	.LASF10
+ 189 0031 02       		.byte	0x2
+ 190 0032 91       		.byte	0x91
+ 191 0033 37000000 		.4byte	0x37
+ 192 0037 02       		.uleb128 0x2
+ 193 0038 01       		.byte	0x1
+ 194 0039 08       		.byte	0x8
+ 195 003a 36020000 		.4byte	.LASF1
+ 196 003e 02       		.uleb128 0x2
+ 197 003f 02       		.byte	0x2
+ 198 0040 05       		.byte	0x5
+ 199 0041 38000000 		.4byte	.LASF2
+ 200 0045 02       		.uleb128 0x2
+ 201 0046 02       		.byte	0x2
+ 202 0047 07       		.byte	0x7
+ 203 0048 32030000 		.4byte	.LASF3
+ 204 004c 02       		.uleb128 0x2
+ 205 004d 04       		.byte	0x4
+ 206 004e 05       		.byte	0x5
+ 207 004f C1010000 		.4byte	.LASF4
+ 208 0053 02       		.uleb128 0x2
+ 209 0054 04       		.byte	0x4
+ 210 0055 07       		.byte	0x7
+ 211 0056 48040000 		.4byte	.LASF5
+ 212 005a 02       		.uleb128 0x2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 6
+
+
+ 213 005b 04       		.byte	0x4
+ 214 005c 04       		.byte	0x4
+ 215 005d 2F010000 		.4byte	.LASF6
+ 216 0061 02       		.uleb128 0x2
+ 217 0062 08       		.byte	0x8
+ 218 0063 04       		.byte	0x4
+ 219 0064 5A040000 		.4byte	.LASF7
+ 220 0068 02       		.uleb128 0x2
+ 221 0069 08       		.byte	0x8
+ 222 006a 05       		.byte	0x5
+ 223 006b 6A010000 		.4byte	.LASF8
+ 224 006f 02       		.uleb128 0x2
+ 225 0070 08       		.byte	0x8
+ 226 0071 07       		.byte	0x7
+ 227 0072 50020000 		.4byte	.LASF9
+ 228 0076 03       		.uleb128 0x3
+ 229 0077 0D020000 		.4byte	.LASF11
+ 230 007b 02       		.byte	0x2
+ 231 007c 9C       		.byte	0x9c
+ 232 007d 37000000 		.4byte	0x37
+ 233 0081 02       		.uleb128 0x2
+ 234 0082 01       		.byte	0x1
+ 235 0083 08       		.byte	0x8
+ 236 0084 D3030000 		.4byte	.LASF12
+ 237 0088 04       		.uleb128 0x4
+ 238 0089 01       		.byte	0x1
+ 239 008a 25000000 		.4byte	0x25
+ 240 008e 02       		.byte	0x2
+ 241 008f CF       		.byte	0xcf
+ 242 0090 31010000 		.4byte	0x131
+ 243 0094 05       		.uleb128 0x5
+ 244 0095 0E000000 		.4byte	.LASF13
+ 245 0099 00       		.byte	0
+ 246 009a 06       		.uleb128 0x6
+ 247 009b D2040000 		.4byte	.LASF14
+ 248 009f 7F       		.sleb128 -1
+ 249 00a0 06       		.uleb128 0x6
+ 250 00a1 90020000 		.4byte	.LASF15
+ 251 00a5 7E       		.sleb128 -2
+ 252 00a6 06       		.uleb128 0x6
+ 253 00a7 71000000 		.4byte	.LASF16
+ 254 00ab 7D       		.sleb128 -3
+ 255 00ac 06       		.uleb128 0x6
+ 256 00ad DB040000 		.4byte	.LASF17
+ 257 00b1 7C       		.sleb128 -4
+ 258 00b2 06       		.uleb128 0x6
+ 259 00b3 20010000 		.4byte	.LASF18
+ 260 00b7 7B       		.sleb128 -5
+ 261 00b8 06       		.uleb128 0x6
+ 262 00b9 42000000 		.4byte	.LASF19
+ 263 00bd 7A       		.sleb128 -6
+ 264 00be 06       		.uleb128 0x6
+ 265 00bf CA010000 		.4byte	.LASF20
+ 266 00c3 79       		.sleb128 -7
+ 267 00c4 06       		.uleb128 0x6
+ 268 00c5 D8030000 		.4byte	.LASF21
+ 269 00c9 78       		.sleb128 -8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 7
+
+
+ 270 00ca 06       		.uleb128 0x6
+ 271 00cb 9E020000 		.4byte	.LASF22
+ 272 00cf 77       		.sleb128 -9
+ 273 00d0 06       		.uleb128 0x6
+ 274 00d1 DC010000 		.4byte	.LASF23
+ 275 00d5 76       		.sleb128 -10
+ 276 00d6 06       		.uleb128 0x6
+ 277 00d7 1B050000 		.4byte	.LASF24
+ 278 00db 75       		.sleb128 -11
+ 279 00dc 06       		.uleb128 0x6
+ 280 00dd 74020000 		.4byte	.LASF25
+ 281 00e1 74       		.sleb128 -12
+ 282 00e2 06       		.uleb128 0x6
+ 283 00e3 61040000 		.4byte	.LASF26
+ 284 00e7 73       		.sleb128 -13
+ 285 00e8 06       		.uleb128 0x6
+ 286 00e9 17020000 		.4byte	.LASF27
+ 287 00ed 72       		.sleb128 -14
+ 288 00ee 06       		.uleb128 0x6
+ 289 00ef 24000000 		.4byte	.LASF28
+ 290 00f3 71       		.sleb128 -15
+ 291 00f4 06       		.uleb128 0x6
+ 292 00f5 EA010000 		.4byte	.LASF29
+ 293 00f9 70       		.sleb128 -16
+ 294 00fa 06       		.uleb128 0x6
+ 295 00fb 00040000 		.4byte	.LASF30
+ 296 00ff 6F       		.sleb128 -17
+ 297 0100 06       		.uleb128 0x6
+ 298 0101 53000000 		.4byte	.LASF31
+ 299 0105 6E       		.sleb128 -18
+ 300 0106 06       		.uleb128 0x6
+ 301 0107 9D010000 		.4byte	.LASF32
+ 302 010b 6D       		.sleb128 -19
+ 303 010c 06       		.uleb128 0x6
+ 304 010d 14040000 		.4byte	.LASF33
+ 305 0111 6C       		.sleb128 -20
+ 306 0112 06       		.uleb128 0x6
+ 307 0113 FB010000 		.4byte	.LASF34
+ 308 0117 6B       		.sleb128 -21
+ 309 0118 06       		.uleb128 0x6
+ 310 0119 A7040000 		.4byte	.LASF35
+ 311 011d 6A       		.sleb128 -22
+ 312 011e 06       		.uleb128 0x6
+ 313 011f B4000000 		.4byte	.LASF36
+ 314 0123 69       		.sleb128 -23
+ 315 0124 06       		.uleb128 0x6
+ 316 0125 B0010000 		.4byte	.LASF37
+ 317 0129 68       		.sleb128 -24
+ 318 012a 06       		.uleb128 0x6
+ 319 012b 51010000 		.4byte	.LASF38
+ 320 012f 67       		.sleb128 -25
+ 321 0130 00       		.byte	0
+ 322 0131 03       		.uleb128 0x3
+ 323 0132 0B050000 		.4byte	.LASF39
+ 324 0136 02       		.byte	0x2
+ 325 0137 EA       		.byte	0xea
+ 326 0138 88000000 		.4byte	0x88
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 8
+
+
+ 327 013c 03       		.uleb128 0x3
+ 328 013d 7B040000 		.4byte	.LASF40
+ 329 0141 03       		.byte	0x3
+ 330 0142 3F       		.byte	0x3f
+ 331 0143 4C000000 		.4byte	0x4c
+ 332 0147 07       		.uleb128 0x7
+ 333 0148 04       		.byte	0x4
+ 334 0149 05       		.byte	0x5
+ 335 014a 696E7400 		.ascii	"int\000"
+ 336 014e 02       		.uleb128 0x2
+ 337 014f 04       		.byte	0x4
+ 338 0150 07       		.byte	0x7
+ 339 0151 67020000 		.4byte	.LASF41
+ 340 0155 02       		.uleb128 0x2
+ 341 0156 08       		.byte	0x8
+ 342 0157 04       		.byte	0x4
+ 343 0158 2A020000 		.4byte	.LASF42
+ 344 015c 02       		.uleb128 0x2
+ 345 015d 04       		.byte	0x4
+ 346 015e 07       		.byte	0x7
+ 347 015f 68000000 		.4byte	.LASF43
+ 348 0163 03       		.uleb128 0x3
+ 349 0164 ED030000 		.4byte	.LASF44
+ 350 0168 04       		.byte	0x4
+ 351 0169 2C       		.byte	0x2c
+ 352 016a 3C010000 		.4byte	0x13c
+ 353 016e 08       		.uleb128 0x8
+ 354 016f DC000000 		.4byte	.LASF45
+ 355 0173 05       		.byte	0x5
+ 356 0174 E801     		.2byte	0x1e8
+ 357 0176 37000000 		.4byte	0x37
+ 358 017a 03       		.uleb128 0x3
+ 359 017b B4020000 		.4byte	.LASF46
+ 360 017f 06       		.byte	0x6
+ 361 0180 53       		.byte	0x53
+ 362 0181 47010000 		.4byte	0x147
+ 363 0185 03       		.uleb128 0x3
+ 364 0186 9B000000 		.4byte	.LASF47
+ 365 018a 06       		.byte	0x6
+ 366 018b 54       		.byte	0x54
+ 367 018c 4E010000 		.4byte	0x14e
+ 368 0190 03       		.uleb128 0x3
+ 369 0191 73040000 		.4byte	.LASF48
+ 370 0195 07       		.byte	0x7
+ 371 0196 4D       		.byte	0x4d
+ 372 0197 85010000 		.4byte	0x185
+ 373 019b 03       		.uleb128 0x3
+ 374 019c 7F000000 		.4byte	.LASF49
+ 375 01a0 07       		.byte	0x7
+ 376 01a1 4F       		.byte	0x4f
+ 377 01a2 85010000 		.4byte	0x185
+ 378 01a6 03       		.uleb128 0x3
+ 379 01a7 A5000000 		.4byte	.LASF50
+ 380 01ab 07       		.byte	0x7
+ 381 01ac 78       		.byte	0x78
+ 382 01ad 7A010000 		.4byte	0x17a
+ 383 01b1 09       		.uleb128 0x9
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 9
+
+
+ 384 01b2 B9040000 		.4byte	.LASF72
+ 385 01b6 01       		.byte	0x1
+ 386 01b7 37000000 		.4byte	0x37
+ 387 01bb 08       		.byte	0x8
+ 388 01bc 0A       		.byte	0xa
+ 389 01bd DA010000 		.4byte	0x1da
+ 390 01c1 05       		.uleb128 0x5
+ 391 01c2 91010000 		.4byte	.LASF51
+ 392 01c6 00       		.byte	0
+ 393 01c7 05       		.uleb128 0x5
+ 394 01c8 82020000 		.4byte	.LASF52
+ 395 01cc 01       		.byte	0x1
+ 396 01cd 05       		.uleb128 0x5
+ 397 01ce F7000000 		.4byte	.LASF53
+ 398 01d2 02       		.byte	0x2
+ 399 01d3 05       		.uleb128 0x5
+ 400 01d4 90000000 		.4byte	.LASF54
+ 401 01d8 03       		.byte	0x3
+ 402 01d9 00       		.byte	0
+ 403 01da 03       		.uleb128 0x3
+ 404 01db 27040000 		.4byte	.LASF55
+ 405 01df 08       		.byte	0x8
+ 406 01e0 10       		.byte	0x10
+ 407 01e1 B1010000 		.4byte	0x1b1
+ 408 01e5 0A       		.uleb128 0xa
+ 409 01e6 87000000 		.4byte	.LASF56
+ 410 01ea 01       		.byte	0x1
+ 411 01eb 0F       		.byte	0xf
+ 412 01ec 31010000 		.4byte	0x131
+ 413 01f0 00000000 		.4byte	.LFB111
+ 414 01f4 0C000000 		.4byte	.LFE111-.LFB111
+ 415 01f8 01       		.uleb128 0x1
+ 416 01f9 9C       		.byte	0x9c
+ 417 01fa 1D020000 		.4byte	0x21d
+ 418 01fe 0B       		.uleb128 0xb
+ 419 01ff 03050000 		.4byte	.LASF58
+ 420 0203 01       		.byte	0x1
+ 421 0204 0F       		.byte	0xf
+ 422 0205 DA010000 		.4byte	0x1da
+ 423 0209 00000000 		.4byte	.LLST0
+ 424 020d 0C       		.uleb128 0xc
+ 425 020e 08000000 		.4byte	.LVL1
+ 426 0212 E2020000 		.4byte	0x2e2
+ 427 0216 0D       		.uleb128 0xd
+ 428 0217 01       		.uleb128 0x1
+ 429 0218 51       		.byte	0x51
+ 430 0219 01       		.uleb128 0x1
+ 431 021a 30       		.byte	0x30
+ 432 021b 00       		.byte	0
+ 433 021c 00       		.byte	0
+ 434 021d 0E       		.uleb128 0xe
+ 435 021e 19000000 		.4byte	.LASF73
+ 436 0222 01       		.byte	0x1
+ 437 0223 19       		.byte	0x19
+ 438 0224 31010000 		.4byte	0x131
+ 439 0228 00000000 		.4byte	.LFB112
+ 440 022c 1C000000 		.4byte	.LFE112-.LFB112
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 10
+
+
+ 441 0230 01       		.uleb128 0x1
+ 442 0231 9C       		.byte	0x9c
+ 443 0232 40020000 		.4byte	0x240
+ 444 0236 0F       		.uleb128 0xf
+ 445 0237 0E000000 		.4byte	.LVL2
+ 446 023b ED020000 		.4byte	0x2ed
+ 447 023f 00       		.byte	0
+ 448 0240 10       		.uleb128 0x10
+ 449 0241 CB000000 		.4byte	.LASF74
+ 450 0245 01       		.byte	0x1
+ 451 0246 28       		.byte	0x28
+ 452 0247 76000000 		.4byte	0x76
+ 453 024b 00000000 		.4byte	.LFB113
+ 454 024f 18000000 		.4byte	.LFE113-.LFB113
+ 455 0253 01       		.uleb128 0x1
+ 456 0254 9C       		.byte	0x9c
+ 457 0255 0A       		.uleb128 0xa
+ 458 0256 9E040000 		.4byte	.LASF57
+ 459 025a 01       		.byte	0x1
+ 460 025b 3B       		.byte	0x3b
+ 461 025c 31010000 		.4byte	0x131
+ 462 0260 00000000 		.4byte	.LFB114
+ 463 0264 18000000 		.4byte	.LFE114-.LFB114
+ 464 0268 01       		.uleb128 0x1
+ 465 0269 9C       		.byte	0x9c
+ 466 026a 7E020000 		.4byte	0x27e
+ 467 026e 0B       		.uleb128 0xb
+ 468 026f 00000000 		.4byte	.LASF59
+ 469 0273 01       		.byte	0x1
+ 470 0274 3B       		.byte	0x3b
+ 471 0275 2C000000 		.4byte	0x2c
+ 472 0279 21000000 		.4byte	.LLST1
+ 473 027d 00       		.byte	0
+ 474 027e 11       		.uleb128 0x11
+ 475 027f 85040000 		.4byte	.LASF75
+ 476 0283 01       		.byte	0x1
+ 477 0284 06       		.byte	0x6
+ 478 0285 2C000000 		.4byte	0x2c
+ 479 0289 05       		.uleb128 0x5
+ 480 028a 03       		.byte	0x3
+ 481 028b 00000000 		.4byte	WD_RunnableAliveBitField
+ 482 028f 12       		.uleb128 0x12
+ 483 0290 BD020000 		.4byte	.LASF60
+ 484 0294 09       		.byte	0x9
+ 485 0295 2C       		.byte	0x2c
+ 486 0296 6E010000 		.4byte	0x16e
+ 487 029a 12       		.uleb128 0x12
+ 488 029b EB040000 		.4byte	.LASF61
+ 489 029f 0A       		.byte	0xa
+ 490 02a0 40       		.byte	0x40
+ 491 02a1 90010000 		.4byte	0x190
+ 492 02a5 12       		.uleb128 0x12
+ 493 02a6 78010000 		.4byte	.LASF62
+ 494 02aa 0A       		.byte	0xa
+ 495 02ab 47       		.byte	0x47
+ 496 02ac 9B010000 		.4byte	0x19b
+ 497 02b0 12       		.uleb128 0x12
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 11
+
+
+ 498 02b1 35040000 		.4byte	.LASF63
+ 499 02b5 0A       		.byte	0xa
+ 500 02b6 4A       		.byte	0x4a
+ 501 02b7 90010000 		.4byte	0x190
+ 502 02bb 12       		.uleb128 0x12
+ 503 02bc 07010000 		.4byte	.LASF64
+ 504 02c0 0B       		.byte	0xb
+ 505 02c1 48       		.byte	0x48
+ 506 02c2 A6010000 		.4byte	0x1a6
+ 507 02c6 12       		.uleb128 0x12
+ 508 02c7 E2000000 		.4byte	.LASF65
+ 509 02cb 0C       		.byte	0xc
+ 510 02cc 44       		.byte	0x44
+ 511 02cd 90010000 		.4byte	0x190
+ 512 02d1 13       		.uleb128 0x13
+ 513 02d2 C5040000 		.4byte	.LASF66
+ 514 02d6 0D       		.byte	0xd
+ 515 02d7 1207     		.2byte	0x712
+ 516 02d9 DD020000 		.4byte	0x2dd
+ 517 02dd 14       		.uleb128 0x14
+ 518 02de 63010000 		.4byte	0x163
+ 519 02e2 15       		.uleb128 0x15
+ 520 02e3 F5030000 		.4byte	.LASF67
+ 521 02e7 F5030000 		.4byte	.LASF67
+ 522 02eb 09       		.byte	0x9
+ 523 02ec 72       		.byte	0x72
+ 524 02ed 15       		.uleb128 0x15
+ 525 02ee 10050000 		.4byte	.LASF68
+ 526 02f2 10050000 		.4byte	.LASF68
+ 527 02f6 09       		.byte	0x9
+ 528 02f7 73       		.byte	0x73
+ 529 02f8 00       		.byte	0
+ 530              		.section	.debug_abbrev,"",%progbits
+ 531              	.Ldebug_abbrev0:
+ 532 0000 01       		.uleb128 0x1
+ 533 0001 11       		.uleb128 0x11
+ 534 0002 01       		.byte	0x1
+ 535 0003 25       		.uleb128 0x25
+ 536 0004 0E       		.uleb128 0xe
+ 537 0005 13       		.uleb128 0x13
+ 538 0006 0B       		.uleb128 0xb
+ 539 0007 03       		.uleb128 0x3
+ 540 0008 0E       		.uleb128 0xe
+ 541 0009 1B       		.uleb128 0x1b
+ 542 000a 0E       		.uleb128 0xe
+ 543 000b 55       		.uleb128 0x55
+ 544 000c 17       		.uleb128 0x17
+ 545 000d 11       		.uleb128 0x11
+ 546 000e 01       		.uleb128 0x1
+ 547 000f 10       		.uleb128 0x10
+ 548 0010 17       		.uleb128 0x17
+ 549 0011 00       		.byte	0
+ 550 0012 00       		.byte	0
+ 551 0013 02       		.uleb128 0x2
+ 552 0014 24       		.uleb128 0x24
+ 553 0015 00       		.byte	0
+ 554 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 12
+
+
+ 555 0017 0B       		.uleb128 0xb
+ 556 0018 3E       		.uleb128 0x3e
+ 557 0019 0B       		.uleb128 0xb
+ 558 001a 03       		.uleb128 0x3
+ 559 001b 0E       		.uleb128 0xe
+ 560 001c 00       		.byte	0
+ 561 001d 00       		.byte	0
+ 562 001e 03       		.uleb128 0x3
+ 563 001f 16       		.uleb128 0x16
+ 564 0020 00       		.byte	0
+ 565 0021 03       		.uleb128 0x3
+ 566 0022 0E       		.uleb128 0xe
+ 567 0023 3A       		.uleb128 0x3a
+ 568 0024 0B       		.uleb128 0xb
+ 569 0025 3B       		.uleb128 0x3b
+ 570 0026 0B       		.uleb128 0xb
+ 571 0027 49       		.uleb128 0x49
+ 572 0028 13       		.uleb128 0x13
+ 573 0029 00       		.byte	0
+ 574 002a 00       		.byte	0
+ 575 002b 04       		.uleb128 0x4
+ 576 002c 04       		.uleb128 0x4
+ 577 002d 01       		.byte	0x1
+ 578 002e 0B       		.uleb128 0xb
+ 579 002f 0B       		.uleb128 0xb
+ 580 0030 49       		.uleb128 0x49
+ 581 0031 13       		.uleb128 0x13
+ 582 0032 3A       		.uleb128 0x3a
+ 583 0033 0B       		.uleb128 0xb
+ 584 0034 3B       		.uleb128 0x3b
+ 585 0035 0B       		.uleb128 0xb
+ 586 0036 01       		.uleb128 0x1
+ 587 0037 13       		.uleb128 0x13
+ 588 0038 00       		.byte	0
+ 589 0039 00       		.byte	0
+ 590 003a 05       		.uleb128 0x5
+ 591 003b 28       		.uleb128 0x28
+ 592 003c 00       		.byte	0
+ 593 003d 03       		.uleb128 0x3
+ 594 003e 0E       		.uleb128 0xe
+ 595 003f 1C       		.uleb128 0x1c
+ 596 0040 0B       		.uleb128 0xb
+ 597 0041 00       		.byte	0
+ 598 0042 00       		.byte	0
+ 599 0043 06       		.uleb128 0x6
+ 600 0044 28       		.uleb128 0x28
+ 601 0045 00       		.byte	0
+ 602 0046 03       		.uleb128 0x3
+ 603 0047 0E       		.uleb128 0xe
+ 604 0048 1C       		.uleb128 0x1c
+ 605 0049 0D       		.uleb128 0xd
+ 606 004a 00       		.byte	0
+ 607 004b 00       		.byte	0
+ 608 004c 07       		.uleb128 0x7
+ 609 004d 24       		.uleb128 0x24
+ 610 004e 00       		.byte	0
+ 611 004f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 13
+
+
+ 612 0050 0B       		.uleb128 0xb
+ 613 0051 3E       		.uleb128 0x3e
+ 614 0052 0B       		.uleb128 0xb
+ 615 0053 03       		.uleb128 0x3
+ 616 0054 08       		.uleb128 0x8
+ 617 0055 00       		.byte	0
+ 618 0056 00       		.byte	0
+ 619 0057 08       		.uleb128 0x8
+ 620 0058 16       		.uleb128 0x16
+ 621 0059 00       		.byte	0
+ 622 005a 03       		.uleb128 0x3
+ 623 005b 0E       		.uleb128 0xe
+ 624 005c 3A       		.uleb128 0x3a
+ 625 005d 0B       		.uleb128 0xb
+ 626 005e 3B       		.uleb128 0x3b
+ 627 005f 05       		.uleb128 0x5
+ 628 0060 49       		.uleb128 0x49
+ 629 0061 13       		.uleb128 0x13
+ 630 0062 00       		.byte	0
+ 631 0063 00       		.byte	0
+ 632 0064 09       		.uleb128 0x9
+ 633 0065 04       		.uleb128 0x4
+ 634 0066 01       		.byte	0x1
+ 635 0067 03       		.uleb128 0x3
+ 636 0068 0E       		.uleb128 0xe
+ 637 0069 0B       		.uleb128 0xb
+ 638 006a 0B       		.uleb128 0xb
+ 639 006b 49       		.uleb128 0x49
+ 640 006c 13       		.uleb128 0x13
+ 641 006d 3A       		.uleb128 0x3a
+ 642 006e 0B       		.uleb128 0xb
+ 643 006f 3B       		.uleb128 0x3b
+ 644 0070 0B       		.uleb128 0xb
+ 645 0071 01       		.uleb128 0x1
+ 646 0072 13       		.uleb128 0x13
+ 647 0073 00       		.byte	0
+ 648 0074 00       		.byte	0
+ 649 0075 0A       		.uleb128 0xa
+ 650 0076 2E       		.uleb128 0x2e
+ 651 0077 01       		.byte	0x1
+ 652 0078 3F       		.uleb128 0x3f
+ 653 0079 19       		.uleb128 0x19
+ 654 007a 03       		.uleb128 0x3
+ 655 007b 0E       		.uleb128 0xe
+ 656 007c 3A       		.uleb128 0x3a
+ 657 007d 0B       		.uleb128 0xb
+ 658 007e 3B       		.uleb128 0x3b
+ 659 007f 0B       		.uleb128 0xb
+ 660 0080 27       		.uleb128 0x27
+ 661 0081 19       		.uleb128 0x19
+ 662 0082 49       		.uleb128 0x49
+ 663 0083 13       		.uleb128 0x13
+ 664 0084 11       		.uleb128 0x11
+ 665 0085 01       		.uleb128 0x1
+ 666 0086 12       		.uleb128 0x12
+ 667 0087 06       		.uleb128 0x6
+ 668 0088 40       		.uleb128 0x40
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 14
+
+
+ 669 0089 18       		.uleb128 0x18
+ 670 008a 9742     		.uleb128 0x2117
+ 671 008c 19       		.uleb128 0x19
+ 672 008d 01       		.uleb128 0x1
+ 673 008e 13       		.uleb128 0x13
+ 674 008f 00       		.byte	0
+ 675 0090 00       		.byte	0
+ 676 0091 0B       		.uleb128 0xb
+ 677 0092 05       		.uleb128 0x5
+ 678 0093 00       		.byte	0
+ 679 0094 03       		.uleb128 0x3
+ 680 0095 0E       		.uleb128 0xe
+ 681 0096 3A       		.uleb128 0x3a
+ 682 0097 0B       		.uleb128 0xb
+ 683 0098 3B       		.uleb128 0x3b
+ 684 0099 0B       		.uleb128 0xb
+ 685 009a 49       		.uleb128 0x49
+ 686 009b 13       		.uleb128 0x13
+ 687 009c 02       		.uleb128 0x2
+ 688 009d 17       		.uleb128 0x17
+ 689 009e 00       		.byte	0
+ 690 009f 00       		.byte	0
+ 691 00a0 0C       		.uleb128 0xc
+ 692 00a1 898201   		.uleb128 0x4109
+ 693 00a4 01       		.byte	0x1
+ 694 00a5 11       		.uleb128 0x11
+ 695 00a6 01       		.uleb128 0x1
+ 696 00a7 31       		.uleb128 0x31
+ 697 00a8 13       		.uleb128 0x13
+ 698 00a9 00       		.byte	0
+ 699 00aa 00       		.byte	0
+ 700 00ab 0D       		.uleb128 0xd
+ 701 00ac 8A8201   		.uleb128 0x410a
+ 702 00af 00       		.byte	0
+ 703 00b0 02       		.uleb128 0x2
+ 704 00b1 18       		.uleb128 0x18
+ 705 00b2 9142     		.uleb128 0x2111
+ 706 00b4 18       		.uleb128 0x18
+ 707 00b5 00       		.byte	0
+ 708 00b6 00       		.byte	0
+ 709 00b7 0E       		.uleb128 0xe
+ 710 00b8 2E       		.uleb128 0x2e
+ 711 00b9 01       		.byte	0x1
+ 712 00ba 3F       		.uleb128 0x3f
+ 713 00bb 19       		.uleb128 0x19
+ 714 00bc 03       		.uleb128 0x3
+ 715 00bd 0E       		.uleb128 0xe
+ 716 00be 3A       		.uleb128 0x3a
+ 717 00bf 0B       		.uleb128 0xb
+ 718 00c0 3B       		.uleb128 0x3b
+ 719 00c1 0B       		.uleb128 0xb
+ 720 00c2 49       		.uleb128 0x49
+ 721 00c3 13       		.uleb128 0x13
+ 722 00c4 11       		.uleb128 0x11
+ 723 00c5 01       		.uleb128 0x1
+ 724 00c6 12       		.uleb128 0x12
+ 725 00c7 06       		.uleb128 0x6
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 15
+
+
+ 726 00c8 40       		.uleb128 0x40
+ 727 00c9 18       		.uleb128 0x18
+ 728 00ca 9742     		.uleb128 0x2117
+ 729 00cc 19       		.uleb128 0x19
+ 730 00cd 01       		.uleb128 0x1
+ 731 00ce 13       		.uleb128 0x13
+ 732 00cf 00       		.byte	0
+ 733 00d0 00       		.byte	0
+ 734 00d1 0F       		.uleb128 0xf
+ 735 00d2 898201   		.uleb128 0x4109
+ 736 00d5 00       		.byte	0
+ 737 00d6 11       		.uleb128 0x11
+ 738 00d7 01       		.uleb128 0x1
+ 739 00d8 31       		.uleb128 0x31
+ 740 00d9 13       		.uleb128 0x13
+ 741 00da 00       		.byte	0
+ 742 00db 00       		.byte	0
+ 743 00dc 10       		.uleb128 0x10
+ 744 00dd 2E       		.uleb128 0x2e
+ 745 00de 00       		.byte	0
+ 746 00df 3F       		.uleb128 0x3f
+ 747 00e0 19       		.uleb128 0x19
+ 748 00e1 03       		.uleb128 0x3
+ 749 00e2 0E       		.uleb128 0xe
+ 750 00e3 3A       		.uleb128 0x3a
+ 751 00e4 0B       		.uleb128 0xb
+ 752 00e5 3B       		.uleb128 0x3b
+ 753 00e6 0B       		.uleb128 0xb
+ 754 00e7 49       		.uleb128 0x49
+ 755 00e8 13       		.uleb128 0x13
+ 756 00e9 11       		.uleb128 0x11
+ 757 00ea 01       		.uleb128 0x1
+ 758 00eb 12       		.uleb128 0x12
+ 759 00ec 06       		.uleb128 0x6
+ 760 00ed 40       		.uleb128 0x40
+ 761 00ee 18       		.uleb128 0x18
+ 762 00ef 9742     		.uleb128 0x2117
+ 763 00f1 19       		.uleb128 0x19
+ 764 00f2 00       		.byte	0
+ 765 00f3 00       		.byte	0
+ 766 00f4 11       		.uleb128 0x11
+ 767 00f5 34       		.uleb128 0x34
+ 768 00f6 00       		.byte	0
+ 769 00f7 03       		.uleb128 0x3
+ 770 00f8 0E       		.uleb128 0xe
+ 771 00f9 3A       		.uleb128 0x3a
+ 772 00fa 0B       		.uleb128 0xb
+ 773 00fb 3B       		.uleb128 0x3b
+ 774 00fc 0B       		.uleb128 0xb
+ 775 00fd 49       		.uleb128 0x49
+ 776 00fe 13       		.uleb128 0x13
+ 777 00ff 02       		.uleb128 0x2
+ 778 0100 18       		.uleb128 0x18
+ 779 0101 00       		.byte	0
+ 780 0102 00       		.byte	0
+ 781 0103 12       		.uleb128 0x12
+ 782 0104 34       		.uleb128 0x34
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 16
+
+
+ 783 0105 00       		.byte	0
+ 784 0106 03       		.uleb128 0x3
+ 785 0107 0E       		.uleb128 0xe
+ 786 0108 3A       		.uleb128 0x3a
+ 787 0109 0B       		.uleb128 0xb
+ 788 010a 3B       		.uleb128 0x3b
+ 789 010b 0B       		.uleb128 0xb
+ 790 010c 49       		.uleb128 0x49
+ 791 010d 13       		.uleb128 0x13
+ 792 010e 3F       		.uleb128 0x3f
+ 793 010f 19       		.uleb128 0x19
+ 794 0110 3C       		.uleb128 0x3c
+ 795 0111 19       		.uleb128 0x19
+ 796 0112 00       		.byte	0
+ 797 0113 00       		.byte	0
+ 798 0114 13       		.uleb128 0x13
+ 799 0115 34       		.uleb128 0x34
+ 800 0116 00       		.byte	0
+ 801 0117 03       		.uleb128 0x3
+ 802 0118 0E       		.uleb128 0xe
+ 803 0119 3A       		.uleb128 0x3a
+ 804 011a 0B       		.uleb128 0xb
+ 805 011b 3B       		.uleb128 0x3b
+ 806 011c 05       		.uleb128 0x5
+ 807 011d 49       		.uleb128 0x49
+ 808 011e 13       		.uleb128 0x13
+ 809 011f 3F       		.uleb128 0x3f
+ 810 0120 19       		.uleb128 0x19
+ 811 0121 3C       		.uleb128 0x3c
+ 812 0122 19       		.uleb128 0x19
+ 813 0123 00       		.byte	0
+ 814 0124 00       		.byte	0
+ 815 0125 14       		.uleb128 0x14
+ 816 0126 35       		.uleb128 0x35
+ 817 0127 00       		.byte	0
+ 818 0128 49       		.uleb128 0x49
+ 819 0129 13       		.uleb128 0x13
+ 820 012a 00       		.byte	0
+ 821 012b 00       		.byte	0
+ 822 012c 15       		.uleb128 0x15
+ 823 012d 2E       		.uleb128 0x2e
+ 824 012e 00       		.byte	0
+ 825 012f 3F       		.uleb128 0x3f
+ 826 0130 19       		.uleb128 0x19
+ 827 0131 3C       		.uleb128 0x3c
+ 828 0132 19       		.uleb128 0x19
+ 829 0133 6E       		.uleb128 0x6e
+ 830 0134 0E       		.uleb128 0xe
+ 831 0135 03       		.uleb128 0x3
+ 832 0136 0E       		.uleb128 0xe
+ 833 0137 3A       		.uleb128 0x3a
+ 834 0138 0B       		.uleb128 0xb
+ 835 0139 3B       		.uleb128 0x3b
+ 836 013a 0B       		.uleb128 0xb
+ 837 013b 00       		.byte	0
+ 838 013c 00       		.byte	0
+ 839 013d 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 17
+
+
+ 840              		.section	.debug_loc,"",%progbits
+ 841              	.Ldebug_loc0:
+ 842              	.LLST0:
+ 843 0000 00000000 		.4byte	.LVL0
+ 844 0004 07000000 		.4byte	.LVL1-1
+ 845 0008 0100     		.2byte	0x1
+ 846 000a 50       		.byte	0x50
+ 847 000b 07000000 		.4byte	.LVL1-1
+ 848 000f 0C000000 		.4byte	.LFE111
+ 849 0013 0400     		.2byte	0x4
+ 850 0015 F3       		.byte	0xf3
+ 851 0016 01       		.uleb128 0x1
+ 852 0017 50       		.byte	0x50
+ 853 0018 9F       		.byte	0x9f
+ 854 0019 00000000 		.4byte	0
+ 855 001d 00000000 		.4byte	0
+ 856              	.LLST1:
+ 857 0021 00000000 		.4byte	.LVL3
+ 858 0025 06000000 		.4byte	.LVL4
+ 859 0029 0100     		.2byte	0x1
+ 860 002b 50       		.byte	0x50
+ 861 002c 06000000 		.4byte	.LVL4
+ 862 0030 18000000 		.4byte	.LFE114
+ 863 0034 0400     		.2byte	0x4
+ 864 0036 F3       		.byte	0xf3
+ 865 0037 01       		.uleb128 0x1
+ 866 0038 50       		.byte	0x50
+ 867 0039 9F       		.byte	0x9f
+ 868 003a 00000000 		.4byte	0
+ 869 003e 00000000 		.4byte	0
+ 870              		.section	.debug_aranges,"",%progbits
+ 871 0000 34000000 		.4byte	0x34
+ 872 0004 0200     		.2byte	0x2
+ 873 0006 00000000 		.4byte	.Ldebug_info0
+ 874 000a 04       		.byte	0x4
+ 875 000b 00       		.byte	0
+ 876 000c 0000     		.2byte	0
+ 877 000e 0000     		.2byte	0
+ 878 0010 00000000 		.4byte	.LFB111
+ 879 0014 0C000000 		.4byte	.LFE111-.LFB111
+ 880 0018 00000000 		.4byte	.LFB112
+ 881 001c 1C000000 		.4byte	.LFE112-.LFB112
+ 882 0020 00000000 		.4byte	.LFB113
+ 883 0024 18000000 		.4byte	.LFE113-.LFB113
+ 884 0028 00000000 		.4byte	.LFB114
+ 885 002c 18000000 		.4byte	.LFE114-.LFB114
+ 886 0030 00000000 		.4byte	0
+ 887 0034 00000000 		.4byte	0
+ 888              		.section	.debug_ranges,"",%progbits
+ 889              	.Ldebug_ranges0:
+ 890 0000 00000000 		.4byte	.LFB111
+ 891 0004 0C000000 		.4byte	.LFE111
+ 892 0008 00000000 		.4byte	.LFB112
+ 893 000c 1C000000 		.4byte	.LFE112
+ 894 0010 00000000 		.4byte	.LFB113
+ 895 0014 18000000 		.4byte	.LFE113
+ 896 0018 00000000 		.4byte	.LFB114
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 18
+
+
+ 897 001c 18000000 		.4byte	.LFE114
+ 898 0020 00000000 		.4byte	0
+ 899 0024 00000000 		.4byte	0
+ 900              		.section	.debug_line,"",%progbits
+ 901              	.Ldebug_line0:
+ 902 0000 96020000 		.section	.debug_str,"MS",%progbits,1
+ 902      02004702 
+ 902      00000201 
+ 902      FB0E0D00 
+ 902      01010101 
+ 903              	.LASF59:
+ 904 0000 6D794269 		.ascii	"myBitPosition\000"
+ 904      74506F73 
+ 904      6974696F 
+ 904      6E00
+ 905              	.LASF13:
+ 906 000e 52435F53 		.ascii	"RC_SUCCESS\000"
+ 906      55434345 
+ 906      535300
+ 907              	.LASF73:
+ 908 0019 57445F54 		.ascii	"WD_Trigger\000"
+ 908      72696767 
+ 908      657200
+ 909              	.LASF28:
+ 910 0024 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 910      52524F52 
+ 910      5F575249 
+ 910      54455F4F 
+ 910      4E4C5900 
+ 911              	.LASF2:
+ 912 0038 73686F72 		.ascii	"short int\000"
+ 912      7420696E 
+ 912      7400
+ 913              	.LASF19:
+ 914 0042 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 914      52524F52 
+ 914      5F4F5645 
+ 914      5252554E 
+ 914      00
+ 915              	.LASF31:
+ 916 0053 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 916      52524F52 
+ 916      5F575249 
+ 916      54455F46 
+ 916      41494C53 
+ 917              	.LASF43:
+ 918 0068 73697A65 		.ascii	"sizetype\000"
+ 918      74797065 
+ 918      00
+ 919              	.LASF16:
+ 920 0071 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 920      52524F52 
+ 920      5F5A4552 
+ 920      4F00
+ 921              	.LASF49:
+ 922 007f 45455F46 		.ascii	"EE_FREG\000"
+ 922      52454700 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 19
+
+
+ 923              	.LASF56:
+ 924 0087 57445F53 		.ascii	"WD_Start\000"
+ 924      74617274 
+ 924      00
+ 925              	.LASF54:
+ 926 0090 7469636B 		.ascii	"ticks_2_3s\000"
+ 926      735F325F 
+ 926      337300
+ 927              	.LASF47:
+ 928 009b 45455F55 		.ascii	"EE_UINT32\000"
+ 928      494E5433 
+ 928      3200
+ 929              	.LASF50:
+ 930 00a5 45455F54 		.ascii	"EE_TID\000"
+ 930      494400
+ 931              	.LASF10:
+ 932 00ac 75696E74 		.ascii	"uint8_t\000"
+ 932      385F7400 
+ 933              	.LASF36:
+ 934 00b4 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 934      52524F52 
+ 934      5F494E56 
+ 934      414C4944 
+ 934      5F535441 
+ 935              	.LASF74:
+ 936 00cb 57445F43 		.ascii	"WD_CheckResetBit\000"
+ 936      6865636B 
+ 936      52657365 
+ 936      74426974 
+ 936      00
+ 937              	.LASF45:
+ 938 00dc 75696E74 		.ascii	"uint8\000"
+ 938      3800
+ 939              	.LASF65:
+ 940 00e2 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 940      52515F6E 
+ 940      65737469 
+ 940      6E675F6C 
+ 940      6576656C 
+ 941              	.LASF53:
+ 942 00f7 7469636B 		.ascii	"ticks_256_384ms\000"
+ 942      735F3235 
+ 942      365F3338 
+ 942      346D7300 
+ 943              	.LASF64:
+ 944 0107 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 944      74645F65 
+ 944      6E646379 
+ 944      636C655F 
+ 944      6E657874 
+ 945              	.LASF18:
+ 946 0120 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 946      52524F52 
+ 946      5F52414E 
+ 946      474500
+ 947              	.LASF6:
+ 948 012f 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 20
+
+
+ 948      7400
+ 949              	.LASF70:
+ 950 0135 736F7572 		.ascii	"sources\\asw\\WatchDogTimer.c\000"
+ 950      6365735C 
+ 950      6173775C 
+ 950      57617463 
+ 950      68446F67 
+ 951              	.LASF38:
+ 952 0151 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 952      52524F52 
+ 952      5F4E4F54 
+ 952      5F494D50 
+ 952      4C454D45 
+ 953              	.LASF8:
+ 954 016a 6C6F6E67 		.ascii	"long long int\000"
+ 954      206C6F6E 
+ 954      6720696E 
+ 954      7400
+ 955              	.LASF62:
+ 956 0178 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 956      6F5F4952 
+ 956      515F7375 
+ 956      7370656E 
+ 956      645F7374 
+ 957              	.LASF51:
+ 958 0191 7469636B 		.ascii	"ticks_4_6ms\000"
+ 958      735F345F 
+ 958      366D7300 
+ 959              	.LASF32:
+ 960 019d 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 960      52524F52 
+ 960      5F4E4F54 
+ 960      5F4D4154 
+ 960      434800
+ 961              	.LASF37:
+ 962 01b0 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 962      52524F52 
+ 962      5F554E4B 
+ 962      4E4F574E 
+ 962      00
+ 963              	.LASF4:
+ 964 01c1 6C6F6E67 		.ascii	"long int\000"
+ 964      20696E74 
+ 964      00
+ 965              	.LASF20:
+ 966 01ca 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 966      52524F52 
+ 966      5F554E44 
+ 966      45525255 
+ 966      4E00
+ 967              	.LASF23:
+ 968 01dc 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 968      52524F52 
+ 968      5F425553 
+ 968      5900
+ 969              	.LASF29:
+ 970 01ea 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 21
+
+
+ 970      52524F52 
+ 970      5F494E56 
+ 970      414C4944 
+ 970      00
+ 971              	.LASF34:
+ 972 01fb 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 972      52524F52 
+ 972      5F424144 
+ 972      5F444154 
+ 972      4100
+ 973              	.LASF11:
+ 974 020d 626F6F6C 		.ascii	"boolean_t\000"
+ 974      65616E5F 
+ 974      7400
+ 975              	.LASF27:
+ 976 0217 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 976      52524F52 
+ 976      5F524541 
+ 976      445F4F4E 
+ 976      4C5900
+ 977              	.LASF42:
+ 978 022a 6C6F6E67 		.ascii	"long double\000"
+ 978      20646F75 
+ 978      626C6500 
+ 979              	.LASF1:
+ 980 0236 756E7369 		.ascii	"unsigned char\000"
+ 980      676E6564 
+ 980      20636861 
+ 980      7200
+ 981              	.LASF0:
+ 982 0244 7369676E 		.ascii	"signed char\000"
+ 982      65642063 
+ 982      68617200 
+ 983              	.LASF9:
+ 984 0250 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 984      206C6F6E 
+ 984      6720756E 
+ 984      7369676E 
+ 984      65642069 
+ 985              	.LASF41:
+ 986 0267 756E7369 		.ascii	"unsigned int\000"
+ 986      676E6564 
+ 986      20696E74 
+ 986      00
+ 987              	.LASF25:
+ 988 0274 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 988      52524F52 
+ 988      5F4F5045 
+ 988      4E00
+ 989              	.LASF52:
+ 990 0282 7469636B 		.ascii	"ticks_32_48ms\000"
+ 990      735F3332 
+ 990      5F34386D 
+ 990      7300
+ 991              	.LASF15:
+ 992 0290 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 992      52524F52 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 22
+
+
+ 992      5F4E554C 
+ 992      4C00
+ 993              	.LASF22:
+ 994 029e 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 994      52524F52 
+ 994      5F425546 
+ 994      4645525F 
+ 994      454D5450 
+ 995              	.LASF46:
+ 996 02b4 45455F49 		.ascii	"EE_INT32\000"
+ 996      4E543332 
+ 996      00
+ 997              	.LASF60:
+ 998 02bd 43795265 		.ascii	"CyResetStatus\000"
+ 998      73657453 
+ 998      74617475 
+ 998      7300
+ 999              	.LASF71:
+ 1000 02cb 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1000      73657273 
+ 1000      5C417375 
+ 1000      735C4465 
+ 1000      736B746F 
+ 1001 02f7 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 1001      30315C45 
+ 1001      6C656374 
+ 1001      726F6E69 
+ 1001      635F4761 
+ 1002 0326 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1002      312E6379 
+ 1002      64736E00 
+ 1003              	.LASF3:
+ 1004 0332 73686F72 		.ascii	"short unsigned int\000"
+ 1004      7420756E 
+ 1004      7369676E 
+ 1004      65642069 
+ 1004      6E7400
+ 1005              	.LASF69:
+ 1006 0345 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1006      43313120 
+ 1006      352E342E 
+ 1006      31203230 
+ 1006      31363036 
+ 1007 0378 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1007      20726576 
+ 1007      6973696F 
+ 1007      6E203233 
+ 1007      37373135 
+ 1008 03ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1008      66756E63 
+ 1008      74696F6E 
+ 1008      2D736563 
+ 1008      74696F6E 
+ 1009              	.LASF12:
+ 1010 03d3 63686172 		.ascii	"char\000"
+ 1010      00
+ 1011              	.LASF21:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 23
+
+
+ 1012 03d8 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 1012      52524F52 
+ 1012      5F425546 
+ 1012      4645525F 
+ 1012      46554C4C 
+ 1013              	.LASF44:
+ 1014 03ed 696E7433 		.ascii	"int32_t\000"
+ 1014      325F7400 
+ 1015              	.LASF67:
+ 1016 03f5 43795764 		.ascii	"CyWdtStart\000"
+ 1016      74537461 
+ 1016      727400
+ 1017              	.LASF30:
+ 1018 0400 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1018      52524F52 
+ 1018      5F524541 
+ 1018      445F4641 
+ 1018      494C5300 
+ 1019              	.LASF33:
+ 1020 0414 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 1020      52524F52 
+ 1020      5F424144 
+ 1020      5F504152 
+ 1020      414D00
+ 1021              	.LASF55:
+ 1022 0427 5744545F 		.ascii	"WDT_TimeOut_t\000"
+ 1022      54696D65 
+ 1022      4F75745F 
+ 1022      7400
+ 1023              	.LASF63:
+ 1024 0435 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1024      70706C69 
+ 1024      63617469 
+ 1024      6F6E4D6F 
+ 1024      646500
+ 1025              	.LASF5:
+ 1026 0448 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1026      20756E73 
+ 1026      69676E65 
+ 1026      6420696E 
+ 1026      7400
+ 1027              	.LASF7:
+ 1028 045a 646F7562 		.ascii	"double\000"
+ 1028      6C6500
+ 1029              	.LASF26:
+ 1030 0461 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 1030      52524F52 
+ 1030      5F434845 
+ 1030      434B5355 
+ 1030      4D00
+ 1031              	.LASF48:
+ 1032 0473 45455F55 		.ascii	"EE_UREG\000"
+ 1032      52454700 
+ 1033              	.LASF40:
+ 1034 047b 5F5F696E 		.ascii	"__int32_t\000"
+ 1034      7433325F 
+ 1034      7400
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 24
+
+
+ 1035              	.LASF75:
+ 1036 0485 57445F52 		.ascii	"WD_RunnableAliveBitField\000"
+ 1036      756E6E61 
+ 1036      626C6541 
+ 1036      6C697665 
+ 1036      42697446 
+ 1037              	.LASF57:
+ 1038 049e 57445F41 		.ascii	"WD_Alive\000"
+ 1038      6C697665 
+ 1038      00
+ 1039              	.LASF35:
+ 1040 04a7 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 1040      52524F52 
+ 1040      5F43414E 
+ 1040      43454C45 
+ 1040      4400
+ 1041              	.LASF72:
+ 1042 04b9 5744545F 		.ascii	"WDT_TimeOut\000"
+ 1042      54696D65 
+ 1042      4F757400 
+ 1043              	.LASF66:
+ 1044 04c5 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1044      52784275 
+ 1044      66666572 
+ 1044      00
+ 1045              	.LASF14:
+ 1046 04d2 52435F45 		.ascii	"RC_ERROR\000"
+ 1046      52524F52 
+ 1046      00
+ 1047              	.LASF17:
+ 1048 04db 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 1048      52524F52 
+ 1048      5F4D454D 
+ 1048      4F525900 
+ 1049              	.LASF61:
+ 1050 04eb 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1050      6F5F4952 
+ 1050      515F6469 
+ 1050      7361626C 
+ 1050      655F636F 
+ 1051              	.LASF58:
+ 1052 0503 74696D65 		.ascii	"timeout\000"
+ 1052      6F757400 
+ 1053              	.LASF39:
+ 1054 050b 52435F74 		.ascii	"RC_t\000"
+ 1054      00
+ 1055              	.LASF68:
+ 1056 0510 43795764 		.ascii	"CyWdtClear\000"
+ 1056      74436C65 
+ 1056      617200
+ 1057              	.LASF24:
+ 1058 051b 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 1058      52524F52 
+ 1058      5F54494D 
+ 1058      455F4F55 
+ 1058      5400
+ 1059              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cceBP7pa.s 			page 25
+
+

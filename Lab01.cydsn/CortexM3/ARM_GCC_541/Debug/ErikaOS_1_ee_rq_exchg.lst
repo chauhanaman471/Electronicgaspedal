@@ -1,0 +1,1517 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ErikaOS_1_ee_rq_exchg.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EE_rq2stk_exchange,"ax",%progbits
+  20              		.align	2
+  21              		.global	EE_rq2stk_exchange
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	EE_rq2stk_exchange, %function
+  25              	EE_rq2stk_exchange:
+  26              	.LFB70:
+  27              		.file 1 "Generated_Source\\PSoC5\\ErikaOS_1_ee_rq_exchg.c"
+   1:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+   4:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Copyright (C) 2002-2008  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * ERIKA Enterprise is free software; you can redistribute it
+   9:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * ERIKA Enterprise is distributed in the hope that it will be
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 2
+
+
+  31:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** /*
+  42:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Author: 2002-2004 Paolo Gai
+  43:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * CVS: $Id: ee_rq_exchg.c,v 1.1 2005/07/16 12:23:42 pj Exp $
+  44:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  */
+  45:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  46:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** /*
+  47:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * PSoC Port and API Generation
+  48:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Carlos Fernando Meier Martinez
+  49:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  * Hochschule Darmstadt, Germany. 2017.
+  50:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****  */
+  51:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  52:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #include "ErikaOS_1_ee_internal.inc"
+  53:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  54:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #ifndef __PRIVATE_RQ2STK_EXCHANGE__
+  55:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  56:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #if (defined(__OO_BCC1__)) || (defined(__OO_ECC1__))
+  57:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** EE_TID EE_rq2stk_exchange(void)
+  58:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** {
+  59:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_TID temp;
+  60:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  61:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   temp = EE_rq_first;
+  62:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   
+  63:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* extract the first task from the ready queue */
+  64:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_rq_first = EE_th_next[temp]; 
+  65:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* insert the extracted task on the topo of the stack */
+  66:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_th_next[temp] = EE_stkfirst;
+  67:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_stkfirst = temp;
+  68:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  69:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   return temp;
+  70:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** }
+  71:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #endif
+  72:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  73:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #if (defined(__OO_BCC2__)) || (defined(__OO_ECC2__))
+  74:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** EE_TID EE_rq2stk_exchange(void)
+  75:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** {
+  28              		.loc 1 75 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 F0B4     		push	{r4, r5, r6, r7}
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 7, -4
+  76:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_INT8 x;    /* the first non-empty queue */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 3
+
+
+  77:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_TID temp;   /* the TID to be inserted in the top of the stack */
+  78:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_TYPEPAIR y; /* used to free the descriptor */
+  79:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  80:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #if defined(__OO_ECC2__)
+  81:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* lookup at bits 15-9 */
+  82:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   x = EE_rq_lookup[(EE_rq_bitmask & 0xFF00U) >> 8];
+  39              		.loc 1 82 0
+  40 0002 184B     		ldr	r3, .L6
+  41 0004 1988     		ldrh	r1, [r3]
+  42 0006 0B0A     		lsrs	r3, r1, #8
+  43 0008 174A     		ldr	r2, .L6+4
+  44 000a D356     		ldrsb	r3, [r2, r3]
+  45              	.LVL0:
+  83:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   if (x == (EE_INT8)-1) {
+  46              		.loc 1 83 0
+  47 000c B3F1FF3F 		cmp	r3, #-1
+  48 0010 01D1     		bne	.L2
+  84:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****     x = EE_rq_lookup[EE_rq_bitmask];
+  49              		.loc 1 84 0
+  50 0012 5356     		ldrsb	r3, [r2, r1]
+  51              	.LVL1:
+  52 0014 01E0     		b	.L3
+  53              	.L2:
+  85:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   } else {
+  86:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****     x += (EE_INT8)8;
+  54              		.loc 1 86 0
+  55 0016 0833     		adds	r3, r3, #8
+  56              	.LVL2:
+  57 0018 5BB2     		sxtb	r3, r3
+  58              	.LVL3:
+  59              	.L3:
+  87:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   }
+  88:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #else
+  89:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   x = EE_rq_lookup[EE_rq_bitmask];
+  90:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** #endif
+  91:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  92:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* now x contains the highest priority non-empty queue number */
+  93:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  94:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* get the TID to insert in the stacked queue */
+  95:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   temp = EE_rq_pairs_tid[EE_rq_queues_head[x]];
+  60              		.loc 1 95 0
+  61 001a 144D     		ldr	r5, .L6+8
+  62 001c 55F82320 		ldr	r2, [r5, r3, lsl #2]
+  63 0020 1348     		ldr	r0, .L6+12
+  64 0022 50F82200 		ldr	r0, [r0, r2, lsl #2]
+  65              	.LVL4:
+  96:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+  97:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* free the descriptor */
+  98:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   y = EE_rq_queues_head[x];
+  99:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_rq_queues_head[x] = EE_rq_pairs_next[EE_rq_queues_head[x]];
+  66              		.loc 1 99 0
+  67 0026 134E     		ldr	r6, .L6+16
+  68 0028 56F82240 		ldr	r4, [r6, r2, lsl #2]
+  69 002c 45F82340 		str	r4, [r5, r3, lsl #2]
+ 100:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_rq_pairs_next[y] = EE_rq_free;
+  70              		.loc 1 100 0
+  71 0030 114D     		ldr	r5, .L6+20
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 4
+
+
+  72 0032 2F68     		ldr	r7, [r5]
+  73 0034 46F82270 		str	r7, [r6, r2, lsl #2]
+ 101:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_rq_free = y;
+  74              		.loc 1 101 0
+  75 0038 2A60     		str	r2, [r5]
+ 102:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   
+ 103:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   if (EE_rq_queues_head[x] == (EE_SREG)-1) {
+  76              		.loc 1 103 0
+  77 003a B4F1FF3F 		cmp	r4, #-1
+  78 003e 09D1     		bne	.L4
+ 104:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****     EE_rq_queues_tail[x] = -1;
+  79              		.loc 1 104 0
+  80 0040 0E4A     		ldr	r2, .L6+24
+  81              	.LVL5:
+  82 0042 42F82340 		str	r4, [r2, r3, lsl #2]
+ 105:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****     /* reset the (x)th bit in the bitfield; casts are for MISRA compliance */
+ 106:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****     EE_rq_bitmask &= (EE_TYPE_RQ_MASK)~((EE_TYPE_RQ_MASK)((EE_TYPE_RQ_MASK)1U << x));
+  83              		.loc 1 106 0
+  84 0046 0122     		movs	r2, #1
+  85 0048 02FA03F3 		lsl	r3, r2, r3
+  86              	.LVL6:
+  87 004c 21EA0301 		bic	r1, r1, r3
+  88 0050 044B     		ldr	r3, .L6
+  89 0052 1980     		strh	r1, [r3]	@ movhi
+  90              	.L4:
+ 107:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   }
+ 108:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+ 109:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   /* insert the extracted task on the top of the stack */
+ 110:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_th_next[temp] = EE_stkfirst;
+  91              		.loc 1 110 0
+  92 0054 0A4B     		ldr	r3, .L6+28
+  93 0056 1968     		ldr	r1, [r3]
+  94 0058 0A4A     		ldr	r2, .L6+32
+  95 005a 42F82010 		str	r1, [r2, r0, lsl #2]
+ 111:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   EE_stkfirst = temp;
+  96              		.loc 1 111 0
+  97 005e 1860     		str	r0, [r3]
+ 112:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** 
+ 113:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c ****   return temp;
+ 114:Generated_Source\PSoC5/ErikaOS_1_ee_rq_exchg.c **** }
+  98              		.loc 1 114 0
+  99 0060 F0BC     		pop	{r4, r5, r6, r7}
+ 100              		.cfi_restore 7
+ 101              		.cfi_restore 6
+ 102              		.cfi_restore 5
+ 103              		.cfi_restore 4
+ 104              		.cfi_def_cfa_offset 0
+ 105              	.LVL7:
+ 106 0062 7047     		bx	lr
+ 107              	.L7:
+ 108              		.align	2
+ 109              	.L6:
+ 110 0064 00000000 		.word	EE_rq_bitmask
+ 111 0068 00000000 		.word	EE_rq_lookup
+ 112 006c 00000000 		.word	EE_rq_queues_head
+ 113 0070 00000000 		.word	EE_rq_pairs_tid
+ 114 0074 00000000 		.word	EE_rq_pairs_next
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 5
+
+
+ 115 0078 00000000 		.word	EE_rq_free
+ 116 007c 00000000 		.word	EE_rq_queues_tail
+ 117 0080 00000000 		.word	EE_stkfirst
+ 118 0084 00000000 		.word	EE_th_next
+ 119              		.cfi_endproc
+ 120              	.LFE70:
+ 121              		.size	EE_rq2stk_exchange, .-EE_rq2stk_exchange
+ 122              		.text
+ 123              	.Letext0:
+ 124              		.file 2 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_types.inc"
+ 125              		.file 3 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 126              		.file 4 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_common.inc"
+ 127              		.file 5 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_primitives.inc"
+ 128              		.file 6 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_context.inc"
+ 129              		.file 7 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_intfunc.inc"
+ 130              		.file 8 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_internal.inc"
+ 131              		.section	.debug_info,"",%progbits
+ 132              	.Ldebug_info0:
+ 133 0000 6B040000 		.4byte	0x46b
+ 134 0004 0400     		.2byte	0x4
+ 135 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 136 000a 04       		.byte	0x4
+ 137 000b 01       		.uleb128 0x1
+ 138 000c 5B040000 		.4byte	.LASF69
+ 139 0010 0C       		.byte	0xc
+ 140 0011 00000000 		.4byte	.LASF70
+ 141 0015 F7020000 		.4byte	.LASF71
+ 142 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 143 001d 00000000 		.4byte	0
+ 144 0021 00000000 		.4byte	.Ldebug_line0
+ 145 0025 02       		.uleb128 0x2
+ 146 0026 01       		.byte	0x1
+ 147 0027 06       		.byte	0x6
+ 148 0028 99020000 		.4byte	.LASF0
+ 149 002c 02       		.uleb128 0x2
+ 150 002d 01       		.byte	0x1
+ 151 002e 08       		.byte	0x8
+ 152 002f 6A020000 		.4byte	.LASF1
+ 153 0033 02       		.uleb128 0x2
+ 154 0034 02       		.byte	0x2
+ 155 0035 05       		.byte	0x5
+ 156 0036 6C000000 		.4byte	.LASF2
+ 157 003a 02       		.uleb128 0x2
+ 158 003b 02       		.byte	0x2
+ 159 003c 07       		.byte	0x7
+ 160 003d 5E030000 		.4byte	.LASF3
+ 161 0041 02       		.uleb128 0x2
+ 162 0042 04       		.byte	0x4
+ 163 0043 05       		.byte	0x5
+ 164 0044 B3010000 		.4byte	.LASF4
+ 165 0048 02       		.uleb128 0x2
+ 166 0049 04       		.byte	0x4
+ 167 004a 07       		.byte	0x7
+ 168 004b BB030000 		.4byte	.LASF5
+ 169 004f 02       		.uleb128 0x2
+ 170 0050 08       		.byte	0x8
+ 171 0051 05       		.byte	0x5
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 6
+
+
+ 172 0052 63010000 		.4byte	.LASF6
+ 173 0056 02       		.uleb128 0x2
+ 174 0057 08       		.byte	0x8
+ 175 0058 07       		.byte	0x7
+ 176 0059 A5020000 		.4byte	.LASF7
+ 177 005d 03       		.uleb128 0x3
+ 178 005e 04       		.byte	0x4
+ 179 005f 05       		.byte	0x5
+ 180 0060 696E7400 		.ascii	"int\000"
+ 181 0064 02       		.uleb128 0x2
+ 182 0065 04       		.byte	0x4
+ 183 0066 07       		.byte	0x7
+ 184 0067 BC020000 		.4byte	.LASF8
+ 185 006b 02       		.uleb128 0x2
+ 186 006c 08       		.byte	0x8
+ 187 006d 04       		.byte	0x4
+ 188 006e 4F020000 		.4byte	.LASF9
+ 189 0072 04       		.uleb128 0x4
+ 190 0073 71010000 		.4byte	.LASF10
+ 191 0077 02       		.byte	0x2
+ 192 0078 3F       		.byte	0x3f
+ 193 0079 25000000 		.4byte	0x25
+ 194 007d 04       		.uleb128 0x4
+ 195 007e 8F030000 		.4byte	.LASF11
+ 196 0082 02       		.byte	0x2
+ 197 0083 52       		.byte	0x52
+ 198 0084 3A000000 		.4byte	0x3a
+ 199 0088 04       		.uleb128 0x4
+ 200 0089 EE020000 		.4byte	.LASF12
+ 201 008d 02       		.byte	0x2
+ 202 008e 53       		.byte	0x53
+ 203 008f 5D000000 		.4byte	0x5d
+ 204 0093 04       		.uleb128 0x4
+ 205 0094 AB000000 		.4byte	.LASF13
+ 206 0098 02       		.byte	0x2
+ 207 0099 54       		.byte	0x54
+ 208 009a 64000000 		.4byte	0x64
+ 209 009e 04       		.uleb128 0x4
+ 210 009f 34000000 		.4byte	.LASF14
+ 211 00a3 03       		.byte	0x3
+ 212 00a4 4D       		.byte	0x4d
+ 213 00a5 93000000 		.4byte	0x93
+ 214 00a9 04       		.uleb128 0x4
+ 215 00aa 91020000 		.4byte	.LASF15
+ 216 00ae 03       		.byte	0x3
+ 217 00af 4E       		.byte	0x4e
+ 218 00b0 88000000 		.4byte	0x88
+ 219 00b4 04       		.uleb128 0x4
+ 220 00b5 8D000000 		.4byte	.LASF16
+ 221 00b9 03       		.byte	0x3
+ 222 00ba 4F       		.byte	0x4f
+ 223 00bb 93000000 		.4byte	0x93
+ 224 00bf 04       		.uleb128 0x4
+ 225 00c0 CD030000 		.4byte	.LASF17
+ 226 00c4 03       		.byte	0x3
+ 227 00c5 54       		.byte	0x54
+ 228 00c6 9E000000 		.4byte	0x9e
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 7
+
+
+ 229 00ca 04       		.uleb128 0x4
+ 230 00cb D8000000 		.4byte	.LASF18
+ 231 00cf 03       		.byte	0x3
+ 232 00d0 78       		.byte	0x78
+ 233 00d1 88000000 		.4byte	0x88
+ 234 00d5 05       		.uleb128 0x5
+ 235 00d6 92010000 		.4byte	.LASF19
+ 236 00da 04       		.byte	0x4
+ 237 00db 1101     		.2byte	0x111
+ 238 00dd 7D000000 		.4byte	0x7d
+ 239 00e1 05       		.uleb128 0x5
+ 240 00e2 12020000 		.4byte	.LASF20
+ 241 00e6 04       		.byte	0x4
+ 242 00e7 3502     		.2byte	0x235
+ 243 00e9 9E000000 		.4byte	0x9e
+ 244 00ed 05       		.uleb128 0x5
+ 245 00ee 2A020000 		.4byte	.LASF21
+ 246 00f2 04       		.byte	0x4
+ 247 00f3 5D02     		.2byte	0x25d
+ 248 00f5 9E000000 		.4byte	0x9e
+ 249 00f9 05       		.uleb128 0x5
+ 250 00fa 11040000 		.4byte	.LASF22
+ 251 00fe 04       		.byte	0x4
+ 252 00ff 6C02     		.2byte	0x26c
+ 253 0101 9E000000 		.4byte	0x9e
+ 254 0105 06       		.uleb128 0x6
+ 255 0106 0C       		.byte	0xc
+ 256 0107 04       		.byte	0x4
+ 257 0108 7202     		.2byte	0x272
+ 258 010a 36010000 		.4byte	0x136
+ 259 010e 07       		.uleb128 0x7
+ 260 010f BC010000 		.4byte	.LASF23
+ 261 0113 04       		.byte	0x4
+ 262 0114 7302     		.2byte	0x273
+ 263 0116 E1000000 		.4byte	0xe1
+ 264 011a 00       		.byte	0
+ 265 011b 07       		.uleb128 0x7
+ 266 011c 3C000000 		.4byte	.LASF24
+ 267 0120 04       		.byte	0x4
+ 268 0121 7402     		.2byte	0x274
+ 269 0123 E1000000 		.4byte	0xe1
+ 270 0127 04       		.byte	0x4
+ 271 0128 07       		.uleb128 0x7
+ 272 0129 DF000000 		.4byte	.LASF25
+ 273 012d 04       		.byte	0x4
+ 274 012e 7502     		.2byte	0x275
+ 275 0130 E1000000 		.4byte	0xe1
+ 276 0134 08       		.byte	0x8
+ 277 0135 00       		.byte	0
+ 278 0136 05       		.uleb128 0x5
+ 279 0137 EA010000 		.4byte	.LASF26
+ 280 013b 04       		.byte	0x4
+ 281 013c 7A02     		.2byte	0x27a
+ 282 013e 05010000 		.4byte	0x105
+ 283 0142 06       		.uleb128 0x6
+ 284 0143 08       		.byte	0x8
+ 285 0144 04       		.byte	0x4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 8
+
+
+ 286 0145 7D02     		.2byte	0x27d
+ 287 0147 66010000 		.4byte	0x166
+ 288 014b 07       		.uleb128 0x7
+ 289 014c E8000000 		.4byte	.LASF27
+ 290 0150 04       		.byte	0x4
+ 291 0151 7E02     		.2byte	0x27e
+ 292 0153 E1000000 		.4byte	0xe1
+ 293 0157 00       		.byte	0
+ 294 0158 07       		.uleb128 0x7
+ 295 0159 1C050000 		.4byte	.LASF28
+ 296 015d 04       		.byte	0x4
+ 297 015e 7F02     		.2byte	0x27f
+ 298 0160 ED000000 		.4byte	0xed
+ 299 0164 04       		.byte	0x4
+ 300 0165 00       		.byte	0
+ 301 0166 05       		.uleb128 0x5
+ 302 0167 4C010000 		.4byte	.LASF29
+ 303 016b 04       		.byte	0x4
+ 304 016c 8002     		.2byte	0x280
+ 305 016e 42010000 		.4byte	0x142
+ 306 0172 08       		.uleb128 0x8
+ 307 0173 01       		.byte	0x1
+ 308 0174 2C000000 		.4byte	0x2c
+ 309 0178 04       		.byte	0x4
+ 310 0179 8A02     		.2byte	0x28a
+ 311 017b 8C010000 		.4byte	0x18c
+ 312 017f 09       		.uleb128 0x9
+ 313 0180 03040000 		.4byte	.LASF30
+ 314 0184 00       		.byte	0
+ 315 0185 09       		.uleb128 0x9
+ 316 0186 A2010000 		.4byte	.LASF31
+ 317 018a 01       		.byte	0x1
+ 318 018b 00       		.byte	0
+ 319 018c 05       		.uleb128 0x5
+ 320 018d 18010000 		.4byte	.LASF32
+ 321 0191 04       		.byte	0x4
+ 322 0192 8D02     		.2byte	0x28d
+ 323 0194 72010000 		.4byte	0x172
+ 324 0198 05       		.uleb128 0x5
+ 325 0199 95000000 		.4byte	.LASF33
+ 326 019d 04       		.byte	0x4
+ 327 019e 9002     		.2byte	0x290
+ 328 01a0 8C010000 		.4byte	0x18c
+ 329 01a4 06       		.uleb128 0x6
+ 330 01a5 0C       		.byte	0xc
+ 331 01a6 04       		.byte	0x4
+ 332 01a7 9402     		.2byte	0x294
+ 333 01a9 D3010000 		.4byte	0x1d3
+ 334 01ad 0A       		.uleb128 0xa
+ 335 01ae 6300     		.ascii	"c\000"
+ 336 01b0 04       		.byte	0x4
+ 337 01b1 9602     		.2byte	0x296
+ 338 01b3 F9000000 		.4byte	0xf9
+ 339 01b7 00       		.byte	0
+ 340 01b8 07       		.uleb128 0x7
+ 341 01b9 85000000 		.4byte	.LASF34
+ 342 01bd 04       		.byte	0x4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 9
+
+
+ 343 01be 9802     		.2byte	0x298
+ 344 01c0 ED000000 		.4byte	0xed
+ 345 01c4 04       		.byte	0x4
+ 346 01c5 07       		.uleb128 0x7
+ 347 01c6 2F000000 		.4byte	.LASF35
+ 348 01ca 04       		.byte	0x4
+ 349 01cb 9A02     		.2byte	0x29a
+ 350 01cd 98010000 		.4byte	0x198
+ 351 01d1 08       		.byte	0x8
+ 352 01d2 00       		.byte	0
+ 353 01d3 05       		.uleb128 0x5
+ 354 01d4 71030000 		.4byte	.LASF36
+ 355 01d8 04       		.byte	0x4
+ 356 01d9 9B02     		.2byte	0x29b
+ 357 01db A4010000 		.4byte	0x1a4
+ 358 01df 06       		.uleb128 0x6
+ 359 01e0 10       		.byte	0x10
+ 360 01e1 04       		.byte	0x4
+ 361 01e2 9F02     		.2byte	0x29f
+ 362 01e4 1D020000 		.4byte	0x21d
+ 363 01e8 07       		.uleb128 0x7
+ 364 01e9 0C040000 		.4byte	.LASF37
+ 365 01ed 04       		.byte	0x4
+ 366 01ee A002     		.2byte	0x2a0
+ 367 01f0 BF000000 		.4byte	0xbf
+ 368 01f4 00       		.byte	0
+ 369 01f5 07       		.uleb128 0x7
+ 370 01f6 E9040000 		.4byte	.LASF38
+ 371 01fa 04       		.byte	0x4
+ 372 01fb A102     		.2byte	0x2a1
+ 373 01fd E1000000 		.4byte	0xe1
+ 374 0201 04       		.byte	0x4
+ 375 0202 07       		.uleb128 0x7
+ 376 0203 7F000000 		.4byte	.LASF39
+ 377 0207 04       		.byte	0x4
+ 378 0208 A202     		.2byte	0x2a2
+ 379 020a E1000000 		.4byte	0xe1
+ 380 020e 08       		.byte	0x8
+ 381 020f 07       		.uleb128 0x7
+ 382 0210 0A050000 		.4byte	.LASF40
+ 383 0214 04       		.byte	0x4
+ 384 0215 A302     		.2byte	0x2a3
+ 385 0217 ED000000 		.4byte	0xed
+ 386 021b 0C       		.byte	0xc
+ 387 021c 00       		.byte	0
+ 388 021d 05       		.uleb128 0x5
+ 389 021e CC010000 		.4byte	.LASF41
+ 390 0222 04       		.byte	0x4
+ 391 0223 A402     		.2byte	0x2a4
+ 392 0225 DF010000 		.4byte	0x1df
+ 393 0229 0B       		.uleb128 0xb
+ 394 022a 3C020000 		.4byte	.LASF72
+ 395 022e 01       		.byte	0x1
+ 396 022f 4A       		.byte	0x4a
+ 397 0230 CA000000 		.4byte	0xca
+ 398 0234 00000000 		.4byte	.LFB70
+ 399 0238 88000000 		.4byte	.LFE70-.LFB70
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 10
+
+
+ 400 023c 01       		.uleb128 0x1
+ 401 023d 9C       		.byte	0x9c
+ 402 023e 6A020000 		.4byte	0x26a
+ 403 0242 0C       		.uleb128 0xc
+ 404 0243 7800     		.ascii	"x\000"
+ 405 0245 01       		.byte	0x1
+ 406 0246 4C       		.byte	0x4c
+ 407 0247 72000000 		.4byte	0x72
+ 408 024b 00000000 		.4byte	.LLST0
+ 409 024f 0D       		.uleb128 0xd
+ 410 0250 67000000 		.4byte	.LASF42
+ 411 0254 01       		.byte	0x1
+ 412 0255 4D       		.byte	0x4d
+ 413 0256 CA000000 		.4byte	0xca
+ 414 025a 01       		.uleb128 0x1
+ 415 025b 50       		.byte	0x50
+ 416 025c 0C       		.uleb128 0xc
+ 417 025d 7900     		.ascii	"y\000"
+ 418 025f 01       		.byte	0x1
+ 419 0260 4E       		.byte	0x4e
+ 420 0261 A9000000 		.4byte	0xa9
+ 421 0265 2B000000 		.4byte	.LLST1
+ 422 0269 00       		.byte	0
+ 423 026a 0E       		.uleb128 0xe
+ 424 026b 37010000 		.4byte	.LASF43
+ 425 026f 05       		.byte	0x5
+ 426 0270 44       		.byte	0x44
+ 427 0271 9E000000 		.4byte	0x9e
+ 428 0275 0E       		.uleb128 0xe
+ 429 0276 D5020000 		.4byte	.LASF44
+ 430 027a 06       		.byte	0x6
+ 431 027b 48       		.byte	0x48
+ 432 027c CA000000 		.4byte	0xca
+ 433 0280 0F       		.uleb128 0xf
+ 434 0281 97020000 		.4byte	0x297
+ 435 0285 90020000 		.4byte	0x290
+ 436 0289 10       		.uleb128 0x10
+ 437 028a 90020000 		.4byte	0x290
+ 438 028e 04       		.byte	0x4
+ 439 028f 00       		.byte	0
+ 440 0290 02       		.uleb128 0x2
+ 441 0291 04       		.byte	0x4
+ 442 0292 07       		.byte	0x7
+ 443 0293 76000000 		.4byte	.LASF45
+ 444 0297 11       		.uleb128 0x11
+ 445 0298 9E000000 		.4byte	0x9e
+ 446 029c 0E       		.uleb128 0xe
+ 447 029d B5000000 		.4byte	.LASF46
+ 448 02a1 04       		.byte	0x4
+ 449 02a2 B2       		.byte	0xb2
+ 450 02a3 A7020000 		.4byte	0x2a7
+ 451 02a7 11       		.uleb128 0x11
+ 452 02a8 80020000 		.4byte	0x280
+ 453 02ac 0E       		.uleb128 0xe
+ 454 02ad 2A040000 		.4byte	.LASF47
+ 455 02b1 04       		.byte	0x4
+ 456 02b2 B3       		.byte	0xb3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 11
+
+
+ 457 02b3 B7020000 		.4byte	0x2b7
+ 458 02b7 11       		.uleb128 0x11
+ 459 02b8 80020000 		.4byte	0x280
+ 460 02bc 0F       		.uleb128 0xf
+ 461 02bd 9E000000 		.4byte	0x9e
+ 462 02c1 CC020000 		.4byte	0x2cc
+ 463 02c5 10       		.uleb128 0x10
+ 464 02c6 90020000 		.4byte	0x290
+ 465 02ca 04       		.byte	0x4
+ 466 02cb 00       		.byte	0
+ 467 02cc 0E       		.uleb128 0xe
+ 468 02cd 1D040000 		.4byte	.LASF48
+ 469 02d1 04       		.byte	0x4
+ 470 02d2 CA       		.byte	0xca
+ 471 02d3 BC020000 		.4byte	0x2bc
+ 472 02d7 0F       		.uleb128 0xf
+ 473 02d8 CA000000 		.4byte	0xca
+ 474 02dc E7020000 		.4byte	0x2e7
+ 475 02e0 10       		.uleb128 0x10
+ 476 02e1 90020000 		.4byte	0x290
+ 477 02e5 04       		.byte	0x4
+ 478 02e6 00       		.byte	0
+ 479 02e7 0E       		.uleb128 0xe
+ 480 02e8 3E040000 		.4byte	.LASF49
+ 481 02ec 04       		.byte	0x4
+ 482 02ed D2       		.byte	0xd2
+ 483 02ee D7020000 		.4byte	0x2d7
+ 484 02f2 0E       		.uleb128 0xe
+ 485 02f3 C9020000 		.4byte	.LASF50
+ 486 02f7 04       		.byte	0x4
+ 487 02f8 DA       		.byte	0xda
+ 488 02f9 BC020000 		.4byte	0x2bc
+ 489 02fd 0E       		.uleb128 0xe
+ 490 02fe D9030000 		.4byte	.LASF51
+ 491 0302 04       		.byte	0x4
+ 492 0303 E2       		.byte	0xe2
+ 493 0304 CA000000 		.4byte	0xca
+ 494 0308 0E       		.uleb128 0xe
+ 495 0309 1B020000 		.4byte	.LASF52
+ 496 030d 04       		.byte	0x4
+ 497 030e F7       		.byte	0xf7
+ 498 030f 9E000000 		.4byte	0x9e
+ 499 0313 0F       		.uleb128 0xf
+ 500 0314 A9000000 		.4byte	0xa9
+ 501 0318 23030000 		.4byte	0x323
+ 502 031c 10       		.uleb128 0x10
+ 503 031d 90020000 		.4byte	0x290
+ 504 0321 0F       		.byte	0xf
+ 505 0322 00       		.byte	0
+ 506 0323 12       		.uleb128 0x12
+ 507 0324 C6000000 		.4byte	.LASF53
+ 508 0328 04       		.byte	0x4
+ 509 0329 2501     		.2byte	0x125
+ 510 032b 13030000 		.4byte	0x313
+ 511 032f 12       		.uleb128 0x12
+ 512 0330 49040000 		.4byte	.LASF54
+ 513 0334 04       		.byte	0x4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 12
+
+
+ 514 0335 2601     		.2byte	0x126
+ 515 0337 13030000 		.4byte	0x313
+ 516 033b 0F       		.uleb128 0xf
+ 517 033c A9000000 		.4byte	0xa9
+ 518 0340 4B030000 		.4byte	0x34b
+ 519 0344 10       		.uleb128 0x10
+ 520 0345 90020000 		.4byte	0x290
+ 521 0349 04       		.byte	0x4
+ 522 034a 00       		.byte	0
+ 523 034b 12       		.uleb128 0x12
+ 524 034c 01020000 		.4byte	.LASF55
+ 525 0350 04       		.byte	0x4
+ 526 0351 2C01     		.2byte	0x12c
+ 527 0353 3B030000 		.4byte	0x33b
+ 528 0357 12       		.uleb128 0x12
+ 529 0358 E5030000 		.4byte	.LASF56
+ 530 035c 04       		.byte	0x4
+ 531 035d 3C01     		.2byte	0x13c
+ 532 035f D7020000 		.4byte	0x2d7
+ 533 0363 12       		.uleb128 0x12
+ 534 0364 F5030000 		.4byte	.LASF57
+ 535 0368 04       		.byte	0x4
+ 536 0369 3F01     		.2byte	0x13f
+ 537 036b D5000000 		.4byte	0xd5
+ 538 036f 12       		.uleb128 0x12
+ 539 0370 49000000 		.4byte	.LASF58
+ 540 0374 04       		.byte	0x4
+ 541 0375 4101     		.2byte	0x141
+ 542 0377 A9000000 		.4byte	0xa9
+ 543 037b 12       		.uleb128 0x12
+ 544 037c 54000000 		.4byte	.LASF59
+ 545 0380 04       		.byte	0x4
+ 546 0381 5C01     		.2byte	0x15c
+ 547 0383 BC020000 		.4byte	0x2bc
+ 548 0387 0F       		.uleb128 0xf
+ 549 0388 BF000000 		.4byte	0xbf
+ 550 038c 97030000 		.4byte	0x397
+ 551 0390 10       		.uleb128 0x10
+ 552 0391 90020000 		.4byte	0x290
+ 553 0395 04       		.byte	0x4
+ 554 0396 00       		.byte	0
+ 555 0397 12       		.uleb128 0x12
+ 556 0398 EE000000 		.4byte	.LASF60
+ 557 039c 04       		.byte	0x4
+ 558 039d 6701     		.2byte	0x167
+ 559 039f 87030000 		.4byte	0x387
+ 560 03a3 0F       		.uleb128 0xf
+ 561 03a4 B3030000 		.4byte	0x3b3
+ 562 03a8 B3030000 		.4byte	0x3b3
+ 563 03ac 10       		.uleb128 0x10
+ 564 03ad 90020000 		.4byte	0x290
+ 565 03b1 00       		.byte	0
+ 566 03b2 00       		.byte	0
+ 567 03b3 11       		.uleb128 0x11
+ 568 03b4 36010000 		.4byte	0x136
+ 569 03b8 12       		.uleb128 0x12
+ 570 03b9 5B020000 		.4byte	.LASF61
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 13
+
+
+ 571 03bd 04       		.byte	0x4
+ 572 03be CA02     		.2byte	0x2ca
+ 573 03c0 C4030000 		.4byte	0x3c4
+ 574 03c4 11       		.uleb128 0x11
+ 575 03c5 A3030000 		.4byte	0x3a3
+ 576 03c9 0F       		.uleb128 0xf
+ 577 03ca D9030000 		.4byte	0x3d9
+ 578 03ce D9030000 		.4byte	0x3d9
+ 579 03d2 10       		.uleb128 0x10
+ 580 03d3 90020000 		.4byte	0x290
+ 581 03d7 00       		.byte	0
+ 582 03d8 00       		.byte	0
+ 583 03d9 11       		.uleb128 0x11
+ 584 03da D3010000 		.4byte	0x1d3
+ 585 03de 12       		.uleb128 0x12
+ 586 03df FF000000 		.4byte	.LASF62
+ 587 03e3 04       		.byte	0x4
+ 588 03e4 DD02     		.2byte	0x2dd
+ 589 03e6 EA030000 		.4byte	0x3ea
+ 590 03ea 11       		.uleb128 0x11
+ 591 03eb C9030000 		.4byte	0x3c9
+ 592 03ef 0F       		.uleb128 0xf
+ 593 03f0 66010000 		.4byte	0x166
+ 594 03f4 FF030000 		.4byte	0x3ff
+ 595 03f8 10       		.uleb128 0x10
+ 596 03f9 90020000 		.4byte	0x290
+ 597 03fd 00       		.byte	0
+ 598 03fe 00       		.byte	0
+ 599 03ff 12       		.uleb128 0x12
+ 600 0400 99030000 		.4byte	.LASF63
+ 601 0404 04       		.byte	0x4
+ 602 0405 FB02     		.2byte	0x2fb
+ 603 0407 EF030000 		.4byte	0x3ef
+ 604 040b 0F       		.uleb128 0xf
+ 605 040c 1D020000 		.4byte	0x21d
+ 606 0410 1B040000 		.4byte	0x41b
+ 607 0414 10       		.uleb128 0x10
+ 608 0415 90020000 		.4byte	0x290
+ 609 0419 00       		.byte	0
+ 610 041a 00       		.byte	0
+ 611 041b 12       		.uleb128 0x12
+ 612 041c 78020000 		.4byte	.LASF64
+ 613 0420 04       		.byte	0x4
+ 614 0421 0403     		.2byte	0x304
+ 615 0423 0B040000 		.4byte	0x40b
+ 616 0427 0E       		.uleb128 0xe
+ 617 0428 F2040000 		.4byte	.LASF65
+ 618 042c 07       		.byte	0x7
+ 619 042d 40       		.byte	0x40
+ 620 042e 9E000000 		.4byte	0x9e
+ 621 0432 0E       		.uleb128 0xe
+ 622 0433 79010000 		.4byte	.LASF66
+ 623 0437 07       		.byte	0x7
+ 624 0438 47       		.byte	0x47
+ 625 0439 B4000000 		.4byte	0xb4
+ 626 043d 0E       		.uleb128 0xe
+ 627 043e A8030000 		.4byte	.LASF67
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 14
+
+
+ 628 0442 07       		.byte	0x7
+ 629 0443 4A       		.byte	0x4a
+ 630 0444 9E000000 		.4byte	0x9e
+ 631 0448 0F       		.uleb128 0xf
+ 632 0449 58040000 		.4byte	0x458
+ 633 044d 58040000 		.4byte	0x458
+ 634 0451 10       		.uleb128 0x10
+ 635 0452 90020000 		.4byte	0x290
+ 636 0456 FF       		.byte	0xff
+ 637 0457 00       		.byte	0
+ 638 0458 11       		.uleb128 0x11
+ 639 0459 72000000 		.4byte	0x72
+ 640 045d 12       		.uleb128 0x12
+ 641 045e 0F050000 		.4byte	.LASF68
+ 642 0462 08       		.byte	0x8
+ 643 0463 AB01     		.2byte	0x1ab
+ 644 0465 69040000 		.4byte	0x469
+ 645 0469 11       		.uleb128 0x11
+ 646 046a 48040000 		.4byte	0x448
+ 647 046e 00       		.byte	0
+ 648              		.section	.debug_abbrev,"",%progbits
+ 649              	.Ldebug_abbrev0:
+ 650 0000 01       		.uleb128 0x1
+ 651 0001 11       		.uleb128 0x11
+ 652 0002 01       		.byte	0x1
+ 653 0003 25       		.uleb128 0x25
+ 654 0004 0E       		.uleb128 0xe
+ 655 0005 13       		.uleb128 0x13
+ 656 0006 0B       		.uleb128 0xb
+ 657 0007 03       		.uleb128 0x3
+ 658 0008 0E       		.uleb128 0xe
+ 659 0009 1B       		.uleb128 0x1b
+ 660 000a 0E       		.uleb128 0xe
+ 661 000b 55       		.uleb128 0x55
+ 662 000c 17       		.uleb128 0x17
+ 663 000d 11       		.uleb128 0x11
+ 664 000e 01       		.uleb128 0x1
+ 665 000f 10       		.uleb128 0x10
+ 666 0010 17       		.uleb128 0x17
+ 667 0011 00       		.byte	0
+ 668 0012 00       		.byte	0
+ 669 0013 02       		.uleb128 0x2
+ 670 0014 24       		.uleb128 0x24
+ 671 0015 00       		.byte	0
+ 672 0016 0B       		.uleb128 0xb
+ 673 0017 0B       		.uleb128 0xb
+ 674 0018 3E       		.uleb128 0x3e
+ 675 0019 0B       		.uleb128 0xb
+ 676 001a 03       		.uleb128 0x3
+ 677 001b 0E       		.uleb128 0xe
+ 678 001c 00       		.byte	0
+ 679 001d 00       		.byte	0
+ 680 001e 03       		.uleb128 0x3
+ 681 001f 24       		.uleb128 0x24
+ 682 0020 00       		.byte	0
+ 683 0021 0B       		.uleb128 0xb
+ 684 0022 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 15
+
+
+ 685 0023 3E       		.uleb128 0x3e
+ 686 0024 0B       		.uleb128 0xb
+ 687 0025 03       		.uleb128 0x3
+ 688 0026 08       		.uleb128 0x8
+ 689 0027 00       		.byte	0
+ 690 0028 00       		.byte	0
+ 691 0029 04       		.uleb128 0x4
+ 692 002a 16       		.uleb128 0x16
+ 693 002b 00       		.byte	0
+ 694 002c 03       		.uleb128 0x3
+ 695 002d 0E       		.uleb128 0xe
+ 696 002e 3A       		.uleb128 0x3a
+ 697 002f 0B       		.uleb128 0xb
+ 698 0030 3B       		.uleb128 0x3b
+ 699 0031 0B       		.uleb128 0xb
+ 700 0032 49       		.uleb128 0x49
+ 701 0033 13       		.uleb128 0x13
+ 702 0034 00       		.byte	0
+ 703 0035 00       		.byte	0
+ 704 0036 05       		.uleb128 0x5
+ 705 0037 16       		.uleb128 0x16
+ 706 0038 00       		.byte	0
+ 707 0039 03       		.uleb128 0x3
+ 708 003a 0E       		.uleb128 0xe
+ 709 003b 3A       		.uleb128 0x3a
+ 710 003c 0B       		.uleb128 0xb
+ 711 003d 3B       		.uleb128 0x3b
+ 712 003e 05       		.uleb128 0x5
+ 713 003f 49       		.uleb128 0x49
+ 714 0040 13       		.uleb128 0x13
+ 715 0041 00       		.byte	0
+ 716 0042 00       		.byte	0
+ 717 0043 06       		.uleb128 0x6
+ 718 0044 13       		.uleb128 0x13
+ 719 0045 01       		.byte	0x1
+ 720 0046 0B       		.uleb128 0xb
+ 721 0047 0B       		.uleb128 0xb
+ 722 0048 3A       		.uleb128 0x3a
+ 723 0049 0B       		.uleb128 0xb
+ 724 004a 3B       		.uleb128 0x3b
+ 725 004b 05       		.uleb128 0x5
+ 726 004c 01       		.uleb128 0x1
+ 727 004d 13       		.uleb128 0x13
+ 728 004e 00       		.byte	0
+ 729 004f 00       		.byte	0
+ 730 0050 07       		.uleb128 0x7
+ 731 0051 0D       		.uleb128 0xd
+ 732 0052 00       		.byte	0
+ 733 0053 03       		.uleb128 0x3
+ 734 0054 0E       		.uleb128 0xe
+ 735 0055 3A       		.uleb128 0x3a
+ 736 0056 0B       		.uleb128 0xb
+ 737 0057 3B       		.uleb128 0x3b
+ 738 0058 05       		.uleb128 0x5
+ 739 0059 49       		.uleb128 0x49
+ 740 005a 13       		.uleb128 0x13
+ 741 005b 38       		.uleb128 0x38
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 16
+
+
+ 742 005c 0B       		.uleb128 0xb
+ 743 005d 00       		.byte	0
+ 744 005e 00       		.byte	0
+ 745 005f 08       		.uleb128 0x8
+ 746 0060 04       		.uleb128 0x4
+ 747 0061 01       		.byte	0x1
+ 748 0062 0B       		.uleb128 0xb
+ 749 0063 0B       		.uleb128 0xb
+ 750 0064 49       		.uleb128 0x49
+ 751 0065 13       		.uleb128 0x13
+ 752 0066 3A       		.uleb128 0x3a
+ 753 0067 0B       		.uleb128 0xb
+ 754 0068 3B       		.uleb128 0x3b
+ 755 0069 05       		.uleb128 0x5
+ 756 006a 01       		.uleb128 0x1
+ 757 006b 13       		.uleb128 0x13
+ 758 006c 00       		.byte	0
+ 759 006d 00       		.byte	0
+ 760 006e 09       		.uleb128 0x9
+ 761 006f 28       		.uleb128 0x28
+ 762 0070 00       		.byte	0
+ 763 0071 03       		.uleb128 0x3
+ 764 0072 0E       		.uleb128 0xe
+ 765 0073 1C       		.uleb128 0x1c
+ 766 0074 0B       		.uleb128 0xb
+ 767 0075 00       		.byte	0
+ 768 0076 00       		.byte	0
+ 769 0077 0A       		.uleb128 0xa
+ 770 0078 0D       		.uleb128 0xd
+ 771 0079 00       		.byte	0
+ 772 007a 03       		.uleb128 0x3
+ 773 007b 08       		.uleb128 0x8
+ 774 007c 3A       		.uleb128 0x3a
+ 775 007d 0B       		.uleb128 0xb
+ 776 007e 3B       		.uleb128 0x3b
+ 777 007f 05       		.uleb128 0x5
+ 778 0080 49       		.uleb128 0x49
+ 779 0081 13       		.uleb128 0x13
+ 780 0082 38       		.uleb128 0x38
+ 781 0083 0B       		.uleb128 0xb
+ 782 0084 00       		.byte	0
+ 783 0085 00       		.byte	0
+ 784 0086 0B       		.uleb128 0xb
+ 785 0087 2E       		.uleb128 0x2e
+ 786 0088 01       		.byte	0x1
+ 787 0089 3F       		.uleb128 0x3f
+ 788 008a 19       		.uleb128 0x19
+ 789 008b 03       		.uleb128 0x3
+ 790 008c 0E       		.uleb128 0xe
+ 791 008d 3A       		.uleb128 0x3a
+ 792 008e 0B       		.uleb128 0xb
+ 793 008f 3B       		.uleb128 0x3b
+ 794 0090 0B       		.uleb128 0xb
+ 795 0091 27       		.uleb128 0x27
+ 796 0092 19       		.uleb128 0x19
+ 797 0093 49       		.uleb128 0x49
+ 798 0094 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 17
+
+
+ 799 0095 11       		.uleb128 0x11
+ 800 0096 01       		.uleb128 0x1
+ 801 0097 12       		.uleb128 0x12
+ 802 0098 06       		.uleb128 0x6
+ 803 0099 40       		.uleb128 0x40
+ 804 009a 18       		.uleb128 0x18
+ 805 009b 9742     		.uleb128 0x2117
+ 806 009d 19       		.uleb128 0x19
+ 807 009e 01       		.uleb128 0x1
+ 808 009f 13       		.uleb128 0x13
+ 809 00a0 00       		.byte	0
+ 810 00a1 00       		.byte	0
+ 811 00a2 0C       		.uleb128 0xc
+ 812 00a3 34       		.uleb128 0x34
+ 813 00a4 00       		.byte	0
+ 814 00a5 03       		.uleb128 0x3
+ 815 00a6 08       		.uleb128 0x8
+ 816 00a7 3A       		.uleb128 0x3a
+ 817 00a8 0B       		.uleb128 0xb
+ 818 00a9 3B       		.uleb128 0x3b
+ 819 00aa 0B       		.uleb128 0xb
+ 820 00ab 49       		.uleb128 0x49
+ 821 00ac 13       		.uleb128 0x13
+ 822 00ad 02       		.uleb128 0x2
+ 823 00ae 17       		.uleb128 0x17
+ 824 00af 00       		.byte	0
+ 825 00b0 00       		.byte	0
+ 826 00b1 0D       		.uleb128 0xd
+ 827 00b2 34       		.uleb128 0x34
+ 828 00b3 00       		.byte	0
+ 829 00b4 03       		.uleb128 0x3
+ 830 00b5 0E       		.uleb128 0xe
+ 831 00b6 3A       		.uleb128 0x3a
+ 832 00b7 0B       		.uleb128 0xb
+ 833 00b8 3B       		.uleb128 0x3b
+ 834 00b9 0B       		.uleb128 0xb
+ 835 00ba 49       		.uleb128 0x49
+ 836 00bb 13       		.uleb128 0x13
+ 837 00bc 02       		.uleb128 0x2
+ 838 00bd 18       		.uleb128 0x18
+ 839 00be 00       		.byte	0
+ 840 00bf 00       		.byte	0
+ 841 00c0 0E       		.uleb128 0xe
+ 842 00c1 34       		.uleb128 0x34
+ 843 00c2 00       		.byte	0
+ 844 00c3 03       		.uleb128 0x3
+ 845 00c4 0E       		.uleb128 0xe
+ 846 00c5 3A       		.uleb128 0x3a
+ 847 00c6 0B       		.uleb128 0xb
+ 848 00c7 3B       		.uleb128 0x3b
+ 849 00c8 0B       		.uleb128 0xb
+ 850 00c9 49       		.uleb128 0x49
+ 851 00ca 13       		.uleb128 0x13
+ 852 00cb 3F       		.uleb128 0x3f
+ 853 00cc 19       		.uleb128 0x19
+ 854 00cd 3C       		.uleb128 0x3c
+ 855 00ce 19       		.uleb128 0x19
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 18
+
+
+ 856 00cf 00       		.byte	0
+ 857 00d0 00       		.byte	0
+ 858 00d1 0F       		.uleb128 0xf
+ 859 00d2 01       		.uleb128 0x1
+ 860 00d3 01       		.byte	0x1
+ 861 00d4 49       		.uleb128 0x49
+ 862 00d5 13       		.uleb128 0x13
+ 863 00d6 01       		.uleb128 0x1
+ 864 00d7 13       		.uleb128 0x13
+ 865 00d8 00       		.byte	0
+ 866 00d9 00       		.byte	0
+ 867 00da 10       		.uleb128 0x10
+ 868 00db 21       		.uleb128 0x21
+ 869 00dc 00       		.byte	0
+ 870 00dd 49       		.uleb128 0x49
+ 871 00de 13       		.uleb128 0x13
+ 872 00df 2F       		.uleb128 0x2f
+ 873 00e0 0B       		.uleb128 0xb
+ 874 00e1 00       		.byte	0
+ 875 00e2 00       		.byte	0
+ 876 00e3 11       		.uleb128 0x11
+ 877 00e4 26       		.uleb128 0x26
+ 878 00e5 00       		.byte	0
+ 879 00e6 49       		.uleb128 0x49
+ 880 00e7 13       		.uleb128 0x13
+ 881 00e8 00       		.byte	0
+ 882 00e9 00       		.byte	0
+ 883 00ea 12       		.uleb128 0x12
+ 884 00eb 34       		.uleb128 0x34
+ 885 00ec 00       		.byte	0
+ 886 00ed 03       		.uleb128 0x3
+ 887 00ee 0E       		.uleb128 0xe
+ 888 00ef 3A       		.uleb128 0x3a
+ 889 00f0 0B       		.uleb128 0xb
+ 890 00f1 3B       		.uleb128 0x3b
+ 891 00f2 05       		.uleb128 0x5
+ 892 00f3 49       		.uleb128 0x49
+ 893 00f4 13       		.uleb128 0x13
+ 894 00f5 3F       		.uleb128 0x3f
+ 895 00f6 19       		.uleb128 0x19
+ 896 00f7 3C       		.uleb128 0x3c
+ 897 00f8 19       		.uleb128 0x19
+ 898 00f9 00       		.byte	0
+ 899 00fa 00       		.byte	0
+ 900 00fb 00       		.byte	0
+ 901              		.section	.debug_loc,"",%progbits
+ 902              	.Ldebug_loc0:
+ 903              	.LLST0:
+ 904 0000 0C000000 		.4byte	.LVL0
+ 905 0004 18000000 		.4byte	.LVL2
+ 906 0008 0100     		.2byte	0x1
+ 907 000a 53       		.byte	0x53
+ 908 000b 18000000 		.4byte	.LVL2
+ 909 000f 1A000000 		.4byte	.LVL3
+ 910 0013 0300     		.2byte	0x3
+ 911 0015 73       		.byte	0x73
+ 912 0016 78       		.sleb128 -8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 19
+
+
+ 913 0017 9F       		.byte	0x9f
+ 914 0018 1A000000 		.4byte	.LVL3
+ 915 001c 4C000000 		.4byte	.LVL6
+ 916 0020 0100     		.2byte	0x1
+ 917 0022 53       		.byte	0x53
+ 918 0023 00000000 		.4byte	0
+ 919 0027 00000000 		.4byte	0
+ 920              	.LLST1:
+ 921 002b 26000000 		.4byte	.LVL4
+ 922 002f 42000000 		.4byte	.LVL5
+ 923 0033 0100     		.2byte	0x1
+ 924 0035 52       		.byte	0x52
+ 925 0036 42000000 		.4byte	.LVL5
+ 926 003a 62000000 		.4byte	.LVL7
+ 927 003e 0200     		.2byte	0x2
+ 928 0040 75       		.byte	0x75
+ 929 0041 00       		.sleb128 0
+ 930 0042 00000000 		.4byte	0
+ 931 0046 00000000 		.4byte	0
+ 932              		.section	.debug_aranges,"",%progbits
+ 933 0000 1C000000 		.4byte	0x1c
+ 934 0004 0200     		.2byte	0x2
+ 935 0006 00000000 		.4byte	.Ldebug_info0
+ 936 000a 04       		.byte	0x4
+ 937 000b 00       		.byte	0
+ 938 000c 0000     		.2byte	0
+ 939 000e 0000     		.2byte	0
+ 940 0010 00000000 		.4byte	.LFB70
+ 941 0014 88000000 		.4byte	.LFE70-.LFB70
+ 942 0018 00000000 		.4byte	0
+ 943 001c 00000000 		.4byte	0
+ 944              		.section	.debug_ranges,"",%progbits
+ 945              	.Ldebug_ranges0:
+ 946 0000 00000000 		.4byte	.LFB70
+ 947 0004 88000000 		.4byte	.LFE70
+ 948 0008 00000000 		.4byte	0
+ 949 000c 00000000 		.4byte	0
+ 950              		.section	.debug_line,"",%progbits
+ 951              	.Ldebug_line0:
+ 952 0000 57010000 		.section	.debug_str,"MS",%progbits,1
+ 952      02003101 
+ 952      00000201 
+ 952      FB0E0D00 
+ 952      01010101 
+ 953              	.LASF70:
+ 954 0000 47656E65 		.ascii	"Generated_Source\\PSoC5\\ErikaOS_1_ee_rq_exchg.c\000"
+ 954      72617465 
+ 954      645F536F 
+ 954      75726365 
+ 954      5C50536F 
+ 955              	.LASF35:
+ 956 002f 6B696E64 		.ascii	"kind\000"
+ 956      00
+ 957              	.LASF14:
+ 958 0034 45455F55 		.ascii	"EE_UREG\000"
+ 958      52454700 
+ 959              	.LASF24:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 20
+
+
+ 960 003c 7469636B 		.ascii	"ticksperbase\000"
+ 960      73706572 
+ 960      62617365 
+ 960      00
+ 961              	.LASF58:
+ 962 0049 45455F72 		.ascii	"EE_rq_free\000"
+ 962      715F6672 
+ 962      656500
+ 963              	.LASF59:
+ 964 0054 45455F74 		.ascii	"EE_th_event_active\000"
+ 964      685F6576 
+ 964      656E745F 
+ 964      61637469 
+ 964      766500
+ 965              	.LASF42:
+ 966 0067 74656D70 		.ascii	"temp\000"
+ 966      00
+ 967              	.LASF2:
+ 968 006c 73686F72 		.ascii	"short int\000"
+ 968      7420696E 
+ 968      7400
+ 969              	.LASF45:
+ 970 0076 73697A65 		.ascii	"sizetype\000"
+ 970      74797065 
+ 970      00
+ 971              	.LASF39:
+ 972 007f 64656C74 		.ascii	"delta\000"
+ 972      6100
+ 973              	.LASF34:
+ 974 0085 73706563 		.ascii	"spec_id\000"
+ 974      5F696400 
+ 975              	.LASF16:
+ 976 008d 45455F46 		.ascii	"EE_FREG\000"
+ 976      52454700 
+ 977              	.LASF33:
+ 978 0095 436F756E 		.ascii	"CounterObjectKindType\000"
+ 978      7465724F 
+ 978      626A6563 
+ 978      744B696E 
+ 978      64547970 
+ 979              	.LASF13:
+ 980 00ab 45455F55 		.ascii	"EE_UINT32\000"
+ 980      494E5433 
+ 980      3200
+ 981              	.LASF46:
+ 982 00b5 45455F74 		.ascii	"EE_th_ready_prio\000"
+ 982      685F7265 
+ 982      6164795F 
+ 982      7072696F 
+ 982      00
+ 983              	.LASF53:
+ 984 00c6 45455F72 		.ascii	"EE_rq_queues_head\000"
+ 984      715F7175 
+ 984      65756573 
+ 984      5F686561 
+ 984      6400
+ 985              	.LASF18:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 21
+
+
+ 986 00d8 45455F54 		.ascii	"EE_TID\000"
+ 986      494400
+ 987              	.LASF25:
+ 988 00df 6D696E63 		.ascii	"mincycle\000"
+ 988      79636C65 
+ 988      00
+ 989              	.LASF27:
+ 990 00e8 76616C75 		.ascii	"value\000"
+ 990      6500
+ 991              	.LASF60:
+ 992 00ee 45455F74 		.ascii	"EE_th_waswaiting\000"
+ 992      685F7761 
+ 992      73776169 
+ 992      74696E67 
+ 992      00
+ 993              	.LASF62:
+ 994 00ff 45455F6F 		.ascii	"EE_oo_counter_object_ROM\000"
+ 994      6F5F636F 
+ 994      756E7465 
+ 994      725F6F62 
+ 994      6A656374 
+ 995              	.LASF32:
+ 996 0118 45455F6F 		.ascii	"EE_oo_counter_object_kind_type\000"
+ 996      6F5F636F 
+ 996      756E7465 
+ 996      725F6F62 
+ 996      6A656374 
+ 997              	.LASF43:
+ 998 0137 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 998      52515F6E 
+ 998      65737469 
+ 998      6E675F6C 
+ 998      6576656C 
+ 999              	.LASF29:
+ 1000 014c 45455F6F 		.ascii	"EE_oo_counter_RAM_type\000"
+ 1000      6F5F636F 
+ 1000      756E7465 
+ 1000      725F5241 
+ 1000      4D5F7479 
+ 1001              	.LASF6:
+ 1002 0163 6C6F6E67 		.ascii	"long long int\000"
+ 1002      206C6F6E 
+ 1002      6720696E 
+ 1002      7400
+ 1003              	.LASF10:
+ 1004 0171 45455F49 		.ascii	"EE_INT8\000"
+ 1004      4E543800 
+ 1005              	.LASF66:
+ 1006 0179 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1006      6F5F4952 
+ 1006      515F7375 
+ 1006      7370656E 
+ 1006      645F7374 
+ 1007              	.LASF19:
+ 1008 0192 45455F54 		.ascii	"EE_TYPE_RQ_MASK\000"
+ 1008      5950455F 
+ 1008      52515F4D 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 22
+
+
+ 1008      41534B00 
+ 1009              	.LASF31:
+ 1010 01a2 45455F53 		.ascii	"EE_SCHEDULETABLE\000"
+ 1010      43484544 
+ 1010      554C4554 
+ 1010      41424C45 
+ 1010      00
+ 1011              	.LASF4:
+ 1012 01b3 6C6F6E67 		.ascii	"long int\000"
+ 1012      20696E74 
+ 1012      00
+ 1013              	.LASF23:
+ 1014 01bc 6D617861 		.ascii	"maxallowedvalue\000"
+ 1014      6C6C6F77 
+ 1014      65647661 
+ 1014      6C756500 
+ 1015              	.LASF41:
+ 1016 01cc 45455F6F 		.ascii	"EE_oo_counter_object_RAM_type\000"
+ 1016      6F5F636F 
+ 1016      756E7465 
+ 1016      725F6F62 
+ 1016      6A656374 
+ 1017              	.LASF26:
+ 1018 01ea 45455F6F 		.ascii	"EE_oo_counter_ROM_type\000"
+ 1018      6F5F636F 
+ 1018      756E7465 
+ 1018      725F524F 
+ 1018      4D5F7479 
+ 1019              	.LASF55:
+ 1020 0201 45455F72 		.ascii	"EE_rq_pairs_next\000"
+ 1020      715F7061 
+ 1020      6972735F 
+ 1020      6E657874 
+ 1020      00
+ 1021              	.LASF20:
+ 1022 0212 5469636B 		.ascii	"TickType\000"
+ 1022      54797065 
+ 1022      00
+ 1023              	.LASF52:
+ 1024 021b 45455F73 		.ascii	"EE_sys_ceiling\000"
+ 1024      79735F63 
+ 1024      65696C69 
+ 1024      6E6700
+ 1025              	.LASF21:
+ 1026 022a 436F756E 		.ascii	"CounterObjectType\000"
+ 1026      7465724F 
+ 1026      626A6563 
+ 1026      74547970 
+ 1026      6500
+ 1027              	.LASF72:
+ 1028 023c 45455F72 		.ascii	"EE_rq2stk_exchange\000"
+ 1028      71327374 
+ 1028      6B5F6578 
+ 1028      6368616E 
+ 1028      676500
+ 1029              	.LASF9:
+ 1030 024f 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 23
+
+
+ 1030      20646F75 
+ 1030      626C6500 
+ 1031              	.LASF61:
+ 1032 025b 45455F63 		.ascii	"EE_counter_ROM\000"
+ 1032      6F756E74 
+ 1032      65725F52 
+ 1032      4F4D00
+ 1033              	.LASF1:
+ 1034 026a 756E7369 		.ascii	"unsigned char\000"
+ 1034      676E6564 
+ 1034      20636861 
+ 1034      7200
+ 1035              	.LASF64:
+ 1036 0278 45455F6F 		.ascii	"EE_oo_counter_object_RAM\000"
+ 1036      6F5F636F 
+ 1036      756E7465 
+ 1036      725F6F62 
+ 1036      6A656374 
+ 1037              	.LASF15:
+ 1038 0291 45455F53 		.ascii	"EE_SREG\000"
+ 1038      52454700 
+ 1039              	.LASF0:
+ 1040 0299 7369676E 		.ascii	"signed char\000"
+ 1040      65642063 
+ 1040      68617200 
+ 1041              	.LASF7:
+ 1042 02a5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1042      206C6F6E 
+ 1042      6720756E 
+ 1042      7369676E 
+ 1042      65642069 
+ 1043              	.LASF8:
+ 1044 02bc 756E7369 		.ascii	"unsigned int\000"
+ 1044      676E6564 
+ 1044      20696E74 
+ 1044      00
+ 1045              	.LASF50:
+ 1046 02c9 45455F74 		.ascii	"EE_th_rnact\000"
+ 1046      685F726E 
+ 1046      61637400 
+ 1047              	.LASF44:
+ 1048 02d5 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1048      74645F65 
+ 1048      6E646379 
+ 1048      636C655F 
+ 1048      6E657874 
+ 1049              	.LASF12:
+ 1050 02ee 45455F49 		.ascii	"EE_INT32\000"
+ 1050      4E543332 
+ 1050      00
+ 1051              	.LASF71:
+ 1052 02f7 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1052      73657273 
+ 1052      5C417375 
+ 1052      735C4465 
+ 1052      736B746F 
+ 1053 0323 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 24
+
+
+ 1053      30315C45 
+ 1053      6C656374 
+ 1053      726F6E69 
+ 1053      635F4761 
+ 1054 0352 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1054      312E6379 
+ 1054      64736E00 
+ 1055              	.LASF3:
+ 1056 035e 73686F72 		.ascii	"short unsigned int\000"
+ 1056      7420756E 
+ 1056      7369676E 
+ 1056      65642069 
+ 1056      6E7400
+ 1057              	.LASF36:
+ 1058 0371 45455F6F 		.ascii	"EE_oo_counter_object_ROM_type\000"
+ 1058      6F5F636F 
+ 1058      756E7465 
+ 1058      725F6F62 
+ 1058      6A656374 
+ 1059              	.LASF11:
+ 1060 038f 45455F55 		.ascii	"EE_UINT16\000"
+ 1060      494E5431 
+ 1060      3600
+ 1061              	.LASF63:
+ 1062 0399 45455F63 		.ascii	"EE_counter_RAM\000"
+ 1062      6F756E74 
+ 1062      65725F52 
+ 1062      414D00
+ 1063              	.LASF67:
+ 1064 03a8 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1064      70706C69 
+ 1064      63617469 
+ 1064      6F6E4D6F 
+ 1064      646500
+ 1065              	.LASF5:
+ 1066 03bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1066      20756E73 
+ 1066      69676E65 
+ 1066      6420696E 
+ 1066      7400
+ 1067              	.LASF17:
+ 1068 03cd 45455F54 		.ascii	"EE_TYPEBOOL\000"
+ 1068      59504542 
+ 1068      4F4F4C00 
+ 1069              	.LASF51:
+ 1070 03d9 45455F73 		.ascii	"EE_stkfirst\000"
+ 1070      746B6669 
+ 1070      72737400 
+ 1071              	.LASF56:
+ 1072 03e5 45455F72 		.ascii	"EE_rq_pairs_tid\000"
+ 1072      715F7061 
+ 1072      6972735F 
+ 1072      74696400 
+ 1073              	.LASF57:
+ 1074 03f5 45455F72 		.ascii	"EE_rq_bitmask\000"
+ 1074      715F6269 
+ 1074      746D6173 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 25
+
+
+ 1074      6B00
+ 1075              	.LASF30:
+ 1076 0403 45455F41 		.ascii	"EE_ALARM\000"
+ 1076      4C41524D 
+ 1076      00
+ 1077              	.LASF37:
+ 1078 040c 75736564 		.ascii	"used\000"
+ 1078      00
+ 1079              	.LASF22:
+ 1080 0411 436F756E 		.ascii	"CounterType\000"
+ 1080      74657254 
+ 1080      79706500 
+ 1081              	.LASF48:
+ 1082 041d 45455F74 		.ascii	"EE_th_status\000"
+ 1082      685F7374 
+ 1082      61747573 
+ 1082      00
+ 1083              	.LASF47:
+ 1084 042a 45455F74 		.ascii	"EE_th_dispatch_prio\000"
+ 1084      685F6469 
+ 1084      73706174 
+ 1084      63685F70 
+ 1084      72696F00 
+ 1085              	.LASF49:
+ 1086 043e 45455F74 		.ascii	"EE_th_next\000"
+ 1086      685F6E65 
+ 1086      787400
+ 1087              	.LASF54:
+ 1088 0449 45455F72 		.ascii	"EE_rq_queues_tail\000"
+ 1088      715F7175 
+ 1088      65756573 
+ 1088      5F746169 
+ 1088      6C00
+ 1089              	.LASF69:
+ 1090 045b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1090      43313120 
+ 1090      352E342E 
+ 1090      31203230 
+ 1090      31363036 
+ 1091 048e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1091      20726576 
+ 1091      6973696F 
+ 1091      6E203233 
+ 1091      37373135 
+ 1092 04c1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1092      66756E63 
+ 1092      74696F6E 
+ 1092      2D736563 
+ 1092      74696F6E 
+ 1093              	.LASF38:
+ 1094 04e9 636E7463 		.ascii	"cntcycle\000"
+ 1094      79636C65 
+ 1094      00
+ 1095              	.LASF65:
+ 1096 04f2 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1096      6F5F4952 
+ 1096      515F6469 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccsjed62.s 			page 26
+
+
+ 1096      7361626C 
+ 1096      655F636F 
+ 1097              	.LASF40:
+ 1098 050a 6E657874 		.ascii	"next\000"
+ 1098      00
+ 1099              	.LASF68:
+ 1100 050f 45455F72 		.ascii	"EE_rq_lookup\000"
+ 1100      715F6C6F 
+ 1100      6F6B7570 
+ 1100      00
+ 1101              	.LASF28:
+ 1102 051c 66697273 		.ascii	"first\000"
+ 1102      7400
+ 1103              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,65 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cclXr045.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"sc_joystick.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.section	.debug_line,"",%progbits
+  21              	.Ldebug_line0:
+  22              		.section	.debug_str,"MS",%progbits,1
+  23              	.LASF0:
+  24 0000 736F7572 		.ascii	"sources\\rte\\sc_joystick.c\000"
+  24      6365735C 
+  24      7274655C 
+  24      73635F6A 
+  24      6F797374 
+  25              	.LASF1:
+  26 001a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  26      43313120 
+  26      352E342E 
+  26      31203230 
+  26      31363036 
+  27 004d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+  27      20726576 
+  27      6973696F 
+  27      6E203233 
+  27      37373135 
+  28 0080 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+  28      66756E63 
+  28      74696F6E 
+  28      2D736563 
+  28      74696F6E 
+  29              	.LASF2:
+  30 00a8 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+  30      73657273 
+  30      5C417375 
+  30      735C4465 
+  30      736B746F 
+  31 00d4 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+  31      30315C45 
+  31      6C656374 
+  31      726F6E69 
+  31      635F4761 
+  32 0103 4C616230 		.ascii	"Lab01.cydsn\000"
+  32      312E6379 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cclXr045.s 			page 2
+
+
+  32      64736E00 
+  33              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

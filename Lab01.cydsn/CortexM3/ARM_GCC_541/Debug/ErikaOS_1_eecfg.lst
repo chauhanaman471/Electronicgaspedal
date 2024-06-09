@@ -1,0 +1,2442 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ErikaOS_1_eecfg.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	EE_oo_autostart_task_data
+  20              		.comm	EE_ApplicationMode,4,4
+  21              		.global	EE_oo_action_ROM
+  22              		.comm	EE_oo_counter_object_RAM,16,4
+  23              		.global	EE_oo_counter_object_ROM
+  24              		.global	EE_ALARM_ID
+  25              		.global	EE_ALARM_NAME
+  26              		.global	EE_alarm_ROM
+  27              		.global	EE_counter_RAM
+  28              		.global	EE_counter_ROM
+  29              		.global	EE_th_is_extended
+  30              		.global	EE_th_waswaiting
+  31              		.global	EE_th_event_waitmask
+  32              		.global	EE_th_event_active
+  33              		.global	EE_th_terminate_nextask
+  34              		.global	EE_rq_free
+  35              		.comm	EE_rq_pairs_tid,20,4
+  36              		.global	EE_rq_pairs_next
+  37              		.global	EE_rq_link
+  38              		.global	EE_th_rnact_max
+  39              		.global	EE_th_rnact
+  40              		.global	EE_rq_bitmask
+  41              		.global	EE_rq_queues_tail
+  42              		.global	EE_rq_queues_head
+  43              		.global	EE_sys_ceiling
+  44              		.global	EE_stkfirst
+  45              		.global	EE_th_next
+  46              		.global	EE_th_status
+  47              		.global	EE_th_dispatch_prio
+  48              		.global	EE_EVENT_ID
+  49              		.global	EE_EVENT_NAME
+  50              		.global	EE_TASK_NAME
+  51              		.global	EE_th_ready_prio
+  52              		.global	EE_terminate_real_th_body
+  53              		.comm	EE_terminate_data,20,4
+  54              		.global	EE_hal_thread_body
+  55              		.global	EE_cortex_mx_IRQ_tos
+  56              		.global	EE_cortex_mx_active_tos
+  57              		.global	EE_cortex_mx_system_tos
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 2
+
+
+  58              		.global	EE_std_thread_tos
+  59              		.comm	EE_cortex_mx_stack_9,512,4
+  60              		.comm	EE_cortex_mx_stack_5,1000,4
+  61              		.comm	EE_cortex_mx_stack_4,1000,4
+  62              		.section	.rodata
+  63              		.align	2
+  64              		.type	EE_oo_autostart_task_data, %object
+  65              		.size	EE_oo_autostart_task_data, 8
+  66              	EE_oo_autostart_task_data:
+  67 0000 01000000 		.word	1
+  68 0004 08000000 		.word	EE_oo_autostart_task_mode_OSDEFAULTAPPMODE
+  69              		.type	EE_oo_autostart_task_mode_OSDEFAULTAPPMODE, %object
+  70              		.size	EE_oo_autostart_task_mode_OSDEFAULTAPPMODE, 4
+  71              	EE_oo_autostart_task_mode_OSDEFAULTAPPMODE:
+  72 0008 00000000 		.space	4
+  73              		.type	EE_oo_action_ROM, %object
+  74              		.size	EE_oo_action_ROM, 20
+  75              	EE_oo_action_ROM:
+  76 000c 00       		.byte	0
+  77 000d 000000   		.space	3
+  78 0010 02000000 		.word	2
+  79 0014 00000000 		.word	0
+  80 0018 00000000 		.word	0
+  81 001c FFFFFFFF 		.word	-1
+  82              		.type	EE_oo_counter_object_ROM, %object
+  83              		.size	EE_oo_counter_object_ROM, 12
+  84              	EE_oo_counter_object_ROM:
+  85 0020 00000000 		.space	12
+  85      00000000 
+  85      00000000 
+  86              		.type	EE_ALARM_ID, %object
+  87              		.size	EE_ALARM_ID, 4
+  88              	EE_ALARM_ID:
+  89 002c 00000000 		.space	4
+  90              		.type	EE_alarm_ROM, %object
+  91              		.size	EE_alarm_ROM, 4
+  92              	EE_alarm_ROM:
+  93 0030 00000000 		.space	4
+  94              		.type	EE_counter_ROM, %object
+  95              		.size	EE_counter_ROM, 12
+  96              	EE_counter_ROM:
+  97 0034 10270000 		.word	10000
+  98 0038 01000000 		.word	1
+  99 003c 00000000 		.word	0
+ 100              		.type	EE_th_is_extended, %object
+ 101              		.size	EE_th_is_extended, 20
+ 102              	EE_th_is_extended:
+ 103 0040 00000000 		.word	0
+ 104 0044 00000000 		.word	0
+ 105 0048 00000000 		.word	0
+ 106 004c 01000000 		.word	1
+ 107 0050 01000000 		.word	1
+ 108              		.type	EE_th_rnact_max, %object
+ 109              		.size	EE_th_rnact_max, 20
+ 110              	EE_th_rnact_max:
+ 111 0054 01000000 		.word	1
+ 112 0058 01000000 		.word	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 3
+
+
+ 113 005c 01000000 		.word	1
+ 114 0060 01000000 		.word	1
+ 115 0064 01000000 		.word	1
+ 116              		.type	EE_th_dispatch_prio, %object
+ 117              		.size	EE_th_dispatch_prio, 20
+ 118              	EE_th_dispatch_prio:
+ 119 0068 80000000 		.word	128
+ 120 006c 01000000 		.word	1
+ 121 0070 10000000 		.word	16
+ 122 0074 04000000 		.word	4
+ 123 0078 04000000 		.word	4
+ 124              		.type	EE_EVENT_ID, %object
+ 125              		.size	EE_EVENT_ID, 8
+ 126              	EE_EVENT_ID:
+ 127 007c 01000000 		.word	1
+ 128 0080 02000000 		.word	2
+ 129              		.type	EE_th_ready_prio, %object
+ 130              		.size	EE_th_ready_prio, 20
+ 131              	EE_th_ready_prio:
+ 132 0084 01000000 		.word	1
+ 133 0088 01000000 		.word	1
+ 134 008c 10000000 		.word	16
+ 135 0090 04000000 		.word	4
+ 136 0094 04000000 		.word	4
+ 137              		.type	EE_terminate_real_th_body, %object
+ 138              		.size	EE_terminate_real_th_body, 20
+ 139              	EE_terminate_real_th_body:
+ 140 0098 00000000 		.word	Functsk_init
+ 141 009c 00000000 		.word	Functsk_background
+ 142 00a0 00000000 		.word	Functsk_io
+ 143 00a4 00000000 		.word	Functsk_control
+ 144 00a8 00000000 		.word	Functsk_brakelight
+ 145              		.type	EE_hal_thread_body, %object
+ 146              		.size	EE_hal_thread_body, 20
+ 147              	EE_hal_thread_body:
+ 148 00ac 00000000 		.word	EE_oo_thread_stub
+ 149 00b0 00000000 		.word	EE_oo_thread_stub
+ 150 00b4 00000000 		.word	EE_oo_thread_stub
+ 151 00b8 00000000 		.word	EE_oo_thread_stub
+ 152 00bc 00000000 		.word	EE_oo_thread_stub
+ 153              		.type	EE_std_thread_tos, %object
+ 154              		.size	EE_std_thread_tos, 24
+ 155              	EE_std_thread_tos:
+ 156 00c0 00000000 		.word	0
+ 157 00c4 00000000 		.word	0
+ 158 00c8 00000000 		.word	0
+ 159 00cc 00000000 		.word	0
+ 160 00d0 01000000 		.word	1
+ 161 00d4 02000000 		.word	2
+ 162              		.data
+ 163              		.align	2
+ 164              		.type	EE_ALARM_NAME, %object
+ 165              		.size	EE_ALARM_NAME, 4
+ 166              	EE_ALARM_NAME:
+ 167 0000 00000000 		.word	.LC0
+ 168              		.type	EE_counter_RAM, %object
+ 169              		.size	EE_counter_RAM, 8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 4
+
+
+ 170              	EE_counter_RAM:
+ 171 0004 00000000 		.word	0
+ 172 0008 FFFFFFFF 		.word	-1
+ 173              		.type	EE_th_terminate_nextask, %object
+ 174              		.size	EE_th_terminate_nextask, 20
+ 175              	EE_th_terminate_nextask:
+ 176 000c FFFFFFFF 		.word	-1
+ 177 0010 FFFFFFFF 		.word	-1
+ 178 0014 FFFFFFFF 		.word	-1
+ 179 0018 FFFFFFFF 		.word	-1
+ 180 001c FFFFFFFF 		.word	-1
+ 181              		.type	EE_rq_pairs_next, %object
+ 182              		.size	EE_rq_pairs_next, 20
+ 183              	EE_rq_pairs_next:
+ 184 0020 01000000 		.word	1
+ 185 0024 02000000 		.word	2
+ 186 0028 03000000 		.word	3
+ 187 002c 04000000 		.word	4
+ 188 0030 FFFFFFFF 		.word	-1
+ 189              		.type	EE_rq_link, %object
+ 190              		.size	EE_rq_link, 20
+ 191              	EE_rq_link:
+ 192 0034 00000000 		.word	0
+ 193 0038 00000000 		.word	0
+ 194 003c 04000000 		.word	4
+ 195 0040 02000000 		.word	2
+ 196 0044 02000000 		.word	2
+ 197              		.type	EE_th_rnact, %object
+ 198              		.size	EE_th_rnact, 20
+ 199              	EE_th_rnact:
+ 200 0048 01000000 		.word	1
+ 201 004c 01000000 		.word	1
+ 202 0050 01000000 		.word	1
+ 203 0054 01000000 		.word	1
+ 204 0058 01000000 		.word	1
+ 205              		.type	EE_rq_queues_tail, %object
+ 206              		.size	EE_rq_queues_tail, 64
+ 207              	EE_rq_queues_tail:
+ 208 005c FFFFFFFF 		.word	-1
+ 209 0060 FFFFFFFF 		.word	-1
+ 210 0064 FFFFFFFF 		.word	-1
+ 211 0068 FFFFFFFF 		.word	-1
+ 212 006c FFFFFFFF 		.word	-1
+ 213 0070 FFFFFFFF 		.word	-1
+ 214 0074 FFFFFFFF 		.word	-1
+ 215 0078 FFFFFFFF 		.word	-1
+ 216 007c FFFFFFFF 		.word	-1
+ 217 0080 FFFFFFFF 		.word	-1
+ 218 0084 FFFFFFFF 		.word	-1
+ 219 0088 FFFFFFFF 		.word	-1
+ 220 008c FFFFFFFF 		.word	-1
+ 221 0090 FFFFFFFF 		.word	-1
+ 222 0094 FFFFFFFF 		.word	-1
+ 223 0098 FFFFFFFF 		.word	-1
+ 224              		.type	EE_rq_queues_head, %object
+ 225              		.size	EE_rq_queues_head, 64
+ 226              	EE_rq_queues_head:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 5
+
+
+ 227 009c FFFFFFFF 		.word	-1
+ 228 00a0 FFFFFFFF 		.word	-1
+ 229 00a4 FFFFFFFF 		.word	-1
+ 230 00a8 FFFFFFFF 		.word	-1
+ 231 00ac FFFFFFFF 		.word	-1
+ 232 00b0 FFFFFFFF 		.word	-1
+ 233 00b4 FFFFFFFF 		.word	-1
+ 234 00b8 FFFFFFFF 		.word	-1
+ 235 00bc FFFFFFFF 		.word	-1
+ 236 00c0 FFFFFFFF 		.word	-1
+ 237 00c4 FFFFFFFF 		.word	-1
+ 238 00c8 FFFFFFFF 		.word	-1
+ 239 00cc FFFFFFFF 		.word	-1
+ 240 00d0 FFFFFFFF 		.word	-1
+ 241 00d4 FFFFFFFF 		.word	-1
+ 242 00d8 FFFFFFFF 		.word	-1
+ 243              		.type	EE_stkfirst, %object
+ 244              		.size	EE_stkfirst, 4
+ 245              	EE_stkfirst:
+ 246 00dc FFFFFFFF 		.word	-1
+ 247              		.type	EE_th_next, %object
+ 248              		.size	EE_th_next, 20
+ 249              	EE_th_next:
+ 250 00e0 FFFFFFFF 		.word	-1
+ 251 00e4 FFFFFFFF 		.word	-1
+ 252 00e8 FFFFFFFF 		.word	-1
+ 253 00ec FFFFFFFF 		.word	-1
+ 254 00f0 FFFFFFFF 		.word	-1
+ 255              		.type	EE_th_status, %object
+ 256              		.size	EE_th_status, 20
+ 257              	EE_th_status:
+ 258 00f4 03000000 		.word	3
+ 259 00f8 03000000 		.word	3
+ 260 00fc 03000000 		.word	3
+ 261 0100 03000000 		.word	3
+ 262 0104 03000000 		.word	3
+ 263              		.type	EE_EVENT_NAME, %object
+ 264              		.size	EE_EVENT_NAME, 8
+ 265              	EE_EVENT_NAME:
+ 266 0108 0C000000 		.word	.LC1
+ 267 010c 20000000 		.word	.LC2
+ 268              		.type	EE_TASK_NAME, %object
+ 269              		.size	EE_TASK_NAME, 20
+ 270              	EE_TASK_NAME:
+ 271 0110 30000000 		.word	.LC3
+ 272 0114 3C000000 		.word	.LC4
+ 273 0118 4C000000 		.word	.LC5
+ 274 011c 54000000 		.word	.LC6
+ 275 0120 60000000 		.word	.LC7
+ 276              		.type	EE_cortex_mx_IRQ_tos, %object
+ 277              		.size	EE_cortex_mx_IRQ_tos, 4
+ 278              	EE_cortex_mx_IRQ_tos:
+ 279 0124 00020000 		.word	EE_cortex_mx_stack_9+512
+ 280              		.type	EE_cortex_mx_system_tos, %object
+ 281              		.size	EE_cortex_mx_system_tos, 12
+ 282              	EE_cortex_mx_system_tos:
+ 283 0128 00000000 		.word	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 6
+
+
+ 284 012c C0030000 		.word	EE_cortex_mx_stack_4+960
+ 285 0130 C0030000 		.word	EE_cortex_mx_stack_5+960
+ 286              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 287              		.align	2
+ 288              	.LC0:
+ 289 0000 616C726D 		.ascii	"alrm_1ms\000"
+ 289      5F316D73 
+ 289      00
+ 290 0009 000000   		.space	3
+ 291              	.LC1:
+ 292 000c 65765F6A 		.ascii	"ev_joystick_onData\000"
+ 292      6F797374 
+ 292      69636B5F 
+ 292      6F6E4461 
+ 292      746100
+ 293 001f 00       		.space	1
+ 294              	.LC2:
+ 295 0020 65765F73 		.ascii	"ev_speed_onData\000"
+ 295      70656564 
+ 295      5F6F6E44 
+ 295      61746100 
+ 296              	.LC3:
+ 297 0030 74736B5F 		.ascii	"tsk_init\000"
+ 297      696E6974 
+ 297      00
+ 298 0039 000000   		.space	3
+ 299              	.LC4:
+ 300 003c 74736B5F 		.ascii	"tsk_background\000"
+ 300      6261636B 
+ 300      67726F75 
+ 300      6E6400
+ 301 004b 00       		.space	1
+ 302              	.LC5:
+ 303 004c 74736B5F 		.ascii	"tsk_io\000"
+ 303      696F00
+ 304 0053 00       		.space	1
+ 305              	.LC6:
+ 306 0054 74736B5F 		.ascii	"tsk_control\000"
+ 306      636F6E74 
+ 306      726F6C00 
+ 307              	.LC7:
+ 308 0060 74736B5F 		.ascii	"tsk_brakelight\000"
+ 308      6272616B 
+ 308      656C6967 
+ 308      687400
+ 309              		.bss
+ 310              		.align	2
+ 311              		.type	EE_th_waswaiting, %object
+ 312              		.size	EE_th_waswaiting, 20
+ 313              	EE_th_waswaiting:
+ 314 0000 00000000 		.space	20
+ 314      00000000 
+ 314      00000000 
+ 314      00000000 
+ 314      00000000 
+ 315              		.type	EE_th_event_waitmask, %object
+ 316              		.size	EE_th_event_waitmask, 20
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 7
+
+
+ 317              	EE_th_event_waitmask:
+ 318 0014 00000000 		.space	20
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 319              		.type	EE_th_event_active, %object
+ 320              		.size	EE_th_event_active, 20
+ 321              	EE_th_event_active:
+ 322 0028 00000000 		.space	20
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 323              		.type	EE_rq_free, %object
+ 324              		.size	EE_rq_free, 4
+ 325              	EE_rq_free:
+ 326 003c 00000000 		.space	4
+ 327              		.type	EE_rq_bitmask, %object
+ 328              		.size	EE_rq_bitmask, 2
+ 329              	EE_rq_bitmask:
+ 330 0040 0000     		.space	2
+ 331 0042 0000     		.space	2
+ 332              		.type	EE_sys_ceiling, %object
+ 333              		.size	EE_sys_ceiling, 4
+ 334              	EE_sys_ceiling:
+ 335 0044 00000000 		.space	4
+ 336              		.type	EE_cortex_mx_active_tos, %object
+ 337              		.size	EE_cortex_mx_active_tos, 4
+ 338              	EE_cortex_mx_active_tos:
+ 339 0048 00000000 		.space	4
+ 340              		.text
+ 341              	.Letext0:
+ 342              		.file 1 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_types.inc"
+ 343              		.file 2 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 344              		.file 3 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_common.inc"
+ 345              		.file 4 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_hal_structs.inc"
+ 346              		.file 5 "Generated_Source\\PSoC5\\ErikaOS_1_eecfg.c"
+ 347              		.file 6 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_intfunc.inc"
+ 348              		.file 7 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_context.inc"
+ 349              		.file 8 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_primitives.inc"
+ 350              		.section	.debug_info,"",%progbits
+ 351              	.Ldebug_info0:
+ 352 0000 C3080000 		.4byte	0x8c3
+ 353 0004 0400     		.2byte	0x4
+ 354 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 355 000a 04       		.byte	0x4
+ 356 000b 01       		.uleb128 0x1
+ 357 000c 51050000 		.4byte	.LASF113
+ 358 0010 0C       		.byte	0xc
+ 359 0011 75070000 		.4byte	.LASF114
+ 360 0015 4A040000 		.4byte	.LASF115
+ 361 0019 00000000 		.4byte	.Ldebug_line0
+ 362 001d 02       		.uleb128 0x2
+ 363 001e 01       		.byte	0x1
+ 364 001f 06       		.byte	0x6
+ 365 0020 0F010000 		.4byte	.LASF0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 8
+
+
+ 366 0024 02       		.uleb128 0x2
+ 367 0025 01       		.byte	0x1
+ 368 0026 08       		.byte	0x8
+ 369 0027 C9040000 		.4byte	.LASF1
+ 370 002b 02       		.uleb128 0x2
+ 371 002c 02       		.byte	0x2
+ 372 002d 05       		.byte	0x5
+ 373 002e 0E050000 		.4byte	.LASF2
+ 374 0032 02       		.uleb128 0x2
+ 375 0033 02       		.byte	0x2
+ 376 0034 07       		.byte	0x7
+ 377 0035 84020000 		.4byte	.LASF3
+ 378 0039 02       		.uleb128 0x2
+ 379 003a 04       		.byte	0x4
+ 380 003b 05       		.byte	0x5
+ 381 003c 96010000 		.4byte	.LASF4
+ 382 0040 02       		.uleb128 0x2
+ 383 0041 04       		.byte	0x4
+ 384 0042 07       		.byte	0x7
+ 385 0043 42020000 		.4byte	.LASF5
+ 386 0047 02       		.uleb128 0x2
+ 387 0048 08       		.byte	0x8
+ 388 0049 05       		.byte	0x5
+ 389 004a 01010000 		.4byte	.LASF6
+ 390 004e 02       		.uleb128 0x2
+ 391 004f 08       		.byte	0x8
+ 392 0050 07       		.byte	0x7
+ 393 0051 5E000000 		.4byte	.LASF7
+ 394 0055 03       		.uleb128 0x3
+ 395 0056 04       		.byte	0x4
+ 396 0057 05       		.byte	0x5
+ 397 0058 696E7400 		.ascii	"int\000"
+ 398 005c 02       		.uleb128 0x2
+ 399 005d 04       		.byte	0x4
+ 400 005e 07       		.byte	0x7
+ 401 005f 0A020000 		.4byte	.LASF8
+ 402 0063 02       		.uleb128 0x2
+ 403 0064 08       		.byte	0x8
+ 404 0065 04       		.byte	0x4
+ 405 0066 C1030000 		.4byte	.LASF9
+ 406 006a 04       		.uleb128 0x4
+ 407 006b 40040000 		.4byte	.LASF10
+ 408 006f 01       		.byte	0x1
+ 409 0070 52       		.byte	0x52
+ 410 0071 32000000 		.4byte	0x32
+ 411 0075 04       		.uleb128 0x4
+ 412 0076 5A070000 		.4byte	.LASF11
+ 413 007a 01       		.byte	0x1
+ 414 007b 53       		.byte	0x53
+ 415 007c 55000000 		.4byte	0x55
+ 416 0080 04       		.uleb128 0x4
+ 417 0081 50070000 		.4byte	.LASF12
+ 418 0085 01       		.byte	0x1
+ 419 0086 54       		.byte	0x54
+ 420 0087 5C000000 		.4byte	0x5c
+ 421 008b 04       		.uleb128 0x4
+ 422 008c CE070000 		.4byte	.LASF13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 9
+
+
+ 423 0090 01       		.byte	0x1
+ 424 0091 64       		.byte	0x64
+ 425 0092 96000000 		.4byte	0x96
+ 426 0096 05       		.uleb128 0x5
+ 427 0097 04       		.byte	0x4
+ 428 0098 06       		.uleb128 0x6
+ 429 0099 04       		.byte	0x4
+ 430 009a 9E000000 		.4byte	0x9e
+ 431 009e 07       		.uleb128 0x7
+ 432 009f 04       		.uleb128 0x4
+ 433 00a0 44030000 		.4byte	.LASF14
+ 434 00a4 01       		.byte	0x1
+ 435 00a5 70       		.byte	0x70
+ 436 00a6 98000000 		.4byte	0x98
+ 437 00aa 04       		.uleb128 0x4
+ 438 00ab EB050000 		.4byte	.LASF15
+ 439 00af 01       		.byte	0x1
+ 440 00b0 73       		.byte	0x73
+ 441 00b1 98000000 		.4byte	0x98
+ 442 00b5 04       		.uleb128 0x4
+ 443 00b6 17020000 		.4byte	.LASF16
+ 444 00ba 02       		.byte	0x2
+ 445 00bb 4D       		.byte	0x4d
+ 446 00bc 80000000 		.4byte	0x80
+ 447 00c0 04       		.uleb128 0x4
+ 448 00c1 E3030000 		.4byte	.LASF17
+ 449 00c5 02       		.byte	0x2
+ 450 00c6 4E       		.byte	0x4e
+ 451 00c7 75000000 		.4byte	0x75
+ 452 00cb 04       		.uleb128 0x4
+ 453 00cc E8070000 		.4byte	.LASF18
+ 454 00d0 02       		.byte	0x2
+ 455 00d1 4F       		.byte	0x4f
+ 456 00d2 80000000 		.4byte	0x80
+ 457 00d6 04       		.uleb128 0x4
+ 458 00d7 3D000000 		.4byte	.LASF19
+ 459 00db 02       		.byte	0x2
+ 460 00dc 54       		.byte	0x54
+ 461 00dd B5000000 		.4byte	0xb5
+ 462 00e1 04       		.uleb128 0x4
+ 463 00e2 FD010000 		.4byte	.LASF20
+ 464 00e6 02       		.byte	0x2
+ 465 00e7 78       		.byte	0x78
+ 466 00e8 75000000 		.4byte	0x75
+ 467 00ec 08       		.uleb128 0x8
+ 468 00ed B3000000 		.4byte	.LASF61
+ 469 00f1 04       		.byte	0x4
+ 470 00f2 04       		.byte	0x4
+ 471 00f3 4D       		.byte	0x4d
+ 472 00f4 05010000 		.4byte	0x105
+ 473 00f8 09       		.uleb128 0x9
+ 474 00f9 BA070000 		.4byte	.LASF28
+ 475 00fd 04       		.byte	0x4
+ 476 00fe 4E       		.byte	0x4e
+ 477 00ff 8B000000 		.4byte	0x8b
+ 478 0103 00       		.byte	0
+ 479 0104 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 10
+
+
+ 480 0105 0A       		.uleb128 0xa
+ 481 0106 A8030000 		.4byte	.LASF21
+ 482 010a 03       		.byte	0x3
+ 483 010b 1101     		.2byte	0x111
+ 484 010d 6A000000 		.4byte	0x6a
+ 485 0111 0A       		.uleb128 0xa
+ 486 0112 AA000000 		.4byte	.LASF22
+ 487 0116 03       		.byte	0x3
+ 488 0117 F701     		.2byte	0x1f7
+ 489 0119 E1000000 		.4byte	0xe1
+ 490 011d 0A       		.uleb128 0xa
+ 491 011e 32010000 		.4byte	.LASF23
+ 492 0122 03       		.byte	0x3
+ 493 0123 2C02     		.2byte	0x22c
+ 494 0125 B5000000 		.4byte	0xb5
+ 495 0129 0A       		.uleb128 0xa
+ 496 012a 1D000000 		.4byte	.LASF24
+ 497 012e 03       		.byte	0x3
+ 498 012f 3502     		.2byte	0x235
+ 499 0131 B5000000 		.4byte	0xb5
+ 500 0135 0A       		.uleb128 0xa
+ 501 0136 44060000 		.4byte	.LASF25
+ 502 013a 03       		.byte	0x3
+ 503 013b 5D02     		.2byte	0x25d
+ 504 013d B5000000 		.4byte	0xb5
+ 505 0141 0A       		.uleb128 0xa
+ 506 0142 32000000 		.4byte	.LASF26
+ 507 0146 03       		.byte	0x3
+ 508 0147 6302     		.2byte	0x263
+ 509 0149 B5000000 		.4byte	0xb5
+ 510 014d 0A       		.uleb128 0xa
+ 511 014e 55030000 		.4byte	.LASF27
+ 512 0152 03       		.byte	0x3
+ 513 0153 6C02     		.2byte	0x26c
+ 514 0155 B5000000 		.4byte	0xb5
+ 515 0159 0B       		.uleb128 0xb
+ 516 015a 0C       		.byte	0xc
+ 517 015b 03       		.byte	0x3
+ 518 015c 7202     		.2byte	0x272
+ 519 015e 8A010000 		.4byte	0x18a
+ 520 0162 0C       		.uleb128 0xc
+ 521 0163 BA000000 		.4byte	.LASF29
+ 522 0167 03       		.byte	0x3
+ 523 0168 7302     		.2byte	0x273
+ 524 016a 29010000 		.4byte	0x129
+ 525 016e 00       		.byte	0
+ 526 016f 0C       		.uleb128 0xc
+ 527 0170 EB030000 		.4byte	.LASF30
+ 528 0174 03       		.byte	0x3
+ 529 0175 7402     		.2byte	0x274
+ 530 0177 29010000 		.4byte	0x129
+ 531 017b 04       		.byte	0x4
+ 532 017c 0C       		.uleb128 0xc
+ 533 017d F4010000 		.4byte	.LASF31
+ 534 0181 03       		.byte	0x3
+ 535 0182 7502     		.2byte	0x275
+ 536 0184 29010000 		.4byte	0x129
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 11
+
+
+ 537 0188 08       		.byte	0x8
+ 538 0189 00       		.byte	0
+ 539 018a 0A       		.uleb128 0xa
+ 540 018b 3A050000 		.4byte	.LASF32
+ 541 018f 03       		.byte	0x3
+ 542 0190 7A02     		.2byte	0x27a
+ 543 0192 59010000 		.4byte	0x159
+ 544 0196 0B       		.uleb128 0xb
+ 545 0197 08       		.byte	0x8
+ 546 0198 03       		.byte	0x3
+ 547 0199 7D02     		.2byte	0x27d
+ 548 019b BA010000 		.4byte	0x1ba
+ 549 019f 0C       		.uleb128 0xc
+ 550 01a0 04020000 		.4byte	.LASF33
+ 551 01a4 03       		.byte	0x3
+ 552 01a5 7E02     		.2byte	0x27e
+ 553 01a7 29010000 		.4byte	0x129
+ 554 01ab 00       		.byte	0
+ 555 01ac 0C       		.uleb128 0xc
+ 556 01ad 3E060000 		.4byte	.LASF34
+ 557 01b1 03       		.byte	0x3
+ 558 01b2 7F02     		.2byte	0x27f
+ 559 01b4 35010000 		.4byte	0x135
+ 560 01b8 04       		.byte	0x4
+ 561 01b9 00       		.byte	0
+ 562 01ba 0A       		.uleb128 0xa
+ 563 01bb 73010000 		.4byte	.LASF35
+ 564 01bf 03       		.byte	0x3
+ 565 01c0 8002     		.2byte	0x280
+ 566 01c2 96010000 		.4byte	0x196
+ 567 01c6 0D       		.uleb128 0xd
+ 568 01c7 01       		.byte	0x1
+ 569 01c8 24000000 		.4byte	0x24
+ 570 01cc 03       		.byte	0x3
+ 571 01cd 8A02     		.2byte	0x28a
+ 572 01cf E0010000 		.4byte	0x1e0
+ 573 01d3 0E       		.uleb128 0xe
+ 574 01d4 D7040000 		.4byte	.LASF36
+ 575 01d8 00       		.byte	0
+ 576 01d9 0E       		.uleb128 0xe
+ 577 01da 9F010000 		.4byte	.LASF37
+ 578 01de 01       		.byte	0x1
+ 579 01df 00       		.byte	0
+ 580 01e0 0A       		.uleb128 0xa
+ 581 01e1 AF020000 		.4byte	.LASF38
+ 582 01e5 03       		.byte	0x3
+ 583 01e6 8D02     		.2byte	0x28d
+ 584 01e8 C6010000 		.4byte	0x1c6
+ 585 01ec 0A       		.uleb128 0xa
+ 586 01ed DB020000 		.4byte	.LASF39
+ 587 01f1 03       		.byte	0x3
+ 588 01f2 9002     		.2byte	0x290
+ 589 01f4 E0010000 		.4byte	0x1e0
+ 590 01f8 0B       		.uleb128 0xb
+ 591 01f9 0C       		.byte	0xc
+ 592 01fa 03       		.byte	0x3
+ 593 01fb 9402     		.2byte	0x294
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 12
+
+
+ 594 01fd 27020000 		.4byte	0x227
+ 595 0201 0F       		.uleb128 0xf
+ 596 0202 6300     		.ascii	"c\000"
+ 597 0204 03       		.byte	0x3
+ 598 0205 9602     		.2byte	0x296
+ 599 0207 4D010000 		.4byte	0x14d
+ 600 020b 00       		.byte	0
+ 601 020c 0C       		.uleb128 0xc
+ 602 020d 9B060000 		.4byte	.LASF40
+ 603 0211 03       		.byte	0x3
+ 604 0212 9802     		.2byte	0x298
+ 605 0214 35010000 		.4byte	0x135
+ 606 0218 04       		.byte	0x4
+ 607 0219 0C       		.uleb128 0xc
+ 608 021a 7F020000 		.4byte	.LASF41
+ 609 021e 03       		.byte	0x3
+ 610 021f 9A02     		.2byte	0x29a
+ 611 0221 EC010000 		.4byte	0x1ec
+ 612 0225 08       		.byte	0x8
+ 613 0226 00       		.byte	0
+ 614 0227 0A       		.uleb128 0xa
+ 615 0228 7B000000 		.4byte	.LASF42
+ 616 022c 03       		.byte	0x3
+ 617 022d 9B02     		.2byte	0x29b
+ 618 022f F8010000 		.4byte	0x1f8
+ 619 0233 0B       		.uleb128 0xb
+ 620 0234 10       		.byte	0x10
+ 621 0235 03       		.byte	0x3
+ 622 0236 9F02     		.2byte	0x29f
+ 623 0238 71020000 		.4byte	0x271
+ 624 023c 0C       		.uleb128 0xc
+ 625 023d F8030000 		.4byte	.LASF43
+ 626 0241 03       		.byte	0x3
+ 627 0242 A002     		.2byte	0x2a0
+ 628 0244 D6000000 		.4byte	0xd6
+ 629 0248 00       		.byte	0
+ 630 0249 0C       		.uleb128 0xc
+ 631 024a B1070000 		.4byte	.LASF44
+ 632 024e 03       		.byte	0x3
+ 633 024f A102     		.2byte	0x2a1
+ 634 0251 29010000 		.4byte	0x129
+ 635 0255 04       		.byte	0x4
+ 636 0256 0C       		.uleb128 0xc
+ 637 0257 75000000 		.4byte	.LASF45
+ 638 025b 03       		.byte	0x3
+ 639 025c A202     		.2byte	0x2a2
+ 640 025e 29010000 		.4byte	0x129
+ 641 0262 08       		.byte	0x8
+ 642 0263 0C       		.uleb128 0xc
+ 643 0264 00000000 		.4byte	.LASF46
+ 644 0268 03       		.byte	0x3
+ 645 0269 A302     		.2byte	0x2a3
+ 646 026b 35010000 		.4byte	0x135
+ 647 026f 0C       		.byte	0xc
+ 648 0270 00       		.byte	0
+ 649 0271 0A       		.uleb128 0xa
+ 650 0272 FD030000 		.4byte	.LASF47
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 13
+
+
+ 651 0276 03       		.byte	0x3
+ 652 0277 A402     		.2byte	0x2a4
+ 653 0279 33020000 		.4byte	0x233
+ 654 027d 0D       		.uleb128 0xd
+ 655 027e 01       		.byte	0x1
+ 656 027f 24000000 		.4byte	0x24
+ 657 0283 03       		.byte	0x3
+ 658 0284 A702     		.2byte	0x2a7
+ 659 0286 A3020000 		.4byte	0x2a3
+ 660 028a 0E       		.uleb128 0xe
+ 661 028b 5B060000 		.4byte	.LASF48
+ 662 028f 00       		.byte	0
+ 663 0290 0E       		.uleb128 0xe
+ 664 0291 A3060000 		.4byte	.LASF49
+ 665 0295 01       		.byte	0x1
+ 666 0296 0E       		.uleb128 0xe
+ 667 0297 7A060000 		.4byte	.LASF50
+ 668 029b 02       		.byte	0x2
+ 669 029c 0E       		.uleb128 0xe
+ 670 029d 1D060000 		.4byte	.LASF51
+ 671 02a1 03       		.byte	0x3
+ 672 02a2 00       		.byte	0
+ 673 02a3 0A       		.uleb128 0xa
+ 674 02a4 1B010000 		.4byte	.LASF52
+ 675 02a8 03       		.byte	0x3
+ 676 02a9 AC02     		.2byte	0x2ac
+ 677 02ab 7D020000 		.4byte	0x27d
+ 678 02af 0A       		.uleb128 0xa
+ 679 02b0 FF060000 		.4byte	.LASF53
+ 680 02b4 03       		.byte	0x3
+ 681 02b5 AF02     		.2byte	0x2af
+ 682 02b7 A3020000 		.4byte	0x2a3
+ 683 02bb 0B       		.uleb128 0xb
+ 684 02bc 14       		.byte	0x14
+ 685 02bd 03       		.byte	0x3
+ 686 02be B202     		.2byte	0x2b2
+ 687 02c0 04030000 		.4byte	0x304
+ 688 02c4 0C       		.uleb128 0xc
+ 689 02c5 D5060000 		.4byte	.LASF54
+ 690 02c9 03       		.byte	0x3
+ 691 02ca B302     		.2byte	0x2b3
+ 692 02cc AF020000 		.4byte	0x2af
+ 693 02d0 00       		.byte	0
+ 694 02d1 0C       		.uleb128 0xc
+ 695 02d2 C2070000 		.4byte	.LASF55
+ 696 02d6 03       		.byte	0x3
+ 697 02d7 B402     		.2byte	0x2b4
+ 698 02d9 11010000 		.4byte	0x111
+ 699 02dd 04       		.byte	0x4
+ 700 02de 0C       		.uleb128 0xc
+ 701 02df DF050000 		.4byte	.LASF56
+ 702 02e3 03       		.byte	0x3
+ 703 02e4 B602     		.2byte	0x2b6
+ 704 02e6 1D010000 		.4byte	0x11d
+ 705 02ea 08       		.byte	0x8
+ 706 02eb 0F       		.uleb128 0xf
+ 707 02ec 6600     		.ascii	"f\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 14
+
+
+ 708 02ee 03       		.byte	0x3
+ 709 02ef B802     		.2byte	0x2b8
+ 710 02f1 9F000000 		.4byte	0x9f
+ 711 02f5 0C       		.byte	0xc
+ 712 02f6 0C       		.uleb128 0xc
+ 713 02f7 05050000 		.4byte	.LASF57
+ 714 02fb 03       		.byte	0x3
+ 715 02fc BA02     		.2byte	0x2ba
+ 716 02fe 4D010000 		.4byte	0x14d
+ 717 0302 10       		.byte	0x10
+ 718 0303 00       		.byte	0
+ 719 0304 0A       		.uleb128 0xa
+ 720 0305 2A040000 		.4byte	.LASF58
+ 721 0309 03       		.byte	0x3
+ 722 030a BB02     		.2byte	0x2bb
+ 723 030c BB020000 		.4byte	0x2bb
+ 724 0310 0B       		.uleb128 0xb
+ 725 0311 04       		.byte	0x4
+ 726 0312 03       		.byte	0x3
+ 727 0313 BD02     		.2byte	0x2bd
+ 728 0315 27030000 		.4byte	0x327
+ 729 0319 0C       		.uleb128 0xc
+ 730 031a 7A030000 		.4byte	.LASF59
+ 731 031e 03       		.byte	0x3
+ 732 031f BF02     		.2byte	0x2bf
+ 733 0321 41010000 		.4byte	0x141
+ 734 0325 00       		.byte	0
+ 735 0326 00       		.byte	0
+ 736 0327 0A       		.uleb128 0xa
+ 737 0328 1F020000 		.4byte	.LASF60
+ 738 032c 03       		.byte	0x3
+ 739 032d C402     		.2byte	0x2c4
+ 740 032f 10030000 		.4byte	0x310
+ 741 0333 10       		.uleb128 0x10
+ 742 0334 65020000 		.4byte	.LASF62
+ 743 0338 08       		.byte	0x8
+ 744 0339 03       		.byte	0x3
+ 745 033a 0E04     		.2byte	0x40e
+ 746 033c 5A030000 		.4byte	0x35a
+ 747 0340 0F       		.uleb128 0xf
+ 748 0341 6E7400   		.ascii	"nt\000"
+ 749 0344 03       		.byte	0x3
+ 750 0345 0F04     		.2byte	0x40f
+ 751 0347 B5000000 		.4byte	0xb5
+ 752 034b 00       		.byte	0
+ 753 034c 0C       		.uleb128 0xc
+ 754 034d E1060000 		.4byte	.LASF63
+ 755 0351 03       		.byte	0x3
+ 756 0352 1004     		.2byte	0x410
+ 757 0354 6A030000 		.4byte	0x36a
+ 758 0358 04       		.byte	0x4
+ 759 0359 00       		.byte	0
+ 760 035a 11       		.uleb128 0x11
+ 761 035b 65030000 		.4byte	0x365
+ 762 035f 65030000 		.4byte	0x365
+ 763 0363 12       		.uleb128 0x12
+ 764 0364 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 15
+
+
+ 765 0365 13       		.uleb128 0x13
+ 766 0366 E1000000 		.4byte	0xe1
+ 767 036a 06       		.uleb128 0x6
+ 768 036b 04       		.byte	0x4
+ 769 036c 5A030000 		.4byte	0x35a
+ 770 0370 11       		.uleb128 0x11
+ 771 0371 65030000 		.4byte	0x365
+ 772 0375 80030000 		.4byte	0x380
+ 773 0379 14       		.uleb128 0x14
+ 774 037a 80030000 		.4byte	0x380
+ 775 037e 00       		.byte	0
+ 776 037f 00       		.byte	0
+ 777 0380 02       		.uleb128 0x2
+ 778 0381 04       		.byte	0x4
+ 779 0382 07       		.byte	0x7
+ 780 0383 B8030000 		.4byte	.LASF64
+ 781 0387 15       		.uleb128 0x15
+ 782 0388 CA000000 		.4byte	.LASF116
+ 783 038c 05       		.byte	0x5
+ 784 038d 6507     		.2byte	0x765
+ 785 038f 99030000 		.4byte	0x399
+ 786 0393 05       		.uleb128 0x5
+ 787 0394 03       		.byte	0x3
+ 788 0395 08000000 		.4byte	EE_oo_autostart_task_mode_OSDEFAULTAPPMODE
+ 789 0399 13       		.uleb128 0x13
+ 790 039a 70030000 		.4byte	0x370
+ 791 039e 11       		.uleb128 0x11
+ 792 039f AE030000 		.4byte	0x3ae
+ 793 03a3 AE030000 		.4byte	0x3ae
+ 794 03a7 14       		.uleb128 0x14
+ 795 03a8 80030000 		.4byte	0x380
+ 796 03ac 04       		.byte	0x4
+ 797 03ad 00       		.byte	0
+ 798 03ae 13       		.uleb128 0x13
+ 799 03af AA000000 		.4byte	0xaa
+ 800 03b3 16       		.uleb128 0x16
+ 801 03b4 B3060000 		.4byte	.LASF65
+ 802 03b8 05       		.byte	0x5
+ 803 03b9 D2       		.byte	0xd2
+ 804 03ba C4030000 		.4byte	0x3c4
+ 805 03be 05       		.uleb128 0x5
+ 806 03bf 03       		.byte	0x3
+ 807 03c0 00000000 		.4byte	EE_hal_thread_body
+ 808 03c4 13       		.uleb128 0x13
+ 809 03c5 9E030000 		.4byte	0x39e
+ 810 03c9 11       		.uleb128 0x11
+ 811 03ca D9030000 		.4byte	0x3d9
+ 812 03ce D9030000 		.4byte	0x3d9
+ 813 03d2 14       		.uleb128 0x14
+ 814 03d3 80030000 		.4byte	0x380
+ 815 03d7 05       		.byte	0x5
+ 816 03d8 00       		.byte	0
+ 817 03d9 13       		.uleb128 0x13
+ 818 03da B5000000 		.4byte	0xb5
+ 819 03de 16       		.uleb128 0x16
+ 820 03df 0B060000 		.4byte	.LASF66
+ 821 03e3 05       		.byte	0x5
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 16
+
+
+ 822 03e4 71       		.byte	0x71
+ 823 03e5 EF030000 		.4byte	0x3ef
+ 824 03e9 05       		.uleb128 0x5
+ 825 03ea 03       		.byte	0x3
+ 826 03eb 00000000 		.4byte	EE_std_thread_tos
+ 827 03ef 13       		.uleb128 0x13
+ 828 03f0 C9030000 		.4byte	0x3c9
+ 829 03f4 11       		.uleb128 0x11
+ 830 03f5 80000000 		.4byte	0x80
+ 831 03f9 04040000 		.4byte	0x404
+ 832 03fd 14       		.uleb128 0x14
+ 833 03fe 80030000 		.4byte	0x380
+ 834 0402 04       		.byte	0x4
+ 835 0403 00       		.byte	0
+ 836 0404 16       		.uleb128 0x16
+ 837 0405 63070000 		.4byte	.LASF67
+ 838 0409 05       		.byte	0x5
+ 839 040a ED       		.byte	0xed
+ 840 040b F4030000 		.4byte	0x3f4
+ 841 040f 05       		.uleb128 0x5
+ 842 0410 03       		.byte	0x3
+ 843 0411 00000000 		.4byte	EE_terminate_data
+ 844 0415 16       		.uleb128 0x16
+ 845 0416 EB040000 		.4byte	.LASF68
+ 846 041a 05       		.byte	0x5
+ 847 041b F0       		.byte	0xf0
+ 848 041c 26040000 		.4byte	0x426
+ 849 0420 05       		.uleb128 0x5
+ 850 0421 03       		.byte	0x3
+ 851 0422 00000000 		.4byte	EE_terminate_real_th_body
+ 852 0426 13       		.uleb128 0x13
+ 853 0427 9E030000 		.4byte	0x39e
+ 854 042b 11       		.uleb128 0x11
+ 855 042c EC000000 		.4byte	0xec
+ 856 0430 3B040000 		.4byte	0x43b
+ 857 0434 14       		.uleb128 0x14
+ 858 0435 80030000 		.4byte	0x380
+ 859 0439 02       		.byte	0x2
+ 860 043a 00       		.byte	0
+ 861 043b 16       		.uleb128 0x16
+ 862 043c B1040000 		.4byte	.LASF69
+ 863 0440 05       		.byte	0x5
+ 864 0441 8D       		.byte	0x8d
+ 865 0442 2B040000 		.4byte	0x42b
+ 866 0446 05       		.uleb128 0x5
+ 867 0447 03       		.byte	0x3
+ 868 0448 00000000 		.4byte	EE_cortex_mx_system_tos
+ 869 044c 16       		.uleb128 0x16
+ 870 044d 5B010000 		.4byte	.LASF70
+ 871 0451 05       		.byte	0x5
+ 872 0452 A9       		.byte	0xa9
+ 873 0453 B5000000 		.4byte	0xb5
+ 874 0457 05       		.uleb128 0x5
+ 875 0458 03       		.byte	0x3
+ 876 0459 00000000 		.4byte	EE_cortex_mx_active_tos
+ 877 045d 11       		.uleb128 0x11
+ 878 045e D9030000 		.4byte	0x3d9
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 17
+
+
+ 879 0462 6D040000 		.4byte	0x46d
+ 880 0466 14       		.uleb128 0x14
+ 881 0467 80030000 		.4byte	0x380
+ 882 046b 04       		.byte	0x4
+ 883 046c 00       		.byte	0
+ 884 046d 17       		.uleb128 0x17
+ 885 046e 6A060000 		.4byte	.LASF71
+ 886 0472 05       		.byte	0x5
+ 887 0473 E202     		.2byte	0x2e2
+ 888 0475 7F040000 		.4byte	0x47f
+ 889 0479 05       		.uleb128 0x5
+ 890 047a 03       		.byte	0x3
+ 891 047b 00000000 		.4byte	EE_th_rnact_max
+ 892 047f 13       		.uleb128 0x13
+ 893 0480 5D040000 		.4byte	0x45d
+ 894 0484 17       		.uleb128 0x17
+ 895 0485 0E070000 		.4byte	.LASF72
+ 896 0489 05       		.byte	0x5
+ 897 048a 0C01     		.2byte	0x10c
+ 898 048c 96040000 		.4byte	0x496
+ 899 0490 05       		.uleb128 0x5
+ 900 0491 03       		.byte	0x3
+ 901 0492 00000000 		.4byte	EE_th_ready_prio
+ 902 0496 13       		.uleb128 0x13
+ 903 0497 5D040000 		.4byte	0x45d
+ 904 049b 17       		.uleb128 0x17
+ 905 049c F1020000 		.4byte	.LASF73
+ 906 04a0 05       		.byte	0x5
+ 907 04a1 4502     		.2byte	0x245
+ 908 04a3 AD040000 		.4byte	0x4ad
+ 909 04a7 05       		.uleb128 0x5
+ 910 04a8 03       		.byte	0x3
+ 911 04a9 00000000 		.4byte	EE_th_dispatch_prio
+ 912 04ad 13       		.uleb128 0x13
+ 913 04ae 5D040000 		.4byte	0x45d
+ 914 04b2 11       		.uleb128 0x11
+ 915 04b3 C2040000 		.4byte	0x4c2
+ 916 04b7 C2040000 		.4byte	0x4c2
+ 917 04bb 14       		.uleb128 0x14
+ 918 04bc 80030000 		.4byte	0x380
+ 919 04c0 04       		.byte	0x4
+ 920 04c1 00       		.byte	0
+ 921 04c2 06       		.uleb128 0x6
+ 922 04c3 04       		.byte	0x4
+ 923 04c4 CF040000 		.4byte	0x4cf
+ 924 04c8 02       		.uleb128 0x2
+ 925 04c9 01       		.byte	0x1
+ 926 04ca 08       		.byte	0x8
+ 927 04cb 56060000 		.4byte	.LASF74
+ 928 04cf 13       		.uleb128 0x13
+ 929 04d0 C8040000 		.4byte	0x4c8
+ 930 04d4 17       		.uleb128 0x17
+ 931 04d5 2D050000 		.4byte	.LASF75
+ 932 04d9 05       		.byte	0x5
+ 933 04da 2801     		.2byte	0x128
+ 934 04dc B2040000 		.4byte	0x4b2
+ 935 04e0 05       		.uleb128 0x5
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 18
+
+
+ 936 04e1 03       		.byte	0x3
+ 937 04e2 00000000 		.4byte	EE_TASK_NAME
+ 938 04e6 11       		.uleb128 0x11
+ 939 04e7 C2040000 		.4byte	0x4c2
+ 940 04eb F6040000 		.4byte	0x4f6
+ 941 04ef 14       		.uleb128 0x14
+ 942 04f0 80030000 		.4byte	0x380
+ 943 04f4 01       		.byte	0x1
+ 944 04f5 00       		.byte	0
+ 945 04f6 17       		.uleb128 0x17
+ 946 04f7 40010000 		.4byte	.LASF76
+ 947 04fb 05       		.byte	0x5
+ 948 04fc 8101     		.2byte	0x181
+ 949 04fe E6040000 		.4byte	0x4e6
+ 950 0502 05       		.uleb128 0x5
+ 951 0503 03       		.byte	0x3
+ 952 0504 00000000 		.4byte	EE_EVENT_NAME
+ 953 0508 11       		.uleb128 0x11
+ 954 0509 C2040000 		.4byte	0x4c2
+ 955 050d 18050000 		.4byte	0x518
+ 956 0511 14       		.uleb128 0x14
+ 957 0512 80030000 		.4byte	0x380
+ 958 0516 00       		.byte	0
+ 959 0517 00       		.byte	0
+ 960 0518 17       		.uleb128 0x17
+ 961 0519 34020000 		.4byte	.LASF77
+ 962 051d 05       		.byte	0x5
+ 963 051e 3D06     		.2byte	0x63d
+ 964 0520 08050000 		.4byte	0x508
+ 965 0524 05       		.uleb128 0x5
+ 966 0525 03       		.byte	0x3
+ 967 0526 00000000 		.4byte	EE_ALARM_NAME
+ 968 052a 11       		.uleb128 0x11
+ 969 052b 3A050000 		.4byte	0x53a
+ 970 052f 3A050000 		.4byte	0x53a
+ 971 0533 14       		.uleb128 0x14
+ 972 0534 80030000 		.4byte	0x380
+ 973 0538 01       		.byte	0x1
+ 974 0539 00       		.byte	0
+ 975 053a 13       		.uleb128 0x13
+ 976 053b 40000000 		.4byte	0x40
+ 977 053f 17       		.uleb128 0x17
+ 978 0540 8A010000 		.4byte	.LASF78
+ 979 0544 05       		.byte	0x5
+ 980 0545 E201     		.2byte	0x1e2
+ 981 0547 51050000 		.4byte	0x551
+ 982 054b 05       		.uleb128 0x5
+ 983 054c 03       		.byte	0x3
+ 984 054d 00000000 		.4byte	EE_EVENT_ID
+ 985 0551 13       		.uleb128 0x13
+ 986 0552 2A050000 		.4byte	0x52a
+ 987 0556 11       		.uleb128 0x11
+ 988 0557 3A050000 		.4byte	0x53a
+ 989 055b 66050000 		.4byte	0x566
+ 990 055f 14       		.uleb128 0x14
+ 991 0560 80030000 		.4byte	0x380
+ 992 0564 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 19
+
+
+ 993 0565 00       		.byte	0
+ 994 0566 17       		.uleb128 0x17
+ 995 0567 F5000000 		.4byte	.LASF79
+ 996 056b 05       		.byte	0x5
+ 997 056c 5906     		.2byte	0x659
+ 998 056e 78050000 		.4byte	0x578
+ 999 0572 05       		.uleb128 0x5
+ 1000 0573 03       		.byte	0x3
+ 1001 0574 00000000 		.4byte	EE_ALARM_ID
+ 1002 0578 13       		.uleb128 0x13
+ 1003 0579 56050000 		.4byte	0x556
+ 1004 057d 11       		.uleb128 0x11
+ 1005 057e B5000000 		.4byte	0xb5
+ 1006 0582 8D050000 		.4byte	0x58d
+ 1007 0586 14       		.uleb128 0x14
+ 1008 0587 80030000 		.4byte	0x380
+ 1009 058b 04       		.byte	0x4
+ 1010 058c 00       		.byte	0
+ 1011 058d 17       		.uleb128 0x17
+ 1012 058e CE020000 		.4byte	.LASF80
+ 1013 0592 05       		.byte	0x5
+ 1014 0593 8102     		.2byte	0x281
+ 1015 0595 7D050000 		.4byte	0x57d
+ 1016 0599 05       		.uleb128 0x5
+ 1017 059a 03       		.byte	0x3
+ 1018 059b 00000000 		.4byte	EE_th_status
+ 1019 059f 11       		.uleb128 0x11
+ 1020 05a0 E1000000 		.4byte	0xe1
+ 1021 05a4 AF050000 		.4byte	0x5af
+ 1022 05a8 14       		.uleb128 0x14
+ 1023 05a9 80030000 		.4byte	0x380
+ 1024 05ad 04       		.byte	0x4
+ 1025 05ae 00       		.byte	0
+ 1026 05af 17       		.uleb128 0x17
+ 1027 05b0 E0040000 		.4byte	.LASF81
+ 1028 05b4 05       		.byte	0x5
+ 1029 05b5 9D02     		.2byte	0x29d
+ 1030 05b7 9F050000 		.4byte	0x59f
+ 1031 05bb 05       		.uleb128 0x5
+ 1032 05bc 03       		.byte	0x3
+ 1033 05bd 00000000 		.4byte	EE_th_next
+ 1034 05c1 17       		.uleb128 0x17
+ 1035 05c2 1F070000 		.4byte	.LASF82
+ 1036 05c6 05       		.byte	0x5
+ 1037 05c7 C702     		.2byte	0x2c7
+ 1038 05c9 7D050000 		.4byte	0x57d
+ 1039 05cd 05       		.uleb128 0x5
+ 1040 05ce 03       		.byte	0x3
+ 1041 05cf 00000000 		.4byte	EE_th_rnact
+ 1042 05d3 17       		.uleb128 0x17
+ 1043 05d4 05000000 		.4byte	.LASF83
+ 1044 05d8 05       		.byte	0x5
+ 1045 05d9 7703     		.2byte	0x377
+ 1046 05db 9F050000 		.4byte	0x59f
+ 1047 05df 05       		.uleb128 0x5
+ 1048 05e0 03       		.byte	0x3
+ 1049 05e1 00000000 		.4byte	EE_th_terminate_nextask
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 20
+
+
+ 1050 05e5 17       		.uleb128 0x17
+ 1051 05e6 26000000 		.4byte	.LASF84
+ 1052 05ea 05       		.byte	0x5
+ 1053 05eb B902     		.2byte	0x2b9
+ 1054 05ed E1000000 		.4byte	0xe1
+ 1055 05f1 05       		.uleb128 0x5
+ 1056 05f2 03       		.byte	0x3
+ 1057 05f3 00000000 		.4byte	EE_stkfirst
+ 1058 05f7 17       		.uleb128 0x17
+ 1059 05f8 C6060000 		.4byte	.LASF85
+ 1060 05fc 05       		.byte	0x5
+ 1061 05fd BC02     		.2byte	0x2bc
+ 1062 05ff B5000000 		.4byte	0xb5
+ 1063 0603 05       		.uleb128 0x5
+ 1064 0604 03       		.byte	0x3
+ 1065 0605 00000000 		.4byte	EE_sys_ceiling
+ 1066 0609 17       		.uleb128 0x17
+ 1067 060a D8030000 		.4byte	.LASF86
+ 1068 060e 05       		.byte	0x5
+ 1069 060f FD02     		.2byte	0x2fd
+ 1070 0611 7D050000 		.4byte	0x57d
+ 1071 0615 05       		.uleb128 0x5
+ 1072 0616 03       		.byte	0x3
+ 1073 0617 00000000 		.4byte	EE_rq_link
+ 1074 061b 11       		.uleb128 0x11
+ 1075 061c C0000000 		.4byte	0xc0
+ 1076 0620 2B060000 		.4byte	0x62b
+ 1077 0624 14       		.uleb128 0x14
+ 1078 0625 80030000 		.4byte	0x380
+ 1079 0629 0F       		.byte	0xf
+ 1080 062a 00       		.byte	0
+ 1081 062b 17       		.uleb128 0x17
+ 1082 062c B0010000 		.4byte	.LASF87
+ 1083 0630 05       		.byte	0x5
+ 1084 0631 BF02     		.2byte	0x2bf
+ 1085 0633 1B060000 		.4byte	0x61b
+ 1086 0637 05       		.uleb128 0x5
+ 1087 0638 03       		.byte	0x3
+ 1088 0639 00000000 		.4byte	EE_rq_queues_head
+ 1089 063d 17       		.uleb128 0x17
+ 1090 063e F9050000 		.4byte	.LASF88
+ 1091 0642 05       		.byte	0x5
+ 1092 0643 C102     		.2byte	0x2c1
+ 1093 0645 1B060000 		.4byte	0x61b
+ 1094 0649 05       		.uleb128 0x5
+ 1095 064a 03       		.byte	0x3
+ 1096 064b 00000000 		.4byte	EE_rq_queues_tail
+ 1097 064f 11       		.uleb128 0x11
+ 1098 0650 C0000000 		.4byte	0xc0
+ 1099 0654 5F060000 		.4byte	0x65f
+ 1100 0658 14       		.uleb128 0x14
+ 1101 0659 80030000 		.4byte	0x380
+ 1102 065d 04       		.byte	0x4
+ 1103 065e 00       		.byte	0
+ 1104 065f 17       		.uleb128 0x17
+ 1105 0660 99000000 		.4byte	.LASF89
+ 1106 0664 05       		.byte	0x5
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 21
+
+
+ 1107 0665 1B03     		.2byte	0x31b
+ 1108 0667 4F060000 		.4byte	0x64f
+ 1109 066b 05       		.uleb128 0x5
+ 1110 066c 03       		.byte	0x3
+ 1111 066d 00000000 		.4byte	EE_rq_pairs_next
+ 1112 0671 17       		.uleb128 0x17
+ 1113 0672 2B070000 		.4byte	.LASF90
+ 1114 0676 05       		.byte	0x5
+ 1115 0677 7003     		.2byte	0x370
+ 1116 0679 9F050000 		.4byte	0x59f
+ 1117 067d 05       		.uleb128 0x5
+ 1118 067e 03       		.byte	0x3
+ 1119 067f 00000000 		.4byte	EE_rq_pairs_tid
+ 1120 0683 17       		.uleb128 0x17
+ 1121 0684 30060000 		.4byte	.LASF91
+ 1122 0688 05       		.byte	0x5
+ 1123 0689 C402     		.2byte	0x2c4
+ 1124 068b 05010000 		.4byte	0x105
+ 1125 068f 05       		.uleb128 0x5
+ 1126 0690 03       		.byte	0x3
+ 1127 0691 00000000 		.4byte	EE_rq_bitmask
+ 1128 0695 17       		.uleb128 0x17
+ 1129 0696 CD030000 		.4byte	.LASF92
+ 1130 069a 05       		.byte	0x5
+ 1131 069b 7303     		.2byte	0x373
+ 1132 069d C0000000 		.4byte	0xc0
+ 1133 06a1 05       		.uleb128 0x5
+ 1134 06a2 03       		.byte	0x3
+ 1135 06a3 00000000 		.4byte	EE_rq_free
+ 1136 06a7 17       		.uleb128 0x17
+ 1137 06a8 9E070000 		.4byte	.LASF93
+ 1138 06ac 05       		.byte	0x5
+ 1139 06ad 9A03     		.2byte	0x39a
+ 1140 06af 7D050000 		.4byte	0x57d
+ 1141 06b3 05       		.uleb128 0x5
+ 1142 06b4 03       		.byte	0x3
+ 1143 06b5 00000000 		.4byte	EE_th_event_active
+ 1144 06b9 17       		.uleb128 0x17
+ 1145 06ba 18050000 		.4byte	.LASF94
+ 1146 06be 05       		.byte	0x5
+ 1147 06bf B603     		.2byte	0x3b6
+ 1148 06c1 7D050000 		.4byte	0x57d
+ 1149 06c5 05       		.uleb128 0x5
+ 1150 06c6 03       		.byte	0x3
+ 1151 06c7 00000000 		.4byte	EE_th_event_waitmask
+ 1152 06cb 11       		.uleb128 0x11
+ 1153 06cc D6000000 		.4byte	0xd6
+ 1154 06d0 DB060000 		.4byte	0x6db
+ 1155 06d4 14       		.uleb128 0x14
+ 1156 06d5 80030000 		.4byte	0x380
+ 1157 06d9 04       		.byte	0x4
+ 1158 06da 00       		.byte	0
+ 1159 06db 17       		.uleb128 0x17
+ 1160 06dc 54020000 		.4byte	.LASF95
+ 1161 06e0 05       		.byte	0x5
+ 1162 06e1 D203     		.2byte	0x3d2
+ 1163 06e3 CB060000 		.4byte	0x6cb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 22
+
+
+ 1164 06e7 05       		.uleb128 0x5
+ 1165 06e8 03       		.byte	0x3
+ 1166 06e9 00000000 		.4byte	EE_th_waswaiting
+ 1167 06ed 17       		.uleb128 0x17
+ 1168 06ee D6070000 		.4byte	.LASF96
+ 1169 06f2 05       		.byte	0x5
+ 1170 06f3 EE03     		.2byte	0x3ee
+ 1171 06f5 FF060000 		.4byte	0x6ff
+ 1172 06f9 05       		.uleb128 0x5
+ 1173 06fa 03       		.byte	0x3
+ 1174 06fb 00000000 		.4byte	EE_th_is_extended
+ 1175 06ff 13       		.uleb128 0x13
+ 1176 0700 5D040000 		.4byte	0x45d
+ 1177 0704 11       		.uleb128 0x11
+ 1178 0705 14070000 		.4byte	0x714
+ 1179 0709 14070000 		.4byte	0x714
+ 1180 070d 14       		.uleb128 0x14
+ 1181 070e 80030000 		.4byte	0x380
+ 1182 0712 00       		.byte	0
+ 1183 0713 00       		.byte	0
+ 1184 0714 13       		.uleb128 0x13
+ 1185 0715 8A010000 		.4byte	0x18a
+ 1186 0719 17       		.uleb128 0x17
+ 1187 071a 1B040000 		.4byte	.LASF97
+ 1188 071e 05       		.byte	0x5
+ 1189 071f FF05     		.2byte	0x5ff
+ 1190 0721 2B070000 		.4byte	0x72b
+ 1191 0725 05       		.uleb128 0x5
+ 1192 0726 03       		.byte	0x3
+ 1193 0727 00000000 		.4byte	EE_counter_ROM
+ 1194 072b 13       		.uleb128 0x13
+ 1195 072c 04070000 		.4byte	0x704
+ 1196 0730 11       		.uleb128 0x11
+ 1197 0731 40070000 		.4byte	0x740
+ 1198 0735 40070000 		.4byte	0x740
+ 1199 0739 14       		.uleb128 0x14
+ 1200 073a 80030000 		.4byte	0x380
+ 1201 073e 00       		.byte	0
+ 1202 073f 00       		.byte	0
+ 1203 0740 13       		.uleb128 0x13
+ 1204 0741 27020000 		.4byte	0x227
+ 1205 0745 17       		.uleb128 0x17
+ 1206 0746 61030000 		.4byte	.LASF98
+ 1207 074a 05       		.byte	0x5
+ 1208 074b 9606     		.2byte	0x696
+ 1209 074d 57070000 		.4byte	0x757
+ 1210 0751 05       		.uleb128 0x5
+ 1211 0752 03       		.byte	0x3
+ 1212 0753 00000000 		.4byte	EE_oo_counter_object_ROM
+ 1213 0757 13       		.uleb128 0x13
+ 1214 0758 30070000 		.4byte	0x730
+ 1215 075c 11       		.uleb128 0x11
+ 1216 075d 6C070000 		.4byte	0x76c
+ 1217 0761 6C070000 		.4byte	0x76c
+ 1218 0765 14       		.uleb128 0x14
+ 1219 0766 80030000 		.4byte	0x380
+ 1220 076a 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 23
+
+
+ 1221 076b 00       		.byte	0
+ 1222 076c 13       		.uleb128 0x13
+ 1223 076d 04030000 		.4byte	0x304
+ 1224 0771 17       		.uleb128 0x17
+ 1225 0772 97030000 		.4byte	.LASF99
+ 1226 0776 05       		.byte	0x5
+ 1227 0777 BA06     		.2byte	0x6ba
+ 1228 0779 83070000 		.4byte	0x783
+ 1229 077d 05       		.uleb128 0x5
+ 1230 077e 03       		.byte	0x3
+ 1231 077f 00000000 		.4byte	EE_oo_action_ROM
+ 1232 0783 13       		.uleb128 0x13
+ 1233 0784 5C070000 		.4byte	0x75c
+ 1234 0788 11       		.uleb128 0x11
+ 1235 0789 98070000 		.4byte	0x798
+ 1236 078d 98070000 		.4byte	0x798
+ 1237 0791 14       		.uleb128 0x14
+ 1238 0792 80030000 		.4byte	0x380
+ 1239 0796 00       		.byte	0
+ 1240 0797 00       		.byte	0
+ 1241 0798 13       		.uleb128 0x13
+ 1242 0799 27030000 		.4byte	0x327
+ 1243 079d 17       		.uleb128 0x17
+ 1244 079e 4E010000 		.4byte	.LASF100
+ 1245 07a2 05       		.byte	0x5
+ 1246 07a3 2006     		.2byte	0x620
+ 1247 07a5 AF070000 		.4byte	0x7af
+ 1248 07a9 05       		.uleb128 0x5
+ 1249 07aa 03       		.byte	0x3
+ 1250 07ab 00000000 		.4byte	EE_alarm_ROM
+ 1251 07af 13       		.uleb128 0x13
+ 1252 07b0 88070000 		.4byte	0x788
+ 1253 07b4 11       		.uleb128 0x11
+ 1254 07b5 BA010000 		.4byte	0x1ba
+ 1255 07b9 C4070000 		.4byte	0x7c4
+ 1256 07bd 14       		.uleb128 0x14
+ 1257 07be 80030000 		.4byte	0x380
+ 1258 07c2 00       		.byte	0
+ 1259 07c3 00       		.byte	0
+ 1260 07c4 17       		.uleb128 0x17
+ 1261 07c5 8C060000 		.4byte	.LASF101
+ 1262 07c9 05       		.byte	0x5
+ 1263 07ca 0C06     		.2byte	0x60c
+ 1264 07cc B4070000 		.4byte	0x7b4
+ 1265 07d0 05       		.uleb128 0x5
+ 1266 07d1 03       		.byte	0x3
+ 1267 07d2 00000000 		.4byte	EE_counter_RAM
+ 1268 07d6 11       		.uleb128 0x11
+ 1269 07d7 71020000 		.4byte	0x271
+ 1270 07db E6070000 		.4byte	0x7e6
+ 1271 07df 14       		.uleb128 0x14
+ 1272 07e0 80030000 		.4byte	0x380
+ 1273 07e4 00       		.byte	0
+ 1274 07e5 00       		.byte	0
+ 1275 07e6 17       		.uleb128 0x17
+ 1276 07e7 E6060000 		.4byte	.LASF102
+ 1277 07eb 05       		.byte	0x5
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 24
+
+
+ 1278 07ec B106     		.2byte	0x6b1
+ 1279 07ee D6070000 		.4byte	0x7d6
+ 1280 07f2 05       		.uleb128 0x5
+ 1281 07f3 03       		.byte	0x3
+ 1282 07f4 00000000 		.4byte	EE_oo_counter_object_RAM
+ 1283 07f8 11       		.uleb128 0x11
+ 1284 07f9 08080000 		.4byte	0x808
+ 1285 07fd 08080000 		.4byte	0x808
+ 1286 0801 14       		.uleb128 0x14
+ 1287 0802 80030000 		.4byte	0x380
+ 1288 0806 00       		.byte	0
+ 1289 0807 00       		.byte	0
+ 1290 0808 13       		.uleb128 0x13
+ 1291 0809 33030000 		.4byte	0x333
+ 1292 080d 17       		.uleb128 0x17
+ 1293 080e F0070000 		.4byte	.LASF103
+ 1294 0812 05       		.byte	0x5
+ 1295 0813 9607     		.2byte	0x796
+ 1296 0815 1F080000 		.4byte	0x81f
+ 1297 0819 05       		.uleb128 0x5
+ 1298 081a 03       		.byte	0x3
+ 1299 081b 00000000 		.4byte	EE_oo_autostart_task_data
+ 1300 081f 13       		.uleb128 0x13
+ 1301 0820 F8070000 		.4byte	0x7f8
+ 1302 0824 18       		.uleb128 0x18
+ 1303 0825 97020000 		.4byte	.LASF104
+ 1304 0829 06       		.byte	0x6
+ 1305 082a 40       		.byte	0x40
+ 1306 082b B5000000 		.4byte	0xb5
+ 1307 082f 18       		.uleb128 0x18
+ 1308 0830 C2010000 		.4byte	.LASF105
+ 1309 0834 06       		.byte	0x6
+ 1310 0835 47       		.byte	0x47
+ 1311 0836 CB000000 		.4byte	0xcb
+ 1312 083a 17       		.uleb128 0x17
+ 1313 083b 84030000 		.4byte	.LASF106
+ 1314 083f 05       		.byte	0x5
+ 1315 0840 5C07     		.2byte	0x75c
+ 1316 0842 B5000000 		.4byte	0xb5
+ 1317 0846 05       		.uleb128 0x5
+ 1318 0847 03       		.byte	0x3
+ 1319 0848 00000000 		.4byte	EE_ApplicationMode
+ 1320 084c 18       		.uleb128 0x18
+ 1321 084d DB010000 		.4byte	.LASF107
+ 1322 0851 07       		.byte	0x7
+ 1323 0852 48       		.byte	0x48
+ 1324 0853 E1000000 		.4byte	0xe1
+ 1325 0857 18       		.uleb128 0x18
+ 1326 0858 3B070000 		.4byte	.LASF108
+ 1327 085c 08       		.byte	0x8
+ 1328 085d 44       		.byte	0x44
+ 1329 085e B5000000 		.4byte	0xb5
+ 1330 0862 16       		.uleb128 0x16
+ 1331 0863 49000000 		.4byte	.LASF109
+ 1332 0867 05       		.byte	0x5
+ 1333 0868 AD       		.byte	0xad
+ 1334 0869 EC000000 		.4byte	0xec
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 25
+
+
+ 1335 086d 05       		.uleb128 0x5
+ 1336 086e 03       		.byte	0x3
+ 1337 086f 00000000 		.4byte	EE_cortex_mx_IRQ_tos
+ 1338 0873 11       		.uleb128 0x11
+ 1339 0874 55000000 		.4byte	0x55
+ 1340 0878 83080000 		.4byte	0x883
+ 1341 087c 14       		.uleb128 0x14
+ 1342 087d 80030000 		.4byte	0x380
+ 1343 0881 F9       		.byte	0xf9
+ 1344 0882 00       		.byte	0
+ 1345 0883 16       		.uleb128 0x16
+ 1346 0884 05030000 		.4byte	.LASF110
+ 1347 0888 05       		.byte	0x5
+ 1348 0889 1D       		.byte	0x1d
+ 1349 088a 73080000 		.4byte	0x873
+ 1350 088e 05       		.uleb128 0x5
+ 1351 088f 03       		.byte	0x3
+ 1352 0890 00000000 		.4byte	EE_cortex_mx_stack_4
+ 1353 0894 16       		.uleb128 0x16
+ 1354 0895 1A030000 		.4byte	.LASF111
+ 1355 0899 05       		.byte	0x5
+ 1356 089a 21       		.byte	0x21
+ 1357 089b 73080000 		.4byte	0x873
+ 1358 089f 05       		.uleb128 0x5
+ 1359 08a0 03       		.byte	0x3
+ 1360 08a1 00000000 		.4byte	EE_cortex_mx_stack_5
+ 1361 08a5 11       		.uleb128 0x11
+ 1362 08a6 55000000 		.4byte	0x55
+ 1363 08aa B5080000 		.4byte	0x8b5
+ 1364 08ae 14       		.uleb128 0x14
+ 1365 08af 80030000 		.4byte	0x380
+ 1366 08b3 7F       		.byte	0x7f
+ 1367 08b4 00       		.byte	0
+ 1368 08b5 16       		.uleb128 0x16
+ 1369 08b6 2F030000 		.4byte	.LASF112
+ 1370 08ba 05       		.byte	0x5
+ 1371 08bb 32       		.byte	0x32
+ 1372 08bc A5080000 		.4byte	0x8a5
+ 1373 08c0 05       		.uleb128 0x5
+ 1374 08c1 03       		.byte	0x3
+ 1375 08c2 00000000 		.4byte	EE_cortex_mx_stack_9
+ 1376 08c6 00       		.byte	0
+ 1377              		.section	.debug_abbrev,"",%progbits
+ 1378              	.Ldebug_abbrev0:
+ 1379 0000 01       		.uleb128 0x1
+ 1380 0001 11       		.uleb128 0x11
+ 1381 0002 01       		.byte	0x1
+ 1382 0003 25       		.uleb128 0x25
+ 1383 0004 0E       		.uleb128 0xe
+ 1384 0005 13       		.uleb128 0x13
+ 1385 0006 0B       		.uleb128 0xb
+ 1386 0007 03       		.uleb128 0x3
+ 1387 0008 0E       		.uleb128 0xe
+ 1388 0009 1B       		.uleb128 0x1b
+ 1389 000a 0E       		.uleb128 0xe
+ 1390 000b 10       		.uleb128 0x10
+ 1391 000c 17       		.uleb128 0x17
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 26
+
+
+ 1392 000d 00       		.byte	0
+ 1393 000e 00       		.byte	0
+ 1394 000f 02       		.uleb128 0x2
+ 1395 0010 24       		.uleb128 0x24
+ 1396 0011 00       		.byte	0
+ 1397 0012 0B       		.uleb128 0xb
+ 1398 0013 0B       		.uleb128 0xb
+ 1399 0014 3E       		.uleb128 0x3e
+ 1400 0015 0B       		.uleb128 0xb
+ 1401 0016 03       		.uleb128 0x3
+ 1402 0017 0E       		.uleb128 0xe
+ 1403 0018 00       		.byte	0
+ 1404 0019 00       		.byte	0
+ 1405 001a 03       		.uleb128 0x3
+ 1406 001b 24       		.uleb128 0x24
+ 1407 001c 00       		.byte	0
+ 1408 001d 0B       		.uleb128 0xb
+ 1409 001e 0B       		.uleb128 0xb
+ 1410 001f 3E       		.uleb128 0x3e
+ 1411 0020 0B       		.uleb128 0xb
+ 1412 0021 03       		.uleb128 0x3
+ 1413 0022 08       		.uleb128 0x8
+ 1414 0023 00       		.byte	0
+ 1415 0024 00       		.byte	0
+ 1416 0025 04       		.uleb128 0x4
+ 1417 0026 16       		.uleb128 0x16
+ 1418 0027 00       		.byte	0
+ 1419 0028 03       		.uleb128 0x3
+ 1420 0029 0E       		.uleb128 0xe
+ 1421 002a 3A       		.uleb128 0x3a
+ 1422 002b 0B       		.uleb128 0xb
+ 1423 002c 3B       		.uleb128 0x3b
+ 1424 002d 0B       		.uleb128 0xb
+ 1425 002e 49       		.uleb128 0x49
+ 1426 002f 13       		.uleb128 0x13
+ 1427 0030 00       		.byte	0
+ 1428 0031 00       		.byte	0
+ 1429 0032 05       		.uleb128 0x5
+ 1430 0033 0F       		.uleb128 0xf
+ 1431 0034 00       		.byte	0
+ 1432 0035 0B       		.uleb128 0xb
+ 1433 0036 0B       		.uleb128 0xb
+ 1434 0037 00       		.byte	0
+ 1435 0038 00       		.byte	0
+ 1436 0039 06       		.uleb128 0x6
+ 1437 003a 0F       		.uleb128 0xf
+ 1438 003b 00       		.byte	0
+ 1439 003c 0B       		.uleb128 0xb
+ 1440 003d 0B       		.uleb128 0xb
+ 1441 003e 49       		.uleb128 0x49
+ 1442 003f 13       		.uleb128 0x13
+ 1443 0040 00       		.byte	0
+ 1444 0041 00       		.byte	0
+ 1445 0042 07       		.uleb128 0x7
+ 1446 0043 15       		.uleb128 0x15
+ 1447 0044 00       		.byte	0
+ 1448 0045 27       		.uleb128 0x27
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 27
+
+
+ 1449 0046 19       		.uleb128 0x19
+ 1450 0047 00       		.byte	0
+ 1451 0048 00       		.byte	0
+ 1452 0049 08       		.uleb128 0x8
+ 1453 004a 13       		.uleb128 0x13
+ 1454 004b 01       		.byte	0x1
+ 1455 004c 03       		.uleb128 0x3
+ 1456 004d 0E       		.uleb128 0xe
+ 1457 004e 0B       		.uleb128 0xb
+ 1458 004f 0B       		.uleb128 0xb
+ 1459 0050 3A       		.uleb128 0x3a
+ 1460 0051 0B       		.uleb128 0xb
+ 1461 0052 3B       		.uleb128 0x3b
+ 1462 0053 0B       		.uleb128 0xb
+ 1463 0054 01       		.uleb128 0x1
+ 1464 0055 13       		.uleb128 0x13
+ 1465 0056 00       		.byte	0
+ 1466 0057 00       		.byte	0
+ 1467 0058 09       		.uleb128 0x9
+ 1468 0059 0D       		.uleb128 0xd
+ 1469 005a 00       		.byte	0
+ 1470 005b 03       		.uleb128 0x3
+ 1471 005c 0E       		.uleb128 0xe
+ 1472 005d 3A       		.uleb128 0x3a
+ 1473 005e 0B       		.uleb128 0xb
+ 1474 005f 3B       		.uleb128 0x3b
+ 1475 0060 0B       		.uleb128 0xb
+ 1476 0061 49       		.uleb128 0x49
+ 1477 0062 13       		.uleb128 0x13
+ 1478 0063 38       		.uleb128 0x38
+ 1479 0064 0B       		.uleb128 0xb
+ 1480 0065 00       		.byte	0
+ 1481 0066 00       		.byte	0
+ 1482 0067 0A       		.uleb128 0xa
+ 1483 0068 16       		.uleb128 0x16
+ 1484 0069 00       		.byte	0
+ 1485 006a 03       		.uleb128 0x3
+ 1486 006b 0E       		.uleb128 0xe
+ 1487 006c 3A       		.uleb128 0x3a
+ 1488 006d 0B       		.uleb128 0xb
+ 1489 006e 3B       		.uleb128 0x3b
+ 1490 006f 05       		.uleb128 0x5
+ 1491 0070 49       		.uleb128 0x49
+ 1492 0071 13       		.uleb128 0x13
+ 1493 0072 00       		.byte	0
+ 1494 0073 00       		.byte	0
+ 1495 0074 0B       		.uleb128 0xb
+ 1496 0075 13       		.uleb128 0x13
+ 1497 0076 01       		.byte	0x1
+ 1498 0077 0B       		.uleb128 0xb
+ 1499 0078 0B       		.uleb128 0xb
+ 1500 0079 3A       		.uleb128 0x3a
+ 1501 007a 0B       		.uleb128 0xb
+ 1502 007b 3B       		.uleb128 0x3b
+ 1503 007c 05       		.uleb128 0x5
+ 1504 007d 01       		.uleb128 0x1
+ 1505 007e 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 28
+
+
+ 1506 007f 00       		.byte	0
+ 1507 0080 00       		.byte	0
+ 1508 0081 0C       		.uleb128 0xc
+ 1509 0082 0D       		.uleb128 0xd
+ 1510 0083 00       		.byte	0
+ 1511 0084 03       		.uleb128 0x3
+ 1512 0085 0E       		.uleb128 0xe
+ 1513 0086 3A       		.uleb128 0x3a
+ 1514 0087 0B       		.uleb128 0xb
+ 1515 0088 3B       		.uleb128 0x3b
+ 1516 0089 05       		.uleb128 0x5
+ 1517 008a 49       		.uleb128 0x49
+ 1518 008b 13       		.uleb128 0x13
+ 1519 008c 38       		.uleb128 0x38
+ 1520 008d 0B       		.uleb128 0xb
+ 1521 008e 00       		.byte	0
+ 1522 008f 00       		.byte	0
+ 1523 0090 0D       		.uleb128 0xd
+ 1524 0091 04       		.uleb128 0x4
+ 1525 0092 01       		.byte	0x1
+ 1526 0093 0B       		.uleb128 0xb
+ 1527 0094 0B       		.uleb128 0xb
+ 1528 0095 49       		.uleb128 0x49
+ 1529 0096 13       		.uleb128 0x13
+ 1530 0097 3A       		.uleb128 0x3a
+ 1531 0098 0B       		.uleb128 0xb
+ 1532 0099 3B       		.uleb128 0x3b
+ 1533 009a 05       		.uleb128 0x5
+ 1534 009b 01       		.uleb128 0x1
+ 1535 009c 13       		.uleb128 0x13
+ 1536 009d 00       		.byte	0
+ 1537 009e 00       		.byte	0
+ 1538 009f 0E       		.uleb128 0xe
+ 1539 00a0 28       		.uleb128 0x28
+ 1540 00a1 00       		.byte	0
+ 1541 00a2 03       		.uleb128 0x3
+ 1542 00a3 0E       		.uleb128 0xe
+ 1543 00a4 1C       		.uleb128 0x1c
+ 1544 00a5 0B       		.uleb128 0xb
+ 1545 00a6 00       		.byte	0
+ 1546 00a7 00       		.byte	0
+ 1547 00a8 0F       		.uleb128 0xf
+ 1548 00a9 0D       		.uleb128 0xd
+ 1549 00aa 00       		.byte	0
+ 1550 00ab 03       		.uleb128 0x3
+ 1551 00ac 08       		.uleb128 0x8
+ 1552 00ad 3A       		.uleb128 0x3a
+ 1553 00ae 0B       		.uleb128 0xb
+ 1554 00af 3B       		.uleb128 0x3b
+ 1555 00b0 05       		.uleb128 0x5
+ 1556 00b1 49       		.uleb128 0x49
+ 1557 00b2 13       		.uleb128 0x13
+ 1558 00b3 38       		.uleb128 0x38
+ 1559 00b4 0B       		.uleb128 0xb
+ 1560 00b5 00       		.byte	0
+ 1561 00b6 00       		.byte	0
+ 1562 00b7 10       		.uleb128 0x10
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 29
+
+
+ 1563 00b8 13       		.uleb128 0x13
+ 1564 00b9 01       		.byte	0x1
+ 1565 00ba 03       		.uleb128 0x3
+ 1566 00bb 0E       		.uleb128 0xe
+ 1567 00bc 0B       		.uleb128 0xb
+ 1568 00bd 0B       		.uleb128 0xb
+ 1569 00be 3A       		.uleb128 0x3a
+ 1570 00bf 0B       		.uleb128 0xb
+ 1571 00c0 3B       		.uleb128 0x3b
+ 1572 00c1 05       		.uleb128 0x5
+ 1573 00c2 01       		.uleb128 0x1
+ 1574 00c3 13       		.uleb128 0x13
+ 1575 00c4 00       		.byte	0
+ 1576 00c5 00       		.byte	0
+ 1577 00c6 11       		.uleb128 0x11
+ 1578 00c7 01       		.uleb128 0x1
+ 1579 00c8 01       		.byte	0x1
+ 1580 00c9 49       		.uleb128 0x49
+ 1581 00ca 13       		.uleb128 0x13
+ 1582 00cb 01       		.uleb128 0x1
+ 1583 00cc 13       		.uleb128 0x13
+ 1584 00cd 00       		.byte	0
+ 1585 00ce 00       		.byte	0
+ 1586 00cf 12       		.uleb128 0x12
+ 1587 00d0 21       		.uleb128 0x21
+ 1588 00d1 00       		.byte	0
+ 1589 00d2 00       		.byte	0
+ 1590 00d3 00       		.byte	0
+ 1591 00d4 13       		.uleb128 0x13
+ 1592 00d5 26       		.uleb128 0x26
+ 1593 00d6 00       		.byte	0
+ 1594 00d7 49       		.uleb128 0x49
+ 1595 00d8 13       		.uleb128 0x13
+ 1596 00d9 00       		.byte	0
+ 1597 00da 00       		.byte	0
+ 1598 00db 14       		.uleb128 0x14
+ 1599 00dc 21       		.uleb128 0x21
+ 1600 00dd 00       		.byte	0
+ 1601 00de 49       		.uleb128 0x49
+ 1602 00df 13       		.uleb128 0x13
+ 1603 00e0 2F       		.uleb128 0x2f
+ 1604 00e1 0B       		.uleb128 0xb
+ 1605 00e2 00       		.byte	0
+ 1606 00e3 00       		.byte	0
+ 1607 00e4 15       		.uleb128 0x15
+ 1608 00e5 34       		.uleb128 0x34
+ 1609 00e6 00       		.byte	0
+ 1610 00e7 03       		.uleb128 0x3
+ 1611 00e8 0E       		.uleb128 0xe
+ 1612 00e9 3A       		.uleb128 0x3a
+ 1613 00ea 0B       		.uleb128 0xb
+ 1614 00eb 3B       		.uleb128 0x3b
+ 1615 00ec 05       		.uleb128 0x5
+ 1616 00ed 49       		.uleb128 0x49
+ 1617 00ee 13       		.uleb128 0x13
+ 1618 00ef 02       		.uleb128 0x2
+ 1619 00f0 18       		.uleb128 0x18
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 30
+
+
+ 1620 00f1 00       		.byte	0
+ 1621 00f2 00       		.byte	0
+ 1622 00f3 16       		.uleb128 0x16
+ 1623 00f4 34       		.uleb128 0x34
+ 1624 00f5 00       		.byte	0
+ 1625 00f6 03       		.uleb128 0x3
+ 1626 00f7 0E       		.uleb128 0xe
+ 1627 00f8 3A       		.uleb128 0x3a
+ 1628 00f9 0B       		.uleb128 0xb
+ 1629 00fa 3B       		.uleb128 0x3b
+ 1630 00fb 0B       		.uleb128 0xb
+ 1631 00fc 49       		.uleb128 0x49
+ 1632 00fd 13       		.uleb128 0x13
+ 1633 00fe 3F       		.uleb128 0x3f
+ 1634 00ff 19       		.uleb128 0x19
+ 1635 0100 02       		.uleb128 0x2
+ 1636 0101 18       		.uleb128 0x18
+ 1637 0102 00       		.byte	0
+ 1638 0103 00       		.byte	0
+ 1639 0104 17       		.uleb128 0x17
+ 1640 0105 34       		.uleb128 0x34
+ 1641 0106 00       		.byte	0
+ 1642 0107 03       		.uleb128 0x3
+ 1643 0108 0E       		.uleb128 0xe
+ 1644 0109 3A       		.uleb128 0x3a
+ 1645 010a 0B       		.uleb128 0xb
+ 1646 010b 3B       		.uleb128 0x3b
+ 1647 010c 05       		.uleb128 0x5
+ 1648 010d 49       		.uleb128 0x49
+ 1649 010e 13       		.uleb128 0x13
+ 1650 010f 3F       		.uleb128 0x3f
+ 1651 0110 19       		.uleb128 0x19
+ 1652 0111 02       		.uleb128 0x2
+ 1653 0112 18       		.uleb128 0x18
+ 1654 0113 00       		.byte	0
+ 1655 0114 00       		.byte	0
+ 1656 0115 18       		.uleb128 0x18
+ 1657 0116 34       		.uleb128 0x34
+ 1658 0117 00       		.byte	0
+ 1659 0118 03       		.uleb128 0x3
+ 1660 0119 0E       		.uleb128 0xe
+ 1661 011a 3A       		.uleb128 0x3a
+ 1662 011b 0B       		.uleb128 0xb
+ 1663 011c 3B       		.uleb128 0x3b
+ 1664 011d 0B       		.uleb128 0xb
+ 1665 011e 49       		.uleb128 0x49
+ 1666 011f 13       		.uleb128 0x13
+ 1667 0120 3F       		.uleb128 0x3f
+ 1668 0121 19       		.uleb128 0x19
+ 1669 0122 3C       		.uleb128 0x3c
+ 1670 0123 19       		.uleb128 0x19
+ 1671 0124 00       		.byte	0
+ 1672 0125 00       		.byte	0
+ 1673 0126 00       		.byte	0
+ 1674              		.section	.debug_aranges,"",%progbits
+ 1675 0000 14000000 		.4byte	0x14
+ 1676 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 31
+
+
+ 1677 0006 00000000 		.4byte	.Ldebug_info0
+ 1678 000a 04       		.byte	0x4
+ 1679 000b 00       		.byte	0
+ 1680 000c 0000     		.2byte	0
+ 1681 000e 0000     		.2byte	0
+ 1682 0010 00000000 		.4byte	0
+ 1683 0014 00000000 		.4byte	0
+ 1684              		.section	.debug_line,"",%progbits
+ 1685              	.Ldebug_line0:
+ 1686 0000 38010000 		.section	.debug_str,"MS",%progbits,1
+ 1686      02003201 
+ 1686      00000201 
+ 1686      FB0E0D00 
+ 1686      01010101 
+ 1687              	.LASF46:
+ 1688 0000 6E657874 		.ascii	"next\000"
+ 1688      00
+ 1689              	.LASF83:
+ 1690 0005 45455F74 		.ascii	"EE_th_terminate_nextask\000"
+ 1690      685F7465 
+ 1690      726D696E 
+ 1690      6174655F 
+ 1690      6E657874 
+ 1691              	.LASF24:
+ 1692 001d 5469636B 		.ascii	"TickType\000"
+ 1692      54797065 
+ 1692      00
+ 1693              	.LASF84:
+ 1694 0026 45455F73 		.ascii	"EE_stkfirst\000"
+ 1694      746B6669 
+ 1694      72737400 
+ 1695              	.LASF26:
+ 1696 0032 41637469 		.ascii	"ActionType\000"
+ 1696      6F6E5479 
+ 1696      706500
+ 1697              	.LASF19:
+ 1698 003d 45455F54 		.ascii	"EE_TYPEBOOL\000"
+ 1698      59504542 
+ 1698      4F4F4C00 
+ 1699              	.LASF109:
+ 1700 0049 45455F63 		.ascii	"EE_cortex_mx_IRQ_tos\000"
+ 1700      6F727465 
+ 1700      785F6D78 
+ 1700      5F495251 
+ 1700      5F746F73 
+ 1701              	.LASF7:
+ 1702 005e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1702      206C6F6E 
+ 1702      6720756E 
+ 1702      7369676E 
+ 1702      65642069 
+ 1703              	.LASF45:
+ 1704 0075 64656C74 		.ascii	"delta\000"
+ 1704      6100
+ 1705              	.LASF42:
+ 1706 007b 45455F6F 		.ascii	"EE_oo_counter_object_ROM_type\000"
+ 1706      6F5F636F 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 32
+
+
+ 1706      756E7465 
+ 1706      725F6F62 
+ 1706      6A656374 
+ 1707              	.LASF89:
+ 1708 0099 45455F72 		.ascii	"EE_rq_pairs_next\000"
+ 1708      715F7061 
+ 1708      6972735F 
+ 1708      6E657874 
+ 1708      00
+ 1709              	.LASF22:
+ 1710 00aa 5461736B 		.ascii	"TaskType\000"
+ 1710      54797065 
+ 1710      00
+ 1711              	.LASF61:
+ 1712 00b3 45455F54 		.ascii	"EE_TOS\000"
+ 1712      4F5300
+ 1713              	.LASF29:
+ 1714 00ba 6D617861 		.ascii	"maxallowedvalue\000"
+ 1714      6C6C6F77 
+ 1714      65647661 
+ 1714      6C756500 
+ 1715              	.LASF116:
+ 1716 00ca 45455F6F 		.ascii	"EE_oo_autostart_task_mode_OSDEFAULTAPPMODE\000"
+ 1716      6F5F6175 
+ 1716      746F7374 
+ 1716      6172745F 
+ 1716      7461736B 
+ 1717              	.LASF79:
+ 1718 00f5 45455F41 		.ascii	"EE_ALARM_ID\000"
+ 1718      4C41524D 
+ 1718      5F494400 
+ 1719              	.LASF6:
+ 1720 0101 6C6F6E67 		.ascii	"long long int\000"
+ 1720      206C6F6E 
+ 1720      6720696E 
+ 1720      7400
+ 1721              	.LASF0:
+ 1722 010f 7369676E 		.ascii	"signed char\000"
+ 1722      65642063 
+ 1722      68617200 
+ 1723              	.LASF52:
+ 1724 011b 45455F6F 		.ascii	"EE_oo_action_kind_type\000"
+ 1724      6F5F6163 
+ 1724      74696F6E 
+ 1724      5F6B696E 
+ 1724      645F7479 
+ 1725              	.LASF23:
+ 1726 0132 4576656E 		.ascii	"EventMaskType\000"
+ 1726      744D6173 
+ 1726      6B547970 
+ 1726      6500
+ 1727              	.LASF76:
+ 1728 0140 45455F45 		.ascii	"EE_EVENT_NAME\000"
+ 1728      56454E54 
+ 1728      5F4E414D 
+ 1728      4500
+ 1729              	.LASF100:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 33
+
+
+ 1730 014e 45455F61 		.ascii	"EE_alarm_ROM\000"
+ 1730      6C61726D 
+ 1730      5F524F4D 
+ 1730      00
+ 1731              	.LASF70:
+ 1732 015b 45455F63 		.ascii	"EE_cortex_mx_active_tos\000"
+ 1732      6F727465 
+ 1732      785F6D78 
+ 1732      5F616374 
+ 1732      6976655F 
+ 1733              	.LASF35:
+ 1734 0173 45455F6F 		.ascii	"EE_oo_counter_RAM_type\000"
+ 1734      6F5F636F 
+ 1734      756E7465 
+ 1734      725F5241 
+ 1734      4D5F7479 
+ 1735              	.LASF78:
+ 1736 018a 45455F45 		.ascii	"EE_EVENT_ID\000"
+ 1736      56454E54 
+ 1736      5F494400 
+ 1737              	.LASF4:
+ 1738 0196 6C6F6E67 		.ascii	"long int\000"
+ 1738      20696E74 
+ 1738      00
+ 1739              	.LASF37:
+ 1740 019f 45455F53 		.ascii	"EE_SCHEDULETABLE\000"
+ 1740      43484544 
+ 1740      554C4554 
+ 1740      41424C45 
+ 1740      00
+ 1741              	.LASF87:
+ 1742 01b0 45455F72 		.ascii	"EE_rq_queues_head\000"
+ 1742      715F7175 
+ 1742      65756573 
+ 1742      5F686561 
+ 1742      6400
+ 1743              	.LASF105:
+ 1744 01c2 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1744      6F5F4952 
+ 1744      515F7375 
+ 1744      7370656E 
+ 1744      645F7374 
+ 1745              	.LASF107:
+ 1746 01db 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1746      74645F65 
+ 1746      6E646379 
+ 1746      636C655F 
+ 1746      6E657874 
+ 1747              	.LASF31:
+ 1748 01f4 6D696E63 		.ascii	"mincycle\000"
+ 1748      79636C65 
+ 1748      00
+ 1749              	.LASF20:
+ 1750 01fd 45455F54 		.ascii	"EE_TID\000"
+ 1750      494400
+ 1751              	.LASF33:
+ 1752 0204 76616C75 		.ascii	"value\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 34
+
+
+ 1752      6500
+ 1753              	.LASF8:
+ 1754 020a 756E7369 		.ascii	"unsigned int\000"
+ 1754      676E6564 
+ 1754      20696E74 
+ 1754      00
+ 1755              	.LASF16:
+ 1756 0217 45455F55 		.ascii	"EE_UREG\000"
+ 1756      52454700 
+ 1757              	.LASF60:
+ 1758 021f 45455F6F 		.ascii	"EE_oo_alarm_ROM_type\000"
+ 1758      6F5F616C 
+ 1758      61726D5F 
+ 1758      524F4D5F 
+ 1758      74797065 
+ 1759              	.LASF77:
+ 1760 0234 45455F41 		.ascii	"EE_ALARM_NAME\000"
+ 1760      4C41524D 
+ 1760      5F4E414D 
+ 1760      4500
+ 1761              	.LASF5:
+ 1762 0242 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1762      20756E73 
+ 1762      69676E65 
+ 1762      6420696E 
+ 1762      7400
+ 1763              	.LASF95:
+ 1764 0254 45455F74 		.ascii	"EE_th_waswaiting\000"
+ 1764      685F7761 
+ 1764      73776169 
+ 1764      74696E67 
+ 1764      00
+ 1765              	.LASF62:
+ 1766 0265 45455F6F 		.ascii	"EE_oo_autostart_task_type\000"
+ 1766      6F5F6175 
+ 1766      746F7374 
+ 1766      6172745F 
+ 1766      7461736B 
+ 1767              	.LASF41:
+ 1768 027f 6B696E64 		.ascii	"kind\000"
+ 1768      00
+ 1769              	.LASF3:
+ 1770 0284 73686F72 		.ascii	"short unsigned int\000"
+ 1770      7420756E 
+ 1770      7369676E 
+ 1770      65642069 
+ 1770      6E7400
+ 1771              	.LASF104:
+ 1772 0297 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1772      6F5F4952 
+ 1772      515F6469 
+ 1772      7361626C 
+ 1772      655F636F 
+ 1773              	.LASF38:
+ 1774 02af 45455F6F 		.ascii	"EE_oo_counter_object_kind_type\000"
+ 1774      6F5F636F 
+ 1774      756E7465 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 35
+
+
+ 1774      725F6F62 
+ 1774      6A656374 
+ 1775              	.LASF80:
+ 1776 02ce 45455F74 		.ascii	"EE_th_status\000"
+ 1776      685F7374 
+ 1776      61747573 
+ 1776      00
+ 1777              	.LASF39:
+ 1778 02db 436F756E 		.ascii	"CounterObjectKindType\000"
+ 1778      7465724F 
+ 1778      626A6563 
+ 1778      744B696E 
+ 1778      64547970 
+ 1779              	.LASF73:
+ 1780 02f1 45455F74 		.ascii	"EE_th_dispatch_prio\000"
+ 1780      685F6469 
+ 1780      73706174 
+ 1780      63685F70 
+ 1780      72696F00 
+ 1781              	.LASF110:
+ 1782 0305 45455F63 		.ascii	"EE_cortex_mx_stack_4\000"
+ 1782      6F727465 
+ 1782      785F6D78 
+ 1782      5F737461 
+ 1782      636B5F34 
+ 1783              	.LASF111:
+ 1784 031a 45455F63 		.ascii	"EE_cortex_mx_stack_5\000"
+ 1784      6F727465 
+ 1784      785F6D78 
+ 1784      5F737461 
+ 1784      636B5F35 
+ 1785              	.LASF112:
+ 1786 032f 45455F63 		.ascii	"EE_cortex_mx_stack_9\000"
+ 1786      6F727465 
+ 1786      785F6D78 
+ 1786      5F737461 
+ 1786      636B5F39 
+ 1787              	.LASF14:
+ 1788 0344 45455F56 		.ascii	"EE_VOID_CALLBACK\000"
+ 1788      4F49445F 
+ 1788      43414C4C 
+ 1788      4241434B 
+ 1788      00
+ 1789              	.LASF27:
+ 1790 0355 436F756E 		.ascii	"CounterType\000"
+ 1790      74657254 
+ 1790      79706500 
+ 1791              	.LASF98:
+ 1792 0361 45455F6F 		.ascii	"EE_oo_counter_object_ROM\000"
+ 1792      6F5F636F 
+ 1792      756E7465 
+ 1792      725F6F62 
+ 1792      6A656374 
+ 1793              	.LASF59:
+ 1794 037a 61637469 		.ascii	"action_id\000"
+ 1794      6F6E5F69 
+ 1794      6400
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 36
+
+
+ 1795              	.LASF106:
+ 1796 0384 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1796      70706C69 
+ 1796      63617469 
+ 1796      6F6E4D6F 
+ 1796      646500
+ 1797              	.LASF99:
+ 1798 0397 45455F6F 		.ascii	"EE_oo_action_ROM\000"
+ 1798      6F5F6163 
+ 1798      74696F6E 
+ 1798      5F524F4D 
+ 1798      00
+ 1799              	.LASF21:
+ 1800 03a8 45455F54 		.ascii	"EE_TYPE_RQ_MASK\000"
+ 1800      5950455F 
+ 1800      52515F4D 
+ 1800      41534B00 
+ 1801              	.LASF64:
+ 1802 03b8 73697A65 		.ascii	"sizetype\000"
+ 1802      74797065 
+ 1802      00
+ 1803              	.LASF9:
+ 1804 03c1 6C6F6E67 		.ascii	"long double\000"
+ 1804      20646F75 
+ 1804      626C6500 
+ 1805              	.LASF92:
+ 1806 03cd 45455F72 		.ascii	"EE_rq_free\000"
+ 1806      715F6672 
+ 1806      656500
+ 1807              	.LASF86:
+ 1808 03d8 45455F72 		.ascii	"EE_rq_link\000"
+ 1808      715F6C69 
+ 1808      6E6B00
+ 1809              	.LASF17:
+ 1810 03e3 45455F53 		.ascii	"EE_SREG\000"
+ 1810      52454700 
+ 1811              	.LASF30:
+ 1812 03eb 7469636B 		.ascii	"ticksperbase\000"
+ 1812      73706572 
+ 1812      62617365 
+ 1812      00
+ 1813              	.LASF43:
+ 1814 03f8 75736564 		.ascii	"used\000"
+ 1814      00
+ 1815              	.LASF47:
+ 1816 03fd 45455F6F 		.ascii	"EE_oo_counter_object_RAM_type\000"
+ 1816      6F5F636F 
+ 1816      756E7465 
+ 1816      725F6F62 
+ 1816      6A656374 
+ 1817              	.LASF97:
+ 1818 041b 45455F63 		.ascii	"EE_counter_ROM\000"
+ 1818      6F756E74 
+ 1818      65725F52 
+ 1818      4F4D00
+ 1819              	.LASF58:
+ 1820 042a 45455F6F 		.ascii	"EE_oo_action_ROM_type\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 37
+
+
+ 1820      6F5F6163 
+ 1820      74696F6E 
+ 1820      5F524F4D 
+ 1820      5F747970 
+ 1821              	.LASF10:
+ 1822 0440 45455F55 		.ascii	"EE_UINT16\000"
+ 1822      494E5431 
+ 1822      3600
+ 1823              	.LASF115:
+ 1824 044a 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1824      73657273 
+ 1824      5C417375 
+ 1824      735C4465 
+ 1824      736B746F 
+ 1825 0476 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 1825      30315C45 
+ 1825      6C656374 
+ 1825      726F6E69 
+ 1825      635F4761 
+ 1826 04a5 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1826      312E6379 
+ 1826      64736E00 
+ 1827              	.LASF69:
+ 1828 04b1 45455F63 		.ascii	"EE_cortex_mx_system_tos\000"
+ 1828      6F727465 
+ 1828      785F6D78 
+ 1828      5F737973 
+ 1828      74656D5F 
+ 1829              	.LASF1:
+ 1830 04c9 756E7369 		.ascii	"unsigned char\000"
+ 1830      676E6564 
+ 1830      20636861 
+ 1830      7200
+ 1831              	.LASF36:
+ 1832 04d7 45455F41 		.ascii	"EE_ALARM\000"
+ 1832      4C41524D 
+ 1832      00
+ 1833              	.LASF81:
+ 1834 04e0 45455F74 		.ascii	"EE_th_next\000"
+ 1834      685F6E65 
+ 1834      787400
+ 1835              	.LASF68:
+ 1836 04eb 45455F74 		.ascii	"EE_terminate_real_th_body\000"
+ 1836      65726D69 
+ 1836      6E617465 
+ 1836      5F726561 
+ 1836      6C5F7468 
+ 1837              	.LASF57:
+ 1838 0505 696E6363 		.ascii	"inccount\000"
+ 1838      6F756E74 
+ 1838      00
+ 1839              	.LASF2:
+ 1840 050e 73686F72 		.ascii	"short int\000"
+ 1840      7420696E 
+ 1840      7400
+ 1841              	.LASF94:
+ 1842 0518 45455F74 		.ascii	"EE_th_event_waitmask\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 38
+
+
+ 1842      685F6576 
+ 1842      656E745F 
+ 1842      77616974 
+ 1842      6D61736B 
+ 1843              	.LASF75:
+ 1844 052d 45455F54 		.ascii	"EE_TASK_NAME\000"
+ 1844      41534B5F 
+ 1844      4E414D45 
+ 1844      00
+ 1845              	.LASF32:
+ 1846 053a 45455F6F 		.ascii	"EE_oo_counter_ROM_type\000"
+ 1846      6F5F636F 
+ 1846      756E7465 
+ 1846      725F524F 
+ 1846      4D5F7479 
+ 1847              	.LASF113:
+ 1848 0551 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1848      43313120 
+ 1848      352E342E 
+ 1848      31203230 
+ 1848      31363036 
+ 1849 0584 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1849      20726576 
+ 1849      6973696F 
+ 1849      6E203233 
+ 1849      37373135 
+ 1850 05b7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1850      66756E63 
+ 1850      74696F6E 
+ 1850      2D736563 
+ 1850      74696F6E 
+ 1851              	.LASF56:
+ 1852 05df 61637469 		.ascii	"action_mask\000"
+ 1852      6F6E5F6D 
+ 1852      61736B00 
+ 1853              	.LASF15:
+ 1854 05eb 45455F54 		.ascii	"EE_THREAD_PTR\000"
+ 1854      48524541 
+ 1854      445F5054 
+ 1854      5200
+ 1855              	.LASF88:
+ 1856 05f9 45455F72 		.ascii	"EE_rq_queues_tail\000"
+ 1856      715F7175 
+ 1856      65756573 
+ 1856      5F746169 
+ 1856      6C00
+ 1857              	.LASF66:
+ 1858 060b 45455F73 		.ascii	"EE_std_thread_tos\000"
+ 1858      74645F74 
+ 1858      68726561 
+ 1858      645F746F 
+ 1858      7300
+ 1859              	.LASF51:
+ 1860 061d 45455F41 		.ascii	"EE_ACTION_CALLBACK\000"
+ 1860      4354494F 
+ 1860      4E5F4341 
+ 1860      4C4C4241 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 39
+
+
+ 1860      434B00
+ 1861              	.LASF91:
+ 1862 0630 45455F72 		.ascii	"EE_rq_bitmask\000"
+ 1862      715F6269 
+ 1862      746D6173 
+ 1862      6B00
+ 1863              	.LASF34:
+ 1864 063e 66697273 		.ascii	"first\000"
+ 1864      7400
+ 1865              	.LASF25:
+ 1866 0644 436F756E 		.ascii	"CounterObjectType\000"
+ 1866      7465724F 
+ 1866      626A6563 
+ 1866      74547970 
+ 1866      6500
+ 1867              	.LASF74:
+ 1868 0656 63686172 		.ascii	"char\000"
+ 1868      00
+ 1869              	.LASF48:
+ 1870 065b 45455F41 		.ascii	"EE_ACTION_TASK\000"
+ 1870      4354494F 
+ 1870      4E5F5441 
+ 1870      534B00
+ 1871              	.LASF71:
+ 1872 066a 45455F74 		.ascii	"EE_th_rnact_max\000"
+ 1872      685F726E 
+ 1872      6163745F 
+ 1872      6D617800 
+ 1873              	.LASF50:
+ 1874 067a 45455F41 		.ascii	"EE_ACTION_COUNTER\000"
+ 1874      4354494F 
+ 1874      4E5F434F 
+ 1874      554E5445 
+ 1874      5200
+ 1875              	.LASF101:
+ 1876 068c 45455F63 		.ascii	"EE_counter_RAM\000"
+ 1876      6F756E74 
+ 1876      65725F52 
+ 1876      414D00
+ 1877              	.LASF40:
+ 1878 069b 73706563 		.ascii	"spec_id\000"
+ 1878      5F696400 
+ 1879              	.LASF49:
+ 1880 06a3 45455F41 		.ascii	"EE_ACTION_EVENT\000"
+ 1880      4354494F 
+ 1880      4E5F4556 
+ 1880      454E5400 
+ 1881              	.LASF65:
+ 1882 06b3 45455F68 		.ascii	"EE_hal_thread_body\000"
+ 1882      616C5F74 
+ 1882      68726561 
+ 1882      645F626F 
+ 1882      647900
+ 1883              	.LASF85:
+ 1884 06c6 45455F73 		.ascii	"EE_sys_ceiling\000"
+ 1884      79735F63 
+ 1884      65696C69 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 40
+
+
+ 1884      6E6700
+ 1885              	.LASF54:
+ 1886 06d5 61637469 		.ascii	"action_kind\000"
+ 1886      6F6E5F6B 
+ 1886      696E6400 
+ 1887              	.LASF63:
+ 1888 06e1 7461736B 		.ascii	"task\000"
+ 1888      00
+ 1889              	.LASF102:
+ 1890 06e6 45455F6F 		.ascii	"EE_oo_counter_object_RAM\000"
+ 1890      6F5F636F 
+ 1890      756E7465 
+ 1890      725F6F62 
+ 1890      6A656374 
+ 1891              	.LASF53:
+ 1892 06ff 41637469 		.ascii	"ActionKindType\000"
+ 1892      6F6E4B69 
+ 1892      6E645479 
+ 1892      706500
+ 1893              	.LASF72:
+ 1894 070e 45455F74 		.ascii	"EE_th_ready_prio\000"
+ 1894      685F7265 
+ 1894      6164795F 
+ 1894      7072696F 
+ 1894      00
+ 1895              	.LASF82:
+ 1896 071f 45455F74 		.ascii	"EE_th_rnact\000"
+ 1896      685F726E 
+ 1896      61637400 
+ 1897              	.LASF90:
+ 1898 072b 45455F72 		.ascii	"EE_rq_pairs_tid\000"
+ 1898      715F7061 
+ 1898      6972735F 
+ 1898      74696400 
+ 1899              	.LASF108:
+ 1900 073b 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1900      52515F6E 
+ 1900      65737469 
+ 1900      6E675F6C 
+ 1900      6576656C 
+ 1901              	.LASF12:
+ 1902 0750 45455F55 		.ascii	"EE_UINT32\000"
+ 1902      494E5433 
+ 1902      3200
+ 1903              	.LASF11:
+ 1904 075a 45455F49 		.ascii	"EE_INT32\000"
+ 1904      4E543332 
+ 1904      00
+ 1905              	.LASF67:
+ 1906 0763 45455F74 		.ascii	"EE_terminate_data\000"
+ 1906      65726D69 
+ 1906      6E617465 
+ 1906      5F646174 
+ 1906      6100
+ 1907              	.LASF114:
+ 1908 0775 47656E65 		.ascii	"Generated_Source\\PSoC5\\ErikaOS_1_eecfg.c\000"
+ 1908      72617465 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccFWIClT.s 			page 41
+
+
+ 1908      645F536F 
+ 1908      75726365 
+ 1908      5C50536F 
+ 1909              	.LASF93:
+ 1910 079e 45455F74 		.ascii	"EE_th_event_active\000"
+ 1910      685F6576 
+ 1910      656E745F 
+ 1910      61637469 
+ 1910      766500
+ 1911              	.LASF44:
+ 1912 07b1 636E7463 		.ascii	"cntcycle\000"
+ 1912      79636C65 
+ 1912      00
+ 1913              	.LASF28:
+ 1914 07ba 5359535F 		.ascii	"SYS_tos\000"
+ 1914      746F7300 
+ 1915              	.LASF55:
+ 1916 07c2 61637469 		.ascii	"action_task\000"
+ 1916      6F6E5F74 
+ 1916      61736B00 
+ 1917              	.LASF13:
+ 1918 07ce 45455F41 		.ascii	"EE_ADDR\000"
+ 1918      44445200 
+ 1919              	.LASF96:
+ 1920 07d6 45455F74 		.ascii	"EE_th_is_extended\000"
+ 1920      685F6973 
+ 1920      5F657874 
+ 1920      656E6465 
+ 1920      6400
+ 1921              	.LASF18:
+ 1922 07e8 45455F46 		.ascii	"EE_FREG\000"
+ 1922      52454700 
+ 1923              	.LASF103:
+ 1924 07f0 45455F6F 		.ascii	"EE_oo_autostart_task_data\000"
+ 1924      6F5F6175 
+ 1924      746F7374 
+ 1924      6172745F 
+ 1924      7461736B 
+ 1925              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

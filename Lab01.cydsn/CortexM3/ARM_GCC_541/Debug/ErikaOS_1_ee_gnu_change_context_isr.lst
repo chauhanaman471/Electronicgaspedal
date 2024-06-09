@@ -1,0 +1,287 @@
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_change_context_isr.s 			page 1
+
+
+   1              	/* ###*B*###
+   2              	; ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3              	;
+   4              	; Copyright (C) 2002-2012  Evidence Srl
+   5              	;
+   6              	; This file is part of ERIKA Enterprise.
+   7              	;
+   8              	; ERIKA Enterprise is free software; you can redistribute it
+   9              	; and/or modify it under the terms of the GNU General Public License
+  10              	; version 2 as published by the Free Software Foundation, 
+  11              	; (with a special exception described below).
+  12              	;
+  13              	; Linking this code statically or dynamically with other modules is
+  14              	; making a combined work based on this code.  Thus, the terms and
+  15              	; conditions of the GNU General Public License cover the whole
+  16              	; combination.
+  17              	;
+  18              	; As a special exception, the copyright holders of this library give you
+  19              	; permission to link this code with independent modules to produce an
+  20              	; executable, regardless of the license terms of these independent
+  21              	; modules, and to copy and distribute the resulting executable under
+  22              	; terms of your choice, provided that you also meet, for each linked
+  23              	; independent module, the terms and conditions of the license of that
+  24              	; module.  An independent module is a module which is not derived from
+  25              	; or based on this library.  If you modify this code, you may extend
+  26              	; this exception to your version of the code, but you are not
+  27              	; obligated to do so.  If you do not wish to do so, delete this
+  28              	; exception statement from your version.
+  29              	;
+  30              	; ERIKA Enterprise is distributed in the hope that it will be
+  31              	; useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32              	; of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33              	; GNU General Public License version 2 for more details.
+  34              	;
+  35              	; You should have received a copy of the GNU General Public License
+  36              	; version 2 along with ERIKA Enterprise; if not, write to the
+  37              	; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38              	; Boston, MA 02110-1301 USA.
+  39              	; ###*E*###
+  40              	
+  41              	;	@file	ee_gnu_change_context_isr.s
+  42              	;	@brief	Functions to active and manage the context switch for Cortex_MX 
+  43              	;	@author	Gianluca Franchino
+  44              	;	@author	Giuseppe Serano
+  45              	;	@author	Mauro Marinoni
+  46              	;	@author	Alessandro Biondi
+  47              	;	@date	2013
+  48              	*/
+  49              	
+  50              	/*
+  51              	; PSoC Port and API Generation
+  52              	; Carlos Fernando Meier Martinez
+  53              	; Hochschule Darmstadt, Germany. 2017.
+  54              	*/
+  55              	
+  56              	@*******************************************************************************
+  57              	@                         PUBLIC FUNCTIONS
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_change_context_isr.s 			page 2
+
+
+  58              	@*******************************************************************************
+  59              	
+  60              	.if 1
+  61              	.set __MULTI__, 1
+  62              	.else
+  63              	.set __MONO__, 1
+  64              	.endif
+  65              	
+  66              	@ void EE_switch_context(void);
+  67              		.global	EE_switch_context
+  68              	
+  69              	@ void EE_cortex_mx_pendsv_ISR(void);
+  70              		.global	EE_cortex_mx_pendsv_ISR
+  71              	
+  72              	@ void EE_cortex_mx_svc_ISR(void);
+  73              		.global	EE_cortex_mx_svc_ISR
+  74              	
+  75              	@ void EE_set_switch_context_pri(void)
+  76              		.global	EE_set_switch_context_pri
+  77              	
+  78              	@ void EE_IRQ_end_instance(void);
+  79              		.global	EE_IRQ_end_instance
+  80              	
+  81              	@ void EE_cortex_mx_change_context(EE_TID tid);
+  82              		.global	EE_cortex_mx_change_context
+  83              	
+  84              	@ EE_TID EE_std_endcycle_next_tid;
+  85              		.global	EE_std_endcycle_next_tid
+  86              	
+  87              	.ifdef	__MULTI__
+  88              	@ int EE_std_need_context_change(EE_TID tid);
+  89              		.global	EE_std_need_context_change
+  90              	.endif
+  91              	
+  92              	@*******************************************************************************
+  93              	@                              CODE SECTION
+  94              	@*******************************************************************************
+  95              		.text
+  96              	
+  97              	@ kernel code is in ARM-mode
+  98              		.syntax unified
+  99              		.arch armv7e-m
+ 100              		.cpu cortex-m4
+ 101              		
+ 102              	
+ 103              	.set	NVIC_INT_CTRL,	0xE000ED04	@ Interrupt control status register
+ 104              	.set NVIC_SHPR2, 0xE000ED1C;	@ System priority register (SVCall 11)
+ 105              	.set	NVIC_SHPR3,	0xE000ED20	@ System priority register (PendSV 14)
+ 106              	.set	NVIC_PENDSV_PRI,	0x00FF0000	@ PendSV priority OR-value (Lowest)
+ 107              	.set	NVIC_SVCALL_PRI,	0x00FFFFFF	@ SVCall priority AND-value (Highest)
+ 108              	.set	NVIC_PENDSVSET,	0x10000000	@ Value to trigger PendSV exception
+ 109              	.set	NVIC_PENDSVCLR,	0x08000000	@ Value to un-trigger PendSV exception
+ 110              	
+ 111              	.set	EPSR_T_BIT_VAL,	0x01000000	@ Value to set the T-bit in EPSR
+ 112              						@ (always Thumb mode)
+ 113              	
+ 114              	.set	EXC_RETURN,	0xFFFFFFF9	@ No-FPU, Thread-Mode, MSP.
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_change_context_isr.s 			page 3
+
+
+ 115              	
+ 116              	.ifdef __MONO__
+ 117              	.set	TID_IS_STACKED_MARK,	0x80000000
+ 118              	.endif
+ 119              	
+ 120              	.set	_EE_cortex_mx_change_context_addr,		EE_cortex_mx_change_context
+ 121              	.set	_EE_std_endcycle_next_tid_addr,			EE_std_endcycle_next_tid
+ 122              	.set	_EE_cortex_mx_change_context_return_point_addr,	EE_cortex_mx_change_context_return_point
+ 123              	
+ 124              	
+ 125              	@ void EE_set_switch_context_pri(void)
+ 126              	        .type   EE_set_switch_context_pri, #function
+ 127              	EE_set_switch_context_pri:
+ 128              	
+ 129              	@Set PendSV priority to the minumum one
+ 130 0000 1848     		LDR	R0, =NVIC_SHPR3
+ 131 0002 4FF47F01 		LDR	R1, =NVIC_PENDSV_PRI
+ 132 0006 0268     		LDR	R2, [R0];
+ 133 0008 0A43     		ORRS	R2, R2, R1;
+ 134 000a 0260     		STR	R2, [R0];
+ 135              	
+ 136              	@Set SVCall priority to the maximum one
+ 137 000c 1648     		LDR	R0, =NVIC_SHPR2
+ 138 000e 6FF07F41 		LDR	R1, =NVIC_SVCALL_PRI
+ 139 0012 0268     		LDR	R2, [R0];
+ 140 0014 0A40     		ANDS	R2, R2, R1;
+ 141 0016 0260     		STR	R2, [R0];
+ 142              	
+ 143 0018 7047     		BX	LR
+ 144              	
+ 145              		.size	EE_set_switch_context_pri, . - EE_set_switch_context_pri
+ 146              	
+ 147              	
+ 148              	@ void EE_switch_context(void)
+ 149              	        .type   EE_switch_context, #function
+ 150              	EE_switch_context:
+ 151              	
+ 152              	@ Trigger the PendSV exception (causes context switch)
+ 153 001a 1448     		LDR	R0, =NVIC_INT_CTRL
+ 154 001c 4FF08051 		LDR	R1, =NVIC_PENDSVSET
+ 155 0020 0160     		STR	R1, [R0]
+ 156 0022 7047     		BX	LR
+ 157              	
+ 158              		.size	EE_switch_context, . - EE_switch_context
+ 159              	
+ 160              	
+ 161              	@ void EE_cortex_mx_pendsv_ISR(void)
+ 162              	        .type   EE_cortex_mx_pendsv_ISR, #function
+ 163              	EE_cortex_mx_pendsv_ISR:
+ 164              	
+ 165 0024 72B6     		CPSID	I	@ Disable all interrupts.
+ 166              	
+ 167              	@ Clear the PendSV exception (preventing 2nd triggering)
+ 168 0026 1148     		LDR	R0, =NVIC_INT_CTRL
+ 169 0028 4FF00061 		LDR	R1, =NVIC_PENDSVCLR
+ 170 002c 0160     		STR	R1, [R0]
+ 171              	
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_change_context_isr.s 			page 4
+
+
+ 172 002e FFF7FEFF 		BL	EE_IRQ_end_instance	@ IRQ Scheduler.
+ 173              	
+ 174              	@ R0 = EE_std_endcycle_next_tid.
+ 175 0032 0F48     		LDR	R0, =_EE_std_endcycle_next_tid_addr
+ 176 0034 0068     		LDR	R0, [R0]
+ 177              	.ifdef __MONO__
+ 178              	@ #define EE_std_need_context_change(tid) ((tid) >= 0)
+ 179              		LDR	R1, =TID_IS_STACKED_MARK
+ 180              		ANDS	R0, R0, R1
+ 181              		CBNZ	R0, EE_cortex_mx_pendsv_ISR_end
+ 182              	.endif
+ 183              	
+ 184              	.ifdef __MULTI__
+ 185 0036 FFF7FEFF 		BL	EE_std_need_context_change
+ 186 003a 58B1     		CBZ	R0, EE_cortex_mx_pendsv_ISR_end
+ 187              	.endif
+ 188              	
+ 189              	@ Build a stack frame to jump into the EE_std_change_context(EE_TID) at the end
+ 190              	@ of PendSV_Handler.
+ 191              	
+ 192              	@ R0 = EE_std_endcycle_next_tid (R12)
+ 193 003c 0C48     		LDR	R0, =_EE_std_endcycle_next_tid_addr
+ 194 003e 0068     		LDR	R0, [R0]
+ 195              	
+ 196              	@ R3 = 0x01000000 (xPSR)
+ 197 0040 4FF08073 		LDR	R3, =EPSR_T_BIT_VAL
+ 198              	
+ 199              	@ R2 = EE_cortex_mx_change_context (PC)
+ 200 0044 0B4A     		LDR	R2, =_EE_cortex_mx_change_context_addr
+ 201              	
+ 202              	@ R1 = exit_EE_cortex_mx_change_context (LR)
+ 203 0046 0C49     		LDR	R1, =_EE_cortex_mx_change_context_return_point_addr
+ 204              	
+ 205              	@|xPSR|-> xPSR AND 0xFFFFFE0
+ 206              	@| PC |-> EE_cortex_mx_change_context
+ 207              	@| LR |-> EE_cortex_mx_change_context_return_point
+ 208              	@| R12|
+ 209 0048 0FB4     		PUSH	{R0-R3}
+ 210              	
+ 211              	@| R3 |
+ 212              	@| R2 |
+ 213              	@| R1 |
+ 214              	@| R0 |
+ 215 004a 0FB4     		PUSH	{R0-R3}
+ 216              	
+ 217              	@Fake IRQ handler frame on top of PendSV frame:
+ 218              	@|xPSR|-> xPSR AND 0xFFFFFE0
+ 219              	@| PC |-> EE_cortex_mx_change_context
+ 220              	@| LR |-> EE_cortex_mx_change_context_return_point
+ 221              	@| R12|
+ 222              	@| R3 |
+ 223              	@| R2 |
+ 224              	@| R1 |
+ 225              	@| R0 | <- MSP
+ 226              	@ R0 = EXC_RETURN -> Return to Thread mode.
+ 227              	@		  -> Exception return gets state from MSP.
+ 228              	@		  -> Execution uses MSP after return.
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_change_context_isr.s 			page 5
+
+
+ 229 004c 6FF00600 		LDR	R0, =EXC_RETURN
+ 230 0050 0047     		BX	R0		@ EXC_RETURN.
+ 231              	
+ 232 0052 00BF     		NOP			@ Alignment. 
+ 233              	
+ 234              	EE_cortex_mx_pendsv_ISR_end:
+ 235              	@ R0 = EXC_RETURN -> Return to Thread mode.
+ 236              	@		  -> Exception return gets state from MSP.
+ 237              	@		  -> Execution uses MSP after return.
+ 238 0054 6FF00600 		LDR	R0, =EXC_RETURN
+ 239 0058 62B6     		CPSIE	I		@ Enable all interrupts.
+ 240 005a 0047     		BX	R0		@ EXC_RETURN.
+ 241              	
+ 242              		.size	EE_cortex_mx_pendsv_ISR, . - EE_cortex_mx_pendsv_ISR
+ 243              	
+ 244              	
+ 245              	@ Enable interrupts (clear PRIMASK)
+ 246              	        .type   EE_cortex_mx_change_context_return_point, #function
+ 247              	EE_cortex_mx_change_context_return_point:
+ 248              	/*; NOTE:	If SVC is executed when PRIMASK is set to 1, HardFault Exception will
+ 249              	; 	occur. To solve this, instead of using PRIMASK to mask interrupts, use
+ 250              	; 	BASEPRI to mask particular interrupts. */
+ 251 005c 62B6     		CPSIE	I
+ 252              	@ SVCall exception to remove Original PendSV stack-frame.
+ 253 005e 00DF     		SVC	#0
+ 254              	
+ 255              		.size	EE_cortex_mx_change_context_return_point, . - EE_cortex_mx_change_context_return_point
+ 256              	
+ 257              	@ void EE_cortex_mx_svc_ISR(void)
+ 258              	        .type   EE_cortex_mx_svc_ISR, #function
+ 259              	EE_cortex_mx_svc_ISR:
+ 260              	@ Remove SVCall Stack-Frame.
+ 261 0060 08B0     		ADD	SP, SP, #(8*4)
+ 262              	
+ 263 0062 7047     		BX	LR	@ EXC_RETURN.
+ 264              	
+ 265              		.size	EE_cortex_mx_svc_ISR, . - EE_cortex_mx_svc_ISR
+ 266              	
+ 267              	
+ 268 0064 20ED00E0 		.end
+ 268      1CED00E0 
+ 268      04ED00E0 
+ 268      00000000 
+ 268      00000000 

@@ -1,0 +1,2322 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"RGB_PWM_red.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RGB_PWM_red_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	RGB_PWM_red_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	RGB_PWM_red_Enable, %function
+  25              	RGB_PWM_red_Enable:
+  26              	.LFB2:
+  27              		.file 1 "Generated_Source\\PSoC5\\RGB_PWM_red.c"
+   1:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/RGB_PWM_red.c **** * File Name: RGB_PWM_red.c
+   3:Generated_Source\PSoC5/RGB_PWM_red.c **** * Version 3.30
+   4:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+   5:Generated_Source\PSoC5/RGB_PWM_red.c **** * Description:
+   6:Generated_Source\PSoC5/RGB_PWM_red.c **** *  The PWM User Module consist of an 8 or 16-bit counter with two 8 or 16-bit
+   7:Generated_Source\PSoC5/RGB_PWM_red.c **** *  comparitors. Each instance of this user module is capable of generating
+   8:Generated_Source\PSoC5/RGB_PWM_red.c **** *  two PWM outputs with the same period. The pulse width is selectable between
+   9:Generated_Source\PSoC5/RGB_PWM_red.c **** *  1 and 255/65535. The period is selectable between 2 and 255/65536 clocks.
+  10:Generated_Source\PSoC5/RGB_PWM_red.c **** *  The compare value output may be configured to be active when the present
+  11:Generated_Source\PSoC5/RGB_PWM_red.c **** *  counter is less than or less than/equal to the compare value.
+  12:Generated_Source\PSoC5/RGB_PWM_red.c **** *  A terminal count output is also provided. It generates a pulse one clock
+  13:Generated_Source\PSoC5/RGB_PWM_red.c **** *  width wide when the counter is equal to zero.
+  14:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  15:Generated_Source\PSoC5/RGB_PWM_red.c **** * Note:
+  16:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  17:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************
+  18:Generated_Source\PSoC5/RGB_PWM_red.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/RGB_PWM_red.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/RGB_PWM_red.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/RGB_PWM_red.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  24:Generated_Source\PSoC5/RGB_PWM_red.c **** #include "RGB_PWM_red.h"
+  25:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  26:Generated_Source\PSoC5/RGB_PWM_red.c **** /* Error message for removed <resource> through optimization */
+  27:Generated_Source\PSoC5/RGB_PWM_red.c **** #ifdef RGB_PWM_red_PWMUDB_genblk1_ctrlreg__REMOVED
+  28:Generated_Source\PSoC5/RGB_PWM_red.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
+  29:Generated_Source\PSoC5/RGB_PWM_red.c ****          constant 1 for reset. This will prevent the component from operating.
+  30:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* RGB_PWM_red_PWMUDB_genblk1_ctrlreg__REMOVED */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 2
+
+
+  31:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  32:Generated_Source\PSoC5/RGB_PWM_red.c **** uint8 RGB_PWM_red_initVar = 0u;
+  33:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  34:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  35:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+  36:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_Start
+  37:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+  38:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  39:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+  40:Generated_Source\PSoC5/RGB_PWM_red.c **** *  The start function initializes the pwm with the default values, the
+  41:Generated_Source\PSoC5/RGB_PWM_red.c **** *  enables the counter to begin counting.  It does not enable interrupts,
+  42:Generated_Source\PSoC5/RGB_PWM_red.c **** *  the EnableInt command should be called if interrupt generation is required.
+  43:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  44:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+  45:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+  46:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  47:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+  48:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+  49:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  50:Generated_Source\PSoC5/RGB_PWM_red.c **** * Global variables:
+  51:Generated_Source\PSoC5/RGB_PWM_red.c **** *  RGB_PWM_red_initVar: Is modified when this function is called for the
+  52:Generated_Source\PSoC5/RGB_PWM_red.c **** *   first time. Is used to ensure that initialization happens only once.
+  53:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  54:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+  55:Generated_Source\PSoC5/RGB_PWM_red.c **** void RGB_PWM_red_Start(void) 
+  56:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+  57:Generated_Source\PSoC5/RGB_PWM_red.c ****     /* If not Initialized then initialize all required hardware and software */
+  58:Generated_Source\PSoC5/RGB_PWM_red.c ****     if(RGB_PWM_red_initVar == 0u)
+  59:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+  60:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_Init();
+  61:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_initVar = 1u;
+  62:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+  63:Generated_Source\PSoC5/RGB_PWM_red.c ****     RGB_PWM_red_Enable();
+  64:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  65:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+  66:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  67:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  68:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+  69:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_Init
+  70:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+  71:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  72:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+  73:Generated_Source\PSoC5/RGB_PWM_red.c **** *  Initialize component's parameters to the parameters set by user in the
+  74:Generated_Source\PSoC5/RGB_PWM_red.c **** *  customizer of the component placed onto schematic. Usually called in
+  75:Generated_Source\PSoC5/RGB_PWM_red.c **** *  RGB_PWM_red_Start().
+  76:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  77:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+  78:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+  79:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  80:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+  81:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+  82:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+  83:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+  84:Generated_Source\PSoC5/RGB_PWM_red.c **** void RGB_PWM_red_Init(void) 
+  85:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+  86:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction || RGB_PWM_red_UseControl)
+  87:Generated_Source\PSoC5/RGB_PWM_red.c ****         uint8 ctrl;
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 3
+
+
+  88:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction || RGB_PWM_red_UseControl) */
+  89:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  90:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if(!RGB_PWM_red_UsingFixedFunction)
+  91:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UseStatus)
+  92:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Interrupt State Backup for Critical Region*/
+  93:Generated_Source\PSoC5/RGB_PWM_red.c ****             uint8 RGB_PWM_red_interruptState;
+  94:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UseStatus) */
+  95:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (!RGB_PWM_red_UsingFixedFunction) */
+  96:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+  97:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction)
+  98:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* You are allowed to write the compare value (FF only) */
+  99:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL |= RGB_PWM_red_CFG0_MODE;
+ 100:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_DeadBand2_4)
+ 101:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_CONTROL |= RGB_PWM_red_CFG0_DB;
+ 102:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_DeadBand2_4) */
+ 103:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 104:Generated_Source\PSoC5/RGB_PWM_red.c ****         ctrl = RGB_PWM_red_CONTROL3 & ((uint8 )(~RGB_PWM_red_CTRL_CMPMODE1_MASK));
+ 105:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL3 = ctrl | RGB_PWM_red_DEFAULT_COMPARE1_MODE;
+ 106:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 107:Generated_Source\PSoC5/RGB_PWM_red.c ****          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 108:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_RT1 &= ((uint8)(~RGB_PWM_red_RT1_MASK));
+ 109:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_RT1 |= RGB_PWM_red_SYNC;
+ 110:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 111:Generated_Source\PSoC5/RGB_PWM_red.c ****         /*Enable DSI Sync all all inputs of the PWM*/
+ 112:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_RT1 &= ((uint8)(~RGB_PWM_red_SYNCDSI_MASK));
+ 113:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_RT1 |= RGB_PWM_red_SYNCDSI_EN;
+ 114:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 115:Generated_Source\PSoC5/RGB_PWM_red.c ****     #elif (RGB_PWM_red_UseControl)
+ 116:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Set the default compare mode defined in the parameter */
+ 117:Generated_Source\PSoC5/RGB_PWM_red.c ****         ctrl = RGB_PWM_red_CONTROL & ((uint8)(~RGB_PWM_red_CTRL_CMPMODE2_MASK)) &
+ 118:Generated_Source\PSoC5/RGB_PWM_red.c ****                 ((uint8)(~RGB_PWM_red_CTRL_CMPMODE1_MASK));
+ 119:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL = ctrl | RGB_PWM_red_DEFAULT_COMPARE2_MODE |
+ 120:Generated_Source\PSoC5/RGB_PWM_red.c ****                                    RGB_PWM_red_DEFAULT_COMPARE1_MODE;
+ 121:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 122:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 123:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (!RGB_PWM_red_UsingFixedFunction)
+ 124:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_Resolution == 8)
+ 125:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Set FIFO 0 to 1 byte register for period*/
+ 126:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_AUX_CONTROLDP0 |= (RGB_PWM_red_AUX_CTRL_FIFO0_CLR);
+ 127:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else /* (RGB_PWM_red_Resolution == 16)*/
+ 128:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Set FIFO 0 to 1 byte register for period */
+ 129:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_AUX_CONTROLDP0 |= (RGB_PWM_red_AUX_CTRL_FIFO0_CLR);
+ 130:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_AUX_CONTROLDP1 |= (RGB_PWM_red_AUX_CTRL_FIFO0_CLR);
+ 131:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_Resolution == 8) */
+ 132:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 133:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_WriteCounter(RGB_PWM_red_INIT_PERIOD_VALUE);
+ 134:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (!RGB_PWM_red_UsingFixedFunction) */
+ 135:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 136:Generated_Source\PSoC5/RGB_PWM_red.c ****     RGB_PWM_red_WritePeriod(RGB_PWM_red_INIT_PERIOD_VALUE);
+ 137:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 138:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_UseOneCompareMode)
+ 139:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_WriteCompare(RGB_PWM_red_INIT_COMPARE_VALUE1);
+ 140:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 141:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_WriteCompare1(RGB_PWM_red_INIT_COMPARE_VALUE1);
+ 142:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_WriteCompare2(RGB_PWM_red_INIT_COMPARE_VALUE2);
+ 143:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UseOneCompareMode) */
+ 144:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_KillModeMinTime)
+ 146:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_WriteKillTime(RGB_PWM_red_MinimumKillTime);
+ 147:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_KillModeMinTime) */
+ 148:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 149:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_DeadBandUsed)
+ 150:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_WriteDeadTime(RGB_PWM_red_INIT_DEAD_TIME);
+ 151:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_DeadBandUsed) */
+ 152:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 153:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UseStatus || RGB_PWM_red_UsingFixedFunction)
+ 154:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_SetInterruptMode(RGB_PWM_red_INIT_INTERRUPTS_MODE);
+ 155:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UseStatus || RGB_PWM_red_UsingFixedFunction) */
+ 156:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 157:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction)
+ 158:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Globally Enable the Fixed Function Block chosen */
+ 159:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_GLOBAL_ENABLE |= RGB_PWM_red_BLOCK_EN_MASK;
+ 160:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Set the Interrupt source to come from the status register */
+ 161:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL2 |= RGB_PWM_red_CTRL2_IRQ_SEL;
+ 162:Generated_Source\PSoC5/RGB_PWM_red.c ****     #else
+ 163:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UseStatus)
+ 164:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 165:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 166:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Enter Critical Region*/
+ 167:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_interruptState = CyEnterCriticalSection();
+ 168:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 169:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_STATUS_AUX_CTRL |= RGB_PWM_red_STATUS_ACTL_INT_EN_MASK;
+ 170:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 171:Generated_Source\PSoC5/RGB_PWM_red.c ****              /* Exit Critical Region*/
+ 172:Generated_Source\PSoC5/RGB_PWM_red.c ****             CyExitCriticalSection(RGB_PWM_red_interruptState);
+ 173:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 174:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Clear the FIFO to enable the RGB_PWM_red_STATUS_FIFOFULL
+ 175:Generated_Source\PSoC5/RGB_PWM_red.c ****                    bit to be set on FIFO full. */
+ 176:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_ClearFIFO();
+ 177:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UseStatus) */
+ 178:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 179:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+ 180:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 181:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 182:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+ 183:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_Enable
+ 184:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+ 185:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 186:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+ 187:Generated_Source\PSoC5/RGB_PWM_red.c **** *  Enables the PWM block operation
+ 188:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 189:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+ 190:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 191:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 192:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+ 193:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 194:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 195:Generated_Source\PSoC5/RGB_PWM_red.c **** * Side Effects:
+ 196:Generated_Source\PSoC5/RGB_PWM_red.c **** *  This works only if software enable mode is chosen
+ 197:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 198:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC5/RGB_PWM_red.c **** void RGB_PWM_red_Enable(void) 
+ 200:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+  28              		.loc 1 200 0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 5
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 201:Generated_Source\PSoC5/RGB_PWM_red.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 202:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction)
+ 203:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_GLOBAL_ENABLE |= RGB_PWM_red_BLOCK_EN_MASK;
+ 204:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_GLOBAL_STBY_ENABLE |= RGB_PWM_red_BLOCK_STBY_EN_MASK;
+ 205:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 206:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 207:Generated_Source\PSoC5/RGB_PWM_red.c ****     /* Enable the PWM from the control register  */
+ 208:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UseControl || RGB_PWM_red_UsingFixedFunction)
+ 209:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL |= RGB_PWM_red_CTRL_ENABLE;
+  33              		.loc 1 209 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F08003 		orr	r3, r3, #128
+  37 0008 1370     		strb	r3, [r2]
+  38 000a 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 000c 7C640040 		.word	1073767548
+  43              		.cfi_endproc
+  44              	.LFE2:
+  45              		.size	RGB_PWM_red_Enable, .-RGB_PWM_red_Enable
+  46              		.section	.text.RGB_PWM_red_Stop,"ax",%progbits
+  47              		.align	2
+  48              		.global	RGB_PWM_red_Stop
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	RGB_PWM_red_Stop, %function
+  52              	RGB_PWM_red_Stop:
+  53              	.LFB3:
+ 210:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UseControl || RGB_PWM_red_UsingFixedFunction) */
+ 211:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+ 212:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 213:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 214:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_Stop
+ 216:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+ 217:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 218:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+ 219:Generated_Source\PSoC5/RGB_PWM_red.c **** *  The stop function halts the PWM, but does not change any modes or disable
+ 220:Generated_Source\PSoC5/RGB_PWM_red.c **** *  interrupts.
+ 221:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 222:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+ 223:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 224:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 225:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+ 226:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 227:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 228:Generated_Source\PSoC5/RGB_PWM_red.c **** * Side Effects:
+ 229:Generated_Source\PSoC5/RGB_PWM_red.c **** *  If the Enable mode is set to Hardware only then this function
+ 230:Generated_Source\PSoC5/RGB_PWM_red.c **** *  has no effect on the operation of the PWM
+ 231:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 232:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 6
+
+
+ 233:Generated_Source\PSoC5/RGB_PWM_red.c **** void RGB_PWM_red_Stop(void) 
+ 234:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+  54              		.loc 1 234 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+ 235:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UseControl || RGB_PWM_red_UsingFixedFunction)
+ 236:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_CONTROL &= ((uint8)(~RGB_PWM_red_CTRL_ENABLE));
+  59              		.loc 1 236 0
+  60 0000 024A     		ldr	r2, .L5
+  61 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  62 0004 03F07F03 		and	r3, r3, #127
+  63 0008 1370     		strb	r3, [r2]
+  64 000a 7047     		bx	lr
+  65              	.L6:
+  66              		.align	2
+  67              	.L5:
+  68 000c 7C640040 		.word	1073767548
+  69              		.cfi_endproc
+  70              	.LFE3:
+  71              		.size	RGB_PWM_red_Stop, .-RGB_PWM_red_Stop
+  72              		.section	.text.RGB_PWM_red_WriteCounter,"ax",%progbits
+  73              		.align	2
+  74              		.global	RGB_PWM_red_WriteCounter
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	RGB_PWM_red_WriteCounter, %function
+  78              	RGB_PWM_red_WriteCounter:
+  79              	.LFB4:
+ 237:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UseControl || RGB_PWM_red_UsingFixedFunction) */
+ 238:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 239:Generated_Source\PSoC5/RGB_PWM_red.c ****     /* Globally disable the Fixed Function Block chosen */
+ 240:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction)
+ 241:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_GLOBAL_ENABLE &= ((uint8)(~RGB_PWM_red_BLOCK_EN_MASK));
+ 242:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_GLOBAL_STBY_ENABLE &= ((uint8)(~RGB_PWM_red_BLOCK_STBY_EN_MASK));
+ 243:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 244:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+ 245:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 246:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_UseOneCompareMode)
+ 247:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_CompareMode1SW)
+ 248:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 249:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 250:Generated_Source\PSoC5/RGB_PWM_red.c ****         /*******************************************************************************
+ 251:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Function Name: RGB_PWM_red_SetCompareMode
+ 252:Generated_Source\PSoC5/RGB_PWM_red.c ****         ********************************************************************************
+ 253:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 254:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Summary:
+ 255:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  This function writes the Compare Mode for the pwm output when in Dither mode,
+ 256:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  Center Align Mode or One Output Mode.
+ 257:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 258:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Parameters:
+ 259:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 260:Generated_Source\PSoC5/RGB_PWM_red.c ****         *                defined in the H file as input arguments.
+ 261:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 262:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Return:
+ 263:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  None
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 7
+
+
+ 264:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 265:Generated_Source\PSoC5/RGB_PWM_red.c ****         *******************************************************************************/
+ 266:Generated_Source\PSoC5/RGB_PWM_red.c ****         void RGB_PWM_red_SetCompareMode(uint8 comparemode) 
+ 267:Generated_Source\PSoC5/RGB_PWM_red.c ****         {
+ 268:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if(RGB_PWM_red_UsingFixedFunction)
+ 269:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 270:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #if(0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT)
+ 271:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_red_CTRL_CMPMO
+ 272:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #else
+ 273:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemodemasked = comparemode;
+ 274:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #endif /* (0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT) */
+ 275:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 276:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL3 &= ((uint8)(~RGB_PWM_red_CTRL_CMPMODE1_MASK)); /*Clear Existin
+ 277:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL3 |= comparemodemasked;
+ 278:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 279:Generated_Source\PSoC5/RGB_PWM_red.c ****             #elif (RGB_PWM_red_UseControl)
+ 280:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 281:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #if(0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT)
+ 282:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemode1masked = ((uint8)((uint8)comparemode << RGB_PWM_red_CTRL_CMPM
+ 283:Generated_Source\PSoC5/RGB_PWM_red.c ****                                                 RGB_PWM_red_CTRL_CMPMODE1_MASK;
+ 284:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #else
+ 285:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemode1masked = comparemode & RGB_PWM_red_CTRL_CMPMODE1_MASK;
+ 286:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #endif /* (0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT) */
+ 287:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 288:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #if(0 != RGB_PWM_red_CTRL_CMPMODE2_SHIFT)
+ 289:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemode2masked = ((uint8)((uint8)comparemode << RGB_PWM_red_CTRL_CMPM
+ 290:Generated_Source\PSoC5/RGB_PWM_red.c ****                                                RGB_PWM_red_CTRL_CMPMODE2_MASK;
+ 291:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #else
+ 292:Generated_Source\PSoC5/RGB_PWM_red.c ****                     uint8 comparemode2masked = comparemode & RGB_PWM_red_CTRL_CMPMODE2_MASK;
+ 293:Generated_Source\PSoC5/RGB_PWM_red.c ****                 #endif /* (0 != RGB_PWM_red_CTRL_CMPMODE2_SHIFT) */
+ 294:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 295:Generated_Source\PSoC5/RGB_PWM_red.c ****                 /*Clear existing mode */
+ 296:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL &= ((uint8)(~(RGB_PWM_red_CTRL_CMPMODE1_MASK |
+ 297:Generated_Source\PSoC5/RGB_PWM_red.c ****                                             RGB_PWM_red_CTRL_CMPMODE2_MASK)));
+ 298:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL |= (comparemode1masked | comparemode2masked);
+ 299:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 300:Generated_Source\PSoC5/RGB_PWM_red.c ****             #else
+ 301:Generated_Source\PSoC5/RGB_PWM_red.c ****                 uint8 temp = comparemode;
+ 302:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 303:Generated_Source\PSoC5/RGB_PWM_red.c ****         }
+ 304:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* RGB_PWM_red_CompareMode1SW */
+ 305:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 306:Generated_Source\PSoC5/RGB_PWM_red.c **** #else /* UseOneCompareMode */
+ 307:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 308:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_CompareMode1SW)
+ 309:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 310:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 311:Generated_Source\PSoC5/RGB_PWM_red.c ****         /*******************************************************************************
+ 312:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Function Name: RGB_PWM_red_SetCompareMode1
+ 313:Generated_Source\PSoC5/RGB_PWM_red.c ****         ********************************************************************************
+ 314:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 315:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Summary:
+ 316:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  This function writes the Compare Mode for the pwm or pwm1 output
+ 317:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 318:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Parameters:
+ 319:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 320:Generated_Source\PSoC5/RGB_PWM_red.c ****         *                defined in the H file as input arguments.
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 8
+
+
+ 321:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 322:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Return:
+ 323:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  None
+ 324:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 325:Generated_Source\PSoC5/RGB_PWM_red.c ****         *******************************************************************************/
+ 326:Generated_Source\PSoC5/RGB_PWM_red.c ****         void RGB_PWM_red_SetCompareMode1(uint8 comparemode) 
+ 327:Generated_Source\PSoC5/RGB_PWM_red.c ****         {
+ 328:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if(0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT)
+ 329:Generated_Source\PSoC5/RGB_PWM_red.c ****                 uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_red_CTRL_CMPMODE1_
+ 330:Generated_Source\PSoC5/RGB_PWM_red.c ****                                            RGB_PWM_red_CTRL_CMPMODE1_MASK;
+ 331:Generated_Source\PSoC5/RGB_PWM_red.c ****             #else
+ 332:Generated_Source\PSoC5/RGB_PWM_red.c ****                 uint8 comparemodemasked = comparemode & RGB_PWM_red_CTRL_CMPMODE1_MASK;
+ 333:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (0 != RGB_PWM_red_CTRL_CMPMODE1_SHIFT) */
+ 334:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 335:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if (RGB_PWM_red_UseControl)
+ 336:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL &= ((uint8)(~RGB_PWM_red_CTRL_CMPMODE1_MASK)); /*Clear existing
+ 337:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_CONTROL |= comparemodemasked;
+ 338:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (RGB_PWM_red_UseControl) */
+ 339:Generated_Source\PSoC5/RGB_PWM_red.c ****         }
+ 340:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* RGB_PWM_red_CompareMode1SW */
+ 341:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 342:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_CompareMode2SW)
+ 343:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 344:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 345:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 346:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_SetCompareMode2
+ 347:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 348:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 349:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 350:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function writes the Compare Mode for the pwm or pwm2 output
+ 351:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 352:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 353:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 354:Generated_Source\PSoC5/RGB_PWM_red.c ****     *                defined in the H file as input arguments.
+ 355:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 356:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 357:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 358:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 359:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 360:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_SetCompareMode2(uint8 comparemode) 
+ 361:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 362:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 363:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(0 != RGB_PWM_red_CTRL_CMPMODE2_SHIFT)
+ 364:Generated_Source\PSoC5/RGB_PWM_red.c ****             uint8 comparemodemasked = ((uint8)((uint8)comparemode << RGB_PWM_red_CTRL_CMPMODE2_SHIF
+ 365:Generated_Source\PSoC5/RGB_PWM_red.c ****                                                  RGB_PWM_red_CTRL_CMPMODE2_MASK;
+ 366:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 367:Generated_Source\PSoC5/RGB_PWM_red.c ****             uint8 comparemodemasked = comparemode & RGB_PWM_red_CTRL_CMPMODE2_MASK;
+ 368:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (0 != RGB_PWM_red_CTRL_CMPMODE2_SHIFT) */
+ 369:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 370:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_UseControl)
+ 371:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_CONTROL &= ((uint8)(~RGB_PWM_red_CTRL_CMPMODE2_MASK)); /*Clear existing mod
+ 372:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_CONTROL |= comparemodemasked;
+ 373:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UseControl) */
+ 374:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 375:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /*RGB_PWM_red_CompareMode2SW */
+ 376:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 377:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* UseOneCompareMode */
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 9
+
+
+ 378:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 379:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 380:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (!RGB_PWM_red_UsingFixedFunction)
+ 381:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 382:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 383:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 384:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteCounter
+ 385:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 386:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 387:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 388:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Writes a new counter value directly to the counter register. This will be
+ 389:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  implemented for that currently running period and only that period. This API
+ 390:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  is valid only for UDB implementation and not available for fixed function
+ 391:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  PWM implementation.
+ 392:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 393:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 394:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  counter:  The period new period counter value.
+ 395:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 396:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 397:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 398:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 399:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Side Effects:
+ 400:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  The PWM Period will be reloaded when a counter value will be a zero
+ 401:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 402:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 403:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteCounter(uint16 counter) \
+ 404:Generated_Source\PSoC5/RGB_PWM_red.c ****                                        
+ 405:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+  80              		.loc 1 405 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.LVL0:
+ 406:Generated_Source\PSoC5/RGB_PWM_red.c ****         CY_SET_REG16(RGB_PWM_red_COUNTER_LSB_PTR, counter);
+  86              		.loc 1 406 0
+  87 0000 014B     		ldr	r3, .L8
+  88 0002 1880     		strh	r0, [r3]	@ movhi
+  89 0004 7047     		bx	lr
+  90              	.L9:
+  91 0006 00BF     		.align	2
+  92              	.L8:
+  93 0008 14680040 		.word	1073768468
+  94              		.cfi_endproc
+  95              	.LFE4:
+  96              		.size	RGB_PWM_red_WriteCounter, .-RGB_PWM_red_WriteCounter
+  97              		.section	.text.RGB_PWM_red_ReadCounter,"ax",%progbits
+  98              		.align	2
+  99              		.global	RGB_PWM_red_ReadCounter
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	RGB_PWM_red_ReadCounter, %function
+ 103              	RGB_PWM_red_ReadCounter:
+ 104              	.LFB5:
+ 407:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 408:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 409:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 10
+
+
+ 410:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 411:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadCounter
+ 412:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 413:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 414:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 415:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function returns the current value of the counter.  It doesn't matter
+ 416:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  if the counter is enabled or running.
+ 417:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 418:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 419:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 420:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 421:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 422:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  The current value of the counter.
+ 423:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 424:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 425:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint16 RGB_PWM_red_ReadCounter(void) 
+ 426:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 105              		.loc 1 426 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 427:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Force capture by reading Accumulator */
+ 428:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Must first do a software capture to be able to read the counter */
+ 429:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 430:Generated_Source\PSoC5/RGB_PWM_red.c ****           (void)CY_GET_REG8(RGB_PWM_red_COUNTERCAP_LSB_PTR_8BIT);
+ 110              		.loc 1 430 0
+ 111 0000 024B     		ldr	r3, .L11
+ 112 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 431:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 432:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* Read the data from the FIFO */
+ 433:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG16(RGB_PWM_red_CAPTURE_LSB_PTR));
+ 113              		.loc 1 433 0
+ 114 0004 024B     		ldr	r3, .L11+4
+ 115 0006 1888     		ldrh	r0, [r3]
+ 434:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 116              		.loc 1 434 0
+ 117 0008 80B2     		uxth	r0, r0
+ 118 000a 7047     		bx	lr
+ 119              	.L12:
+ 120              		.align	2
+ 121              	.L11:
+ 122 000c 1A640040 		.word	1073767450
+ 123 0010 B4680040 		.word	1073768628
+ 124              		.cfi_endproc
+ 125              	.LFE5:
+ 126              		.size	RGB_PWM_red_ReadCounter, .-RGB_PWM_red_ReadCounter
+ 127              		.section	.text.RGB_PWM_red_WritePeriod,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	RGB_PWM_red_WritePeriod
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	RGB_PWM_red_WritePeriod, %function
+ 133              	RGB_PWM_red_WritePeriod:
+ 134              	.LFB6:
+ 435:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 436:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UseStatus)
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 11
+
+
+ 437:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 438:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 439:Generated_Source\PSoC5/RGB_PWM_red.c ****         /*******************************************************************************
+ 440:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Function Name: RGB_PWM_red_ClearFIFO
+ 441:Generated_Source\PSoC5/RGB_PWM_red.c ****         ********************************************************************************
+ 442:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 443:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Summary:
+ 444:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  This function clears all capture data from the capture FIFO
+ 445:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 446:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Parameters:
+ 447:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  None
+ 448:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 449:Generated_Source\PSoC5/RGB_PWM_red.c ****         * Return:
+ 450:Generated_Source\PSoC5/RGB_PWM_red.c ****         *  None
+ 451:Generated_Source\PSoC5/RGB_PWM_red.c ****         *
+ 452:Generated_Source\PSoC5/RGB_PWM_red.c ****         *******************************************************************************/
+ 453:Generated_Source\PSoC5/RGB_PWM_red.c ****         void RGB_PWM_red_ClearFIFO(void) 
+ 454:Generated_Source\PSoC5/RGB_PWM_red.c ****         {
+ 455:Generated_Source\PSoC5/RGB_PWM_red.c ****             while(0u != (RGB_PWM_red_ReadStatusRegister() & RGB_PWM_red_STATUS_FIFONEMPTY))
+ 456:Generated_Source\PSoC5/RGB_PWM_red.c ****             {
+ 457:Generated_Source\PSoC5/RGB_PWM_red.c ****                 (void)RGB_PWM_red_ReadCapture();
+ 458:Generated_Source\PSoC5/RGB_PWM_red.c ****             }
+ 459:Generated_Source\PSoC5/RGB_PWM_red.c ****         }
+ 460:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 461:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* RGB_PWM_red_UseStatus */
+ 462:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 463:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* !RGB_PWM_red_UsingFixedFunction */
+ 464:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 465:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 466:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_WritePeriod
+ 468:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 470:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+ 471:Generated_Source\PSoC5/RGB_PWM_red.c **** *  This function is used to change the period of the counter.  The new period
+ 472:Generated_Source\PSoC5/RGB_PWM_red.c **** *  will be loaded the next time terminal count is detected.
+ 473:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 474:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+ 475:Generated_Source\PSoC5/RGB_PWM_red.c **** *  period:  Period value. May be between 1 and (2^Resolution)-1.  A value of 0
+ 476:Generated_Source\PSoC5/RGB_PWM_red.c **** *           will result in the counter remaining at zero.
+ 477:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 478:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+ 479:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 480:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 481:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+ 482:Generated_Source\PSoC5/RGB_PWM_red.c **** void RGB_PWM_red_WritePeriod(uint16 period) 
+ 483:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+ 135              		.loc 1 483 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140              	.LVL1:
+ 484:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if(RGB_PWM_red_UsingFixedFunction)
+ 485:Generated_Source\PSoC5/RGB_PWM_red.c ****         CY_SET_REG16(RGB_PWM_red_PERIOD_LSB_PTR, (uint16)period);
+ 486:Generated_Source\PSoC5/RGB_PWM_red.c ****     #else
+ 487:Generated_Source\PSoC5/RGB_PWM_red.c ****         CY_SET_REG16(RGB_PWM_red_PERIOD_LSB_PTR, period);
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 12
+
+
+ 141              		.loc 1 487 0
+ 142 0000 014B     		ldr	r3, .L14
+ 143 0002 1880     		strh	r0, [r3]	@ movhi
+ 144 0004 7047     		bx	lr
+ 145              	.L15:
+ 146 0006 00BF     		.align	2
+ 147              	.L14:
+ 148 0008 94680040 		.word	1073768596
+ 149              		.cfi_endproc
+ 150              	.LFE6:
+ 151              		.size	RGB_PWM_red_WritePeriod, .-RGB_PWM_red_WritePeriod
+ 152              		.section	.text.RGB_PWM_red_WriteCompare,"ax",%progbits
+ 153              		.align	2
+ 154              		.global	RGB_PWM_red_WriteCompare
+ 155              		.thumb
+ 156              		.thumb_func
+ 157              		.type	RGB_PWM_red_WriteCompare, %function
+ 158              	RGB_PWM_red_WriteCompare:
+ 159              	.LFB7:
+ 488:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 489:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+ 490:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 491:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_UseOneCompareMode)
+ 492:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 493:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 494:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 495:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteCompare
+ 496:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 497:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 498:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 499:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This funtion is used to change the compare1 value when the PWM is in Dither
+ 500:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  mode. The compare output will reflect the new value on the next UDB clock.
+ 501:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  The compare output will be driven high when the present counter value is
+ 502:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  compared to the compare value based on the compare mode defined in
+ 503:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Dither Mode.
+ 504:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 505:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 506:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  compare:  New compare value.
+ 507:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 508:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 509:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 510:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 511:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Side Effects:
+ 512:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function is only available if the PWM mode parameter is set to
+ 513:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Dither Mode, Center Aligned Mode or One Output Mode
+ 514:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 515:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 516:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteCompare(uint16 compare) \
+ 517:Generated_Source\PSoC5/RGB_PWM_red.c ****                                        
+ 518:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 160              		.loc 1 518 0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165              	.LVL2:
+ 519:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UsingFixedFunction)
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 13
+
+
+ 520:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR, (uint16)compare);
+ 521:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 522:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR, compare);
+ 166              		.loc 1 522 0
+ 167 0000 014B     		ldr	r3, .L17
+ 168 0002 1880     		strh	r0, [r3]	@ movhi
+ 169 0004 7047     		bx	lr
+ 170              	.L18:
+ 171 0006 00BF     		.align	2
+ 172              	.L17:
+ 173 0008 54680040 		.word	1073768532
+ 174              		.cfi_endproc
+ 175              	.LFE7:
+ 176              		.size	RGB_PWM_red_WriteCompare, .-RGB_PWM_red_WriteCompare
+ 177              		.section	.text.RGB_PWM_red_Init,"ax",%progbits
+ 178              		.align	2
+ 179              		.global	RGB_PWM_red_Init
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.type	RGB_PWM_red_Init, %function
+ 183              	RGB_PWM_red_Init:
+ 184              	.LFB1:
+  85:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if (RGB_PWM_red_UsingFixedFunction || RGB_PWM_red_UseControl)
+ 185              		.loc 1 85 0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189 0000 08B5     		push	{r3, lr}
+ 190              		.cfi_def_cfa_offset 8
+ 191              		.cfi_offset 3, -8
+ 192              		.cfi_offset 14, -4
+ 117:Generated_Source\PSoC5/RGB_PWM_red.c ****                 ((uint8)(~RGB_PWM_red_CTRL_CMPMODE1_MASK));
+ 193              		.loc 1 117 0
+ 194 0002 0E4A     		ldr	r2, .L21
+ 195 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 196 0006 03F0C003 		and	r3, r3, #192
+ 197              	.LVL3:
+ 119:Generated_Source\PSoC5/RGB_PWM_red.c ****                                    RGB_PWM_red_DEFAULT_COMPARE1_MODE;
+ 198              		.loc 1 119 0
+ 199 000a 43F00903 		orr	r3, r3, #9
+ 200              	.LVL4:
+ 201 000e 1370     		strb	r3, [r2]
+ 129:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_AUX_CONTROLDP1 |= (RGB_PWM_red_AUX_CTRL_FIFO0_CLR);
+ 202              		.loc 1 129 0
+ 203 0010 1E32     		adds	r2, r2, #30
+ 204 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 205 0014 43F00103 		orr	r3, r3, #1
+ 206 0018 1370     		strb	r3, [r2]
+ 130:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_Resolution == 8) */
+ 207              		.loc 1 130 0
+ 208 001a 0132     		adds	r2, r2, #1
+ 209 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 210 001e 43F00103 		orr	r3, r3, #1
+ 211 0022 1370     		strb	r3, [r2]
+ 133:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (!RGB_PWM_red_UsingFixedFunction) */
+ 212              		.loc 1 133 0
+ 213 0024 4FF6FF70 		movw	r0, #65535
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 14
+
+
+ 214 0028 FFF7FEFF 		bl	RGB_PWM_red_WriteCounter
+ 215              	.LVL5:
+ 136:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 216              		.loc 1 136 0
+ 217 002c 4FF6FF70 		movw	r0, #65535
+ 218 0030 FFF7FEFF 		bl	RGB_PWM_red_WritePeriod
+ 219              	.LVL6:
+ 139:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 220              		.loc 1 139 0
+ 221 0034 0020     		movs	r0, #0
+ 222 0036 FFF7FEFF 		bl	RGB_PWM_red_WriteCompare
+ 223              	.LVL7:
+ 224 003a 08BD     		pop	{r3, pc}
+ 225              	.L22:
+ 226              		.align	2
+ 227              	.L21:
+ 228 003c 7C640040 		.word	1073767548
+ 229              		.cfi_endproc
+ 230              	.LFE1:
+ 231              		.size	RGB_PWM_red_Init, .-RGB_PWM_red_Init
+ 232              		.section	.text.RGB_PWM_red_Start,"ax",%progbits
+ 233              		.align	2
+ 234              		.global	RGB_PWM_red_Start
+ 235              		.thumb
+ 236              		.thumb_func
+ 237              		.type	RGB_PWM_red_Start, %function
+ 238              	RGB_PWM_red_Start:
+ 239              	.LFB0:
+  56:Generated_Source\PSoC5/RGB_PWM_red.c ****     /* If not Initialized then initialize all required hardware and software */
+ 240              		.loc 1 56 0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244 0000 08B5     		push	{r3, lr}
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 3, -8
+ 247              		.cfi_offset 14, -4
+  58:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 248              		.loc 1 58 0
+ 249 0002 054B     		ldr	r3, .L26
+ 250 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 251 0006 23B9     		cbnz	r3, .L24
+  60:Generated_Source\PSoC5/RGB_PWM_red.c ****         RGB_PWM_red_initVar = 1u;
+ 252              		.loc 1 60 0
+ 253 0008 FFF7FEFF 		bl	RGB_PWM_red_Init
+ 254              	.LVL8:
+  61:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 255              		.loc 1 61 0
+ 256 000c 0122     		movs	r2, #1
+ 257 000e 024B     		ldr	r3, .L26
+ 258 0010 1A70     		strb	r2, [r3]
+ 259              	.L24:
+  63:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 260              		.loc 1 63 0
+ 261 0012 FFF7FEFF 		bl	RGB_PWM_red_Enable
+ 262              	.LVL9:
+ 263 0016 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 15
+
+
+ 264              	.L27:
+ 265              		.align	2
+ 266              	.L26:
+ 267 0018 00000000 		.word	.LANCHOR0
+ 268              		.cfi_endproc
+ 269              	.LFE0:
+ 270              		.size	RGB_PWM_red_Start, .-RGB_PWM_red_Start
+ 271              		.section	.text.RGB_PWM_red_ReadControlRegister,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	RGB_PWM_red_ReadControlRegister
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	RGB_PWM_red_ReadControlRegister, %function
+ 277              	RGB_PWM_red_ReadControlRegister:
+ 278              	.LFB8:
+ 523:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 524:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 525:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if (RGB_PWM_red_PWMMode == RGB_PWM_red__B_PWM__DITHER)
+ 526:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if(RGB_PWM_red_UsingFixedFunction)
+ 527:Generated_Source\PSoC5/RGB_PWM_red.c ****                 CY_SET_REG16(RGB_PWM_red_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+ 528:Generated_Source\PSoC5/RGB_PWM_red.c ****             #else
+ 529:Generated_Source\PSoC5/RGB_PWM_red.c ****                 CY_SET_REG16(RGB_PWM_red_COMPARE2_LSB_PTR, (compare + 1u));
+ 530:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 531:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_PWMMode == RGB_PWM_red__B_PWM__DITHER) */
+ 532:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 533:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 534:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 535:Generated_Source\PSoC5/RGB_PWM_red.c **** #else
+ 536:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 537:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 538:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 539:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteCompare1
+ 540:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 541:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 542:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 543:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This funtion is used to change the compare1 value.  The compare output will
+ 544:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  reflect the new value on the next UDB clock.  The compare output will be
+ 545:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  driven high when the present counter value is less than or less than or
+ 546:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  equal to the compare register, depending on the mode.
+ 547:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 548:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 549:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  compare:  New compare value.
+ 550:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 551:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 552:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 553:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 554:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 555:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteCompare1(uint16 compare) \
+ 556:Generated_Source\PSoC5/RGB_PWM_red.c ****                                         
+ 557:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 558:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UsingFixedFunction)
+ 559:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR, (uint16)compare);
+ 560:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 561:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR, compare);
+ 562:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 563:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 564:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 16
+
+
+ 565:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 566:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 567:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteCompare2
+ 568:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 569:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 570:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 571:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This funtion is used to change the compare value, for compare1 output.
+ 572:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  The compare output will reflect the new value on the next UDB clock.
+ 573:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  The compare output will be driven high when the present counter value is
+ 574:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  less than or less than or equal to the compare register, depending on the
+ 575:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  mode.
+ 576:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 577:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 578:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  compare:  New compare value.
+ 579:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 580:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 581:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 582:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 583:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 584:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteCompare2(uint16 compare) \
+ 585:Generated_Source\PSoC5/RGB_PWM_red.c ****                                         
+ 586:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 587:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UsingFixedFunction)
+ 588:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE2_LSB_PTR, compare);
+ 589:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 590:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG16(RGB_PWM_red_COMPARE2_LSB_PTR, compare);
+ 591:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 592:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 593:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* UseOneCompareMode */
+ 594:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 595:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_DeadBandUsed)
+ 596:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 597:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 598:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 599:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteDeadTime
+ 600:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 601:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 602:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 603:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function writes the dead-band counts to the corresponding register
+ 604:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 605:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 606:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  deadtime:  Number of counts for dead time
+ 607:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 608:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 609:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 610:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 611:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 612:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteDeadTime(uint8 deadtime) 
+ 613:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 614:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* If using the Dead Band 1-255 mode then just write the register */
+ 615:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(!RGB_PWM_red_DeadBand2_4)
+ 616:Generated_Source\PSoC5/RGB_PWM_red.c ****             CY_SET_REG8(RGB_PWM_red_DEADBAND_COUNT_PTR, deadtime);
+ 617:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 618:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Otherwise the data has to be masked and offset */
+ 619:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Clear existing data */
+ 620:Generated_Source\PSoC5/RGB_PWM_red.c ****             RGB_PWM_red_DEADBAND_COUNT &= ((uint8)(~RGB_PWM_red_DEADBAND_COUNT_MASK));
+ 621:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 17
+
+
+ 622:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Set new dead time */
+ 623:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if(RGB_PWM_red_DEADBAND_COUNT_SHIFT)
+ 624:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << RGB_PWM_red_DEADBAND_COUN
+ 625:Generated_Source\PSoC5/RGB_PWM_red.c ****                                                     RGB_PWM_red_DEADBAND_COUNT_MASK;
+ 626:Generated_Source\PSoC5/RGB_PWM_red.c ****             #else
+ 627:Generated_Source\PSoC5/RGB_PWM_red.c ****                 RGB_PWM_red_DEADBAND_COUNT |= deadtime & RGB_PWM_red_DEADBAND_COUNT_MASK;
+ 628:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (RGB_PWM_red_DEADBAND_COUNT_SHIFT) */
+ 629:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 630:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (!RGB_PWM_red_DeadBand2_4) */
+ 631:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 632:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 633:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 634:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 635:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadDeadTime
+ 636:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 637:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 638:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 639:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function reads the dead-band counts from the corresponding register
+ 640:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 641:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 642:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 643:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 644:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 645:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Dead Band Counts
+ 646:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 647:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 648:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint8 RGB_PWM_red_ReadDeadTime(void) 
+ 649:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 650:Generated_Source\PSoC5/RGB_PWM_red.c ****         /* If using the Dead Band 1-255 mode then just read the register */
+ 651:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(!RGB_PWM_red_DeadBand2_4)
+ 652:Generated_Source\PSoC5/RGB_PWM_red.c ****             return (CY_GET_REG8(RGB_PWM_red_DEADBAND_COUNT_PTR));
+ 653:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 654:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 655:Generated_Source\PSoC5/RGB_PWM_red.c ****             /* Otherwise the data has to be masked and offset */
+ 656:Generated_Source\PSoC5/RGB_PWM_red.c ****             #if(RGB_PWM_red_DEADBAND_COUNT_SHIFT)
+ 657:Generated_Source\PSoC5/RGB_PWM_red.c ****                 return ((uint8)(((uint8)(RGB_PWM_red_DEADBAND_COUNT & RGB_PWM_red_DEADBAND_COUNT_MA
+ 658:Generated_Source\PSoC5/RGB_PWM_red.c ****                                                                            RGB_PWM_red_DEADBAND_COU
+ 659:Generated_Source\PSoC5/RGB_PWM_red.c ****             #else
+ 660:Generated_Source\PSoC5/RGB_PWM_red.c ****                 return (RGB_PWM_red_DEADBAND_COUNT & RGB_PWM_red_DEADBAND_COUNT_MASK);
+ 661:Generated_Source\PSoC5/RGB_PWM_red.c ****             #endif /* (RGB_PWM_red_DEADBAND_COUNT_SHIFT) */
+ 662:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (!RGB_PWM_red_DeadBand2_4) */
+ 663:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 664:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* DeadBandUsed */
+ 665:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 666:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_UseStatus || RGB_PWM_red_UsingFixedFunction)
+ 667:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 668:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 669:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 670:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_SetInterruptMode
+ 671:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 672:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 673:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 674:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function configures the interrupts mask control of theinterrupt
+ 675:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  source status register.
+ 676:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 677:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 678:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8 interruptMode: Bit field containing the interrupt sources enabled
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 18
+
+
+ 679:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 680:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 681:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 682:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 683:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 684:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_SetInterruptMode(uint8 interruptMode) 
+ 685:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 686:Generated_Source\PSoC5/RGB_PWM_red.c ****         CY_SET_REG8(RGB_PWM_red_STATUS_MASK_PTR, interruptMode);
+ 687:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 688:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 689:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 690:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 691:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadStatusRegister
+ 692:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 693:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 694:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 695:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  This function returns the current state of the status register.
+ 696:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 697:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 698:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 699:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 700:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 701:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8 : Current status register value. The status register bits are:
+ 702:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [7:6] : Unused(0)
+ 703:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [5]   : Kill event output
+ 704:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [4]   : FIFO not empty
+ 705:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [3]   : FIFO full
+ 706:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [2]   : Terminal count
+ 707:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [1]   : Compare output 2
+ 708:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [0]   : Compare output 1
+ 709:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 710:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 711:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint8 RGB_PWM_red_ReadStatusRegister(void) 
+ 712:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 713:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG8(RGB_PWM_red_STATUS_PTR));
+ 714:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 715:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 716:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* (RGB_PWM_red_UseStatus || RGB_PWM_red_UsingFixedFunction) */
+ 717:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 718:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 719:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_UseControl)
+ 720:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 721:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 722:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 723:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadControlRegister
+ 724:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 725:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 726:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 727:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Returns the current state of the control register. This API is available
+ 728:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  only if the control register is not removed.
+ 729:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 730:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 731:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 732:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 733:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 734:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8 : Current control register value
+ 735:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 19
+
+
+ 736:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 737:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint8 RGB_PWM_red_ReadControlRegister(void) 
+ 738:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 279              		.loc 1 738 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 739:Generated_Source\PSoC5/RGB_PWM_red.c ****         uint8 result;
+ 740:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 741:Generated_Source\PSoC5/RGB_PWM_red.c ****         result = CY_GET_REG8(RGB_PWM_red_CONTROL_PTR);
+ 284              		.loc 1 741 0
+ 285 0000 014B     		ldr	r3, .L29
+ 286 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 287              	.LVL10:
+ 742:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (result);
+ 743:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 288              		.loc 1 743 0
+ 289 0004 7047     		bx	lr
+ 290              	.L30:
+ 291 0006 00BF     		.align	2
+ 292              	.L29:
+ 293 0008 7C640040 		.word	1073767548
+ 294              		.cfi_endproc
+ 295              	.LFE8:
+ 296              		.size	RGB_PWM_red_ReadControlRegister, .-RGB_PWM_red_ReadControlRegister
+ 297              		.section	.text.RGB_PWM_red_WriteControlRegister,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	RGB_PWM_red_WriteControlRegister
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	RGB_PWM_red_WriteControlRegister, %function
+ 303              	RGB_PWM_red_WriteControlRegister:
+ 304              	.LFB9:
+ 744:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 745:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 746:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 747:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_WriteControlRegister
+ 748:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 749:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 750:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 751:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Sets the bit field of the control register. This API is available only if
+ 752:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  the control register is not removed.
+ 753:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 754:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 755:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8 control: Control register bit field, The status register bits are:
+ 756:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [7]   : PWM Enable
+ 757:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [6]   : Reset
+ 758:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [5:3] : Compare Mode2
+ 759:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  [2:0] : Compare Mode2
+ 760:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 761:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 762:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 763:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 764:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 765:Generated_Source\PSoC5/RGB_PWM_red.c ****     void RGB_PWM_red_WriteControlRegister(uint8 control) 
+ 766:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 20
+
+
+ 305              		.loc 1 766 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310              	.LVL11:
+ 767:Generated_Source\PSoC5/RGB_PWM_red.c ****         CY_SET_REG8(RGB_PWM_red_CONTROL_PTR, control);
+ 311              		.loc 1 767 0
+ 312 0000 014B     		ldr	r3, .L32
+ 313 0002 1870     		strb	r0, [r3]
+ 314 0004 7047     		bx	lr
+ 315              	.L33:
+ 316 0006 00BF     		.align	2
+ 317              	.L32:
+ 318 0008 7C640040 		.word	1073767548
+ 319              		.cfi_endproc
+ 320              	.LFE9:
+ 321              		.size	RGB_PWM_red_WriteControlRegister, .-RGB_PWM_red_WriteControlRegister
+ 322              		.section	.text.RGB_PWM_red_ReadCapture,"ax",%progbits
+ 323              		.align	2
+ 324              		.global	RGB_PWM_red_ReadCapture
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.type	RGB_PWM_red_ReadCapture, %function
+ 328              	RGB_PWM_red_ReadCapture:
+ 329              	.LFB10:
+ 768:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 769:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 770:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* (RGB_PWM_red_UseControl) */
+ 771:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 772:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 773:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (!RGB_PWM_red_UsingFixedFunction)
+ 774:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 775:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 776:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 777:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadCapture
+ 778:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 779:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 780:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 781:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Reads the capture value from the capture FIFO.
+ 782:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 783:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 784:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 785:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 786:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 787:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8/uint16: The current capture value
+ 788:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 789:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 790:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint16 RGB_PWM_red_ReadCapture(void) 
+ 791:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 330              		.loc 1 791 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334              		@ link register save eliminated.
+ 792:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG16(RGB_PWM_red_CAPTURE_LSB_PTR));
+ 335              		.loc 1 792 0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 21
+
+
+ 336 0000 014B     		ldr	r3, .L35
+ 337 0002 1888     		ldrh	r0, [r3]
+ 793:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 338              		.loc 1 793 0
+ 339 0004 80B2     		uxth	r0, r0
+ 340 0006 7047     		bx	lr
+ 341              	.L36:
+ 342              		.align	2
+ 343              	.L35:
+ 344 0008 B4680040 		.word	1073768628
+ 345              		.cfi_endproc
+ 346              	.LFE10:
+ 347              		.size	RGB_PWM_red_ReadCapture, .-RGB_PWM_red_ReadCapture
+ 348              		.section	.text.RGB_PWM_red_ReadCompare,"ax",%progbits
+ 349              		.align	2
+ 350              		.global	RGB_PWM_red_ReadCompare
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.type	RGB_PWM_red_ReadCompare, %function
+ 354              	RGB_PWM_red_ReadCompare:
+ 355              	.LFB11:
+ 794:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 795:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* (!RGB_PWM_red_UsingFixedFunction) */
+ 796:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 797:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 798:Generated_Source\PSoC5/RGB_PWM_red.c **** #if (RGB_PWM_red_UseOneCompareMode)
+ 799:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 800:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 801:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 802:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadCompare
+ 803:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 804:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 805:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 806:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Reads the compare value for the compare output when the PWM Mode parameter is
+ 807:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  set to Dither mode, Center Aligned mode, or One Output mode.
+ 808:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 809:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 810:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 811:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 812:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 813:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8/uint16: Current compare value
+ 814:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 815:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 816:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint16 RGB_PWM_red_ReadCompare(void) 
+ 817:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 356              		.loc 1 817 0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 0
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360              		@ link register save eliminated.
+ 818:Generated_Source\PSoC5/RGB_PWM_red.c ****         #if(RGB_PWM_red_UsingFixedFunction)
+ 819:Generated_Source\PSoC5/RGB_PWM_red.c ****             return ((uint16)CY_GET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR));
+ 820:Generated_Source\PSoC5/RGB_PWM_red.c ****         #else
+ 821:Generated_Source\PSoC5/RGB_PWM_red.c ****             return (CY_GET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR));
+ 361              		.loc 1 821 0
+ 362 0000 014B     		ldr	r3, .L38
+ 363 0002 1888     		ldrh	r0, [r3]
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 22
+
+
+ 822:Generated_Source\PSoC5/RGB_PWM_red.c ****         #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 823:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 364              		.loc 1 823 0
+ 365 0004 80B2     		uxth	r0, r0
+ 366 0006 7047     		bx	lr
+ 367              	.L39:
+ 368              		.align	2
+ 369              	.L38:
+ 370 0008 54680040 		.word	1073768532
+ 371              		.cfi_endproc
+ 372              	.LFE11:
+ 373              		.size	RGB_PWM_red_ReadCompare, .-RGB_PWM_red_ReadCompare
+ 374              		.section	.text.RGB_PWM_red_ReadPeriod,"ax",%progbits
+ 375              		.align	2
+ 376              		.global	RGB_PWM_red_ReadPeriod
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.type	RGB_PWM_red_ReadPeriod, %function
+ 380              	RGB_PWM_red_ReadPeriod:
+ 381              	.LFB12:
+ 824:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 825:Generated_Source\PSoC5/RGB_PWM_red.c **** #else
+ 826:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 827:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 828:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 829:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadCompare1
+ 830:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 831:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 832:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 833:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Reads the compare value for the compare1 output.
+ 834:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 835:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 836:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 837:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 838:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 839:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8/uint16: Current compare value.
+ 840:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 841:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 842:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint16 RGB_PWM_red_ReadCompare1(void) 
+ 843:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 844:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG16(RGB_PWM_red_COMPARE1_LSB_PTR));
+ 845:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 846:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 847:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 848:Generated_Source\PSoC5/RGB_PWM_red.c ****     /*******************************************************************************
+ 849:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Function Name: RGB_PWM_red_ReadCompare2
+ 850:Generated_Source\PSoC5/RGB_PWM_red.c ****     ********************************************************************************
+ 851:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 852:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Summary:
+ 853:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  Reads the compare value for the compare2 output.
+ 854:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 855:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Parameters:
+ 856:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  None
+ 857:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ 858:Generated_Source\PSoC5/RGB_PWM_red.c ****     * Return:
+ 859:Generated_Source\PSoC5/RGB_PWM_red.c ****     *  uint8/uint16: Current compare value.
+ 860:Generated_Source\PSoC5/RGB_PWM_red.c ****     *
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 23
+
+
+ 861:Generated_Source\PSoC5/RGB_PWM_red.c ****     *******************************************************************************/
+ 862:Generated_Source\PSoC5/RGB_PWM_red.c ****     uint16 RGB_PWM_red_ReadCompare2(void) 
+ 863:Generated_Source\PSoC5/RGB_PWM_red.c ****     {
+ 864:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG16(RGB_PWM_red_COMPARE2_LSB_PTR));
+ 865:Generated_Source\PSoC5/RGB_PWM_red.c ****     }
+ 866:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 867:Generated_Source\PSoC5/RGB_PWM_red.c **** #endif /* (RGB_PWM_red_UseOneCompareMode) */
+ 868:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 869:Generated_Source\PSoC5/RGB_PWM_red.c **** 
+ 870:Generated_Source\PSoC5/RGB_PWM_red.c **** /*******************************************************************************
+ 871:Generated_Source\PSoC5/RGB_PWM_red.c **** * Function Name: RGB_PWM_red_ReadPeriod
+ 872:Generated_Source\PSoC5/RGB_PWM_red.c **** ********************************************************************************
+ 873:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 874:Generated_Source\PSoC5/RGB_PWM_red.c **** * Summary:
+ 875:Generated_Source\PSoC5/RGB_PWM_red.c **** *  Reads the period value used by the PWM hardware.
+ 876:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 877:Generated_Source\PSoC5/RGB_PWM_red.c **** * Parameters:
+ 878:Generated_Source\PSoC5/RGB_PWM_red.c **** *  None
+ 879:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 880:Generated_Source\PSoC5/RGB_PWM_red.c **** * Return:
+ 881:Generated_Source\PSoC5/RGB_PWM_red.c **** *  uint8/16: Period value
+ 882:Generated_Source\PSoC5/RGB_PWM_red.c **** *
+ 883:Generated_Source\PSoC5/RGB_PWM_red.c **** *******************************************************************************/
+ 884:Generated_Source\PSoC5/RGB_PWM_red.c **** uint16 RGB_PWM_red_ReadPeriod(void) 
+ 885:Generated_Source\PSoC5/RGB_PWM_red.c **** {
+ 382              		.loc 1 885 0
+ 383              		.cfi_startproc
+ 384              		@ args = 0, pretend = 0, frame = 0
+ 385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 386              		@ link register save eliminated.
+ 886:Generated_Source\PSoC5/RGB_PWM_red.c ****     #if(RGB_PWM_red_UsingFixedFunction)
+ 887:Generated_Source\PSoC5/RGB_PWM_red.c ****         return ((uint16)CY_GET_REG16(RGB_PWM_red_PERIOD_LSB_PTR));
+ 888:Generated_Source\PSoC5/RGB_PWM_red.c ****     #else
+ 889:Generated_Source\PSoC5/RGB_PWM_red.c ****         return (CY_GET_REG16(RGB_PWM_red_PERIOD_LSB_PTR));
+ 387              		.loc 1 889 0
+ 388 0000 014B     		ldr	r3, .L41
+ 389 0002 1888     		ldrh	r0, [r3]
+ 890:Generated_Source\PSoC5/RGB_PWM_red.c ****     #endif /* (RGB_PWM_red_UsingFixedFunction) */
+ 891:Generated_Source\PSoC5/RGB_PWM_red.c **** }
+ 390              		.loc 1 891 0
+ 391 0004 80B2     		uxth	r0, r0
+ 392 0006 7047     		bx	lr
+ 393              	.L42:
+ 394              		.align	2
+ 395              	.L41:
+ 396 0008 94680040 		.word	1073768596
+ 397              		.cfi_endproc
+ 398              	.LFE12:
+ 399              		.size	RGB_PWM_red_ReadPeriod, .-RGB_PWM_red_ReadPeriod
+ 400              		.global	RGB_PWM_red_initVar
+ 401              		.bss
+ 402              		.set	.LANCHOR0,. + 0
+ 403              		.type	RGB_PWM_red_initVar, %object
+ 404              		.size	RGB_PWM_red_initVar, 1
+ 405              	RGB_PWM_red_initVar:
+ 406 0000 00       		.space	1
+ 407              		.text
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 24
+
+
+ 408              	.Letext0:
+ 409              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 410              		.section	.debug_info,"",%progbits
+ 411              	.Ldebug_info0:
+ 412 0000 91020000 		.4byte	0x291
+ 413 0004 0400     		.2byte	0x4
+ 414 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 415 000a 04       		.byte	0x4
+ 416 000b 01       		.uleb128 0x1
+ 417 000c 9F000000 		.4byte	.LASF36
+ 418 0010 0C       		.byte	0xc
+ 419 0011 FC010000 		.4byte	.LASF37
+ 420 0015 3F020000 		.4byte	.LASF38
+ 421 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 422 001d 00000000 		.4byte	0
+ 423 0021 00000000 		.4byte	.Ldebug_line0
+ 424 0025 02       		.uleb128 0x2
+ 425 0026 01       		.byte	0x1
+ 426 0027 06       		.byte	0x6
+ 427 0028 39030000 		.4byte	.LASF0
+ 428 002c 02       		.uleb128 0x2
+ 429 002d 01       		.byte	0x1
+ 430 002e 08       		.byte	0x8
+ 431 002f 91000000 		.4byte	.LASF1
+ 432 0033 02       		.uleb128 0x2
+ 433 0034 02       		.byte	0x2
+ 434 0035 05       		.byte	0x5
+ 435 0036 F2020000 		.4byte	.LASF2
+ 436 003a 02       		.uleb128 0x2
+ 437 003b 02       		.byte	0x2
+ 438 003c 07       		.byte	0x7
+ 439 003d 3E000000 		.4byte	.LASF3
+ 440 0041 02       		.uleb128 0x2
+ 441 0042 04       		.byte	0x4
+ 442 0043 05       		.byte	0x5
+ 443 0044 24030000 		.4byte	.LASF4
+ 444 0048 02       		.uleb128 0x2
+ 445 0049 04       		.byte	0x4
+ 446 004a 07       		.byte	0x7
+ 447 004b 32010000 		.4byte	.LASF5
+ 448 004f 02       		.uleb128 0x2
+ 449 0050 08       		.byte	0x8
+ 450 0051 05       		.byte	0x5
+ 451 0052 B4020000 		.4byte	.LASF6
+ 452 0056 02       		.uleb128 0x2
+ 453 0057 08       		.byte	0x8
+ 454 0058 07       		.byte	0x7
+ 455 0059 21020000 		.4byte	.LASF7
+ 456 005d 03       		.uleb128 0x3
+ 457 005e 04       		.byte	0x4
+ 458 005f 05       		.byte	0x5
+ 459 0060 696E7400 		.ascii	"int\000"
+ 460 0064 02       		.uleb128 0x2
+ 461 0065 04       		.byte	0x4
+ 462 0066 07       		.byte	0x7
+ 463 0067 D7010000 		.4byte	.LASF8
+ 464 006b 04       		.uleb128 0x4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 25
+
+
+ 465 006c 58010000 		.4byte	.LASF9
+ 466 0070 02       		.byte	0x2
+ 467 0071 E801     		.2byte	0x1e8
+ 468 0073 2C000000 		.4byte	0x2c
+ 469 0077 04       		.uleb128 0x4
+ 470 0078 B8010000 		.4byte	.LASF10
+ 471 007c 02       		.byte	0x2
+ 472 007d E901     		.2byte	0x1e9
+ 473 007f 3A000000 		.4byte	0x3a
+ 474 0083 02       		.uleb128 0x2
+ 475 0084 04       		.byte	0x4
+ 476 0085 04       		.byte	0x4
+ 477 0086 83000000 		.4byte	.LASF11
+ 478 008a 02       		.uleb128 0x2
+ 479 008b 08       		.byte	0x8
+ 480 008c 04       		.byte	0x4
+ 481 008d B1010000 		.4byte	.LASF12
+ 482 0091 02       		.uleb128 0x2
+ 483 0092 01       		.byte	0x1
+ 484 0093 08       		.byte	0x8
+ 485 0094 D4020000 		.4byte	.LASF13
+ 486 0098 04       		.uleb128 0x4
+ 487 0099 2D010000 		.4byte	.LASF14
+ 488 009d 02       		.byte	0x2
+ 489 009e 9202     		.2byte	0x292
+ 490 00a0 A4000000 		.4byte	0xa4
+ 491 00a4 05       		.uleb128 0x5
+ 492 00a5 6B000000 		.4byte	0x6b
+ 493 00a9 04       		.uleb128 0x4
+ 494 00aa 00000000 		.4byte	.LASF15
+ 495 00ae 02       		.byte	0x2
+ 496 00af 9302     		.2byte	0x293
+ 497 00b1 B5000000 		.4byte	0xb5
+ 498 00b5 05       		.uleb128 0x5
+ 499 00b6 77000000 		.4byte	0x77
+ 500 00ba 02       		.uleb128 0x2
+ 501 00bb 08       		.byte	0x8
+ 502 00bc 04       		.byte	0x4
+ 503 00bd 2D030000 		.4byte	.LASF16
+ 504 00c1 02       		.uleb128 0x2
+ 505 00c2 04       		.byte	0x4
+ 506 00c3 07       		.byte	0x7
+ 507 00c4 AB020000 		.4byte	.LASF17
+ 508 00c8 06       		.uleb128 0x6
+ 509 00c9 9E010000 		.4byte	.LASF18
+ 510 00cd 01       		.byte	0x1
+ 511 00ce C7       		.byte	0xc7
+ 512 00cf 00000000 		.4byte	.LFB2
+ 513 00d3 10000000 		.4byte	.LFE2-.LFB2
+ 514 00d7 01       		.uleb128 0x1
+ 515 00d8 9C       		.byte	0x9c
+ 516 00d9 06       		.uleb128 0x6
+ 517 00da FC020000 		.4byte	.LASF19
+ 518 00de 01       		.byte	0x1
+ 519 00df E9       		.byte	0xe9
+ 520 00e0 00000000 		.4byte	.LFB3
+ 521 00e4 10000000 		.4byte	.LFE3-.LFB3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 26
+
+
+ 522 00e8 01       		.uleb128 0x1
+ 523 00e9 9C       		.byte	0x9c
+ 524 00ea 07       		.uleb128 0x7
+ 525 00eb 25000000 		.4byte	.LASF20
+ 526 00ef 01       		.byte	0x1
+ 527 00f0 9301     		.2byte	0x193
+ 528 00f2 00000000 		.4byte	.LFB4
+ 529 00f6 0C000000 		.4byte	.LFE4-.LFB4
+ 530 00fa 01       		.uleb128 0x1
+ 531 00fb 9C       		.byte	0x9c
+ 532 00fc 0F010000 		.4byte	0x10f
+ 533 0100 08       		.uleb128 0x8
+ 534 0101 89000000 		.4byte	.LASF22
+ 535 0105 01       		.byte	0x1
+ 536 0106 9301     		.2byte	0x193
+ 537 0108 77000000 		.4byte	0x77
+ 538 010c 01       		.uleb128 0x1
+ 539 010d 50       		.byte	0x50
+ 540 010e 00       		.byte	0
+ 541 010f 09       		.uleb128 0x9
+ 542 0110 86010000 		.4byte	.LASF32
+ 543 0114 01       		.byte	0x1
+ 544 0115 A901     		.2byte	0x1a9
+ 545 0117 77000000 		.4byte	0x77
+ 546 011b 00000000 		.4byte	.LFB5
+ 547 011f 14000000 		.4byte	.LFE5-.LFB5
+ 548 0123 01       		.uleb128 0x1
+ 549 0124 9C       		.byte	0x9c
+ 550 0125 07       		.uleb128 0x7
+ 551 0126 06000000 		.4byte	.LASF21
+ 552 012a 01       		.byte	0x1
+ 553 012b E201     		.2byte	0x1e2
+ 554 012d 00000000 		.4byte	.LFB6
+ 555 0131 0C000000 		.4byte	.LFE6-.LFB6
+ 556 0135 01       		.uleb128 0x1
+ 557 0136 9C       		.byte	0x9c
+ 558 0137 4A010000 		.4byte	0x14a
+ 559 013b 08       		.uleb128 0x8
+ 560 013c 1E000000 		.4byte	.LASF23
+ 561 0140 01       		.byte	0x1
+ 562 0141 E201     		.2byte	0x1e2
+ 563 0143 77000000 		.4byte	0x77
+ 564 0147 01       		.uleb128 0x1
+ 565 0148 50       		.byte	0x50
+ 566 0149 00       		.byte	0
+ 567 014a 07       		.uleb128 0x7
+ 568 014b D9020000 		.4byte	.LASF24
+ 569 014f 01       		.byte	0x1
+ 570 0150 0402     		.2byte	0x204
+ 571 0152 00000000 		.4byte	.LFB7
+ 572 0156 0C000000 		.4byte	.LFE7-.LFB7
+ 573 015a 01       		.uleb128 0x1
+ 574 015b 9C       		.byte	0x9c
+ 575 015c 6F010000 		.4byte	0x16f
+ 576 0160 08       		.uleb128 0x8
+ 577 0161 45030000 		.4byte	.LASF25
+ 578 0165 01       		.byte	0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 27
+
+
+ 579 0166 0402     		.2byte	0x204
+ 580 0168 77000000 		.4byte	0x77
+ 581 016c 01       		.uleb128 0x1
+ 582 016d 50       		.byte	0x50
+ 583 016e 00       		.byte	0
+ 584 016f 0A       		.uleb128 0xa
+ 585 0170 51000000 		.4byte	.LASF26
+ 586 0174 01       		.byte	0x1
+ 587 0175 54       		.byte	0x54
+ 588 0176 00000000 		.4byte	.LFB1
+ 589 017a 40000000 		.4byte	.LFE1-.LFB1
+ 590 017e 01       		.uleb128 0x1
+ 591 017f 9C       		.byte	0x9c
+ 592 0180 CB010000 		.4byte	0x1cb
+ 593 0184 0B       		.uleb128 0xb
+ 594 0185 A6020000 		.4byte	.LASF28
+ 595 0189 01       		.byte	0x1
+ 596 018a 57       		.byte	0x57
+ 597 018b 6B000000 		.4byte	0x6b
+ 598 018f 00000000 		.4byte	.LLST0
+ 599 0193 0C       		.uleb128 0xc
+ 600 0194 2C000000 		.4byte	.LVL5
+ 601 0198 EA000000 		.4byte	0xea
+ 602 019c A7010000 		.4byte	0x1a7
+ 603 01a0 0D       		.uleb128 0xd
+ 604 01a1 01       		.uleb128 0x1
+ 605 01a2 50       		.byte	0x50
+ 606 01a3 02       		.uleb128 0x2
+ 607 01a4 09       		.byte	0x9
+ 608 01a5 FF       		.byte	0xff
+ 609 01a6 00       		.byte	0
+ 610 01a7 0C       		.uleb128 0xc
+ 611 01a8 34000000 		.4byte	.LVL6
+ 612 01ac 25010000 		.4byte	0x125
+ 613 01b0 BB010000 		.4byte	0x1bb
+ 614 01b4 0D       		.uleb128 0xd
+ 615 01b5 01       		.uleb128 0x1
+ 616 01b6 50       		.byte	0x50
+ 617 01b7 02       		.uleb128 0x2
+ 618 01b8 09       		.byte	0x9
+ 619 01b9 FF       		.byte	0xff
+ 620 01ba 00       		.byte	0
+ 621 01bb 0E       		.uleb128 0xe
+ 622 01bc 3A000000 		.4byte	.LVL7
+ 623 01c0 4A010000 		.4byte	0x14a
+ 624 01c4 0D       		.uleb128 0xd
+ 625 01c5 01       		.uleb128 0x1
+ 626 01c6 50       		.byte	0x50
+ 627 01c7 01       		.uleb128 0x1
+ 628 01c8 30       		.byte	0x30
+ 629 01c9 00       		.byte	0
+ 630 01ca 00       		.byte	0
+ 631 01cb 0A       		.uleb128 0xa
+ 632 01cc C2020000 		.4byte	.LASF27
+ 633 01d0 01       		.byte	0x1
+ 634 01d1 37       		.byte	0x37
+ 635 01d2 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 28
+
+
+ 636 01d6 1C000000 		.4byte	.LFE0-.LFB0
+ 637 01da 01       		.uleb128 0x1
+ 638 01db 9C       		.byte	0x9c
+ 639 01dc F3010000 		.4byte	0x1f3
+ 640 01e0 0F       		.uleb128 0xf
+ 641 01e1 0C000000 		.4byte	.LVL8
+ 642 01e5 6F010000 		.4byte	0x16f
+ 643 01e9 0F       		.uleb128 0xf
+ 644 01ea 16000000 		.4byte	.LVL9
+ 645 01ee C8000000 		.4byte	0xc8
+ 646 01f2 00       		.byte	0
+ 647 01f3 10       		.uleb128 0x10
+ 648 01f4 66010000 		.4byte	.LASF39
+ 649 01f8 01       		.byte	0x1
+ 650 01f9 E102     		.2byte	0x2e1
+ 651 01fb 6B000000 		.4byte	0x6b
+ 652 01ff 00000000 		.4byte	.LFB8
+ 653 0203 0C000000 		.4byte	.LFE8-.LFB8
+ 654 0207 01       		.uleb128 0x1
+ 655 0208 9C       		.byte	0x9c
+ 656 0209 1C020000 		.4byte	0x21c
+ 657 020d 11       		.uleb128 0x11
+ 658 020e 38020000 		.4byte	.LASF29
+ 659 0212 01       		.byte	0x1
+ 660 0213 E302     		.2byte	0x2e3
+ 661 0215 6B000000 		.4byte	0x6b
+ 662 0219 01       		.uleb128 0x1
+ 663 021a 50       		.byte	0x50
+ 664 021b 00       		.byte	0
+ 665 021c 07       		.uleb128 0x7
+ 666 021d 62000000 		.4byte	.LASF30
+ 667 0221 01       		.byte	0x1
+ 668 0222 FD02     		.2byte	0x2fd
+ 669 0224 00000000 		.4byte	.LFB9
+ 670 0228 0C000000 		.4byte	.LFE9-.LFB9
+ 671 022c 01       		.uleb128 0x1
+ 672 022d 9C       		.byte	0x9c
+ 673 022e 41020000 		.4byte	0x241
+ 674 0232 08       		.uleb128 0x8
+ 675 0233 5E010000 		.4byte	.LASF31
+ 676 0237 01       		.byte	0x1
+ 677 0238 FD02     		.2byte	0x2fd
+ 678 023a 6B000000 		.4byte	0x6b
+ 679 023e 01       		.uleb128 0x1
+ 680 023f 50       		.byte	0x50
+ 681 0240 00       		.byte	0
+ 682 0241 09       		.uleb128 0x9
+ 683 0242 E4010000 		.4byte	.LASF33
+ 684 0246 01       		.byte	0x1
+ 685 0247 1603     		.2byte	0x316
+ 686 0249 77000000 		.4byte	0x77
+ 687 024d 00000000 		.4byte	.LFB10
+ 688 0251 0C000000 		.4byte	.LFE10-.LFB10
+ 689 0255 01       		.uleb128 0x1
+ 690 0256 9C       		.byte	0x9c
+ 691 0257 09       		.uleb128 0x9
+ 692 0258 BF010000 		.4byte	.LASF34
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 29
+
+
+ 693 025c 01       		.byte	0x1
+ 694 025d 3003     		.2byte	0x330
+ 695 025f 77000000 		.4byte	0x77
+ 696 0263 00000000 		.4byte	.LFB11
+ 697 0267 0C000000 		.4byte	.LFE11-.LFB11
+ 698 026b 01       		.uleb128 0x1
+ 699 026c 9C       		.byte	0x9c
+ 700 026d 09       		.uleb128 0x9
+ 701 026e 0D030000 		.4byte	.LASF35
+ 702 0272 01       		.byte	0x1
+ 703 0273 7403     		.2byte	0x374
+ 704 0275 77000000 		.4byte	0x77
+ 705 0279 00000000 		.4byte	.LFB12
+ 706 027d 0C000000 		.4byte	.LFE12-.LFB12
+ 707 0281 01       		.uleb128 0x1
+ 708 0282 9C       		.byte	0x9c
+ 709 0283 12       		.uleb128 0x12
+ 710 0284 44010000 		.4byte	.LASF40
+ 711 0288 01       		.byte	0x1
+ 712 0289 20       		.byte	0x20
+ 713 028a 6B000000 		.4byte	0x6b
+ 714 028e 05       		.uleb128 0x5
+ 715 028f 03       		.byte	0x3
+ 716 0290 00000000 		.4byte	RGB_PWM_red_initVar
+ 717 0294 00       		.byte	0
+ 718              		.section	.debug_abbrev,"",%progbits
+ 719              	.Ldebug_abbrev0:
+ 720 0000 01       		.uleb128 0x1
+ 721 0001 11       		.uleb128 0x11
+ 722 0002 01       		.byte	0x1
+ 723 0003 25       		.uleb128 0x25
+ 724 0004 0E       		.uleb128 0xe
+ 725 0005 13       		.uleb128 0x13
+ 726 0006 0B       		.uleb128 0xb
+ 727 0007 03       		.uleb128 0x3
+ 728 0008 0E       		.uleb128 0xe
+ 729 0009 1B       		.uleb128 0x1b
+ 730 000a 0E       		.uleb128 0xe
+ 731 000b 55       		.uleb128 0x55
+ 732 000c 17       		.uleb128 0x17
+ 733 000d 11       		.uleb128 0x11
+ 734 000e 01       		.uleb128 0x1
+ 735 000f 10       		.uleb128 0x10
+ 736 0010 17       		.uleb128 0x17
+ 737 0011 00       		.byte	0
+ 738 0012 00       		.byte	0
+ 739 0013 02       		.uleb128 0x2
+ 740 0014 24       		.uleb128 0x24
+ 741 0015 00       		.byte	0
+ 742 0016 0B       		.uleb128 0xb
+ 743 0017 0B       		.uleb128 0xb
+ 744 0018 3E       		.uleb128 0x3e
+ 745 0019 0B       		.uleb128 0xb
+ 746 001a 03       		.uleb128 0x3
+ 747 001b 0E       		.uleb128 0xe
+ 748 001c 00       		.byte	0
+ 749 001d 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 30
+
+
+ 750 001e 03       		.uleb128 0x3
+ 751 001f 24       		.uleb128 0x24
+ 752 0020 00       		.byte	0
+ 753 0021 0B       		.uleb128 0xb
+ 754 0022 0B       		.uleb128 0xb
+ 755 0023 3E       		.uleb128 0x3e
+ 756 0024 0B       		.uleb128 0xb
+ 757 0025 03       		.uleb128 0x3
+ 758 0026 08       		.uleb128 0x8
+ 759 0027 00       		.byte	0
+ 760 0028 00       		.byte	0
+ 761 0029 04       		.uleb128 0x4
+ 762 002a 16       		.uleb128 0x16
+ 763 002b 00       		.byte	0
+ 764 002c 03       		.uleb128 0x3
+ 765 002d 0E       		.uleb128 0xe
+ 766 002e 3A       		.uleb128 0x3a
+ 767 002f 0B       		.uleb128 0xb
+ 768 0030 3B       		.uleb128 0x3b
+ 769 0031 05       		.uleb128 0x5
+ 770 0032 49       		.uleb128 0x49
+ 771 0033 13       		.uleb128 0x13
+ 772 0034 00       		.byte	0
+ 773 0035 00       		.byte	0
+ 774 0036 05       		.uleb128 0x5
+ 775 0037 35       		.uleb128 0x35
+ 776 0038 00       		.byte	0
+ 777 0039 49       		.uleb128 0x49
+ 778 003a 13       		.uleb128 0x13
+ 779 003b 00       		.byte	0
+ 780 003c 00       		.byte	0
+ 781 003d 06       		.uleb128 0x6
+ 782 003e 2E       		.uleb128 0x2e
+ 783 003f 00       		.byte	0
+ 784 0040 3F       		.uleb128 0x3f
+ 785 0041 19       		.uleb128 0x19
+ 786 0042 03       		.uleb128 0x3
+ 787 0043 0E       		.uleb128 0xe
+ 788 0044 3A       		.uleb128 0x3a
+ 789 0045 0B       		.uleb128 0xb
+ 790 0046 3B       		.uleb128 0x3b
+ 791 0047 0B       		.uleb128 0xb
+ 792 0048 27       		.uleb128 0x27
+ 793 0049 19       		.uleb128 0x19
+ 794 004a 11       		.uleb128 0x11
+ 795 004b 01       		.uleb128 0x1
+ 796 004c 12       		.uleb128 0x12
+ 797 004d 06       		.uleb128 0x6
+ 798 004e 40       		.uleb128 0x40
+ 799 004f 18       		.uleb128 0x18
+ 800 0050 9742     		.uleb128 0x2117
+ 801 0052 19       		.uleb128 0x19
+ 802 0053 00       		.byte	0
+ 803 0054 00       		.byte	0
+ 804 0055 07       		.uleb128 0x7
+ 805 0056 2E       		.uleb128 0x2e
+ 806 0057 01       		.byte	0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 31
+
+
+ 807 0058 3F       		.uleb128 0x3f
+ 808 0059 19       		.uleb128 0x19
+ 809 005a 03       		.uleb128 0x3
+ 810 005b 0E       		.uleb128 0xe
+ 811 005c 3A       		.uleb128 0x3a
+ 812 005d 0B       		.uleb128 0xb
+ 813 005e 3B       		.uleb128 0x3b
+ 814 005f 05       		.uleb128 0x5
+ 815 0060 27       		.uleb128 0x27
+ 816 0061 19       		.uleb128 0x19
+ 817 0062 11       		.uleb128 0x11
+ 818 0063 01       		.uleb128 0x1
+ 819 0064 12       		.uleb128 0x12
+ 820 0065 06       		.uleb128 0x6
+ 821 0066 40       		.uleb128 0x40
+ 822 0067 18       		.uleb128 0x18
+ 823 0068 9742     		.uleb128 0x2117
+ 824 006a 19       		.uleb128 0x19
+ 825 006b 01       		.uleb128 0x1
+ 826 006c 13       		.uleb128 0x13
+ 827 006d 00       		.byte	0
+ 828 006e 00       		.byte	0
+ 829 006f 08       		.uleb128 0x8
+ 830 0070 05       		.uleb128 0x5
+ 831 0071 00       		.byte	0
+ 832 0072 03       		.uleb128 0x3
+ 833 0073 0E       		.uleb128 0xe
+ 834 0074 3A       		.uleb128 0x3a
+ 835 0075 0B       		.uleb128 0xb
+ 836 0076 3B       		.uleb128 0x3b
+ 837 0077 05       		.uleb128 0x5
+ 838 0078 49       		.uleb128 0x49
+ 839 0079 13       		.uleb128 0x13
+ 840 007a 02       		.uleb128 0x2
+ 841 007b 18       		.uleb128 0x18
+ 842 007c 00       		.byte	0
+ 843 007d 00       		.byte	0
+ 844 007e 09       		.uleb128 0x9
+ 845 007f 2E       		.uleb128 0x2e
+ 846 0080 00       		.byte	0
+ 847 0081 3F       		.uleb128 0x3f
+ 848 0082 19       		.uleb128 0x19
+ 849 0083 03       		.uleb128 0x3
+ 850 0084 0E       		.uleb128 0xe
+ 851 0085 3A       		.uleb128 0x3a
+ 852 0086 0B       		.uleb128 0xb
+ 853 0087 3B       		.uleb128 0x3b
+ 854 0088 05       		.uleb128 0x5
+ 855 0089 27       		.uleb128 0x27
+ 856 008a 19       		.uleb128 0x19
+ 857 008b 49       		.uleb128 0x49
+ 858 008c 13       		.uleb128 0x13
+ 859 008d 11       		.uleb128 0x11
+ 860 008e 01       		.uleb128 0x1
+ 861 008f 12       		.uleb128 0x12
+ 862 0090 06       		.uleb128 0x6
+ 863 0091 40       		.uleb128 0x40
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 32
+
+
+ 864 0092 18       		.uleb128 0x18
+ 865 0093 9742     		.uleb128 0x2117
+ 866 0095 19       		.uleb128 0x19
+ 867 0096 00       		.byte	0
+ 868 0097 00       		.byte	0
+ 869 0098 0A       		.uleb128 0xa
+ 870 0099 2E       		.uleb128 0x2e
+ 871 009a 01       		.byte	0x1
+ 872 009b 3F       		.uleb128 0x3f
+ 873 009c 19       		.uleb128 0x19
+ 874 009d 03       		.uleb128 0x3
+ 875 009e 0E       		.uleb128 0xe
+ 876 009f 3A       		.uleb128 0x3a
+ 877 00a0 0B       		.uleb128 0xb
+ 878 00a1 3B       		.uleb128 0x3b
+ 879 00a2 0B       		.uleb128 0xb
+ 880 00a3 27       		.uleb128 0x27
+ 881 00a4 19       		.uleb128 0x19
+ 882 00a5 11       		.uleb128 0x11
+ 883 00a6 01       		.uleb128 0x1
+ 884 00a7 12       		.uleb128 0x12
+ 885 00a8 06       		.uleb128 0x6
+ 886 00a9 40       		.uleb128 0x40
+ 887 00aa 18       		.uleb128 0x18
+ 888 00ab 9742     		.uleb128 0x2117
+ 889 00ad 19       		.uleb128 0x19
+ 890 00ae 01       		.uleb128 0x1
+ 891 00af 13       		.uleb128 0x13
+ 892 00b0 00       		.byte	0
+ 893 00b1 00       		.byte	0
+ 894 00b2 0B       		.uleb128 0xb
+ 895 00b3 34       		.uleb128 0x34
+ 896 00b4 00       		.byte	0
+ 897 00b5 03       		.uleb128 0x3
+ 898 00b6 0E       		.uleb128 0xe
+ 899 00b7 3A       		.uleb128 0x3a
+ 900 00b8 0B       		.uleb128 0xb
+ 901 00b9 3B       		.uleb128 0x3b
+ 902 00ba 0B       		.uleb128 0xb
+ 903 00bb 49       		.uleb128 0x49
+ 904 00bc 13       		.uleb128 0x13
+ 905 00bd 02       		.uleb128 0x2
+ 906 00be 17       		.uleb128 0x17
+ 907 00bf 00       		.byte	0
+ 908 00c0 00       		.byte	0
+ 909 00c1 0C       		.uleb128 0xc
+ 910 00c2 898201   		.uleb128 0x4109
+ 911 00c5 01       		.byte	0x1
+ 912 00c6 11       		.uleb128 0x11
+ 913 00c7 01       		.uleb128 0x1
+ 914 00c8 31       		.uleb128 0x31
+ 915 00c9 13       		.uleb128 0x13
+ 916 00ca 01       		.uleb128 0x1
+ 917 00cb 13       		.uleb128 0x13
+ 918 00cc 00       		.byte	0
+ 919 00cd 00       		.byte	0
+ 920 00ce 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 33
+
+
+ 921 00cf 8A8201   		.uleb128 0x410a
+ 922 00d2 00       		.byte	0
+ 923 00d3 02       		.uleb128 0x2
+ 924 00d4 18       		.uleb128 0x18
+ 925 00d5 9142     		.uleb128 0x2111
+ 926 00d7 18       		.uleb128 0x18
+ 927 00d8 00       		.byte	0
+ 928 00d9 00       		.byte	0
+ 929 00da 0E       		.uleb128 0xe
+ 930 00db 898201   		.uleb128 0x4109
+ 931 00de 01       		.byte	0x1
+ 932 00df 11       		.uleb128 0x11
+ 933 00e0 01       		.uleb128 0x1
+ 934 00e1 31       		.uleb128 0x31
+ 935 00e2 13       		.uleb128 0x13
+ 936 00e3 00       		.byte	0
+ 937 00e4 00       		.byte	0
+ 938 00e5 0F       		.uleb128 0xf
+ 939 00e6 898201   		.uleb128 0x4109
+ 940 00e9 00       		.byte	0
+ 941 00ea 11       		.uleb128 0x11
+ 942 00eb 01       		.uleb128 0x1
+ 943 00ec 31       		.uleb128 0x31
+ 944 00ed 13       		.uleb128 0x13
+ 945 00ee 00       		.byte	0
+ 946 00ef 00       		.byte	0
+ 947 00f0 10       		.uleb128 0x10
+ 948 00f1 2E       		.uleb128 0x2e
+ 949 00f2 01       		.byte	0x1
+ 950 00f3 3F       		.uleb128 0x3f
+ 951 00f4 19       		.uleb128 0x19
+ 952 00f5 03       		.uleb128 0x3
+ 953 00f6 0E       		.uleb128 0xe
+ 954 00f7 3A       		.uleb128 0x3a
+ 955 00f8 0B       		.uleb128 0xb
+ 956 00f9 3B       		.uleb128 0x3b
+ 957 00fa 05       		.uleb128 0x5
+ 958 00fb 27       		.uleb128 0x27
+ 959 00fc 19       		.uleb128 0x19
+ 960 00fd 49       		.uleb128 0x49
+ 961 00fe 13       		.uleb128 0x13
+ 962 00ff 11       		.uleb128 0x11
+ 963 0100 01       		.uleb128 0x1
+ 964 0101 12       		.uleb128 0x12
+ 965 0102 06       		.uleb128 0x6
+ 966 0103 40       		.uleb128 0x40
+ 967 0104 18       		.uleb128 0x18
+ 968 0105 9742     		.uleb128 0x2117
+ 969 0107 19       		.uleb128 0x19
+ 970 0108 01       		.uleb128 0x1
+ 971 0109 13       		.uleb128 0x13
+ 972 010a 00       		.byte	0
+ 973 010b 00       		.byte	0
+ 974 010c 11       		.uleb128 0x11
+ 975 010d 34       		.uleb128 0x34
+ 976 010e 00       		.byte	0
+ 977 010f 03       		.uleb128 0x3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 34
+
+
+ 978 0110 0E       		.uleb128 0xe
+ 979 0111 3A       		.uleb128 0x3a
+ 980 0112 0B       		.uleb128 0xb
+ 981 0113 3B       		.uleb128 0x3b
+ 982 0114 05       		.uleb128 0x5
+ 983 0115 49       		.uleb128 0x49
+ 984 0116 13       		.uleb128 0x13
+ 985 0117 02       		.uleb128 0x2
+ 986 0118 18       		.uleb128 0x18
+ 987 0119 00       		.byte	0
+ 988 011a 00       		.byte	0
+ 989 011b 12       		.uleb128 0x12
+ 990 011c 34       		.uleb128 0x34
+ 991 011d 00       		.byte	0
+ 992 011e 03       		.uleb128 0x3
+ 993 011f 0E       		.uleb128 0xe
+ 994 0120 3A       		.uleb128 0x3a
+ 995 0121 0B       		.uleb128 0xb
+ 996 0122 3B       		.uleb128 0x3b
+ 997 0123 0B       		.uleb128 0xb
+ 998 0124 49       		.uleb128 0x49
+ 999 0125 13       		.uleb128 0x13
+ 1000 0126 3F       		.uleb128 0x3f
+ 1001 0127 19       		.uleb128 0x19
+ 1002 0128 02       		.uleb128 0x2
+ 1003 0129 18       		.uleb128 0x18
+ 1004 012a 00       		.byte	0
+ 1005 012b 00       		.byte	0
+ 1006 012c 00       		.byte	0
+ 1007              		.section	.debug_loc,"",%progbits
+ 1008              	.Ldebug_loc0:
+ 1009              	.LLST0:
+ 1010 0000 0A000000 		.4byte	.LVL3
+ 1011 0004 0E000000 		.4byte	.LVL4
+ 1012 0008 0100     		.2byte	0x1
+ 1013 000a 53       		.byte	0x53
+ 1014 000b 00000000 		.4byte	0
+ 1015 000f 00000000 		.4byte	0
+ 1016              		.section	.debug_aranges,"",%progbits
+ 1017 0000 7C000000 		.4byte	0x7c
+ 1018 0004 0200     		.2byte	0x2
+ 1019 0006 00000000 		.4byte	.Ldebug_info0
+ 1020 000a 04       		.byte	0x4
+ 1021 000b 00       		.byte	0
+ 1022 000c 0000     		.2byte	0
+ 1023 000e 0000     		.2byte	0
+ 1024 0010 00000000 		.4byte	.LFB2
+ 1025 0014 10000000 		.4byte	.LFE2-.LFB2
+ 1026 0018 00000000 		.4byte	.LFB3
+ 1027 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1028 0020 00000000 		.4byte	.LFB4
+ 1029 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1030 0028 00000000 		.4byte	.LFB5
+ 1031 002c 14000000 		.4byte	.LFE5-.LFB5
+ 1032 0030 00000000 		.4byte	.LFB6
+ 1033 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1034 0038 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 35
+
+
+ 1035 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1036 0040 00000000 		.4byte	.LFB1
+ 1037 0044 40000000 		.4byte	.LFE1-.LFB1
+ 1038 0048 00000000 		.4byte	.LFB0
+ 1039 004c 1C000000 		.4byte	.LFE0-.LFB0
+ 1040 0050 00000000 		.4byte	.LFB8
+ 1041 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1042 0058 00000000 		.4byte	.LFB9
+ 1043 005c 0C000000 		.4byte	.LFE9-.LFB9
+ 1044 0060 00000000 		.4byte	.LFB10
+ 1045 0064 0C000000 		.4byte	.LFE10-.LFB10
+ 1046 0068 00000000 		.4byte	.LFB11
+ 1047 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1048 0070 00000000 		.4byte	.LFB12
+ 1049 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1050 0078 00000000 		.4byte	0
+ 1051 007c 00000000 		.4byte	0
+ 1052              		.section	.debug_ranges,"",%progbits
+ 1053              	.Ldebug_ranges0:
+ 1054 0000 00000000 		.4byte	.LFB2
+ 1055 0004 10000000 		.4byte	.LFE2
+ 1056 0008 00000000 		.4byte	.LFB3
+ 1057 000c 10000000 		.4byte	.LFE3
+ 1058 0010 00000000 		.4byte	.LFB4
+ 1059 0014 0C000000 		.4byte	.LFE4
+ 1060 0018 00000000 		.4byte	.LFB5
+ 1061 001c 14000000 		.4byte	.LFE5
+ 1062 0020 00000000 		.4byte	.LFB6
+ 1063 0024 0C000000 		.4byte	.LFE6
+ 1064 0028 00000000 		.4byte	.LFB7
+ 1065 002c 0C000000 		.4byte	.LFE7
+ 1066 0030 00000000 		.4byte	.LFB1
+ 1067 0034 40000000 		.4byte	.LFE1
+ 1068 0038 00000000 		.4byte	.LFB0
+ 1069 003c 1C000000 		.4byte	.LFE0
+ 1070 0040 00000000 		.4byte	.LFB8
+ 1071 0044 0C000000 		.4byte	.LFE8
+ 1072 0048 00000000 		.4byte	.LFB9
+ 1073 004c 0C000000 		.4byte	.LFE9
+ 1074 0050 00000000 		.4byte	.LFB10
+ 1075 0054 0C000000 		.4byte	.LFE10
+ 1076 0058 00000000 		.4byte	.LFB11
+ 1077 005c 0C000000 		.4byte	.LFE11
+ 1078 0060 00000000 		.4byte	.LFB12
+ 1079 0064 0C000000 		.4byte	.LFE12
+ 1080 0068 00000000 		.4byte	0
+ 1081 006c 00000000 		.4byte	0
+ 1082              		.section	.debug_line,"",%progbits
+ 1083              	.Ldebug_line0:
+ 1084 0000 3F010000 		.section	.debug_str,"MS",%progbits,1
+ 1084      02004800 
+ 1084      00000201 
+ 1084      FB0E0D00 
+ 1084      01010101 
+ 1085              	.LASF15:
+ 1086 0000 72656731 		.ascii	"reg16\000"
+ 1086      3600
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 36
+
+
+ 1087              	.LASF21:
+ 1088 0006 5247425F 		.ascii	"RGB_PWM_red_WritePeriod\000"
+ 1088      50574D5F 
+ 1088      7265645F 
+ 1088      57726974 
+ 1088      65506572 
+ 1089              	.LASF23:
+ 1090 001e 70657269 		.ascii	"period\000"
+ 1090      6F6400
+ 1091              	.LASF20:
+ 1092 0025 5247425F 		.ascii	"RGB_PWM_red_WriteCounter\000"
+ 1092      50574D5F 
+ 1092      7265645F 
+ 1092      57726974 
+ 1092      65436F75 
+ 1093              	.LASF3:
+ 1094 003e 73686F72 		.ascii	"short unsigned int\000"
+ 1094      7420756E 
+ 1094      7369676E 
+ 1094      65642069 
+ 1094      6E7400
+ 1095              	.LASF26:
+ 1096 0051 5247425F 		.ascii	"RGB_PWM_red_Init\000"
+ 1096      50574D5F 
+ 1096      7265645F 
+ 1096      496E6974 
+ 1096      00
+ 1097              	.LASF30:
+ 1098 0062 5247425F 		.ascii	"RGB_PWM_red_WriteControlRegister\000"
+ 1098      50574D5F 
+ 1098      7265645F 
+ 1098      57726974 
+ 1098      65436F6E 
+ 1099              	.LASF11:
+ 1100 0083 666C6F61 		.ascii	"float\000"
+ 1100      7400
+ 1101              	.LASF22:
+ 1102 0089 636F756E 		.ascii	"counter\000"
+ 1102      74657200 
+ 1103              	.LASF1:
+ 1104 0091 756E7369 		.ascii	"unsigned char\000"
+ 1104      676E6564 
+ 1104      20636861 
+ 1104      7200
+ 1105              	.LASF36:
+ 1106 009f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1106      43313120 
+ 1106      352E342E 
+ 1106      31203230 
+ 1106      31363036 
+ 1107 00d2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1107      20726576 
+ 1107      6973696F 
+ 1107      6E203233 
+ 1107      37373135 
+ 1108 0105 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1108      66756E63 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 37
+
+
+ 1108      74696F6E 
+ 1108      2D736563 
+ 1108      74696F6E 
+ 1109              	.LASF14:
+ 1110 012d 72656738 		.ascii	"reg8\000"
+ 1110      00
+ 1111              	.LASF5:
+ 1112 0132 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1112      20756E73 
+ 1112      69676E65 
+ 1112      6420696E 
+ 1112      7400
+ 1113              	.LASF40:
+ 1114 0144 5247425F 		.ascii	"RGB_PWM_red_initVar\000"
+ 1114      50574D5F 
+ 1114      7265645F 
+ 1114      696E6974 
+ 1114      56617200 
+ 1115              	.LASF9:
+ 1116 0158 75696E74 		.ascii	"uint8\000"
+ 1116      3800
+ 1117              	.LASF31:
+ 1118 015e 636F6E74 		.ascii	"control\000"
+ 1118      726F6C00 
+ 1119              	.LASF39:
+ 1120 0166 5247425F 		.ascii	"RGB_PWM_red_ReadControlRegister\000"
+ 1120      50574D5F 
+ 1120      7265645F 
+ 1120      52656164 
+ 1120      436F6E74 
+ 1121              	.LASF32:
+ 1122 0186 5247425F 		.ascii	"RGB_PWM_red_ReadCounter\000"
+ 1122      50574D5F 
+ 1122      7265645F 
+ 1122      52656164 
+ 1122      436F756E 
+ 1123              	.LASF18:
+ 1124 019e 5247425F 		.ascii	"RGB_PWM_red_Enable\000"
+ 1124      50574D5F 
+ 1124      7265645F 
+ 1124      456E6162 
+ 1124      6C6500
+ 1125              	.LASF12:
+ 1126 01b1 646F7562 		.ascii	"double\000"
+ 1126      6C6500
+ 1127              	.LASF10:
+ 1128 01b8 75696E74 		.ascii	"uint16\000"
+ 1128      313600
+ 1129              	.LASF34:
+ 1130 01bf 5247425F 		.ascii	"RGB_PWM_red_ReadCompare\000"
+ 1130      50574D5F 
+ 1130      7265645F 
+ 1130      52656164 
+ 1130      436F6D70 
+ 1131              	.LASF8:
+ 1132 01d7 756E7369 		.ascii	"unsigned int\000"
+ 1132      676E6564 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 38
+
+
+ 1132      20696E74 
+ 1132      00
+ 1133              	.LASF33:
+ 1134 01e4 5247425F 		.ascii	"RGB_PWM_red_ReadCapture\000"
+ 1134      50574D5F 
+ 1134      7265645F 
+ 1134      52656164 
+ 1134      43617074 
+ 1135              	.LASF37:
+ 1136 01fc 47656E65 		.ascii	"Generated_Source\\PSoC5\\RGB_PWM_red.c\000"
+ 1136      72617465 
+ 1136      645F536F 
+ 1136      75726365 
+ 1136      5C50536F 
+ 1137              	.LASF7:
+ 1138 0221 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1138      206C6F6E 
+ 1138      6720756E 
+ 1138      7369676E 
+ 1138      65642069 
+ 1139              	.LASF29:
+ 1140 0238 72657375 		.ascii	"result\000"
+ 1140      6C7400
+ 1141              	.LASF38:
+ 1142 023f 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 1142      73657273 
+ 1142      5C417375 
+ 1142      735C4465 
+ 1142      736B746F 
+ 1143 026b 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 1143      30315C45 
+ 1143      6C656374 
+ 1143      726F6E69 
+ 1143      635F4761 
+ 1144 029a 4C616230 		.ascii	"Lab01.cydsn\000"
+ 1144      312E6379 
+ 1144      64736E00 
+ 1145              	.LASF28:
+ 1146 02a6 6374726C 		.ascii	"ctrl\000"
+ 1146      00
+ 1147              	.LASF17:
+ 1148 02ab 73697A65 		.ascii	"sizetype\000"
+ 1148      74797065 
+ 1148      00
+ 1149              	.LASF6:
+ 1150 02b4 6C6F6E67 		.ascii	"long long int\000"
+ 1150      206C6F6E 
+ 1150      6720696E 
+ 1150      7400
+ 1151              	.LASF27:
+ 1152 02c2 5247425F 		.ascii	"RGB_PWM_red_Start\000"
+ 1152      50574D5F 
+ 1152      7265645F 
+ 1152      53746172 
+ 1152      7400
+ 1153              	.LASF13:
+ 1154 02d4 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccJBZ87v.s 			page 39
+
+
+ 1154      00
+ 1155              	.LASF24:
+ 1156 02d9 5247425F 		.ascii	"RGB_PWM_red_WriteCompare\000"
+ 1156      50574D5F 
+ 1156      7265645F 
+ 1156      57726974 
+ 1156      65436F6D 
+ 1157              	.LASF2:
+ 1158 02f2 73686F72 		.ascii	"short int\000"
+ 1158      7420696E 
+ 1158      7400
+ 1159              	.LASF19:
+ 1160 02fc 5247425F 		.ascii	"RGB_PWM_red_Stop\000"
+ 1160      50574D5F 
+ 1160      7265645F 
+ 1160      53746F70 
+ 1160      00
+ 1161              	.LASF35:
+ 1162 030d 5247425F 		.ascii	"RGB_PWM_red_ReadPeriod\000"
+ 1162      50574D5F 
+ 1162      7265645F 
+ 1162      52656164 
+ 1162      50657269 
+ 1163              	.LASF4:
+ 1164 0324 6C6F6E67 		.ascii	"long int\000"
+ 1164      20696E74 
+ 1164      00
+ 1165              	.LASF16:
+ 1166 032d 6C6F6E67 		.ascii	"long double\000"
+ 1166      20646F75 
+ 1166      626C6500 
+ 1167              	.LASF0:
+ 1168 0339 7369676E 		.ascii	"signed char\000"
+ 1168      65642063 
+ 1168      68617200 
+ 1169              	.LASF25:
+ 1170 0345 636F6D70 		.ascii	"compare\000"
+ 1170      61726500 
+ 1171              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

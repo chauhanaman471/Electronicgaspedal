@@ -1,0 +1,148 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+dont_use_io iocell 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_61\" macrocell 3 3 0 1
+set_location "\UART_LOG:BUART:sRX:RxBitCounter\" count7cell 0 0 7 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_17\" macrocell 1 1 0 3
+set_location "\UART_LOG:BUART:rx_last\" macrocell 0 0 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_10\" macrocell 3 2 0 2
+set_location "\RGB_PWM_blue:PWMUDB:runmode_enable\" macrocell 0 4 1 0
+set_location "\RGB_PWM_green:PWMUDB:runmode_enable\" macrocell 1 5 0 0
+set_location "\RGB_PWM_red:PWMUDB:runmode_enable\" macrocell 1 3 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_43\" macrocell 2 2 0 1
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:ChannelCounter\" count7cell 0 2 7 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_32\" macrocell 2 4 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_is_active\" macrocell 0 3 0 3
+set_location "\UART_LOG:BUART:tx_state_0\" macrocell 2 1 1 0
+set_location "Net_99" macrocell 1 2 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_0\" macrocell 3 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_3\" macrocell 0 2 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_21\" macrocell 1 1 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_57\" macrocell 2 3 0 2
+set_location "\UART_LOG:BUART:rx_state_3\" macrocell 0 0 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_12\" macrocell 3 3 1 2
+set_location "\UART_LOG:BUART:tx_ctrl_mark_last\" macrocell 1 0 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_33\" macrocell 1 1 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_31\" macrocell 0 1 0 1
+set_location "\UART_LOG:BUART:rx_state_stop1_reg\" macrocell 0 0 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_25\" macrocell 3 4 1 2
+set_location "\UART_LOG:BUART:sRX:RxSts\" statusicell 1 1 4 
+set_location "\UART_LOG:BUART:txn\" macrocell 2 0 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_60\" macrocell 2 2 1 1
+set_location "\UART_LOG:BUART:rx_counter_load\" macrocell 0 0 0 1
+set_location "\UART_LOG:BUART:tx_state_1\" macrocell 2 1 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_22\" macrocell 1 3 0 2
+set_location "\UART_LOG:BUART:pollcount_1\" macrocell 0 1 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_7\" macrocell 3 1 1 2
+set_location "\UART_LOG:BUART:counter_load_not\" macrocell 2 0 1 1
+set_location "\UART_LOG:BUART:rx_state_2\" macrocell 0 0 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_5\" macrocell 1 4 1 0
+set_location "\UART_LOG:BUART:sTX:sCLOCK:TxBitClkGen\" datapathcell 2 0 2 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_62\" macrocell 2 2 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_34\" macrocell 1 5 1 1
+set_location "\UART_LOG:BUART:tx_bitclk\" macrocell 2 0 0 1
+set_location "\UART_LOG:BUART:tx_status_2\" macrocell 2 1 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_26\" macrocell 2 3 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_28\" macrocell 2 2 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_5\" macrocell 0 2 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_41\" macrocell 0 2 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_18\" macrocell 0 5 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_46\" macrocell 0 5 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_42\" macrocell 1 3 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_63\" macrocell 2 4 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_19\" macrocell 0 3 0 0
+set_location "\UART_LOG:BUART:sTX:TxShifter:u0\" datapathcell 2 1 2 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_59\" macrocell 3 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_1\" macrocell 3 4 0 1
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:cnt_enable\" macrocell 1 2 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_40\" macrocell 2 3 0 1
+set_location "\UART_LOG:BUART:rx_load_fifo\" macrocell 0 0 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_38\" macrocell 2 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_2\" macrocell 0 2 0 2
+set_location "\UART_LOG:BUART:tx_state_2\" macrocell 2 1 0 0
+set_location "\UART_LOG:BUART:tx_status_0\" macrocell 2 1 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_15\" macrocell 1 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_14\" macrocell 3 0 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_30\" macrocell 2 4 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_45\" macrocell 3 3 0 2
+set_location "\UART_LOG:BUART:rx_status_4\" macrocell 0 1 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_49\" macrocell 0 2 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_29\" macrocell 1 0 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_24\" macrocell 1 0 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_54\" macrocell 3 3 0 3
+set_location "Net_148" macrocell 2 0 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_52\" macrocell 0 5 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_44\" macrocell 1 4 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_55\" macrocell 1 4 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_11\" macrocell 1 4 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_39\" macrocell 3 2 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_23\" macrocell 0 4 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_6\" macrocell 3 0 1 1
+set_location "Net_403" macrocell 1 3 1 1
+set_location "Net_429" macrocell 0 4 1 1
+set_location "Net_481" macrocell 1 5 0 1
+set_location "\UART_LOG:BUART:rx_state_0\" macrocell 0 0 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_35\" macrocell 1 1 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_4\" macrocell 0 4 0 0
+set_location "\UART_LOG:BUART:pollcount_0\" macrocell 0 1 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_50\" macrocell 2 0 1 2
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:bus_clk_nrq_reg\" macrocell 1 2 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_56\" macrocell 0 3 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_4\" macrocell 2 3 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_2\" macrocell 3 1 1 3
+set_location "\UART_LOG:BUART:rx_status_5\" macrocell 0 1 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_36\" macrocell 0 1 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_20\" macrocell 3 0 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_8\" macrocell 3 2 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_27\" macrocell 3 1 0 3
+set_location "\UART_LOG:BUART:rx_bitclk_enable\" macrocell 1 0 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_16\" macrocell 1 1 1 2
+set_location "\UART_LOG:BUART:sTX:TxSts\" statusicell 2 1 4 
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:nrq_reg\" macrocell 1 2 0 1
+set_location "\RGB_PWM_red:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 3 2 
+set_location "\RGB_PWM_blue:PWMUDB:sP16:pwmdp:u0\" datapathcell 1 4 2 
+set_location "\RGB_PWM_green:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 5 2 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_13\" macrocell 1 5 1 3
+set_location "\UART_LOG:BUART:rx_postpoll\" macrocell 0 1 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_51\" macrocell 2 3 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_48\" macrocell 1 1 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_1\" macrocell 0 2 1 0
+set_location "\UART_LOG:BUART:sRX:RxShifter:u0\" datapathcell 0 1 2 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_53\" macrocell 1 4 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_0\" macrocell 0 2 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_47\" macrocell 1 0 1 0
+set_location "\UART_LOG:BUART:rx_status_3\" macrocell 0 0 1 3
+set_location "\RGB_PWM_red:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 3 2 
+set_location "\RGB_PWM_blue:PWMUDB:sP16:pwmdp:u1\" datapathcell 0 4 2 
+set_location "\RGB_PWM_green:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 5 2 
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_58\" macrocell 2 3 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_37\" macrocell 3 1 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_is_active_split\" macrocell 0 3 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_9\" macrocell 0 1 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_3\" macrocell 3 2 1 3
+set_io "WD_Button(0)" iocell 0 3
+set_location "\JOYSTICK_ADC_XY:TempBuf\" drqcell -1 -1 1
+# Note: port 12 is the logical name for port 7
+set_io "Tx_LOG(0)" iocell 12 7
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:CtrlReg\" controlcell 0 1 6 
+set_io "RGB_R(0)" iocell 2 5
+set_io "RGB_G(0)" iocell 2 4
+set_location "\JOYSTICK_ADC_XY:FinalBuf\" drqcell -1 -1 0
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:EOCSts\" statuscell 1 2 3 
+set_location "\JOYSTICK_ADC_XY:SAR:ADC_SAR\" sarcell -1 -1 0
+set_location "\JOYSTICK_ADC_XY:IRQ\" interrupt -1 -1 0
+# Note: port 12 is the logical name for port 7
+set_io "Rx_LOG(0)" iocell 12 6
+set_location "\RGB_PWM_red:PWMUDB:genblk1:ctrlreg\" controlcell 1 4 6 
+set_location "\RGB_PWM_blue:PWMUDB:genblk1:ctrlreg\" controlcell 0 4 6 
+set_location "\RGB_PWM_green:PWMUDB:genblk1:ctrlreg\" controlcell 1 5 6 
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "RGB_B(0)" iocell 2 3
+set_location "WD_Button" logicalport -1 -1 0
+set_location "isr_Button" interrupt -1 -1 4
+set_io "LED_red(0)" iocell 0 6
+set_io "LED_yellow(0)" iocell 2 0
+set_io "LED_green(0)" iocell 0 7
+set_location "\JOYSTICK_ADC_XY:Sync:genblk1[0]:INST\" synccell 1 3 5 0
+set_io "JOYSTICK_X(0)" iocell 0 0
+set_io "JOYSTICK_Y(0)" iocell 0 1

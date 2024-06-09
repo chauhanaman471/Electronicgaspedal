@@ -1,0 +1,926 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"JOYSTICK_ADC_XY_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.JOYSTICK_ADC_XY_Sleep,"ax",%progbits
+  20              		.align	2
+  21              		.global	JOYSTICK_ADC_XY_Sleep
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	JOYSTICK_ADC_XY_Sleep, %function
+  25              	JOYSTICK_ADC_XY_Sleep:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_PM.c"
+   1:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * File Name: JOYSTICK_ADC_XY_PM.c
+   3:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Version 2.10
+   4:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+   5:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Description:
+   6:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  This file contains the setup, control and status commands to support
+   7:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  component operations in low power mode.
+   8:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+   9:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Note:
+  10:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  11:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Copyright 2012-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  18:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** #include "JOYSTICK_ADC_XY.h"
+  19:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** #include "JOYSTICK_ADC_XY_SAR.h"
+  20:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** #if(JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL)
+  21:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #include "JOYSTICK_ADC_XY_IntClock.h"
+  22:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** #endif   /* JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL */
+  23:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  24:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  25:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** /*******************************************************************************
+  26:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Function Name: JOYSTICK_ADC_XY_Sleep
+  27:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** ********************************************************************************
+  28:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  29:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Summary:
+  30:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  Stops the ADC operation and saves the configuration registers and component
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 2
+
+
+  31:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  enable state. Should be called just prior to entering sleep
+  32:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  33:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  35:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  36:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Return:
+  37:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  38:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  39:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Side Effects:
+  40:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  41:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  42:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Reentrant:
+  43:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  No.
+  44:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  45:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *******************************************************************************/
+  46:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** void JOYSTICK_ADC_XY_Sleep(void)
+  47:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** {
+  28              		.loc 1 47 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  48:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_SAR_Stop();
+  36              		.loc 1 48 0
+  37 0002 FFF7FEFF 		bl	JOYSTICK_ADC_XY_SAR_Stop
+  38              	.LVL0:
+  49:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_SAR_Sleep();
+  39              		.loc 1 49 0
+  40 0006 FFF7FEFF 		bl	JOYSTICK_ADC_XY_SAR_Sleep
+  41              	.LVL1:
+  50:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_Disable();
+  42              		.loc 1 50 0
+  43 000a FFF7FEFF 		bl	JOYSTICK_ADC_XY_Disable
+  44              	.LVL2:
+  51:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  52:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #if(JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL)
+  53:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****         JOYSTICK_ADC_XY_IntClock_Stop();
+  45              		.loc 1 53 0
+  46 000e FFF7FEFF 		bl	JOYSTICK_ADC_XY_IntClock_Stop
+  47              	.LVL3:
+  48 0012 08BD     		pop	{r3, pc}
+  49              		.cfi_endproc
+  50              	.LFE0:
+  51              		.size	JOYSTICK_ADC_XY_Sleep, .-JOYSTICK_ADC_XY_Sleep
+  52              		.section	.text.JOYSTICK_ADC_XY_Wakeup,"ax",%progbits
+  53              		.align	2
+  54              		.global	JOYSTICK_ADC_XY_Wakeup
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	JOYSTICK_ADC_XY_Wakeup, %function
+  58              	JOYSTICK_ADC_XY_Wakeup:
+  59              	.LFB1:
+  54:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #endif   /* JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL */
+  55:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** }
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 3
+
+
+  56:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  57:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  58:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** /*******************************************************************************
+  59:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Function Name: JOYSTICK_ADC_XY_Wakeup
+  60:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** ********************************************************************************
+  61:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  62:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Summary:
+  63:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  Restores the component enable state and configuration registers. This should
+  64:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  be called just after awaking from sleep mode
+  65:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  66:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Parameters:
+  67:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  68:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  69:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Return:
+  70:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  71:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  72:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Side Effects:
+  73:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+  74:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  75:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Reentrant:
+  76:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  No.
+  77:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+  78:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *******************************************************************************/
+  79:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** void JOYSTICK_ADC_XY_Wakeup(void)
+  80:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** {
+  60              		.loc 1 80 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64 0000 08B5     		push	{r3, lr}
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 3, -8
+  67              		.cfi_offset 14, -4
+  81:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_SAR_Wakeup();
+  68              		.loc 1 81 0
+  69 0002 FFF7FEFF 		bl	JOYSTICK_ADC_XY_SAR_Wakeup
+  70              	.LVL4:
+  82:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_SAR_Enable();
+  71              		.loc 1 82 0
+  72 0006 FFF7FEFF 		bl	JOYSTICK_ADC_XY_SAR_Enable
+  73              	.LVL5:
+  83:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  84:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #if(JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL)
+  85:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****         JOYSTICK_ADC_XY_IntClock_Start();
+  74              		.loc 1 85 0
+  75 000a FFF7FEFF 		bl	JOYSTICK_ADC_XY_IntClock_Start
+  76              	.LVL6:
+  86:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #endif   /* JOYSTICK_ADC_XY_CLOCK_SOURCE == JOYSTICK_ADC_XY_CLOCK_INTERNAL */
+  87:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  88:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     /* The block is ready to use 10 us after the SAR enable signal is set high. */
+  89:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     CyDelayUs(10u);
+  77              		.loc 1 89 0
+  78 000e 0A20     		movs	r0, #10
+  79 0010 FFF7FEFF 		bl	CyDelayUs
+  80              	.LVL7:
+  90:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     
+  91:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     JOYSTICK_ADC_XY_Enable();
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 4
+
+
+  81              		.loc 1 91 0
+  82 0014 FFF7FEFF 		bl	JOYSTICK_ADC_XY_Enable
+  83              	.LVL8:
+  92:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  93:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #if(JOYSTICK_ADC_XY_SAMPLE_MODE == JOYSTICK_ADC_XY_SAMPLE_MODE_FREE_RUNNING)
+  94:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****         JOYSTICK_ADC_XY_SAR_StartConvert();
+  84              		.loc 1 94 0
+  85 0018 FFF7FEFF 		bl	JOYSTICK_ADC_XY_SAR_StartConvert
+  86              	.LVL9:
+  95:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     #endif /* (JOYSTICK_ADC_XY_SAMPLE_MODE == JOYSTICK_ADC_XY_SAMPLE_MODE_FREE_RUNNING) */
+  96:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+  97:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c ****     (void) CY_GET_REG8(JOYSTICK_ADC_XY_STATUS_PTR);
+  87              		.loc 1 97 0
+  88 001c 014B     		ldr	r3, .L5
+  89 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  90 0020 08BD     		pop	{r3, pc}
+  91              	.L6:
+  92 0022 00BF     		.align	2
+  93              	.L5:
+  94 0024 68640040 		.word	1073767528
+  95              		.cfi_endproc
+  96              	.LFE1:
+  97              		.size	JOYSTICK_ADC_XY_Wakeup, .-JOYSTICK_ADC_XY_Wakeup
+  98              		.section	.text.JOYSTICK_ADC_XY_SaveConfig,"ax",%progbits
+  99              		.align	2
+ 100              		.global	JOYSTICK_ADC_XY_SaveConfig
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.type	JOYSTICK_ADC_XY_SaveConfig, %function
+ 104              	JOYSTICK_ADC_XY_SaveConfig:
+ 105              	.LFB2:
+  98:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** }
+  99:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+ 100:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+ 101:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** /*******************************************************************************
+ 102:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Function Name: JOYSTICK_ADC_XY_SaveConfig
+ 103:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** ********************************************************************************
+ 104:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 105:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Summary:
+ 106:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  Save the current configuration of ADC non-retention registers
+ 107:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 108:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Parameters:
+ 109:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 110:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 111:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Return:
+ 112:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 113:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 114:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Side Effects:
+ 115:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 116:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 117:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Reentrant:
+ 118:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  No.
+ 119:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 120:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *******************************************************************************/
+ 121:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** void JOYSTICK_ADC_XY_SaveConfig(void)
+ 122:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** {
+ 106              		.loc 1 122 0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 5
+
+
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111 0000 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE2:
+ 114              		.size	JOYSTICK_ADC_XY_SaveConfig, .-JOYSTICK_ADC_XY_SaveConfig
+ 115 0002 00BF     		.section	.text.JOYSTICK_ADC_XY_RestoreConfig,"ax",%progbits
+ 116              		.align	2
+ 117              		.global	JOYSTICK_ADC_XY_RestoreConfig
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.type	JOYSTICK_ADC_XY_RestoreConfig, %function
+ 121              	JOYSTICK_ADC_XY_RestoreConfig:
+ 122              	.LFB3:
+ 123:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+ 124:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** }
+ 125:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+ 126:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** 
+ 127:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** /*******************************************************************************
+ 128:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Function Name: JOYSTICK_ADC_XY_RestoreConfig
+ 129:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** ********************************************************************************
+ 130:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 131:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Summary:
+ 132:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  Restores the configuration of ADC non-retention registers
+ 133:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 134:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Parameters:
+ 135:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 136:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 137:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Return:
+ 138:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 139:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 140:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Side Effects:
+ 141:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  None.
+ 142:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 143:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** * Reentrant:
+ 144:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *  No.
+ 145:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *
+ 146:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** *******************************************************************************/
+ 147:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** void JOYSTICK_ADC_XY_RestoreConfig(void)
+ 148:Generated_Source\PSoC5/JOYSTICK_ADC_XY_PM.c **** {
+ 123              		.loc 1 148 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128 0000 7047     		bx	lr
+ 129              		.cfi_endproc
+ 130              	.LFE3:
+ 131              		.size	JOYSTICK_ADC_XY_RestoreConfig, .-JOYSTICK_ADC_XY_RestoreConfig
+ 132 0002 00BF     		.text
+ 133              	.Letext0:
+ 134              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 135              		.file 3 "Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_SAR.h"
+ 136              		.file 4 "Generated_Source\\PSoC5\\JOYSTICK_ADC_XY.h"
+ 137              		.file 5 "Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_IntClock.h"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 6
+
+
+ 138              		.file 6 "Generated_Source\\PSoC5\\CyLib.h"
+ 139              		.section	.debug_info,"",%progbits
+ 140              	.Ldebug_info0:
+ 141 0000 C8010000 		.4byte	0x1c8
+ 142 0004 0400     		.2byte	0x4
+ 143 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 144 000a 04       		.byte	0x4
+ 145 000b 01       		.uleb128 0x1
+ 146 000c 91000000 		.4byte	.LASF30
+ 147 0010 0C       		.byte	0xc
+ 148 0011 AF020000 		.4byte	.LASF31
+ 149 0015 2A020000 		.4byte	.LASF32
+ 150 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 151 001d 00000000 		.4byte	0
+ 152 0021 00000000 		.4byte	.Ldebug_line0
+ 153 0025 02       		.uleb128 0x2
+ 154 0026 01       		.byte	0x1
+ 155 0027 06       		.byte	0x6
+ 156 0028 16030000 		.4byte	.LASF0
+ 157 002c 02       		.uleb128 0x2
+ 158 002d 01       		.byte	0x1
+ 159 002e 08       		.byte	0x8
+ 160 002f 83000000 		.4byte	.LASF1
+ 161 0033 02       		.uleb128 0x2
+ 162 0034 02       		.byte	0x2
+ 163 0035 05       		.byte	0x5
+ 164 0036 F7020000 		.4byte	.LASF2
+ 165 003a 02       		.uleb128 0x2
+ 166 003b 02       		.byte	0x2
+ 167 003c 07       		.byte	0x7
+ 168 003d 17000000 		.4byte	.LASF3
+ 169 0041 02       		.uleb128 0x2
+ 170 0042 04       		.byte	0x4
+ 171 0043 05       		.byte	0x5
+ 172 0044 01030000 		.4byte	.LASF4
+ 173 0048 02       		.uleb128 0x2
+ 174 0049 04       		.byte	0x4
+ 175 004a 07       		.byte	0x7
+ 176 004b 54010000 		.4byte	.LASF5
+ 177 004f 02       		.uleb128 0x2
+ 178 0050 08       		.byte	0x8
+ 179 0051 05       		.byte	0x5
+ 180 0052 E4020000 		.4byte	.LASF6
+ 181 0056 02       		.uleb128 0x2
+ 182 0057 08       		.byte	0x8
+ 183 0058 07       		.byte	0x7
+ 184 0059 13020000 		.4byte	.LASF7
+ 185 005d 03       		.uleb128 0x3
+ 186 005e 04       		.byte	0x4
+ 187 005f 05       		.byte	0x5
+ 188 0060 696E7400 		.ascii	"int\000"
+ 189 0064 02       		.uleb128 0x2
+ 190 0065 04       		.byte	0x4
+ 191 0066 07       		.byte	0x7
+ 192 0067 EE010000 		.4byte	.LASF8
+ 193 006b 04       		.uleb128 0x4
+ 194 006c 66010000 		.4byte	.LASF12
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 7
+
+
+ 195 0070 02       		.byte	0x2
+ 196 0071 E801     		.2byte	0x1e8
+ 197 0073 2C000000 		.4byte	0x2c
+ 198 0077 02       		.uleb128 0x2
+ 199 0078 04       		.byte	0x4
+ 200 0079 04       		.byte	0x4
+ 201 007a 64000000 		.4byte	.LASF9
+ 202 007e 02       		.uleb128 0x2
+ 203 007f 08       		.byte	0x8
+ 204 0080 04       		.byte	0x4
+ 205 0081 6C010000 		.4byte	.LASF10
+ 206 0085 02       		.uleb128 0x2
+ 207 0086 01       		.byte	0x1
+ 208 0087 08       		.byte	0x8
+ 209 0088 F2020000 		.4byte	.LASF11
+ 210 008c 04       		.uleb128 0x4
+ 211 008d 1F010000 		.4byte	.LASF13
+ 212 0091 02       		.byte	0x2
+ 213 0092 9202     		.2byte	0x292
+ 214 0094 98000000 		.4byte	0x98
+ 215 0098 05       		.uleb128 0x5
+ 216 0099 6B000000 		.4byte	0x6b
+ 217 009d 02       		.uleb128 0x2
+ 218 009e 08       		.byte	0x8
+ 219 009f 04       		.byte	0x4
+ 220 00a0 0A030000 		.4byte	.LASF14
+ 221 00a4 02       		.uleb128 0x2
+ 222 00a5 04       		.byte	0x4
+ 223 00a6 07       		.byte	0x7
+ 224 00a7 DB020000 		.4byte	.LASF15
+ 225 00ab 06       		.uleb128 0x6
+ 226 00ac 24010000 		.4byte	.LASF16
+ 227 00b0 01       		.byte	0x1
+ 228 00b1 2E       		.byte	0x2e
+ 229 00b2 00000000 		.4byte	.LFB0
+ 230 00b6 14000000 		.4byte	.LFE0-.LFB0
+ 231 00ba 01       		.uleb128 0x1
+ 232 00bb 9C       		.byte	0x9c
+ 233 00bc E5000000 		.4byte	0xe5
+ 234 00c0 07       		.uleb128 0x7
+ 235 00c1 06000000 		.4byte	.LVL0
+ 236 00c5 5D010000 		.4byte	0x15d
+ 237 00c9 07       		.uleb128 0x7
+ 238 00ca 0A000000 		.4byte	.LVL1
+ 239 00ce 68010000 		.4byte	0x168
+ 240 00d2 07       		.uleb128 0x7
+ 241 00d3 0E000000 		.4byte	.LVL2
+ 242 00d7 73010000 		.4byte	0x173
+ 243 00db 07       		.uleb128 0x7
+ 244 00dc 12000000 		.4byte	.LVL3
+ 245 00e0 7E010000 		.4byte	0x17e
+ 246 00e4 00       		.byte	0
+ 247 00e5 06       		.uleb128 0x6
+ 248 00e6 BC010000 		.4byte	.LASF17
+ 249 00ea 01       		.byte	0x1
+ 250 00eb 4F       		.byte	0x4f
+ 251 00ec 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 8
+
+
+ 252 00f0 28000000 		.4byte	.LFE1-.LFB1
+ 253 00f4 01       		.uleb128 0x1
+ 254 00f5 9C       		.byte	0x9c
+ 255 00f6 3B010000 		.4byte	0x13b
+ 256 00fa 07       		.uleb128 0x7
+ 257 00fb 06000000 		.4byte	.LVL4
+ 258 00ff 89010000 		.4byte	0x189
+ 259 0103 07       		.uleb128 0x7
+ 260 0104 0A000000 		.4byte	.LVL5
+ 261 0108 94010000 		.4byte	0x194
+ 262 010c 07       		.uleb128 0x7
+ 263 010d 0E000000 		.4byte	.LVL6
+ 264 0111 9F010000 		.4byte	0x19f
+ 265 0115 08       		.uleb128 0x8
+ 266 0116 14000000 		.4byte	.LVL7
+ 267 011a AA010000 		.4byte	0x1aa
+ 268 011e 28010000 		.4byte	0x128
+ 269 0122 09       		.uleb128 0x9
+ 270 0123 01       		.uleb128 0x1
+ 271 0124 50       		.byte	0x50
+ 272 0125 01       		.uleb128 0x1
+ 273 0126 3A       		.byte	0x3a
+ 274 0127 00       		.byte	0
+ 275 0128 07       		.uleb128 0x7
+ 276 0129 18000000 		.4byte	.LVL8
+ 277 012d B5010000 		.4byte	0x1b5
+ 278 0131 07       		.uleb128 0x7
+ 279 0132 1C000000 		.4byte	.LVL9
+ 280 0136 C0010000 		.4byte	0x1c0
+ 281 013a 00       		.byte	0
+ 282 013b 0A       		.uleb128 0xa
+ 283 013c D3010000 		.4byte	.LASF18
+ 284 0140 01       		.byte	0x1
+ 285 0141 79       		.byte	0x79
+ 286 0142 00000000 		.4byte	.LFB2
+ 287 0146 02000000 		.4byte	.LFE2-.LFB2
+ 288 014a 01       		.uleb128 0x1
+ 289 014b 9C       		.byte	0x9c
+ 290 014c 0A       		.uleb128 0xa
+ 291 014d 91020000 		.4byte	.LASF19
+ 292 0151 01       		.byte	0x1
+ 293 0152 93       		.byte	0x93
+ 294 0153 00000000 		.4byte	.LFB3
+ 295 0157 02000000 		.4byte	.LFE3-.LFB3
+ 296 015b 01       		.uleb128 0x1
+ 297 015c 9C       		.byte	0x9c
+ 298 015d 0B       		.uleb128 0xb
+ 299 015e 6A000000 		.4byte	.LASF20
+ 300 0162 6A000000 		.4byte	.LASF20
+ 301 0166 03       		.byte	0x3
+ 302 0167 35       		.byte	0x35
+ 303 0168 0B       		.uleb128 0xb
+ 304 0169 3A010000 		.4byte	.LASF21
+ 305 016d 3A010000 		.4byte	.LASF21
+ 306 0171 03       		.byte	0x3
+ 307 0172 48       		.byte	0x48
+ 308 0173 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 9
+
+
+ 309 0174 FB010000 		.4byte	.LASF22
+ 310 0178 FB010000 		.4byte	.LASF22
+ 311 017c 04       		.byte	0x4
+ 312 017d 30       		.byte	0x30
+ 313 017e 0B       		.uleb128 0xb
+ 314 017f 94010000 		.4byte	.LASF23
+ 315 0183 94010000 		.4byte	.LASF23
+ 316 0187 05       		.byte	0x5
+ 317 0188 28       		.byte	0x28
+ 318 0189 0B       		.uleb128 0xb
+ 319 018a 22030000 		.4byte	.LASF24
+ 320 018e 22030000 		.4byte	.LASF24
+ 321 0192 03       		.byte	0x3
+ 322 0193 49       		.byte	0x49
+ 323 0194 0B       		.uleb128 0xb
+ 324 0195 49000000 		.4byte	.LASF25
+ 325 0199 49000000 		.4byte	.LASF25
+ 326 019d 03       		.byte	0x3
+ 327 019e 44       		.byte	0x44
+ 328 019f 0B       		.uleb128 0xb
+ 329 01a0 2A000000 		.4byte	.LASF26
+ 330 01a4 2A000000 		.4byte	.LASF26
+ 331 01a8 05       		.byte	0x5
+ 332 01a9 27       		.byte	0x27
+ 333 01aa 0B       		.uleb128 0xb
+ 334 01ab B2010000 		.4byte	.LASF27
+ 335 01af B2010000 		.4byte	.LASF27
+ 336 01b3 06       		.byte	0x6
+ 337 01b4 77       		.byte	0x77
+ 338 01b5 0B       		.uleb128 0xb
+ 339 01b6 00000000 		.4byte	.LASF28
+ 340 01ba 00000000 		.4byte	.LASF28
+ 341 01be 04       		.byte	0x4
+ 342 01bf 2F       		.byte	0x2f
+ 343 01c0 0B       		.uleb128 0xb
+ 344 01c1 73010000 		.4byte	.LASF29
+ 345 01c5 73010000 		.4byte	.LASF29
+ 346 01c9 03       		.byte	0x3
+ 347 01ca D1       		.byte	0xd1
+ 348 01cb 00       		.byte	0
+ 349              		.section	.debug_abbrev,"",%progbits
+ 350              	.Ldebug_abbrev0:
+ 351 0000 01       		.uleb128 0x1
+ 352 0001 11       		.uleb128 0x11
+ 353 0002 01       		.byte	0x1
+ 354 0003 25       		.uleb128 0x25
+ 355 0004 0E       		.uleb128 0xe
+ 356 0005 13       		.uleb128 0x13
+ 357 0006 0B       		.uleb128 0xb
+ 358 0007 03       		.uleb128 0x3
+ 359 0008 0E       		.uleb128 0xe
+ 360 0009 1B       		.uleb128 0x1b
+ 361 000a 0E       		.uleb128 0xe
+ 362 000b 55       		.uleb128 0x55
+ 363 000c 17       		.uleb128 0x17
+ 364 000d 11       		.uleb128 0x11
+ 365 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 10
+
+
+ 366 000f 10       		.uleb128 0x10
+ 367 0010 17       		.uleb128 0x17
+ 368 0011 00       		.byte	0
+ 369 0012 00       		.byte	0
+ 370 0013 02       		.uleb128 0x2
+ 371 0014 24       		.uleb128 0x24
+ 372 0015 00       		.byte	0
+ 373 0016 0B       		.uleb128 0xb
+ 374 0017 0B       		.uleb128 0xb
+ 375 0018 3E       		.uleb128 0x3e
+ 376 0019 0B       		.uleb128 0xb
+ 377 001a 03       		.uleb128 0x3
+ 378 001b 0E       		.uleb128 0xe
+ 379 001c 00       		.byte	0
+ 380 001d 00       		.byte	0
+ 381 001e 03       		.uleb128 0x3
+ 382 001f 24       		.uleb128 0x24
+ 383 0020 00       		.byte	0
+ 384 0021 0B       		.uleb128 0xb
+ 385 0022 0B       		.uleb128 0xb
+ 386 0023 3E       		.uleb128 0x3e
+ 387 0024 0B       		.uleb128 0xb
+ 388 0025 03       		.uleb128 0x3
+ 389 0026 08       		.uleb128 0x8
+ 390 0027 00       		.byte	0
+ 391 0028 00       		.byte	0
+ 392 0029 04       		.uleb128 0x4
+ 393 002a 16       		.uleb128 0x16
+ 394 002b 00       		.byte	0
+ 395 002c 03       		.uleb128 0x3
+ 396 002d 0E       		.uleb128 0xe
+ 397 002e 3A       		.uleb128 0x3a
+ 398 002f 0B       		.uleb128 0xb
+ 399 0030 3B       		.uleb128 0x3b
+ 400 0031 05       		.uleb128 0x5
+ 401 0032 49       		.uleb128 0x49
+ 402 0033 13       		.uleb128 0x13
+ 403 0034 00       		.byte	0
+ 404 0035 00       		.byte	0
+ 405 0036 05       		.uleb128 0x5
+ 406 0037 35       		.uleb128 0x35
+ 407 0038 00       		.byte	0
+ 408 0039 49       		.uleb128 0x49
+ 409 003a 13       		.uleb128 0x13
+ 410 003b 00       		.byte	0
+ 411 003c 00       		.byte	0
+ 412 003d 06       		.uleb128 0x6
+ 413 003e 2E       		.uleb128 0x2e
+ 414 003f 01       		.byte	0x1
+ 415 0040 3F       		.uleb128 0x3f
+ 416 0041 19       		.uleb128 0x19
+ 417 0042 03       		.uleb128 0x3
+ 418 0043 0E       		.uleb128 0xe
+ 419 0044 3A       		.uleb128 0x3a
+ 420 0045 0B       		.uleb128 0xb
+ 421 0046 3B       		.uleb128 0x3b
+ 422 0047 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 11
+
+
+ 423 0048 27       		.uleb128 0x27
+ 424 0049 19       		.uleb128 0x19
+ 425 004a 11       		.uleb128 0x11
+ 426 004b 01       		.uleb128 0x1
+ 427 004c 12       		.uleb128 0x12
+ 428 004d 06       		.uleb128 0x6
+ 429 004e 40       		.uleb128 0x40
+ 430 004f 18       		.uleb128 0x18
+ 431 0050 9742     		.uleb128 0x2117
+ 432 0052 19       		.uleb128 0x19
+ 433 0053 01       		.uleb128 0x1
+ 434 0054 13       		.uleb128 0x13
+ 435 0055 00       		.byte	0
+ 436 0056 00       		.byte	0
+ 437 0057 07       		.uleb128 0x7
+ 438 0058 898201   		.uleb128 0x4109
+ 439 005b 00       		.byte	0
+ 440 005c 11       		.uleb128 0x11
+ 441 005d 01       		.uleb128 0x1
+ 442 005e 31       		.uleb128 0x31
+ 443 005f 13       		.uleb128 0x13
+ 444 0060 00       		.byte	0
+ 445 0061 00       		.byte	0
+ 446 0062 08       		.uleb128 0x8
+ 447 0063 898201   		.uleb128 0x4109
+ 448 0066 01       		.byte	0x1
+ 449 0067 11       		.uleb128 0x11
+ 450 0068 01       		.uleb128 0x1
+ 451 0069 31       		.uleb128 0x31
+ 452 006a 13       		.uleb128 0x13
+ 453 006b 01       		.uleb128 0x1
+ 454 006c 13       		.uleb128 0x13
+ 455 006d 00       		.byte	0
+ 456 006e 00       		.byte	0
+ 457 006f 09       		.uleb128 0x9
+ 458 0070 8A8201   		.uleb128 0x410a
+ 459 0073 00       		.byte	0
+ 460 0074 02       		.uleb128 0x2
+ 461 0075 18       		.uleb128 0x18
+ 462 0076 9142     		.uleb128 0x2111
+ 463 0078 18       		.uleb128 0x18
+ 464 0079 00       		.byte	0
+ 465 007a 00       		.byte	0
+ 466 007b 0A       		.uleb128 0xa
+ 467 007c 2E       		.uleb128 0x2e
+ 468 007d 00       		.byte	0
+ 469 007e 3F       		.uleb128 0x3f
+ 470 007f 19       		.uleb128 0x19
+ 471 0080 03       		.uleb128 0x3
+ 472 0081 0E       		.uleb128 0xe
+ 473 0082 3A       		.uleb128 0x3a
+ 474 0083 0B       		.uleb128 0xb
+ 475 0084 3B       		.uleb128 0x3b
+ 476 0085 0B       		.uleb128 0xb
+ 477 0086 27       		.uleb128 0x27
+ 478 0087 19       		.uleb128 0x19
+ 479 0088 11       		.uleb128 0x11
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 12
+
+
+ 480 0089 01       		.uleb128 0x1
+ 481 008a 12       		.uleb128 0x12
+ 482 008b 06       		.uleb128 0x6
+ 483 008c 40       		.uleb128 0x40
+ 484 008d 18       		.uleb128 0x18
+ 485 008e 9742     		.uleb128 0x2117
+ 486 0090 19       		.uleb128 0x19
+ 487 0091 00       		.byte	0
+ 488 0092 00       		.byte	0
+ 489 0093 0B       		.uleb128 0xb
+ 490 0094 2E       		.uleb128 0x2e
+ 491 0095 00       		.byte	0
+ 492 0096 3F       		.uleb128 0x3f
+ 493 0097 19       		.uleb128 0x19
+ 494 0098 3C       		.uleb128 0x3c
+ 495 0099 19       		.uleb128 0x19
+ 496 009a 6E       		.uleb128 0x6e
+ 497 009b 0E       		.uleb128 0xe
+ 498 009c 03       		.uleb128 0x3
+ 499 009d 0E       		.uleb128 0xe
+ 500 009e 3A       		.uleb128 0x3a
+ 501 009f 0B       		.uleb128 0xb
+ 502 00a0 3B       		.uleb128 0x3b
+ 503 00a1 0B       		.uleb128 0xb
+ 504 00a2 00       		.byte	0
+ 505 00a3 00       		.byte	0
+ 506 00a4 00       		.byte	0
+ 507              		.section	.debug_aranges,"",%progbits
+ 508 0000 34000000 		.4byte	0x34
+ 509 0004 0200     		.2byte	0x2
+ 510 0006 00000000 		.4byte	.Ldebug_info0
+ 511 000a 04       		.byte	0x4
+ 512 000b 00       		.byte	0
+ 513 000c 0000     		.2byte	0
+ 514 000e 0000     		.2byte	0
+ 515 0010 00000000 		.4byte	.LFB0
+ 516 0014 14000000 		.4byte	.LFE0-.LFB0
+ 517 0018 00000000 		.4byte	.LFB1
+ 518 001c 28000000 		.4byte	.LFE1-.LFB1
+ 519 0020 00000000 		.4byte	.LFB2
+ 520 0024 02000000 		.4byte	.LFE2-.LFB2
+ 521 0028 00000000 		.4byte	.LFB3
+ 522 002c 02000000 		.4byte	.LFE3-.LFB3
+ 523 0030 00000000 		.4byte	0
+ 524 0034 00000000 		.4byte	0
+ 525              		.section	.debug_ranges,"",%progbits
+ 526              	.Ldebug_ranges0:
+ 527 0000 00000000 		.4byte	.LFB0
+ 528 0004 14000000 		.4byte	.LFE0
+ 529 0008 00000000 		.4byte	.LFB1
+ 530 000c 28000000 		.4byte	.LFE1
+ 531 0010 00000000 		.4byte	.LFB2
+ 532 0014 02000000 		.4byte	.LFE2
+ 533 0018 00000000 		.4byte	.LFB3
+ 534 001c 02000000 		.4byte	.LFE3
+ 535 0020 00000000 		.4byte	0
+ 536 0024 00000000 		.4byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 13
+
+
+ 537              		.section	.debug_line,"",%progbits
+ 538              	.Ldebug_line0:
+ 539 0000 F6000000 		.section	.debug_str,"MS",%progbits,1
+ 539      0200A600 
+ 539      00000201 
+ 539      FB0E0D00 
+ 539      01010101 
+ 540              	.LASF28:
+ 541 0000 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Enable\000"
+ 541      5449434B 
+ 541      5F414443 
+ 541      5F58595F 
+ 541      456E6162 
+ 542              	.LASF3:
+ 543 0017 73686F72 		.ascii	"short unsigned int\000"
+ 543      7420756E 
+ 543      7369676E 
+ 543      65642069 
+ 543      6E7400
+ 544              	.LASF26:
+ 545 002a 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_IntClock_Start\000"
+ 545      5449434B 
+ 545      5F414443 
+ 545      5F58595F 
+ 545      496E7443 
+ 546              	.LASF25:
+ 547 0049 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SAR_Enable\000"
+ 547      5449434B 
+ 547      5F414443 
+ 547      5F58595F 
+ 547      5341525F 
+ 548              	.LASF9:
+ 549 0064 666C6F61 		.ascii	"float\000"
+ 549      7400
+ 550              	.LASF20:
+ 551 006a 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SAR_Stop\000"
+ 551      5449434B 
+ 551      5F414443 
+ 551      5F58595F 
+ 551      5341525F 
+ 552              	.LASF1:
+ 553 0083 756E7369 		.ascii	"unsigned char\000"
+ 553      676E6564 
+ 553      20636861 
+ 553      7200
+ 554              	.LASF30:
+ 555 0091 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 555      43313120 
+ 555      352E342E 
+ 555      31203230 
+ 555      31363036 
+ 556 00c4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 556      20726576 
+ 556      6973696F 
+ 556      6E203233 
+ 556      37373135 
+ 557 00f7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 14
+
+
+ 557      66756E63 
+ 557      74696F6E 
+ 557      2D736563 
+ 557      74696F6E 
+ 558              	.LASF13:
+ 559 011f 72656738 		.ascii	"reg8\000"
+ 559      00
+ 560              	.LASF16:
+ 561 0124 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Sleep\000"
+ 561      5449434B 
+ 561      5F414443 
+ 561      5F58595F 
+ 561      536C6565 
+ 562              	.LASF21:
+ 563 013a 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SAR_Sleep\000"
+ 563      5449434B 
+ 563      5F414443 
+ 563      5F58595F 
+ 563      5341525F 
+ 564              	.LASF5:
+ 565 0154 6C6F6E67 		.ascii	"long unsigned int\000"
+ 565      20756E73 
+ 565      69676E65 
+ 565      6420696E 
+ 565      7400
+ 566              	.LASF12:
+ 567 0166 75696E74 		.ascii	"uint8\000"
+ 567      3800
+ 568              	.LASF10:
+ 569 016c 646F7562 		.ascii	"double\000"
+ 569      6C6500
+ 570              	.LASF29:
+ 571 0173 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SAR_StartConvert\000"
+ 571      5449434B 
+ 571      5F414443 
+ 571      5F58595F 
+ 571      5341525F 
+ 572              	.LASF23:
+ 573 0194 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_IntClock_Stop\000"
+ 573      5449434B 
+ 573      5F414443 
+ 573      5F58595F 
+ 573      496E7443 
+ 574              	.LASF27:
+ 575 01b2 43794465 		.ascii	"CyDelayUs\000"
+ 575      6C617955 
+ 575      7300
+ 576              	.LASF17:
+ 577 01bc 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Wakeup\000"
+ 577      5449434B 
+ 577      5F414443 
+ 577      5F58595F 
+ 577      57616B65 
+ 578              	.LASF18:
+ 579 01d3 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SaveConfig\000"
+ 579      5449434B 
+ 579      5F414443 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 15
+
+
+ 579      5F58595F 
+ 579      53617665 
+ 580              	.LASF8:
+ 581 01ee 756E7369 		.ascii	"unsigned int\000"
+ 581      676E6564 
+ 581      20696E74 
+ 581      00
+ 582              	.LASF22:
+ 583 01fb 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Disable\000"
+ 583      5449434B 
+ 583      5F414443 
+ 583      5F58595F 
+ 583      44697361 
+ 584              	.LASF7:
+ 585 0213 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 585      206C6F6E 
+ 585      6720756E 
+ 585      7369676E 
+ 585      65642069 
+ 586              	.LASF32:
+ 587 022a 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 587      73657273 
+ 587      5C417375 
+ 587      735C4465 
+ 587      736B746F 
+ 588 0256 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 588      30315C45 
+ 588      6C656374 
+ 588      726F6E69 
+ 588      635F4761 
+ 589 0285 4C616230 		.ascii	"Lab01.cydsn\000"
+ 589      312E6379 
+ 589      64736E00 
+ 590              	.LASF19:
+ 591 0291 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_RestoreConfig\000"
+ 591      5449434B 
+ 591      5F414443 
+ 591      5F58595F 
+ 591      52657374 
+ 592              	.LASF31:
+ 593 02af 47656E65 		.ascii	"Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_PM.c\000"
+ 593      72617465 
+ 593      645F536F 
+ 593      75726365 
+ 593      5C50536F 
+ 594              	.LASF15:
+ 595 02db 73697A65 		.ascii	"sizetype\000"
+ 595      74797065 
+ 595      00
+ 596              	.LASF6:
+ 597 02e4 6C6F6E67 		.ascii	"long long int\000"
+ 597      206C6F6E 
+ 597      6720696E 
+ 597      7400
+ 598              	.LASF11:
+ 599 02f2 63686172 		.ascii	"char\000"
+ 599      00
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccovH3NS.s 			page 16
+
+
+ 600              	.LASF2:
+ 601 02f7 73686F72 		.ascii	"short int\000"
+ 601      7420696E 
+ 601      7400
+ 602              	.LASF4:
+ 603 0301 6C6F6E67 		.ascii	"long int\000"
+ 603      20696E74 
+ 603      00
+ 604              	.LASF14:
+ 605 030a 6C6F6E67 		.ascii	"long double\000"
+ 605      20646F75 
+ 605      626C6500 
+ 606              	.LASF0:
+ 607 0316 7369676E 		.ascii	"signed char\000"
+ 607      65642063 
+ 607      68617200 
+ 608              	.LASF24:
+ 609 0322 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_SAR_Wakeup\000"
+ 609      5449434B 
+ 609      5F414443 
+ 609      5F58595F 
+ 609      5341525F 
+ 610              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

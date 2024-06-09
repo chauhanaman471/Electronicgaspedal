@@ -1,0 +1,10 @@
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/CortexM3/ARM_GCC_541/Debug/CyBootAsmGnu.o : C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+C:/Users/Asus/Desktop/HDA/Semester_2/EAA/Lab/Lab01/Electronic_Gaspedal/Electronic_Gaspedal/Lab01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

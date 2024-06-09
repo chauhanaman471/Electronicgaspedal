@@ -1,0 +1,3116 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"led.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LED_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	LED_Set
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	LED_Set, %function
+  25              	LED_Set:
+  26              	.LFB111:
+  27              		.file 1 "sources\\bsw\\led.c"
+   1:sources\bsw/led.c **** /**
+   2:sources\bsw/led.c **** * \file <filename>
+   3:sources\bsw/led.c **** * \author <author-name>
+   4:sources\bsw/led.c **** * \date <date>
+   5:sources\bsw/led.c **** *
+   6:sources\bsw/led.c **** * \brief <Symbolic File name>
+   7:sources\bsw/led.c **** *
+   8:sources\bsw/led.c **** * \copyright Copyright ©2016
+   9:sources\bsw/led.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:sources\bsw/led.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:sources\bsw/led.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:sources\bsw/led.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:sources\bsw/led.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:sources\bsw/led.c **** *
+  15:sources\bsw/led.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:sources\bsw/led.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:sources\bsw/led.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:sources\bsw/led.c **** */
+  19:sources\bsw/led.c **** 
+  20:sources\bsw/led.c **** /*****************************************************************************/
+  21:sources\bsw/led.c **** /* Include files                                                             */
+  22:sources\bsw/led.c **** /*****************************************************************************/
+  23:sources\bsw/led.c **** 
+  24:sources\bsw/led.c **** #include "project.h"
+  25:sources\bsw/led.c **** #include "led.h"
+  26:sources\bsw/led.c **** 
+  27:sources\bsw/led.c **** 
+  28:sources\bsw/led.c **** /*****************************************************************************/
+  29:sources\bsw/led.c **** /* Local pre-processor symbols/macros ('#define')                            */
+  30:sources\bsw/led.c **** /*****************************************************************************/
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 2
+
+
+  31:sources\bsw/led.c **** 
+  32:sources\bsw/led.c **** /*****************************************************************************/
+  33:sources\bsw/led.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  34:sources\bsw/led.c **** /*****************************************************************************/
+  35:sources\bsw/led.c **** 
+  36:sources\bsw/led.c **** /*****************************************************************************/
+  37:sources\bsw/led.c **** /* Local type definitions ('typedef')                                        */
+  38:sources\bsw/led.c **** /*****************************************************************************/
+  39:sources\bsw/led.c **** 
+  40:sources\bsw/led.c **** 
+  41:sources\bsw/led.c **** 
+  42:sources\bsw/led.c **** /*****************************************************************************/
+  43:sources\bsw/led.c **** /* Local variable definitions ('static')                                     */
+  44:sources\bsw/led.c **** /*****************************************************************************/
+  45:sources\bsw/led.c **** 
+  46:sources\bsw/led.c **** 
+  47:sources\bsw/led.c **** static LED_ONOFF_t LED__state[LED_ALL] = {LED_OFF, LED_OFF, LED_OFF}; /**< On/Off State of the LED,
+  48:sources\bsw/led.c **** 
+  49:sources\bsw/led.c **** const static uint16 LED__Pulse_Width[256] = {
+  50:sources\bsw/led.c ****     0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3,
+  51:sources\bsw/led.c ****     3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 7,
+  52:sources\bsw/led.c ****     7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13, 13, 14, 15,
+  53:sources\bsw/led.c ****     15, 16, 17, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+  54:sources\bsw/led.c ****     31, 32, 33, 35, 36, 38, 40, 41, 43, 45, 47, 49, 52, 54, 56, 59,
+  55:sources\bsw/led.c ****     61, 64, 67, 70, 73, 76, 79, 83, 87, 91, 95, 99, 103, 108, 112,
+  56:sources\bsw/led.c ****     117, 123, 128, 134, 140, 146, 152, 159, 166, 173, 181, 189, 197,
+  57:sources\bsw/led.c ****     206, 215, 225, 235, 245, 256, 267, 279, 292, 304, 318, 332, 347,
+  58:sources\bsw/led.c ****     362, 378, 395, 412, 431, 450, 470, 490, 512, 535, 558, 583, 609,
+  59:sources\bsw/led.c ****     636, 664, 693, 724, 756, 790, 825, 861, 899, 939, 981, 1024, 1069,
+  60:sources\bsw/led.c ****     1117, 1166, 1218, 1272, 1328, 1387, 1448, 1512, 1579, 1649, 1722,
+  61:sources\bsw/led.c ****     1798, 1878, 1961, 2048, 2139, 2233, 2332, 2435, 2543, 2656, 2773,
+  62:sources\bsw/led.c ****     2896, 3025, 3158, 3298, 3444, 3597, 3756, 3922, 4096, 4277, 4467,
+  63:sources\bsw/led.c ****     4664, 4871, 5087, 5312, 5547, 5793, 6049, 6317, 6596, 6889, 7194,
+  64:sources\bsw/led.c ****     7512, 7845, 8192, 8555, 8933, 9329, 9742, 10173, 10624, 11094,
+  65:sources\bsw/led.c ****     11585, 12098, 12634, 13193, 13777, 14387, 15024, 15689, 16384,
+  66:sources\bsw/led.c ****     17109, 17867, 18658, 19484, 20346, 21247, 22188, 23170, 24196,
+  67:sources\bsw/led.c ****     25267, 26386, 27554, 28774, 30048, 31378, 32768, 34218, 35733,
+  68:sources\bsw/led.c ****     37315, 38967, 40693, 42494, 44376, 46340, 48392, 50534, 52772,
+  69:sources\bsw/led.c ****     55108, 57548, 60096, 62757, 65535
+  70:sources\bsw/led.c **** };
+  71:sources\bsw/led.c **** 
+  72:sources\bsw/led.c **** /*****************************************************************************/
+  73:sources\bsw/led.c **** /* Local function prototypes ('static')                                      */
+  74:sources\bsw/led.c **** /*****************************************************************************/
+  75:sources\bsw/led.c **** 
+  76:sources\bsw/led.c **** /**
+  77:sources\bsw/led.c ****  * Inverts the parameter
+  78:sources\bsw/led.c ****  * @param LED_ONOFF_t ledOnOff - Value to be inverted
+  79:sources\bsw/led.c ****  * @return inverted parameter
+  80:sources\bsw/led.c ****  */
+  81:sources\bsw/led.c **** static inline LED_ONOFF_t LED__toggleValue(LED_ONOFF_t ledOnOff);
+  82:sources\bsw/led.c **** 
+  83:sources\bsw/led.c **** 
+  84:sources\bsw/led.c **** /*****************************************************************************/
+  85:sources\bsw/led.c **** /* Function implementation - global ('extern') and local ('static')          */
+  86:sources\bsw/led.c **** /*****************************************************************************/
+  87:sources\bsw/led.c **** 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 3
+
+
+  88:sources\bsw/led.c **** /**
+  89:sources\bsw/led.c ****  * Initialises the LED's and turns them off
+  90:sources\bsw/led.c ****  * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
+  91:sources\bsw/led.c ****  */
+  92:sources\bsw/led.c **** RC_t LED_Init()
+  93:sources\bsw/led.c **** {
+  94:sources\bsw/led.c ****     RC_t result = RC_SUCCESS;
+  95:sources\bsw/led.c ****     
+  96:sources\bsw/led.c ****     for (LED_id_t i = LED_RED; i < LED_ALL; i++)
+  97:sources\bsw/led.c ****     {
+  98:sources\bsw/led.c ****         LED__state[i] = OFF;
+  99:sources\bsw/led.c ****         
+ 100:sources\bsw/led.c ****         RC_t clearResult;
+ 101:sources\bsw/led.c ****         clearResult = LED_Set(i, LED_OFF);
+ 102:sources\bsw/led.c ****         
+ 103:sources\bsw/led.c ****         if (clearResult != RC_SUCCESS)
+ 104:sources\bsw/led.c ****         {
+ 105:sources\bsw/led.c ****             //memorize error
+ 106:sources\bsw/led.c ****             result = clearResult;
+ 107:sources\bsw/led.c ****         }
+ 108:sources\bsw/led.c ****     }
+ 109:sources\bsw/led.c ****     
+ 110:sources\bsw/led.c ****     //Init RGB
+ 111:sources\bsw/led.c ****     RGB_PWM_blue_Start();
+ 112:sources\bsw/led.c ****     RGB_PWM_green_Start();
+ 113:sources\bsw/led.c ****     RGB_PWM_red_Start();
+ 114:sources\bsw/led.c ****     
+ 115:sources\bsw/led.c ****     return result;
+ 116:sources\bsw/led.c **** }
+ 117:sources\bsw/led.c **** 
+ 118:sources\bsw/led.c **** /**
+ 119:sources\bsw/led.c ****  * Sets the required LED
+ 120:sources\bsw/led.c ****  * @param LED_t ledId - Identifier for the LED, ALL will change all LED's
+ 121:sources\bsw/led.c ****  * @param LED_ONOFF_t ledOnOff - Trun the led on or off
+ 122:sources\bsw/led.c ****  * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
+ 123:sources\bsw/led.c ****  */
+ 124:sources\bsw/led.c **** RC_t LED_Set(LED_id_t ledId, LED_ONOFF_t ledOnOff)
+ 125:sources\bsw/led.c **** {
+  28              		.loc 1 125 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 38B5     		push	{r3, r4, r5, lr}
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 3, -16
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  39 0002 0446     		mov	r4, r0
+  40 0004 0D46     		mov	r5, r1
+ 126:sources\bsw/led.c ****     //set individual LED
+ 127:sources\bsw/led.c ****     switch (ledId)
+  41              		.loc 1 127 0
+  42 0006 0328     		cmp	r0, #3
+  43 0008 24D8     		bhi	.L9
+  44 000a DFE800F0 		tbb	[pc, r0]
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 4
+
+
+  45              	.L4:
+  46 000e 02       		.byte	(.L3-.L4)/2
+  47 000f 09       		.byte	(.L5-.L4)/2
+  48 0010 10       		.byte	(.L6-.L4)/2
+  49 0011 1E       		.byte	(.L10-.L4)/2
+  50              		.p2align 1
+  51              	.L3:
+ 128:sources\bsw/led.c ****     {
+ 129:sources\bsw/led.c ****         case LED_RED : 
+ 130:sources\bsw/led.c ****             LED_red_Write(ledOnOff); 
+  52              		.loc 1 130 0
+  53 0012 0846     		mov	r0, r1
+  54              	.LVL1:
+  55 0014 FFF7FEFF 		bl	LED_red_Write
+  56              	.LVL2:
+ 131:sources\bsw/led.c ****             LED__state[ledId] = ledOnOff; 
+  57              		.loc 1 131 0
+  58 0018 104B     		ldr	r3, .L12
+  59 001a 1D55     		strb	r5, [r3, r4]
+ 132:sources\bsw/led.c ****             break;
+ 133:sources\bsw/led.c ****         
+ 134:sources\bsw/led.c ****         case LED_YELLOW : 
+ 135:sources\bsw/led.c ****             LED_yellow_Write(ledOnOff); 
+ 136:sources\bsw/led.c ****             LED__state[ledId] = ledOnOff;
+ 137:sources\bsw/led.c ****             break;
+ 138:sources\bsw/led.c ****             
+ 139:sources\bsw/led.c ****         case LED_GREEN : 
+ 140:sources\bsw/led.c ****             LED_green_Write(ledOnOff); 
+ 141:sources\bsw/led.c ****             LED__state[ledId] = ledOnOff;
+ 142:sources\bsw/led.c ****             break;
+ 143:sources\bsw/led.c ****            
+ 144:sources\bsw/led.c ****         case LED_ALL : 
+ 145:sources\bsw/led.c ****             for (LED_id_t i = LED_RED; i < LED_ALL; i++)
+ 146:sources\bsw/led.c ****             {
+ 147:sources\bsw/led.c ****                 LED_Set(i, ledOnOff);
+ 148:sources\bsw/led.c ****             }
+ 149:sources\bsw/led.c ****             break;
+ 150:sources\bsw/led.c ****         default: return RC_ERROR_BAD_PARAM;
+ 151:sources\bsw/led.c ****     }
+ 152:sources\bsw/led.c ****     
+ 153:sources\bsw/led.c ****     return RC_SUCCESS;
+  60              		.loc 1 153 0
+  61 001c 0020     		movs	r0, #0
+ 132:sources\bsw/led.c ****             break;
+  62              		.loc 1 132 0
+  63 001e 38BD     		pop	{r3, r4, r5, pc}
+  64              	.LVL3:
+  65              	.L5:
+ 135:sources\bsw/led.c ****             LED__state[ledId] = ledOnOff;
+  66              		.loc 1 135 0
+  67 0020 0846     		mov	r0, r1
+  68              	.LVL4:
+  69 0022 FFF7FEFF 		bl	LED_yellow_Write
+  70              	.LVL5:
+ 136:sources\bsw/led.c ****             break;
+  71              		.loc 1 136 0
+  72 0026 0D4B     		ldr	r3, .L12
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 5
+
+
+  73 0028 1D55     		strb	r5, [r3, r4]
+  74              		.loc 1 153 0
+  75 002a 0020     		movs	r0, #0
+ 137:sources\bsw/led.c ****             
+  76              		.loc 1 137 0
+  77 002c 38BD     		pop	{r3, r4, r5, pc}
+  78              	.LVL6:
+  79              	.L6:
+ 140:sources\bsw/led.c ****             LED__state[ledId] = ledOnOff;
+  80              		.loc 1 140 0
+  81 002e 0846     		mov	r0, r1
+  82              	.LVL7:
+  83 0030 FFF7FEFF 		bl	LED_green_Write
+  84              	.LVL8:
+ 141:sources\bsw/led.c ****             break;
+  85              		.loc 1 141 0
+  86 0034 094B     		ldr	r3, .L12
+  87 0036 1D55     		strb	r5, [r3, r4]
+  88              		.loc 1 153 0
+  89 0038 0020     		movs	r0, #0
+ 142:sources\bsw/led.c ****            
+  90              		.loc 1 142 0
+  91 003a 38BD     		pop	{r3, r4, r5, pc}
+  92              	.LVL9:
+  93              	.L8:
+  94              	.LBB9:
+ 147:sources\bsw/led.c ****             }
+  95              		.loc 1 147 0 discriminator 3
+  96 003c 2946     		mov	r1, r5
+  97 003e 2046     		mov	r0, r4
+  98 0040 FFF7FEFF 		bl	LED_Set
+  99              	.LVL10:
+ 145:sources\bsw/led.c ****             {
+ 100              		.loc 1 145 0 discriminator 3
+ 101 0044 0134     		adds	r4, r4, #1
+ 102              	.LVL11:
+ 103 0046 E4B2     		uxtb	r4, r4
+ 104              	.LVL12:
+ 105 0048 00E0     		b	.L7
+ 106              	.LVL13:
+ 107              	.L10:
+ 108              	.LBE9:
+ 127:sources\bsw/led.c ****     {
+ 109              		.loc 1 127 0
+ 110 004a 0024     		movs	r4, #0
+ 111              	.LVL14:
+ 112              	.L7:
+ 113              	.LBB10:
+ 145:sources\bsw/led.c ****             {
+ 114              		.loc 1 145 0 discriminator 1
+ 115 004c 022C     		cmp	r4, #2
+ 116 004e F5D9     		bls	.L8
+ 117              	.LBE10:
+ 118              		.loc 1 153 0
+ 119 0050 0020     		movs	r0, #0
+ 120              	.LBB11:
+ 121 0052 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 6
+
+
+ 122              	.LVL15:
+ 123              	.L9:
+ 124              	.LBE11:
+ 150:sources\bsw/led.c ****     }
+ 125              		.loc 1 150 0
+ 126 0054 6FF01300 		mvn	r0, #19
+ 127              	.LVL16:
+ 154:sources\bsw/led.c **** }
+ 128              		.loc 1 154 0
+ 129 0058 38BD     		pop	{r3, r4, r5, pc}
+ 130              	.L13:
+ 131 005a 00BF     		.align	2
+ 132              	.L12:
+ 133 005c 00000000 		.word	.LANCHOR0
+ 134              		.cfi_endproc
+ 135              	.LFE111:
+ 136              		.size	LED_Set, .-LED_Set
+ 137              		.section	.text.LED_Init,"ax",%progbits
+ 138              		.align	2
+ 139              		.global	LED_Init
+ 140              		.thumb
+ 141              		.thumb_func
+ 142              		.type	LED_Init, %function
+ 143              	LED_Init:
+ 144              	.LFB110:
+  93:sources\bsw/led.c ****     RC_t result = RC_SUCCESS;
+ 145              		.loc 1 93 0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149 0000 38B5     		push	{r3, r4, r5, lr}
+ 150              		.cfi_def_cfa_offset 16
+ 151              		.cfi_offset 3, -16
+ 152              		.cfi_offset 4, -12
+ 153              		.cfi_offset 5, -8
+ 154              		.cfi_offset 14, -4
+ 155              	.LVL17:
+ 156              	.LBB12:
+  96:sources\bsw/led.c ****     {
+ 157              		.loc 1 96 0
+ 158 0002 0024     		movs	r4, #0
+ 159              	.LBE12:
+  94:sources\bsw/led.c ****     
+ 160              		.loc 1 94 0
+ 161 0004 2546     		mov	r5, r4
+ 162              	.LBB14:
+  96:sources\bsw/led.c ****     {
+ 163              		.loc 1 96 0
+ 164 0006 09E0     		b	.L15
+ 165              	.LVL18:
+ 166              	.L17:
+ 167              	.LBB13:
+  98:sources\bsw/led.c ****         
+ 168              		.loc 1 98 0
+ 169 0008 0021     		movs	r1, #0
+ 170 000a 094B     		ldr	r3, .L20
+ 171 000c 1955     		strb	r1, [r3, r4]
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 7
+
+
+ 101:sources\bsw/led.c ****         
+ 172              		.loc 1 101 0
+ 173 000e 2046     		mov	r0, r4
+ 174 0010 FFF7FEFF 		bl	LED_Set
+ 175              	.LVL19:
+ 103:sources\bsw/led.c ****         {
+ 176              		.loc 1 103 0
+ 177 0014 00B1     		cbz	r0, .L16
+ 106:sources\bsw/led.c ****         }
+ 178              		.loc 1 106 0
+ 179 0016 0546     		mov	r5, r0
+ 180              	.LVL20:
+ 181              	.L16:
+ 182              	.LBE13:
+  96:sources\bsw/led.c ****     {
+ 183              		.loc 1 96 0 discriminator 2
+ 184 0018 0134     		adds	r4, r4, #1
+ 185              	.LVL21:
+ 186 001a E4B2     		uxtb	r4, r4
+ 187              	.LVL22:
+ 188              	.L15:
+  96:sources\bsw/led.c ****     {
+ 189              		.loc 1 96 0 is_stmt 0 discriminator 1
+ 190 001c 022C     		cmp	r4, #2
+ 191 001e F3D9     		bls	.L17
+ 192              	.LBE14:
+ 111:sources\bsw/led.c ****     RGB_PWM_green_Start();
+ 193              		.loc 1 111 0 is_stmt 1
+ 194 0020 FFF7FEFF 		bl	RGB_PWM_blue_Start
+ 195              	.LVL23:
+ 112:sources\bsw/led.c ****     RGB_PWM_red_Start();
+ 196              		.loc 1 112 0
+ 197 0024 FFF7FEFF 		bl	RGB_PWM_green_Start
+ 198              	.LVL24:
+ 113:sources\bsw/led.c ****     
+ 199              		.loc 1 113 0
+ 200 0028 FFF7FEFF 		bl	RGB_PWM_red_Start
+ 201              	.LVL25:
+ 116:sources\bsw/led.c **** 
+ 202              		.loc 1 116 0
+ 203 002c 2846     		mov	r0, r5
+ 204 002e 38BD     		pop	{r3, r4, r5, pc}
+ 205              	.LVL26:
+ 206              	.L21:
+ 207              		.align	2
+ 208              	.L20:
+ 209 0030 00000000 		.word	.LANCHOR0
+ 210              		.cfi_endproc
+ 211              	.LFE110:
+ 212              		.size	LED_Init, .-LED_Init
+ 213              		.section	.text.LED_Toggle,"ax",%progbits
+ 214              		.align	2
+ 215              		.global	LED_Toggle
+ 216              		.thumb
+ 217              		.thumb_func
+ 218              		.type	LED_Toggle, %function
+ 219              	LED_Toggle:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 8
+
+
+ 220              	.LFB112:
+ 155:sources\bsw/led.c **** 
+ 156:sources\bsw/led.c **** 
+ 157:sources\bsw/led.c **** 
+ 158:sources\bsw/led.c **** /**
+ 159:sources\bsw/led.c ****  * Toggle the required LED
+ 160:sources\bsw/led.c ****  * @param LED_t ledId - Identifier for the LED, ALL will change all LED's
+ 161:sources\bsw/led.c ****  * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
+ 162:sources\bsw/led.c ****  */
+ 163:sources\bsw/led.c **** RC_t LED_Toggle(LED_id_t ledId)
+ 164:sources\bsw/led.c **** {
+ 221              		.loc 1 164 0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              	.LVL27:
+ 226 0000 10B5     		push	{r4, lr}
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 4, -8
+ 229              		.cfi_offset 14, -4
+ 165:sources\bsw/led.c ****     //set individual LED
+ 166:sources\bsw/led.c ****     switch (ledId)
+ 230              		.loc 1 166 0
+ 231 0002 0328     		cmp	r0, #3
+ 232 0004 38D8     		bhi	.L33
+ 233 0006 DFE800F0 		tbb	[pc, r0]
+ 234              	.L25:
+ 235 000a 02       		.byte	(.L24-.L25)/2
+ 236 000b 10       		.byte	(.L26-.L25)/2
+ 237 000c 1E       		.byte	(.L27-.L25)/2
+ 238 000d 32       		.byte	(.L34-.L25)/2
+ 239              		.p2align 1
+ 240              	.L24:
+ 167:sources\bsw/led.c ****     {
+ 168:sources\bsw/led.c ****         case LED_RED : 
+ 169:sources\bsw/led.c ****             LED__state[ledId] = LED__toggleValue(LED__state[ledId]); 
+ 241              		.loc 1 169 0
+ 242 000e 1C4B     		ldr	r3, .L39
+ 243 0010 1B5C     		ldrb	r3, [r3, r0]	@ zero_extendqisi2
+ 244              	.LVL28:
+ 245              	.LBB15:
+ 246              	.LBB16:
+ 170:sources\bsw/led.c ****             LED_red_Write(LED__state[ledId]);
+ 171:sources\bsw/led.c ****             break;
+ 172:sources\bsw/led.c ****         
+ 173:sources\bsw/led.c ****         case LED_YELLOW : 
+ 174:sources\bsw/led.c ****             LED__state[ledId] = LED__toggleValue(LED__state[ledId]); 
+ 175:sources\bsw/led.c ****             LED_yellow_Write(LED__state[ledId]);
+ 176:sources\bsw/led.c ****             break;
+ 177:sources\bsw/led.c ****             
+ 178:sources\bsw/led.c ****         case LED_GREEN : 
+ 179:sources\bsw/led.c ****             LED__state[ledId] = LED__toggleValue(LED__state[ledId]); 
+ 180:sources\bsw/led.c ****             LED_green_Write(LED__state[ledId]);
+ 181:sources\bsw/led.c ****             break;
+ 182:sources\bsw/led.c ****            
+ 183:sources\bsw/led.c ****         case LED_ALL : 
+ 184:sources\bsw/led.c ****             for (LED_id_t i = LED_RED; i < LED_ALL; i++)
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 9
+
+
+ 185:sources\bsw/led.c ****             {
+ 186:sources\bsw/led.c ****                 LED_Toggle(i);
+ 187:sources\bsw/led.c ****             }
+ 188:sources\bsw/led.c ****             break;
+ 189:sources\bsw/led.c ****         default: return RC_ERROR_BAD_PARAM;
+ 190:sources\bsw/led.c ****     }
+ 191:sources\bsw/led.c ****     
+ 192:sources\bsw/led.c ****     return RC_SUCCESS;
+ 193:sources\bsw/led.c **** }
+ 194:sources\bsw/led.c **** 
+ 195:sources\bsw/led.c **** 
+ 196:sources\bsw/led.c **** /**
+ 197:sources\bsw/led.c ****  * Inverts the parameter
+ 198:sources\bsw/led.c ****  * @param LED_ONOFF_t ledOnOff - Value to be inverted
+ 199:sources\bsw/led.c ****  * @return inverted parameter
+ 200:sources\bsw/led.c ****  */
+ 201:sources\bsw/led.c **** static inline LED_ONOFF_t LED__toggleValue(LED_ONOFF_t ledOnOff)
+ 202:sources\bsw/led.c **** {
+ 203:sources\bsw/led.c ****     if (ledOnOff == LED_ON) 
+ 247              		.loc 1 203 0
+ 248 0012 012B     		cmp	r3, #1
+ 249 0014 01D1     		bne	.L35
+ 204:sources\bsw/led.c ****     {
+ 205:sources\bsw/led.c ****         return LED_OFF;
+ 250              		.loc 1 205 0
+ 251 0016 0023     		movs	r3, #0
+ 252              	.LVL29:
+ 253 0018 00E0     		b	.L29
+ 254              	.LVL30:
+ 255              	.L35:
+ 206:sources\bsw/led.c ****     }
+ 207:sources\bsw/led.c ****     else
+ 208:sources\bsw/led.c ****     {
+ 209:sources\bsw/led.c ****         return LED_ON;
+ 256              		.loc 1 209 0
+ 257 001a 0123     		movs	r3, #1
+ 258              	.LVL31:
+ 259              	.L29:
+ 260              	.LBE16:
+ 261              	.LBE15:
+ 169:sources\bsw/led.c ****             LED_red_Write(LED__state[ledId]);
+ 262              		.loc 1 169 0
+ 263 001c 184A     		ldr	r2, .L39
+ 264 001e 1354     		strb	r3, [r2, r0]
+ 170:sources\bsw/led.c ****             break;
+ 265              		.loc 1 170 0
+ 266 0020 1846     		mov	r0, r3
+ 267              	.LVL32:
+ 268 0022 FFF7FEFF 		bl	LED_red_Write
+ 269              	.LVL33:
+ 192:sources\bsw/led.c **** }
+ 270              		.loc 1 192 0
+ 271 0026 0020     		movs	r0, #0
+ 171:sources\bsw/led.c ****         
+ 272              		.loc 1 171 0
+ 273 0028 10BD     		pop	{r4, pc}
+ 274              	.LVL34:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 10
+
+
+ 275              	.L26:
+ 174:sources\bsw/led.c ****             LED_yellow_Write(LED__state[ledId]);
+ 276              		.loc 1 174 0
+ 277 002a 154B     		ldr	r3, .L39
+ 278 002c 1B5C     		ldrb	r3, [r3, r0]	@ zero_extendqisi2
+ 279              	.LVL35:
+ 280              	.LBB17:
+ 281              	.LBB18:
+ 203:sources\bsw/led.c ****     {
+ 282              		.loc 1 203 0
+ 283 002e 012B     		cmp	r3, #1
+ 284 0030 01D1     		bne	.L36
+ 205:sources\bsw/led.c ****     }
+ 285              		.loc 1 205 0
+ 286 0032 0023     		movs	r3, #0
+ 287              	.LVL36:
+ 288 0034 00E0     		b	.L30
+ 289              	.LVL37:
+ 290              	.L36:
+ 291              		.loc 1 209 0
+ 292 0036 0123     		movs	r3, #1
+ 293              	.LVL38:
+ 294              	.L30:
+ 295              	.LBE18:
+ 296              	.LBE17:
+ 174:sources\bsw/led.c ****             LED_yellow_Write(LED__state[ledId]);
+ 297              		.loc 1 174 0
+ 298 0038 114A     		ldr	r2, .L39
+ 299 003a 1354     		strb	r3, [r2, r0]
+ 175:sources\bsw/led.c ****             break;
+ 300              		.loc 1 175 0
+ 301 003c 1846     		mov	r0, r3
+ 302              	.LVL39:
+ 303 003e FFF7FEFF 		bl	LED_yellow_Write
+ 304              	.LVL40:
+ 192:sources\bsw/led.c **** }
+ 305              		.loc 1 192 0
+ 306 0042 0020     		movs	r0, #0
+ 176:sources\bsw/led.c ****             
+ 307              		.loc 1 176 0
+ 308 0044 10BD     		pop	{r4, pc}
+ 309              	.LVL41:
+ 310              	.L27:
+ 179:sources\bsw/led.c ****             LED_green_Write(LED__state[ledId]);
+ 311              		.loc 1 179 0
+ 312 0046 0E4B     		ldr	r3, .L39
+ 313 0048 1B5C     		ldrb	r3, [r3, r0]	@ zero_extendqisi2
+ 314              	.LVL42:
+ 315              	.LBB19:
+ 316              	.LBB20:
+ 203:sources\bsw/led.c ****     {
+ 317              		.loc 1 203 0
+ 318 004a 012B     		cmp	r3, #1
+ 319 004c 01D1     		bne	.L37
+ 205:sources\bsw/led.c ****     }
+ 320              		.loc 1 205 0
+ 321 004e 0023     		movs	r3, #0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 11
+
+
+ 322              	.LVL43:
+ 323 0050 00E0     		b	.L31
+ 324              	.LVL44:
+ 325              	.L37:
+ 326              		.loc 1 209 0
+ 327 0052 0123     		movs	r3, #1
+ 328              	.LVL45:
+ 329              	.L31:
+ 330              	.LBE20:
+ 331              	.LBE19:
+ 179:sources\bsw/led.c ****             LED_green_Write(LED__state[ledId]);
+ 332              		.loc 1 179 0
+ 333 0054 0A4A     		ldr	r2, .L39
+ 334 0056 1354     		strb	r3, [r2, r0]
+ 180:sources\bsw/led.c ****             break;
+ 335              		.loc 1 180 0
+ 336 0058 1846     		mov	r0, r3
+ 337              	.LVL46:
+ 338 005a FFF7FEFF 		bl	LED_green_Write
+ 339              	.LVL47:
+ 192:sources\bsw/led.c **** }
+ 340              		.loc 1 192 0
+ 341 005e 0020     		movs	r0, #0
+ 181:sources\bsw/led.c ****            
+ 342              		.loc 1 181 0
+ 343 0060 10BD     		pop	{r4, pc}
+ 344              	.LVL48:
+ 345              	.L32:
+ 346              	.LBB21:
+ 186:sources\bsw/led.c ****             }
+ 347              		.loc 1 186 0 discriminator 3
+ 348 0062 2046     		mov	r0, r4
+ 349 0064 FFF7FEFF 		bl	LED_Toggle
+ 350              	.LVL49:
+ 184:sources\bsw/led.c ****             {
+ 351              		.loc 1 184 0 discriminator 3
+ 352 0068 0134     		adds	r4, r4, #1
+ 353              	.LVL50:
+ 354 006a E4B2     		uxtb	r4, r4
+ 355              	.LVL51:
+ 356 006c 00E0     		b	.L28
+ 357              	.LVL52:
+ 358              	.L34:
+ 359              	.LBE21:
+ 166:sources\bsw/led.c ****     {
+ 360              		.loc 1 166 0
+ 361 006e 0024     		movs	r4, #0
+ 362              	.LVL53:
+ 363              	.L28:
+ 364              	.LBB22:
+ 184:sources\bsw/led.c ****             {
+ 365              		.loc 1 184 0 discriminator 1
+ 366 0070 022C     		cmp	r4, #2
+ 367 0072 F6D9     		bls	.L32
+ 368              	.LBE22:
+ 192:sources\bsw/led.c **** }
+ 369              		.loc 1 192 0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 12
+
+
+ 370 0074 0020     		movs	r0, #0
+ 371              	.LBB23:
+ 372 0076 10BD     		pop	{r4, pc}
+ 373              	.LVL54:
+ 374              	.L33:
+ 375              	.LBE23:
+ 189:sources\bsw/led.c ****     }
+ 376              		.loc 1 189 0
+ 377 0078 6FF01300 		mvn	r0, #19
+ 378              	.LVL55:
+ 193:sources\bsw/led.c **** 
+ 379              		.loc 1 193 0
+ 380 007c 10BD     		pop	{r4, pc}
+ 381              	.L40:
+ 382 007e 00BF     		.align	2
+ 383              	.L39:
+ 384 0080 00000000 		.word	.LANCHOR0
+ 385              		.cfi_endproc
+ 386              	.LFE112:
+ 387              		.size	LED_Toggle, .-LED_Toggle
+ 388              		.section	.text.LED_RGB_Set,"ax",%progbits
+ 389              		.align	2
+ 390              		.global	LED_RGB_Set
+ 391              		.thumb
+ 392              		.thumb_func
+ 393              		.type	LED_RGB_Set, %function
+ 394              	LED_RGB_Set:
+ 395              	.LFB114:
+ 210:sources\bsw/led.c ****     }
+ 211:sources\bsw/led.c **** }
+ 212:sources\bsw/led.c **** 
+ 213:sources\bsw/led.c **** /**
+ 214:sources\bsw/led.c ****  * Set the RGB LED
+ 215:sources\bsw/led.c ****  * @param uint16_t red - brightness 
+ 216:sources\bsw/led.c ****  * @param uint16_t green - brightness 
+ 217:sources\bsw/led.c ****  * @param uint16_t blue - brightness 
+ 218:sources\bsw/led.c ****  * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
+ 219:sources\bsw/led.c ****  */
+ 220:sources\bsw/led.c **** RC_t LED_RGB_Set(uint8_t red, uint8_t green, uint8_t blue)
+ 221:sources\bsw/led.c **** {
+ 396              		.loc 1 221 0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400              	.LVL56:
+ 401 0000 70B5     		push	{r4, r5, r6, lr}
+ 402              		.cfi_def_cfa_offset 16
+ 403              		.cfi_offset 4, -16
+ 404              		.cfi_offset 5, -12
+ 405              		.cfi_offset 6, -8
+ 406              		.cfi_offset 14, -4
+ 407 0002 0E46     		mov	r6, r1
+ 408 0004 1546     		mov	r5, r2
+ 222:sources\bsw/led.c ****     RGB_PWM_red_WriteCompare(LED__Pulse_Width[red]);
+ 409              		.loc 1 222 0
+ 410 0006 074C     		ldr	r4, .L43
+ 411 0008 34F81000 		ldrh	r0, [r4, r0, lsl #1]
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 13
+
+
+ 412              	.LVL57:
+ 413 000c FFF7FEFF 		bl	RGB_PWM_red_WriteCompare
+ 414              	.LVL58:
+ 223:sources\bsw/led.c ****     RGB_PWM_green_WriteCompare(LED__Pulse_Width[green]);
+ 415              		.loc 1 223 0
+ 416 0010 34F81600 		ldrh	r0, [r4, r6, lsl #1]
+ 417 0014 FFF7FEFF 		bl	RGB_PWM_green_WriteCompare
+ 418              	.LVL59:
+ 224:sources\bsw/led.c ****     RGB_PWM_blue_WriteCompare(LED__Pulse_Width[blue]);
+ 419              		.loc 1 224 0
+ 420 0018 34F81500 		ldrh	r0, [r4, r5, lsl #1]
+ 421 001c FFF7FEFF 		bl	RGB_PWM_blue_WriteCompare
+ 422              	.LVL60:
+ 225:sources\bsw/led.c ****  
+ 226:sources\bsw/led.c ****     return RC_SUCCESS;
+ 227:sources\bsw/led.c **** }
+ 423              		.loc 1 227 0
+ 424 0020 0020     		movs	r0, #0
+ 425 0022 70BD     		pop	{r4, r5, r6, pc}
+ 426              	.L44:
+ 427              		.align	2
+ 428              	.L43:
+ 429 0024 00000000 		.word	.LANCHOR1
+ 430              		.cfi_endproc
+ 431              	.LFE114:
+ 432              		.size	LED_RGB_Set, .-LED_RGB_Set
+ 433              		.section	.rodata
+ 434              		.align	2
+ 435              		.set	.LANCHOR1,. + 0
+ 436              		.type	LED__Pulse_Width, %object
+ 437              		.size	LED__Pulse_Width, 512
+ 438              	LED__Pulse_Width:
+ 439 0000 0000     		.short	0
+ 440 0002 0100     		.short	1
+ 441 0004 0100     		.short	1
+ 442 0006 0100     		.short	1
+ 443 0008 0100     		.short	1
+ 444 000a 0100     		.short	1
+ 445 000c 0100     		.short	1
+ 446 000e 0100     		.short	1
+ 447 0010 0100     		.short	1
+ 448 0012 0200     		.short	2
+ 449 0014 0200     		.short	2
+ 450 0016 0200     		.short	2
+ 451 0018 0200     		.short	2
+ 452 001a 0200     		.short	2
+ 453 001c 0200     		.short	2
+ 454 001e 0200     		.short	2
+ 455 0020 0200     		.short	2
+ 456 0022 0200     		.short	2
+ 457 0024 0200     		.short	2
+ 458 0026 0200     		.short	2
+ 459 0028 0200     		.short	2
+ 460 002a 0300     		.short	3
+ 461 002c 0300     		.short	3
+ 462 002e 0300     		.short	3
+ 463 0030 0300     		.short	3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 14
+
+
+ 464 0032 0300     		.short	3
+ 465 0034 0300     		.short	3
+ 466 0036 0300     		.short	3
+ 467 0038 0400     		.short	4
+ 468 003a 0400     		.short	4
+ 469 003c 0400     		.short	4
+ 470 003e 0400     		.short	4
+ 471 0040 0400     		.short	4
+ 472 0042 0400     		.short	4
+ 473 0044 0500     		.short	5
+ 474 0046 0500     		.short	5
+ 475 0048 0500     		.short	5
+ 476 004a 0500     		.short	5
+ 477 004c 0500     		.short	5
+ 478 004e 0600     		.short	6
+ 479 0050 0600     		.short	6
+ 480 0052 0600     		.short	6
+ 481 0054 0600     		.short	6
+ 482 0056 0700     		.short	7
+ 483 0058 0700     		.short	7
+ 484 005a 0700     		.short	7
+ 485 005c 0800     		.short	8
+ 486 005e 0800     		.short	8
+ 487 0060 0800     		.short	8
+ 488 0062 0900     		.short	9
+ 489 0064 0900     		.short	9
+ 490 0066 0A00     		.short	10
+ 491 0068 0A00     		.short	10
+ 492 006a 0A00     		.short	10
+ 493 006c 0B00     		.short	11
+ 494 006e 0B00     		.short	11
+ 495 0070 0C00     		.short	12
+ 496 0072 0C00     		.short	12
+ 497 0074 0D00     		.short	13
+ 498 0076 0D00     		.short	13
+ 499 0078 0E00     		.short	14
+ 500 007a 0F00     		.short	15
+ 501 007c 0F00     		.short	15
+ 502 007e 1000     		.short	16
+ 503 0080 1100     		.short	17
+ 504 0082 1100     		.short	17
+ 505 0084 1200     		.short	18
+ 506 0086 1300     		.short	19
+ 507 0088 1400     		.short	20
+ 508 008a 1500     		.short	21
+ 509 008c 1600     		.short	22
+ 510 008e 1700     		.short	23
+ 511 0090 1800     		.short	24
+ 512 0092 1900     		.short	25
+ 513 0094 1A00     		.short	26
+ 514 0096 1B00     		.short	27
+ 515 0098 1C00     		.short	28
+ 516 009a 1D00     		.short	29
+ 517 009c 1F00     		.short	31
+ 518 009e 2000     		.short	32
+ 519 00a0 2100     		.short	33
+ 520 00a2 2300     		.short	35
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 15
+
+
+ 521 00a4 2400     		.short	36
+ 522 00a6 2600     		.short	38
+ 523 00a8 2800     		.short	40
+ 524 00aa 2900     		.short	41
+ 525 00ac 2B00     		.short	43
+ 526 00ae 2D00     		.short	45
+ 527 00b0 2F00     		.short	47
+ 528 00b2 3100     		.short	49
+ 529 00b4 3400     		.short	52
+ 530 00b6 3600     		.short	54
+ 531 00b8 3800     		.short	56
+ 532 00ba 3B00     		.short	59
+ 533 00bc 3D00     		.short	61
+ 534 00be 4000     		.short	64
+ 535 00c0 4300     		.short	67
+ 536 00c2 4600     		.short	70
+ 537 00c4 4900     		.short	73
+ 538 00c6 4C00     		.short	76
+ 539 00c8 4F00     		.short	79
+ 540 00ca 5300     		.short	83
+ 541 00cc 5700     		.short	87
+ 542 00ce 5B00     		.short	91
+ 543 00d0 5F00     		.short	95
+ 544 00d2 6300     		.short	99
+ 545 00d4 6700     		.short	103
+ 546 00d6 6C00     		.short	108
+ 547 00d8 7000     		.short	112
+ 548 00da 7500     		.short	117
+ 549 00dc 7B00     		.short	123
+ 550 00de 8000     		.short	128
+ 551 00e0 8600     		.short	134
+ 552 00e2 8C00     		.short	140
+ 553 00e4 9200     		.short	146
+ 554 00e6 9800     		.short	152
+ 555 00e8 9F00     		.short	159
+ 556 00ea A600     		.short	166
+ 557 00ec AD00     		.short	173
+ 558 00ee B500     		.short	181
+ 559 00f0 BD00     		.short	189
+ 560 00f2 C500     		.short	197
+ 561 00f4 CE00     		.short	206
+ 562 00f6 D700     		.short	215
+ 563 00f8 E100     		.short	225
+ 564 00fa EB00     		.short	235
+ 565 00fc F500     		.short	245
+ 566 00fe 0001     		.short	256
+ 567 0100 0B01     		.short	267
+ 568 0102 1701     		.short	279
+ 569 0104 2401     		.short	292
+ 570 0106 3001     		.short	304
+ 571 0108 3E01     		.short	318
+ 572 010a 4C01     		.short	332
+ 573 010c 5B01     		.short	347
+ 574 010e 6A01     		.short	362
+ 575 0110 7A01     		.short	378
+ 576 0112 8B01     		.short	395
+ 577 0114 9C01     		.short	412
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 16
+
+
+ 578 0116 AF01     		.short	431
+ 579 0118 C201     		.short	450
+ 580 011a D601     		.short	470
+ 581 011c EA01     		.short	490
+ 582 011e 0002     		.short	512
+ 583 0120 1702     		.short	535
+ 584 0122 2E02     		.short	558
+ 585 0124 4702     		.short	583
+ 586 0126 6102     		.short	609
+ 587 0128 7C02     		.short	636
+ 588 012a 9802     		.short	664
+ 589 012c B502     		.short	693
+ 590 012e D402     		.short	724
+ 591 0130 F402     		.short	756
+ 592 0132 1603     		.short	790
+ 593 0134 3903     		.short	825
+ 594 0136 5D03     		.short	861
+ 595 0138 8303     		.short	899
+ 596 013a AB03     		.short	939
+ 597 013c D503     		.short	981
+ 598 013e 0004     		.short	1024
+ 599 0140 2D04     		.short	1069
+ 600 0142 5D04     		.short	1117
+ 601 0144 8E04     		.short	1166
+ 602 0146 C204     		.short	1218
+ 603 0148 F804     		.short	1272
+ 604 014a 3005     		.short	1328
+ 605 014c 6B05     		.short	1387
+ 606 014e A805     		.short	1448
+ 607 0150 E805     		.short	1512
+ 608 0152 2B06     		.short	1579
+ 609 0154 7106     		.short	1649
+ 610 0156 BA06     		.short	1722
+ 611 0158 0607     		.short	1798
+ 612 015a 5607     		.short	1878
+ 613 015c A907     		.short	1961
+ 614 015e 0008     		.short	2048
+ 615 0160 5B08     		.short	2139
+ 616 0162 B908     		.short	2233
+ 617 0164 1C09     		.short	2332
+ 618 0166 8309     		.short	2435
+ 619 0168 EF09     		.short	2543
+ 620 016a 600A     		.short	2656
+ 621 016c D50A     		.short	2773
+ 622 016e 500B     		.short	2896
+ 623 0170 D10B     		.short	3025
+ 624 0172 560C     		.short	3158
+ 625 0174 E20C     		.short	3298
+ 626 0176 740D     		.short	3444
+ 627 0178 0D0E     		.short	3597
+ 628 017a AC0E     		.short	3756
+ 629 017c 520F     		.short	3922
+ 630 017e 0010     		.short	4096
+ 631 0180 B510     		.short	4277
+ 632 0182 7311     		.short	4467
+ 633 0184 3812     		.short	4664
+ 634 0186 0713     		.short	4871
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 17
+
+
+ 635 0188 DF13     		.short	5087
+ 636 018a C014     		.short	5312
+ 637 018c AB15     		.short	5547
+ 638 018e A116     		.short	5793
+ 639 0190 A117     		.short	6049
+ 640 0192 AD18     		.short	6317
+ 641 0194 C419     		.short	6596
+ 642 0196 E91A     		.short	6889
+ 643 0198 1A1C     		.short	7194
+ 644 019a 581D     		.short	7512
+ 645 019c A51E     		.short	7845
+ 646 019e 0020     		.short	8192
+ 647 01a0 6B21     		.short	8555
+ 648 01a2 E522     		.short	8933
+ 649 01a4 7124     		.short	9329
+ 650 01a6 0E26     		.short	9742
+ 651 01a8 BD27     		.short	10173
+ 652 01aa 8029     		.short	10624
+ 653 01ac 562B     		.short	11094
+ 654 01ae 412D     		.short	11585
+ 655 01b0 422F     		.short	12098
+ 656 01b2 5A31     		.short	12634
+ 657 01b4 8933     		.short	13193
+ 658 01b6 D135     		.short	13777
+ 659 01b8 3338     		.short	14387
+ 660 01ba B03A     		.short	15024
+ 661 01bc 493D     		.short	15689
+ 662 01be 0040     		.short	16384
+ 663 01c0 D542     		.short	17109
+ 664 01c2 CB45     		.short	17867
+ 665 01c4 E248     		.short	18658
+ 666 01c6 1C4C     		.short	19484
+ 667 01c8 7A4F     		.short	20346
+ 668 01ca FF52     		.short	21247
+ 669 01cc AC56     		.short	22188
+ 670 01ce 825A     		.short	23170
+ 671 01d0 845E     		.short	24196
+ 672 01d2 B362     		.short	25267
+ 673 01d4 1267     		.short	26386
+ 674 01d6 A26B     		.short	27554
+ 675 01d8 6670     		.short	28774
+ 676 01da 6075     		.short	30048
+ 677 01dc 927A     		.short	31378
+ 678 01de 0080     		.short	-32768
+ 679 01e0 AA85     		.short	-31318
+ 680 01e2 958B     		.short	-29803
+ 681 01e4 C391     		.short	-28221
+ 682 01e6 3798     		.short	-26569
+ 683 01e8 F59E     		.short	-24843
+ 684 01ea FEA5     		.short	-23042
+ 685 01ec 58AD     		.short	-21160
+ 686 01ee 04B5     		.short	-19196
+ 687 01f0 08BD     		.short	-17144
+ 688 01f2 66C5     		.short	-15002
+ 689 01f4 24CE     		.short	-12764
+ 690 01f6 44D7     		.short	-10428
+ 691 01f8 CCE0     		.short	-7988
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 18
+
+
+ 692 01fa C0EA     		.short	-5440
+ 693 01fc 25F5     		.short	-2779
+ 694 01fe FFFF     		.short	-1
+ 695              		.bss
+ 696              		.align	2
+ 697              		.set	.LANCHOR0,. + 0
+ 698              		.type	LED__state, %object
+ 699              		.size	LED__state, 3
+ 700              	LED__state:
+ 701 0000 000000   		.space	3
+ 702              		.text
+ 703              	.Letext0:
+ 704              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 705              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 706              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 707              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 708              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 709              		.file 7 "sources\\bsw\\global.h"
+ 710              		.file 8 "sources\\bsw\\led.h"
+ 711              		.file 9 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 712              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 713              		.file 11 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 714              		.file 12 "Generated_Source\\PSoC5/core_cm3.h"
+ 715              		.file 13 "Generated_Source\\PSoC5/LED_red.h"
+ 716              		.file 14 "Generated_Source\\PSoC5/LED_yellow.h"
+ 717              		.file 15 "Generated_Source\\PSoC5/LED_green.h"
+ 718              		.file 16 "Generated_Source\\PSoC5/RGB_PWM_blue.h"
+ 719              		.file 17 "Generated_Source\\PSoC5/RGB_PWM_green.h"
+ 720              		.file 18 "Generated_Source\\PSoC5/RGB_PWM_red.h"
+ 721              		.section	.debug_info,"",%progbits
+ 722              	.Ldebug_info0:
+ 723 0000 87050000 		.4byte	0x587
+ 724 0004 0400     		.2byte	0x4
+ 725 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 726 000a 04       		.byte	0x4
+ 727 000b 01       		.uleb128 0x1
+ 728 000c FA030000 		.4byte	.LASF87
+ 729 0010 0C       		.byte	0xc
+ 730 0011 56010000 		.4byte	.LASF88
+ 731 0015 77030000 		.4byte	.LASF89
+ 732 0019 58000000 		.4byte	.Ldebug_ranges0+0x58
+ 733 001d 00000000 		.4byte	0
+ 734 0021 00000000 		.4byte	.Ldebug_line0
+ 735 0025 02       		.uleb128 0x2
+ 736 0026 01       		.byte	0x1
+ 737 0027 06       		.byte	0x6
+ 738 0028 D0020000 		.4byte	.LASF0
+ 739 002c 03       		.uleb128 0x3
+ 740 002d CC050000 		.4byte	.LASF4
+ 741 0031 02       		.byte	0x2
+ 742 0032 1D       		.byte	0x1d
+ 743 0033 37000000 		.4byte	0x37
+ 744 0037 02       		.uleb128 0x2
+ 745 0038 01       		.byte	0x1
+ 746 0039 08       		.byte	0x8
+ 747 003a A3020000 		.4byte	.LASF1
+ 748 003e 02       		.uleb128 0x2
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 19
+
+
+ 749 003f 02       		.byte	0x2
+ 750 0040 05       		.byte	0x5
+ 751 0041 89000000 		.4byte	.LASF2
+ 752 0045 02       		.uleb128 0x2
+ 753 0046 02       		.byte	0x2
+ 754 0047 07       		.byte	0x7
+ 755 0048 E7030000 		.4byte	.LASF3
+ 756 004c 03       		.uleb128 0x3
+ 757 004d 3E050000 		.4byte	.LASF5
+ 758 0051 02       		.byte	0x2
+ 759 0052 3F       		.byte	0x3f
+ 760 0053 57000000 		.4byte	0x57
+ 761 0057 02       		.uleb128 0x2
+ 762 0058 04       		.byte	0x4
+ 763 0059 05       		.byte	0x5
+ 764 005a 02020000 		.4byte	.LASF6
+ 765 005e 02       		.uleb128 0x2
+ 766 005f 04       		.byte	0x4
+ 767 0060 07       		.byte	0x7
+ 768 0061 01050000 		.4byte	.LASF7
+ 769 0065 02       		.uleb128 0x2
+ 770 0066 08       		.byte	0x8
+ 771 0067 05       		.byte	0x5
+ 772 0068 AF010000 		.4byte	.LASF8
+ 773 006c 02       		.uleb128 0x2
+ 774 006d 08       		.byte	0x8
+ 775 006e 07       		.byte	0x7
+ 776 006f DC020000 		.4byte	.LASF9
+ 777 0073 04       		.uleb128 0x4
+ 778 0074 04       		.byte	0x4
+ 779 0075 05       		.byte	0x5
+ 780 0076 696E7400 		.ascii	"int\000"
+ 781 007a 02       		.uleb128 0x2
+ 782 007b 04       		.byte	0x4
+ 783 007c 07       		.byte	0x7
+ 784 007d 03030000 		.4byte	.LASF10
+ 785 0081 03       		.uleb128 0x3
+ 786 0082 37010000 		.4byte	.LASF11
+ 787 0086 03       		.byte	0x3
+ 788 0087 18       		.byte	0x18
+ 789 0088 2C000000 		.4byte	0x2c
+ 790 008c 03       		.uleb128 0x3
+ 791 008d BC040000 		.4byte	.LASF12
+ 792 0091 03       		.byte	0x3
+ 793 0092 2C       		.byte	0x2c
+ 794 0093 4C000000 		.4byte	0x4c
+ 795 0097 05       		.uleb128 0x5
+ 796 0098 25010000 		.4byte	.LASF13
+ 797 009c 04       		.byte	0x4
+ 798 009d E901     		.2byte	0x1e9
+ 799 009f 45000000 		.4byte	0x45
+ 800 00a3 02       		.uleb128 0x2
+ 801 00a4 04       		.byte	0x4
+ 802 00a5 04       		.byte	0x4
+ 803 00a6 90010000 		.4byte	.LASF14
+ 804 00aa 02       		.uleb128 0x2
+ 805 00ab 08       		.byte	0x8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 20
+
+
+ 806 00ac 04       		.byte	0x4
+ 807 00ad 6E050000 		.4byte	.LASF15
+ 808 00b1 02       		.uleb128 0x2
+ 809 00b2 01       		.byte	0x1
+ 810 00b3 08       		.byte	0x8
+ 811 00b4 A2040000 		.4byte	.LASF16
+ 812 00b8 02       		.uleb128 0x2
+ 813 00b9 08       		.byte	0x8
+ 814 00ba 04       		.byte	0x4
+ 815 00bb 87020000 		.4byte	.LASF17
+ 816 00bf 02       		.uleb128 0x2
+ 817 00c0 04       		.byte	0x4
+ 818 00c1 07       		.byte	0x7
+ 819 00c2 B9000000 		.4byte	.LASF18
+ 820 00c6 03       		.uleb128 0x3
+ 821 00c7 5D030000 		.4byte	.LASF19
+ 822 00cb 05       		.byte	0x5
+ 823 00cc 53       		.byte	0x53
+ 824 00cd 73000000 		.4byte	0x73
+ 825 00d1 03       		.uleb128 0x3
+ 826 00d2 03010000 		.4byte	.LASF20
+ 827 00d6 05       		.byte	0x5
+ 828 00d7 54       		.byte	0x54
+ 829 00d8 7A000000 		.4byte	0x7a
+ 830 00dc 03       		.uleb128 0x3
+ 831 00dd 2E050000 		.4byte	.LASF21
+ 832 00e1 06       		.byte	0x6
+ 833 00e2 4D       		.byte	0x4d
+ 834 00e3 D1000000 		.4byte	0xd1
+ 835 00e7 03       		.uleb128 0x3
+ 836 00e8 EA000000 		.4byte	.LASF22
+ 837 00ec 06       		.byte	0x6
+ 838 00ed 4F       		.byte	0x4f
+ 839 00ee D1000000 		.4byte	0xd1
+ 840 00f2 03       		.uleb128 0x3
+ 841 00f3 19010000 		.4byte	.LASF23
+ 842 00f7 06       		.byte	0x6
+ 843 00f8 78       		.byte	0x78
+ 844 00f9 C6000000 		.4byte	0xc6
+ 845 00fd 06       		.uleb128 0x6
+ 846 00fe 01       		.byte	0x1
+ 847 00ff 25000000 		.4byte	0x25
+ 848 0103 07       		.byte	0x7
+ 849 0104 CF       		.byte	0xcf
+ 850 0105 A6010000 		.4byte	0x1a6
+ 851 0109 07       		.uleb128 0x7
+ 852 010a 4B000000 		.4byte	.LASF24
+ 853 010e 00       		.byte	0
+ 854 010f 08       		.uleb128 0x8
+ 855 0110 82050000 		.4byte	.LASF25
+ 856 0114 7F       		.sleb128 -1
+ 857 0115 08       		.uleb128 0x8
+ 858 0116 39030000 		.4byte	.LASF26
+ 859 011a 7E       		.sleb128 -2
+ 860 011b 08       		.uleb128 0x8
+ 861 011c DC000000 		.4byte	.LASF27
+ 862 0120 7D       		.sleb128 -3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 21
+
+
+ 863 0121 08       		.uleb128 0x8
+ 864 0122 A4050000 		.4byte	.LASF28
+ 865 0126 7C       		.sleb128 -4
+ 866 0127 08       		.uleb128 0x8
+ 867 0128 81010000 		.4byte	.LASF29
+ 868 012c 7B       		.sleb128 -5
+ 869 012d 08       		.uleb128 0x8
+ 870 012e 93000000 		.4byte	.LASF30
+ 871 0132 7A       		.sleb128 -6
+ 872 0133 08       		.uleb128 0x8
+ 873 0134 0B020000 		.4byte	.LASF31
+ 874 0138 79       		.sleb128 -7
+ 875 0139 08       		.uleb128 0x8
+ 876 013a A7040000 		.4byte	.LASF32
+ 877 013e 78       		.sleb128 -8
+ 878 013f 08       		.uleb128 0x8
+ 879 0140 47030000 		.4byte	.LASF33
+ 880 0144 77       		.sleb128 -9
+ 881 0145 08       		.uleb128 0x8
+ 882 0146 1D020000 		.4byte	.LASF34
+ 883 014a 76       		.sleb128 -10
+ 884 014b 08       		.uleb128 0x8
+ 885 014c D6050000 		.4byte	.LASF35
+ 886 0150 75       		.sleb128 -11
+ 887 0151 08       		.uleb128 0x8
+ 888 0152 10030000 		.4byte	.LASF36
+ 889 0156 74       		.sleb128 -12
+ 890 0157 08       		.uleb128 0x8
+ 891 0158 1C050000 		.4byte	.LASF37
+ 892 015c 73       		.sleb128 -13
+ 893 015d 08       		.uleb128 0x8
+ 894 015e 38000000 		.4byte	.LASF38
+ 895 0162 72       		.sleb128 -14
+ 896 0163 08       		.uleb128 0x8
+ 897 0164 75000000 		.4byte	.LASF39
+ 898 0168 71       		.sleb128 -15
+ 899 0169 08       		.uleb128 0x8
+ 900 016a F2000000 		.4byte	.LASF40
+ 901 016e 70       		.sleb128 -16
+ 902 016f 08       		.uleb128 0x8
+ 903 0170 C4040000 		.4byte	.LASF41
+ 904 0174 6F       		.sleb128 -17
+ 905 0175 08       		.uleb128 0x8
+ 906 0176 A4000000 		.4byte	.LASF42
+ 907 017a 6E       		.sleb128 -18
+ 908 017b 08       		.uleb128 0x8
+ 909 017c DE010000 		.4byte	.LASF43
+ 910 0180 6D       		.sleb128 -19
+ 911 0181 08       		.uleb128 0x8
+ 912 0182 B1020000 		.4byte	.LASF44
+ 913 0186 6C       		.sleb128 -20
+ 914 0187 08       		.uleb128 0x8
+ 915 0188 49020000 		.4byte	.LASF45
+ 916 018c 6B       		.sleb128 -21
+ 917 018d 08       		.uleb128 0x8
+ 918 018e 5C050000 		.4byte	.LASF46
+ 919 0192 6A       		.sleb128 -22
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 22
+
+
+ 920 0193 08       		.uleb128 0x8
+ 921 0194 3F010000 		.4byte	.LASF47
+ 922 0198 69       		.sleb128 -23
+ 923 0199 08       		.uleb128 0x8
+ 924 019a F1010000 		.4byte	.LASF48
+ 925 019e 68       		.sleb128 -24
+ 926 019f 08       		.uleb128 0x8
+ 927 01a0 96010000 		.4byte	.LASF49
+ 928 01a4 67       		.sleb128 -25
+ 929 01a5 00       		.byte	0
+ 930 01a6 03       		.uleb128 0x3
+ 931 01a7 C2000000 		.4byte	.LASF50
+ 932 01ab 07       		.byte	0x7
+ 933 01ac EA       		.byte	0xea
+ 934 01ad FD000000 		.4byte	0xfd
+ 935 01b1 09       		.uleb128 0x9
+ 936 01b2 BD010000 		.4byte	.LASF56
+ 937 01b6 01       		.byte	0x1
+ 938 01b7 37000000 		.4byte	0x37
+ 939 01bb 08       		.byte	0x8
+ 940 01bc 5A       		.byte	0x5a
+ 941 01bd DA010000 		.4byte	0x1da
+ 942 01c1 07       		.uleb128 0x7
+ 943 01c2 9C050000 		.4byte	.LASF51
+ 944 01c6 00       		.byte	0
+ 945 01c7 07       		.uleb128 0x7
+ 946 01c8 2E030000 		.4byte	.LASF52
+ 947 01cc 01       		.byte	0x1
+ 948 01cd 07       		.uleb128 0x7
+ 949 01ce E4040000 		.4byte	.LASF53
+ 950 01d2 02       		.byte	0x2
+ 951 01d3 07       		.uleb128 0x7
+ 952 01d4 36050000 		.4byte	.LASF54
+ 953 01d8 03       		.byte	0x3
+ 954 01d9 00       		.byte	0
+ 955 01da 03       		.uleb128 0x3
+ 956 01db FA020000 		.4byte	.LASF55
+ 957 01df 08       		.byte	0x8
+ 958 01e0 60       		.byte	0x60
+ 959 01e1 B1010000 		.4byte	0x1b1
+ 960 01e5 09       		.uleb128 0x9
+ 961 01e6 2C010000 		.4byte	.LASF57
+ 962 01ea 01       		.byte	0x1
+ 963 01eb 37000000 		.4byte	0x37
+ 964 01ef 08       		.byte	0x8
+ 965 01f0 62       		.byte	0x62
+ 966 01f1 02020000 		.4byte	0x202
+ 967 01f5 07       		.uleb128 0x7
+ 968 01f6 26030000 		.4byte	.LASF58
+ 969 01fa 00       		.byte	0
+ 970 01fb 07       		.uleb128 0x7
+ 971 01fc F3020000 		.4byte	.LASF59
+ 972 0200 01       		.byte	0x1
+ 973 0201 00       		.byte	0
+ 974 0202 03       		.uleb128 0x3
+ 975 0203 C4020000 		.4byte	.LASF60
+ 976 0207 08       		.byte	0x8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 23
+
+
+ 977 0208 66       		.byte	0x66
+ 978 0209 E5010000 		.4byte	0x1e5
+ 979 020d 0A       		.uleb128 0xa
+ 980 020e 56000000 		.4byte	.LASF90
+ 981 0212 01       		.byte	0x1
+ 982 0213 C9       		.byte	0xc9
+ 983 0214 02020000 		.4byte	0x202
+ 984 0218 03       		.byte	0x3
+ 985 0219 29020000 		.4byte	0x229
+ 986 021d 0B       		.uleb128 0xb
+ 987 021e DE030000 		.4byte	.LASF62
+ 988 0222 01       		.byte	0x1
+ 989 0223 C9       		.byte	0xc9
+ 990 0224 02020000 		.4byte	0x202
+ 991 0228 00       		.byte	0
+ 992 0229 0C       		.uleb128 0xc
+ 993 022a 1E030000 		.4byte	.LASF65
+ 994 022e 01       		.byte	0x1
+ 995 022f 7C       		.byte	0x7c
+ 996 0230 A6010000 		.4byte	0x1a6
+ 997 0234 00000000 		.4byte	.LFB111
+ 998 0238 60000000 		.4byte	.LFE111-.LFB111
+ 999 023c 01       		.uleb128 0x1
+ 1000 023d 9C       		.byte	0x9c
+ 1001 023e C6020000 		.4byte	0x2c6
+ 1002 0242 0D       		.uleb128 0xd
+ 1003 0243 2B020000 		.4byte	.LASF61
+ 1004 0247 01       		.byte	0x1
+ 1005 0248 7C       		.byte	0x7c
+ 1006 0249 DA010000 		.4byte	0x1da
+ 1007 024d 00000000 		.4byte	.LLST0
+ 1008 0251 0D       		.uleb128 0xd
+ 1009 0252 DE030000 		.4byte	.LASF62
+ 1010 0256 01       		.byte	0x1
+ 1011 0257 7C       		.byte	0x7c
+ 1012 0258 02020000 		.4byte	0x202
+ 1013 025c 85000000 		.4byte	.LLST1
+ 1014 0260 0E       		.uleb128 0xe
+ 1015 0261 00000000 		.4byte	.Ldebug_ranges0+0
+ 1016 0265 8D020000 		.4byte	0x28d
+ 1017 0269 0F       		.uleb128 0xf
+ 1018 026a 6900     		.ascii	"i\000"
+ 1019 026c 01       		.byte	0x1
+ 1020 026d 91       		.byte	0x91
+ 1021 026e DA010000 		.4byte	0x1da
+ 1022 0272 FC000000 		.4byte	.LLST2
+ 1023 0276 10       		.uleb128 0x10
+ 1024 0277 44000000 		.4byte	.LVL10
+ 1025 027b 29020000 		.4byte	0x229
+ 1026 027f 11       		.uleb128 0x11
+ 1027 0280 01       		.uleb128 0x1
+ 1028 0281 50       		.byte	0x50
+ 1029 0282 02       		.uleb128 0x2
+ 1030 0283 74       		.byte	0x74
+ 1031 0284 00       		.sleb128 0
+ 1032 0285 11       		.uleb128 0x11
+ 1033 0286 01       		.uleb128 0x1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 24
+
+
+ 1034 0287 51       		.byte	0x51
+ 1035 0288 02       		.uleb128 0x2
+ 1036 0289 75       		.byte	0x75
+ 1037 028a 00       		.sleb128 0
+ 1038 028b 00       		.byte	0
+ 1039 028c 00       		.byte	0
+ 1040 028d 12       		.uleb128 0x12
+ 1041 028e 18000000 		.4byte	.LVL2
+ 1042 0292 27050000 		.4byte	0x527
+ 1043 0296 A1020000 		.4byte	0x2a1
+ 1044 029a 11       		.uleb128 0x11
+ 1045 029b 01       		.uleb128 0x1
+ 1046 029c 50       		.byte	0x50
+ 1047 029d 02       		.uleb128 0x2
+ 1048 029e 75       		.byte	0x75
+ 1049 029f 00       		.sleb128 0
+ 1050 02a0 00       		.byte	0
+ 1051 02a1 12       		.uleb128 0x12
+ 1052 02a2 26000000 		.4byte	.LVL5
+ 1053 02a6 32050000 		.4byte	0x532
+ 1054 02aa B5020000 		.4byte	0x2b5
+ 1055 02ae 11       		.uleb128 0x11
+ 1056 02af 01       		.uleb128 0x1
+ 1057 02b0 50       		.byte	0x50
+ 1058 02b1 02       		.uleb128 0x2
+ 1059 02b2 75       		.byte	0x75
+ 1060 02b3 00       		.sleb128 0
+ 1061 02b4 00       		.byte	0
+ 1062 02b5 10       		.uleb128 0x10
+ 1063 02b6 34000000 		.4byte	.LVL8
+ 1064 02ba 3D050000 		.4byte	0x53d
+ 1065 02be 11       		.uleb128 0x11
+ 1066 02bf 01       		.uleb128 0x1
+ 1067 02c0 50       		.byte	0x50
+ 1068 02c1 02       		.uleb128 0x2
+ 1069 02c2 75       		.byte	0x75
+ 1070 02c3 00       		.sleb128 0
+ 1071 02c4 00       		.byte	0
+ 1072 02c5 00       		.byte	0
+ 1073 02c6 13       		.uleb128 0x13
+ 1074 02c7 13050000 		.4byte	.LASF91
+ 1075 02cb 01       		.byte	0x1
+ 1076 02cc 5C       		.byte	0x5c
+ 1077 02cd A6010000 		.4byte	0x1a6
+ 1078 02d1 00000000 		.4byte	.LFB110
+ 1079 02d5 34000000 		.4byte	.LFE110-.LFB110
+ 1080 02d9 01       		.uleb128 0x1
+ 1081 02da 9C       		.byte	0x9c
+ 1082 02db 4F030000 		.4byte	0x34f
+ 1083 02df 14       		.uleb128 0x14
+ 1084 02e0 0B000000 		.4byte	.LASF63
+ 1085 02e4 01       		.byte	0x1
+ 1086 02e5 5E       		.byte	0x5e
+ 1087 02e6 A6010000 		.4byte	0x1a6
+ 1088 02ea 25010000 		.4byte	.LLST3
+ 1089 02ee 0E       		.uleb128 0xe
+ 1090 02ef 20000000 		.4byte	.Ldebug_ranges0+0x20
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 25
+
+
+ 1091 02f3 33030000 		.4byte	0x333
+ 1092 02f7 0F       		.uleb128 0xf
+ 1093 02f8 6900     		.ascii	"i\000"
+ 1094 02fa 01       		.byte	0x1
+ 1095 02fb 60       		.byte	0x60
+ 1096 02fc DA010000 		.4byte	0x1da
+ 1097 0300 44010000 		.4byte	.LLST4
+ 1098 0304 15       		.uleb128 0x15
+ 1099 0305 08000000 		.4byte	.LBB13
+ 1100 0309 10000000 		.4byte	.LBE13-.LBB13
+ 1101 030d 14       		.uleb128 0x14
+ 1102 030e 0D010000 		.4byte	.LASF64
+ 1103 0312 01       		.byte	0x1
+ 1104 0313 64       		.byte	0x64
+ 1105 0314 A6010000 		.4byte	0x1a6
+ 1106 0318 6E010000 		.4byte	.LLST5
+ 1107 031c 10       		.uleb128 0x10
+ 1108 031d 14000000 		.4byte	.LVL19
+ 1109 0321 29020000 		.4byte	0x229
+ 1110 0325 11       		.uleb128 0x11
+ 1111 0326 01       		.uleb128 0x1
+ 1112 0327 50       		.byte	0x50
+ 1113 0328 02       		.uleb128 0x2
+ 1114 0329 74       		.byte	0x74
+ 1115 032a 00       		.sleb128 0
+ 1116 032b 11       		.uleb128 0x11
+ 1117 032c 01       		.uleb128 0x1
+ 1118 032d 51       		.byte	0x51
+ 1119 032e 01       		.uleb128 0x1
+ 1120 032f 30       		.byte	0x30
+ 1121 0330 00       		.byte	0
+ 1122 0331 00       		.byte	0
+ 1123 0332 00       		.byte	0
+ 1124 0333 16       		.uleb128 0x16
+ 1125 0334 24000000 		.4byte	.LVL23
+ 1126 0338 48050000 		.4byte	0x548
+ 1127 033c 16       		.uleb128 0x16
+ 1128 033d 28000000 		.4byte	.LVL24
+ 1129 0341 53050000 		.4byte	0x553
+ 1130 0345 16       		.uleb128 0x16
+ 1131 0346 2C000000 		.4byte	.LVL25
+ 1132 034a 5E050000 		.4byte	0x55e
+ 1133 034e 00       		.byte	0
+ 1134 034f 0C       		.uleb128 0xc
+ 1135 0350 00000000 		.4byte	.LASF66
+ 1136 0354 01       		.byte	0x1
+ 1137 0355 A3       		.byte	0xa3
+ 1138 0356 A6010000 		.4byte	0x1a6
+ 1139 035a 00000000 		.4byte	.LFB112
+ 1140 035e 84000000 		.4byte	.LFE112-.LFB112
+ 1141 0362 01       		.uleb128 0x1
+ 1142 0363 9C       		.byte	0x9c
+ 1143 0364 11040000 		.4byte	0x411
+ 1144 0368 0D       		.uleb128 0xd
+ 1145 0369 2B020000 		.4byte	.LASF61
+ 1146 036d 01       		.byte	0x1
+ 1147 036e A3       		.byte	0xa3
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 26
+
+
+ 1148 036f DA010000 		.4byte	0x1da
+ 1149 0373 81010000 		.4byte	.LLST6
+ 1150 0377 17       		.uleb128 0x17
+ 1151 0378 0D020000 		.4byte	0x20d
+ 1152 037c 12000000 		.4byte	.LBB15
+ 1153 0380 0A000000 		.4byte	.LBE15-.LBB15
+ 1154 0384 01       		.byte	0x1
+ 1155 0385 A9       		.byte	0xa9
+ 1156 0386 94030000 		.4byte	0x394
+ 1157 038a 18       		.uleb128 0x18
+ 1158 038b 1D020000 		.4byte	0x21d
+ 1159 038f 06020000 		.4byte	.LLST7
+ 1160 0393 00       		.byte	0
+ 1161 0394 17       		.uleb128 0x17
+ 1162 0395 0D020000 		.4byte	0x20d
+ 1163 0399 2E000000 		.4byte	.LBB17
+ 1164 039d 0A000000 		.4byte	.LBE17-.LBB17
+ 1165 03a1 01       		.byte	0x1
+ 1166 03a2 AE       		.byte	0xae
+ 1167 03a3 B1030000 		.4byte	0x3b1
+ 1168 03a7 18       		.uleb128 0x18
+ 1169 03a8 1D020000 		.4byte	0x21d
+ 1170 03ac 36020000 		.4byte	.LLST8
+ 1171 03b0 00       		.byte	0
+ 1172 03b1 17       		.uleb128 0x17
+ 1173 03b2 0D020000 		.4byte	0x20d
+ 1174 03b6 4A000000 		.4byte	.LBB19
+ 1175 03ba 0A000000 		.4byte	.LBE19-.LBB19
+ 1176 03be 01       		.byte	0x1
+ 1177 03bf B3       		.byte	0xb3
+ 1178 03c0 CE030000 		.4byte	0x3ce
+ 1179 03c4 18       		.uleb128 0x18
+ 1180 03c5 1D020000 		.4byte	0x21d
+ 1181 03c9 66020000 		.4byte	.LLST9
+ 1182 03cd 00       		.byte	0
+ 1183 03ce 0E       		.uleb128 0xe
+ 1184 03cf 38000000 		.4byte	.Ldebug_ranges0+0x38
+ 1185 03d3 F5030000 		.4byte	0x3f5
+ 1186 03d7 0F       		.uleb128 0xf
+ 1187 03d8 6900     		.ascii	"i\000"
+ 1188 03da 01       		.byte	0x1
+ 1189 03db B8       		.byte	0xb8
+ 1190 03dc DA010000 		.4byte	0x1da
+ 1191 03e0 96020000 		.4byte	.LLST10
+ 1192 03e4 10       		.uleb128 0x10
+ 1193 03e5 68000000 		.4byte	.LVL49
+ 1194 03e9 4F030000 		.4byte	0x34f
+ 1195 03ed 11       		.uleb128 0x11
+ 1196 03ee 01       		.uleb128 0x1
+ 1197 03ef 50       		.byte	0x50
+ 1198 03f0 02       		.uleb128 0x2
+ 1199 03f1 74       		.byte	0x74
+ 1200 03f2 00       		.sleb128 0
+ 1201 03f3 00       		.byte	0
+ 1202 03f4 00       		.byte	0
+ 1203 03f5 16       		.uleb128 0x16
+ 1204 03f6 26000000 		.4byte	.LVL33
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 27
+
+
+ 1205 03fa 27050000 		.4byte	0x527
+ 1206 03fe 16       		.uleb128 0x16
+ 1207 03ff 42000000 		.4byte	.LVL40
+ 1208 0403 32050000 		.4byte	0x532
+ 1209 0407 16       		.uleb128 0x16
+ 1210 0408 5E000000 		.4byte	.LVL47
+ 1211 040c 3D050000 		.4byte	0x53d
+ 1212 0410 00       		.byte	0
+ 1213 0411 0C       		.uleb128 0xc
+ 1214 0412 D8040000 		.4byte	.LASF67
+ 1215 0416 01       		.byte	0x1
+ 1216 0417 DC       		.byte	0xdc
+ 1217 0418 A6010000 		.4byte	0x1a6
+ 1218 041c 00000000 		.4byte	.LFB114
+ 1219 0420 28000000 		.4byte	.LFE114-.LFB114
+ 1220 0424 01       		.uleb128 0x1
+ 1221 0425 9C       		.byte	0x9c
+ 1222 0426 93040000 		.4byte	0x493
+ 1223 042a 19       		.uleb128 0x19
+ 1224 042b 72656400 		.ascii	"red\000"
+ 1225 042f 01       		.byte	0x1
+ 1226 0430 DC       		.byte	0xdc
+ 1227 0431 81000000 		.4byte	0x81
+ 1228 0435 BF020000 		.4byte	.LLST11
+ 1229 0439 0D       		.uleb128 0xd
+ 1230 043a 43020000 		.4byte	.LASF68
+ 1231 043e 01       		.byte	0x1
+ 1232 043f DC       		.byte	0xdc
+ 1233 0440 81000000 		.4byte	0x81
+ 1234 0444 E0020000 		.4byte	.LLST12
+ 1235 0448 0D       		.uleb128 0xd
+ 1236 0449 20010000 		.4byte	.LASF69
+ 1237 044d 01       		.byte	0x1
+ 1238 044e DC       		.byte	0xdc
+ 1239 044f 81000000 		.4byte	0x81
+ 1240 0453 01030000 		.4byte	.LLST13
+ 1241 0457 16       		.uleb128 0x16
+ 1242 0458 10000000 		.4byte	.LVL58
+ 1243 045c 69050000 		.4byte	0x569
+ 1244 0460 12       		.uleb128 0x12
+ 1245 0461 18000000 		.4byte	.LVL59
+ 1246 0465 74050000 		.4byte	0x574
+ 1247 0469 7B040000 		.4byte	0x47b
+ 1248 046d 11       		.uleb128 0x11
+ 1249 046e 01       		.uleb128 0x1
+ 1250 046f 50       		.byte	0x50
+ 1251 0470 09       		.uleb128 0x9
+ 1252 0471 76       		.byte	0x76
+ 1253 0472 00       		.sleb128 0
+ 1254 0473 31       		.byte	0x31
+ 1255 0474 24       		.byte	0x24
+ 1256 0475 74       		.byte	0x74
+ 1257 0476 00       		.sleb128 0
+ 1258 0477 22       		.byte	0x22
+ 1259 0478 94       		.byte	0x94
+ 1260 0479 02       		.byte	0x2
+ 1261 047a 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 28
+
+
+ 1262 047b 10       		.uleb128 0x10
+ 1263 047c 20000000 		.4byte	.LVL60
+ 1264 0480 7F050000 		.4byte	0x57f
+ 1265 0484 11       		.uleb128 0x11
+ 1266 0485 01       		.uleb128 0x1
+ 1267 0486 50       		.byte	0x50
+ 1268 0487 09       		.uleb128 0x9
+ 1269 0488 75       		.byte	0x75
+ 1270 0489 00       		.sleb128 0
+ 1271 048a 31       		.byte	0x31
+ 1272 048b 24       		.byte	0x24
+ 1273 048c 74       		.byte	0x74
+ 1274 048d 00       		.sleb128 0
+ 1275 048e 22       		.byte	0x22
+ 1276 048f 94       		.byte	0x94
+ 1277 0490 02       		.byte	0x2
+ 1278 0491 00       		.byte	0
+ 1279 0492 00       		.byte	0
+ 1280 0493 1A       		.uleb128 0x1a
+ 1281 0494 02020000 		.4byte	0x202
+ 1282 0498 A3040000 		.4byte	0x4a3
+ 1283 049c 1B       		.uleb128 0x1b
+ 1284 049d BF000000 		.4byte	0xbf
+ 1285 04a1 02       		.byte	0x2
+ 1286 04a2 00       		.byte	0
+ 1287 04a3 1C       		.uleb128 0x1c
+ 1288 04a4 2D000000 		.4byte	.LASF70
+ 1289 04a8 01       		.byte	0x1
+ 1290 04a9 2F       		.byte	0x2f
+ 1291 04aa 93040000 		.4byte	0x493
+ 1292 04ae 05       		.uleb128 0x5
+ 1293 04af 03       		.byte	0x3
+ 1294 04b0 00000000 		.4byte	LED__state
+ 1295 04b4 1A       		.uleb128 0x1a
+ 1296 04b5 C4040000 		.4byte	0x4c4
+ 1297 04b9 C4040000 		.4byte	0x4c4
+ 1298 04bd 1B       		.uleb128 0x1b
+ 1299 04be BF000000 		.4byte	0xbf
+ 1300 04c2 FF       		.byte	0xff
+ 1301 04c3 00       		.byte	0
+ 1302 04c4 1D       		.uleb128 0x1d
+ 1303 04c5 97000000 		.4byte	0x97
+ 1304 04c9 1C       		.uleb128 0x1c
+ 1305 04ca 66030000 		.4byte	.LASF71
+ 1306 04ce 01       		.byte	0x1
+ 1307 04cf 31       		.byte	0x31
+ 1308 04d0 DA040000 		.4byte	0x4da
+ 1309 04d4 05       		.uleb128 0x5
+ 1310 04d5 03       		.byte	0x3
+ 1311 04d6 00000000 		.4byte	LED__Pulse_Width
+ 1312 04da 1D       		.uleb128 0x1d
+ 1313 04db B4040000 		.4byte	0x4b4
+ 1314 04df 1E       		.uleb128 0x1e
+ 1315 04e0 B4050000 		.4byte	.LASF72
+ 1316 04e4 09       		.byte	0x9
+ 1317 04e5 40       		.byte	0x40
+ 1318 04e6 DC000000 		.4byte	0xdc
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 29
+
+
+ 1319 04ea 1E       		.uleb128 0x1e
+ 1320 04eb C5010000 		.4byte	.LASF73
+ 1321 04ef 09       		.byte	0x9
+ 1322 04f0 47       		.byte	0x47
+ 1323 04f1 E7000000 		.4byte	0xe7
+ 1324 04f5 1E       		.uleb128 0x1e
+ 1325 04f6 EE040000 		.4byte	.LASF74
+ 1326 04fa 09       		.byte	0x9
+ 1327 04fb 4A       		.byte	0x4a
+ 1328 04fc DC000000 		.4byte	0xdc
+ 1329 0500 1E       		.uleb128 0x1e
+ 1330 0501 68010000 		.4byte	.LASF75
+ 1331 0505 0A       		.byte	0xa
+ 1332 0506 48       		.byte	0x48
+ 1333 0507 F2000000 		.4byte	0xf2
+ 1334 050b 1E       		.uleb128 0x1e
+ 1335 050c C7000000 		.4byte	.LASF76
+ 1336 0510 0B       		.byte	0xb
+ 1337 0511 44       		.byte	0x44
+ 1338 0512 DC000000 		.4byte	0xdc
+ 1339 0516 1F       		.uleb128 0x1f
+ 1340 0517 75050000 		.4byte	.LASF77
+ 1341 051b 0C       		.byte	0xc
+ 1342 051c 1207     		.2byte	0x712
+ 1343 051e 22050000 		.4byte	0x522
+ 1344 0522 20       		.uleb128 0x20
+ 1345 0523 8C000000 		.4byte	0x8c
+ 1346 0527 21       		.uleb128 0x21
+ 1347 0528 67000000 		.4byte	.LASF78
+ 1348 052c 67000000 		.4byte	.LASF78
+ 1349 0530 0D       		.byte	0xd
+ 1350 0531 26       		.byte	0x26
+ 1351 0532 21       		.uleb128 0x21
+ 1352 0533 8B050000 		.4byte	.LASF79
+ 1353 0537 8B050000 		.4byte	.LASF79
+ 1354 053b 0E       		.byte	0xe
+ 1355 053c 26       		.byte	0x26
+ 1356 053d 21       		.uleb128 0x21
+ 1357 053e 93020000 		.4byte	.LASF80
+ 1358 0542 93020000 		.4byte	.LASF80
+ 1359 0546 0F       		.byte	0xf
+ 1360 0547 26       		.byte	0x26
+ 1361 0548 21       		.uleb128 0x21
+ 1362 0549 74020000 		.4byte	.LASF81
+ 1363 054d 74020000 		.4byte	.LASF81
+ 1364 0551 10       		.byte	0x10
+ 1365 0552 92       		.byte	0x92
+ 1366 0553 21       		.uleb128 0x21
+ 1367 0554 48050000 		.4byte	.LASF82
+ 1368 0558 48050000 		.4byte	.LASF82
+ 1369 055c 11       		.byte	0x11
+ 1370 055d 92       		.byte	0x92
+ 1371 055e 21       		.uleb128 0x21
+ 1372 055f 31020000 		.4byte	.LASF83
+ 1373 0563 31020000 		.4byte	.LASF83
+ 1374 0567 12       		.byte	0x12
+ 1375 0568 92       		.byte	0x92
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 30
+
+
+ 1376 0569 21       		.uleb128 0x21
+ 1377 056a 5B020000 		.4byte	.LASF84
+ 1378 056e 5B020000 		.4byte	.LASF84
+ 1379 0572 12       		.byte	0x12
+ 1380 0573 C3       		.byte	0xc3
+ 1381 0574 21       		.uleb128 0x21
+ 1382 0575 12000000 		.4byte	.LASF85
+ 1383 0579 12000000 		.4byte	.LASF85
+ 1384 057d 11       		.byte	0x11
+ 1385 057e C3       		.byte	0xc3
+ 1386 057f 21       		.uleb128 0x21
+ 1387 0580 88040000 		.4byte	.LASF86
+ 1388 0584 88040000 		.4byte	.LASF86
+ 1389 0588 10       		.byte	0x10
+ 1390 0589 C3       		.byte	0xc3
+ 1391 058a 00       		.byte	0
+ 1392              		.section	.debug_abbrev,"",%progbits
+ 1393              	.Ldebug_abbrev0:
+ 1394 0000 01       		.uleb128 0x1
+ 1395 0001 11       		.uleb128 0x11
+ 1396 0002 01       		.byte	0x1
+ 1397 0003 25       		.uleb128 0x25
+ 1398 0004 0E       		.uleb128 0xe
+ 1399 0005 13       		.uleb128 0x13
+ 1400 0006 0B       		.uleb128 0xb
+ 1401 0007 03       		.uleb128 0x3
+ 1402 0008 0E       		.uleb128 0xe
+ 1403 0009 1B       		.uleb128 0x1b
+ 1404 000a 0E       		.uleb128 0xe
+ 1405 000b 55       		.uleb128 0x55
+ 1406 000c 17       		.uleb128 0x17
+ 1407 000d 11       		.uleb128 0x11
+ 1408 000e 01       		.uleb128 0x1
+ 1409 000f 10       		.uleb128 0x10
+ 1410 0010 17       		.uleb128 0x17
+ 1411 0011 00       		.byte	0
+ 1412 0012 00       		.byte	0
+ 1413 0013 02       		.uleb128 0x2
+ 1414 0014 24       		.uleb128 0x24
+ 1415 0015 00       		.byte	0
+ 1416 0016 0B       		.uleb128 0xb
+ 1417 0017 0B       		.uleb128 0xb
+ 1418 0018 3E       		.uleb128 0x3e
+ 1419 0019 0B       		.uleb128 0xb
+ 1420 001a 03       		.uleb128 0x3
+ 1421 001b 0E       		.uleb128 0xe
+ 1422 001c 00       		.byte	0
+ 1423 001d 00       		.byte	0
+ 1424 001e 03       		.uleb128 0x3
+ 1425 001f 16       		.uleb128 0x16
+ 1426 0020 00       		.byte	0
+ 1427 0021 03       		.uleb128 0x3
+ 1428 0022 0E       		.uleb128 0xe
+ 1429 0023 3A       		.uleb128 0x3a
+ 1430 0024 0B       		.uleb128 0xb
+ 1431 0025 3B       		.uleb128 0x3b
+ 1432 0026 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 31
+
+
+ 1433 0027 49       		.uleb128 0x49
+ 1434 0028 13       		.uleb128 0x13
+ 1435 0029 00       		.byte	0
+ 1436 002a 00       		.byte	0
+ 1437 002b 04       		.uleb128 0x4
+ 1438 002c 24       		.uleb128 0x24
+ 1439 002d 00       		.byte	0
+ 1440 002e 0B       		.uleb128 0xb
+ 1441 002f 0B       		.uleb128 0xb
+ 1442 0030 3E       		.uleb128 0x3e
+ 1443 0031 0B       		.uleb128 0xb
+ 1444 0032 03       		.uleb128 0x3
+ 1445 0033 08       		.uleb128 0x8
+ 1446 0034 00       		.byte	0
+ 1447 0035 00       		.byte	0
+ 1448 0036 05       		.uleb128 0x5
+ 1449 0037 16       		.uleb128 0x16
+ 1450 0038 00       		.byte	0
+ 1451 0039 03       		.uleb128 0x3
+ 1452 003a 0E       		.uleb128 0xe
+ 1453 003b 3A       		.uleb128 0x3a
+ 1454 003c 0B       		.uleb128 0xb
+ 1455 003d 3B       		.uleb128 0x3b
+ 1456 003e 05       		.uleb128 0x5
+ 1457 003f 49       		.uleb128 0x49
+ 1458 0040 13       		.uleb128 0x13
+ 1459 0041 00       		.byte	0
+ 1460 0042 00       		.byte	0
+ 1461 0043 06       		.uleb128 0x6
+ 1462 0044 04       		.uleb128 0x4
+ 1463 0045 01       		.byte	0x1
+ 1464 0046 0B       		.uleb128 0xb
+ 1465 0047 0B       		.uleb128 0xb
+ 1466 0048 49       		.uleb128 0x49
+ 1467 0049 13       		.uleb128 0x13
+ 1468 004a 3A       		.uleb128 0x3a
+ 1469 004b 0B       		.uleb128 0xb
+ 1470 004c 3B       		.uleb128 0x3b
+ 1471 004d 0B       		.uleb128 0xb
+ 1472 004e 01       		.uleb128 0x1
+ 1473 004f 13       		.uleb128 0x13
+ 1474 0050 00       		.byte	0
+ 1475 0051 00       		.byte	0
+ 1476 0052 07       		.uleb128 0x7
+ 1477 0053 28       		.uleb128 0x28
+ 1478 0054 00       		.byte	0
+ 1479 0055 03       		.uleb128 0x3
+ 1480 0056 0E       		.uleb128 0xe
+ 1481 0057 1C       		.uleb128 0x1c
+ 1482 0058 0B       		.uleb128 0xb
+ 1483 0059 00       		.byte	0
+ 1484 005a 00       		.byte	0
+ 1485 005b 08       		.uleb128 0x8
+ 1486 005c 28       		.uleb128 0x28
+ 1487 005d 00       		.byte	0
+ 1488 005e 03       		.uleb128 0x3
+ 1489 005f 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 32
+
+
+ 1490 0060 1C       		.uleb128 0x1c
+ 1491 0061 0D       		.uleb128 0xd
+ 1492 0062 00       		.byte	0
+ 1493 0063 00       		.byte	0
+ 1494 0064 09       		.uleb128 0x9
+ 1495 0065 04       		.uleb128 0x4
+ 1496 0066 01       		.byte	0x1
+ 1497 0067 03       		.uleb128 0x3
+ 1498 0068 0E       		.uleb128 0xe
+ 1499 0069 0B       		.uleb128 0xb
+ 1500 006a 0B       		.uleb128 0xb
+ 1501 006b 49       		.uleb128 0x49
+ 1502 006c 13       		.uleb128 0x13
+ 1503 006d 3A       		.uleb128 0x3a
+ 1504 006e 0B       		.uleb128 0xb
+ 1505 006f 3B       		.uleb128 0x3b
+ 1506 0070 0B       		.uleb128 0xb
+ 1507 0071 01       		.uleb128 0x1
+ 1508 0072 13       		.uleb128 0x13
+ 1509 0073 00       		.byte	0
+ 1510 0074 00       		.byte	0
+ 1511 0075 0A       		.uleb128 0xa
+ 1512 0076 2E       		.uleb128 0x2e
+ 1513 0077 01       		.byte	0x1
+ 1514 0078 03       		.uleb128 0x3
+ 1515 0079 0E       		.uleb128 0xe
+ 1516 007a 3A       		.uleb128 0x3a
+ 1517 007b 0B       		.uleb128 0xb
+ 1518 007c 3B       		.uleb128 0x3b
+ 1519 007d 0B       		.uleb128 0xb
+ 1520 007e 27       		.uleb128 0x27
+ 1521 007f 19       		.uleb128 0x19
+ 1522 0080 49       		.uleb128 0x49
+ 1523 0081 13       		.uleb128 0x13
+ 1524 0082 20       		.uleb128 0x20
+ 1525 0083 0B       		.uleb128 0xb
+ 1526 0084 01       		.uleb128 0x1
+ 1527 0085 13       		.uleb128 0x13
+ 1528 0086 00       		.byte	0
+ 1529 0087 00       		.byte	0
+ 1530 0088 0B       		.uleb128 0xb
+ 1531 0089 05       		.uleb128 0x5
+ 1532 008a 00       		.byte	0
+ 1533 008b 03       		.uleb128 0x3
+ 1534 008c 0E       		.uleb128 0xe
+ 1535 008d 3A       		.uleb128 0x3a
+ 1536 008e 0B       		.uleb128 0xb
+ 1537 008f 3B       		.uleb128 0x3b
+ 1538 0090 0B       		.uleb128 0xb
+ 1539 0091 49       		.uleb128 0x49
+ 1540 0092 13       		.uleb128 0x13
+ 1541 0093 00       		.byte	0
+ 1542 0094 00       		.byte	0
+ 1543 0095 0C       		.uleb128 0xc
+ 1544 0096 2E       		.uleb128 0x2e
+ 1545 0097 01       		.byte	0x1
+ 1546 0098 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 33
+
+
+ 1547 0099 19       		.uleb128 0x19
+ 1548 009a 03       		.uleb128 0x3
+ 1549 009b 0E       		.uleb128 0xe
+ 1550 009c 3A       		.uleb128 0x3a
+ 1551 009d 0B       		.uleb128 0xb
+ 1552 009e 3B       		.uleb128 0x3b
+ 1553 009f 0B       		.uleb128 0xb
+ 1554 00a0 27       		.uleb128 0x27
+ 1555 00a1 19       		.uleb128 0x19
+ 1556 00a2 49       		.uleb128 0x49
+ 1557 00a3 13       		.uleb128 0x13
+ 1558 00a4 11       		.uleb128 0x11
+ 1559 00a5 01       		.uleb128 0x1
+ 1560 00a6 12       		.uleb128 0x12
+ 1561 00a7 06       		.uleb128 0x6
+ 1562 00a8 40       		.uleb128 0x40
+ 1563 00a9 18       		.uleb128 0x18
+ 1564 00aa 9742     		.uleb128 0x2117
+ 1565 00ac 19       		.uleb128 0x19
+ 1566 00ad 01       		.uleb128 0x1
+ 1567 00ae 13       		.uleb128 0x13
+ 1568 00af 00       		.byte	0
+ 1569 00b0 00       		.byte	0
+ 1570 00b1 0D       		.uleb128 0xd
+ 1571 00b2 05       		.uleb128 0x5
+ 1572 00b3 00       		.byte	0
+ 1573 00b4 03       		.uleb128 0x3
+ 1574 00b5 0E       		.uleb128 0xe
+ 1575 00b6 3A       		.uleb128 0x3a
+ 1576 00b7 0B       		.uleb128 0xb
+ 1577 00b8 3B       		.uleb128 0x3b
+ 1578 00b9 0B       		.uleb128 0xb
+ 1579 00ba 49       		.uleb128 0x49
+ 1580 00bb 13       		.uleb128 0x13
+ 1581 00bc 02       		.uleb128 0x2
+ 1582 00bd 17       		.uleb128 0x17
+ 1583 00be 00       		.byte	0
+ 1584 00bf 00       		.byte	0
+ 1585 00c0 0E       		.uleb128 0xe
+ 1586 00c1 0B       		.uleb128 0xb
+ 1587 00c2 01       		.byte	0x1
+ 1588 00c3 55       		.uleb128 0x55
+ 1589 00c4 17       		.uleb128 0x17
+ 1590 00c5 01       		.uleb128 0x1
+ 1591 00c6 13       		.uleb128 0x13
+ 1592 00c7 00       		.byte	0
+ 1593 00c8 00       		.byte	0
+ 1594 00c9 0F       		.uleb128 0xf
+ 1595 00ca 34       		.uleb128 0x34
+ 1596 00cb 00       		.byte	0
+ 1597 00cc 03       		.uleb128 0x3
+ 1598 00cd 08       		.uleb128 0x8
+ 1599 00ce 3A       		.uleb128 0x3a
+ 1600 00cf 0B       		.uleb128 0xb
+ 1601 00d0 3B       		.uleb128 0x3b
+ 1602 00d1 0B       		.uleb128 0xb
+ 1603 00d2 49       		.uleb128 0x49
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 34
+
+
+ 1604 00d3 13       		.uleb128 0x13
+ 1605 00d4 02       		.uleb128 0x2
+ 1606 00d5 17       		.uleb128 0x17
+ 1607 00d6 00       		.byte	0
+ 1608 00d7 00       		.byte	0
+ 1609 00d8 10       		.uleb128 0x10
+ 1610 00d9 898201   		.uleb128 0x4109
+ 1611 00dc 01       		.byte	0x1
+ 1612 00dd 11       		.uleb128 0x11
+ 1613 00de 01       		.uleb128 0x1
+ 1614 00df 31       		.uleb128 0x31
+ 1615 00e0 13       		.uleb128 0x13
+ 1616 00e1 00       		.byte	0
+ 1617 00e2 00       		.byte	0
+ 1618 00e3 11       		.uleb128 0x11
+ 1619 00e4 8A8201   		.uleb128 0x410a
+ 1620 00e7 00       		.byte	0
+ 1621 00e8 02       		.uleb128 0x2
+ 1622 00e9 18       		.uleb128 0x18
+ 1623 00ea 9142     		.uleb128 0x2111
+ 1624 00ec 18       		.uleb128 0x18
+ 1625 00ed 00       		.byte	0
+ 1626 00ee 00       		.byte	0
+ 1627 00ef 12       		.uleb128 0x12
+ 1628 00f0 898201   		.uleb128 0x4109
+ 1629 00f3 01       		.byte	0x1
+ 1630 00f4 11       		.uleb128 0x11
+ 1631 00f5 01       		.uleb128 0x1
+ 1632 00f6 31       		.uleb128 0x31
+ 1633 00f7 13       		.uleb128 0x13
+ 1634 00f8 01       		.uleb128 0x1
+ 1635 00f9 13       		.uleb128 0x13
+ 1636 00fa 00       		.byte	0
+ 1637 00fb 00       		.byte	0
+ 1638 00fc 13       		.uleb128 0x13
+ 1639 00fd 2E       		.uleb128 0x2e
+ 1640 00fe 01       		.byte	0x1
+ 1641 00ff 3F       		.uleb128 0x3f
+ 1642 0100 19       		.uleb128 0x19
+ 1643 0101 03       		.uleb128 0x3
+ 1644 0102 0E       		.uleb128 0xe
+ 1645 0103 3A       		.uleb128 0x3a
+ 1646 0104 0B       		.uleb128 0xb
+ 1647 0105 3B       		.uleb128 0x3b
+ 1648 0106 0B       		.uleb128 0xb
+ 1649 0107 49       		.uleb128 0x49
+ 1650 0108 13       		.uleb128 0x13
+ 1651 0109 11       		.uleb128 0x11
+ 1652 010a 01       		.uleb128 0x1
+ 1653 010b 12       		.uleb128 0x12
+ 1654 010c 06       		.uleb128 0x6
+ 1655 010d 40       		.uleb128 0x40
+ 1656 010e 18       		.uleb128 0x18
+ 1657 010f 9742     		.uleb128 0x2117
+ 1658 0111 19       		.uleb128 0x19
+ 1659 0112 01       		.uleb128 0x1
+ 1660 0113 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 35
+
+
+ 1661 0114 00       		.byte	0
+ 1662 0115 00       		.byte	0
+ 1663 0116 14       		.uleb128 0x14
+ 1664 0117 34       		.uleb128 0x34
+ 1665 0118 00       		.byte	0
+ 1666 0119 03       		.uleb128 0x3
+ 1667 011a 0E       		.uleb128 0xe
+ 1668 011b 3A       		.uleb128 0x3a
+ 1669 011c 0B       		.uleb128 0xb
+ 1670 011d 3B       		.uleb128 0x3b
+ 1671 011e 0B       		.uleb128 0xb
+ 1672 011f 49       		.uleb128 0x49
+ 1673 0120 13       		.uleb128 0x13
+ 1674 0121 02       		.uleb128 0x2
+ 1675 0122 17       		.uleb128 0x17
+ 1676 0123 00       		.byte	0
+ 1677 0124 00       		.byte	0
+ 1678 0125 15       		.uleb128 0x15
+ 1679 0126 0B       		.uleb128 0xb
+ 1680 0127 01       		.byte	0x1
+ 1681 0128 11       		.uleb128 0x11
+ 1682 0129 01       		.uleb128 0x1
+ 1683 012a 12       		.uleb128 0x12
+ 1684 012b 06       		.uleb128 0x6
+ 1685 012c 00       		.byte	0
+ 1686 012d 00       		.byte	0
+ 1687 012e 16       		.uleb128 0x16
+ 1688 012f 898201   		.uleb128 0x4109
+ 1689 0132 00       		.byte	0
+ 1690 0133 11       		.uleb128 0x11
+ 1691 0134 01       		.uleb128 0x1
+ 1692 0135 31       		.uleb128 0x31
+ 1693 0136 13       		.uleb128 0x13
+ 1694 0137 00       		.byte	0
+ 1695 0138 00       		.byte	0
+ 1696 0139 17       		.uleb128 0x17
+ 1697 013a 1D       		.uleb128 0x1d
+ 1698 013b 01       		.byte	0x1
+ 1699 013c 31       		.uleb128 0x31
+ 1700 013d 13       		.uleb128 0x13
+ 1701 013e 11       		.uleb128 0x11
+ 1702 013f 01       		.uleb128 0x1
+ 1703 0140 12       		.uleb128 0x12
+ 1704 0141 06       		.uleb128 0x6
+ 1705 0142 58       		.uleb128 0x58
+ 1706 0143 0B       		.uleb128 0xb
+ 1707 0144 59       		.uleb128 0x59
+ 1708 0145 0B       		.uleb128 0xb
+ 1709 0146 01       		.uleb128 0x1
+ 1710 0147 13       		.uleb128 0x13
+ 1711 0148 00       		.byte	0
+ 1712 0149 00       		.byte	0
+ 1713 014a 18       		.uleb128 0x18
+ 1714 014b 05       		.uleb128 0x5
+ 1715 014c 00       		.byte	0
+ 1716 014d 31       		.uleb128 0x31
+ 1717 014e 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 36
+
+
+ 1718 014f 02       		.uleb128 0x2
+ 1719 0150 17       		.uleb128 0x17
+ 1720 0151 00       		.byte	0
+ 1721 0152 00       		.byte	0
+ 1722 0153 19       		.uleb128 0x19
+ 1723 0154 05       		.uleb128 0x5
+ 1724 0155 00       		.byte	0
+ 1725 0156 03       		.uleb128 0x3
+ 1726 0157 08       		.uleb128 0x8
+ 1727 0158 3A       		.uleb128 0x3a
+ 1728 0159 0B       		.uleb128 0xb
+ 1729 015a 3B       		.uleb128 0x3b
+ 1730 015b 0B       		.uleb128 0xb
+ 1731 015c 49       		.uleb128 0x49
+ 1732 015d 13       		.uleb128 0x13
+ 1733 015e 02       		.uleb128 0x2
+ 1734 015f 17       		.uleb128 0x17
+ 1735 0160 00       		.byte	0
+ 1736 0161 00       		.byte	0
+ 1737 0162 1A       		.uleb128 0x1a
+ 1738 0163 01       		.uleb128 0x1
+ 1739 0164 01       		.byte	0x1
+ 1740 0165 49       		.uleb128 0x49
+ 1741 0166 13       		.uleb128 0x13
+ 1742 0167 01       		.uleb128 0x1
+ 1743 0168 13       		.uleb128 0x13
+ 1744 0169 00       		.byte	0
+ 1745 016a 00       		.byte	0
+ 1746 016b 1B       		.uleb128 0x1b
+ 1747 016c 21       		.uleb128 0x21
+ 1748 016d 00       		.byte	0
+ 1749 016e 49       		.uleb128 0x49
+ 1750 016f 13       		.uleb128 0x13
+ 1751 0170 2F       		.uleb128 0x2f
+ 1752 0171 0B       		.uleb128 0xb
+ 1753 0172 00       		.byte	0
+ 1754 0173 00       		.byte	0
+ 1755 0174 1C       		.uleb128 0x1c
+ 1756 0175 34       		.uleb128 0x34
+ 1757 0176 00       		.byte	0
+ 1758 0177 03       		.uleb128 0x3
+ 1759 0178 0E       		.uleb128 0xe
+ 1760 0179 3A       		.uleb128 0x3a
+ 1761 017a 0B       		.uleb128 0xb
+ 1762 017b 3B       		.uleb128 0x3b
+ 1763 017c 0B       		.uleb128 0xb
+ 1764 017d 49       		.uleb128 0x49
+ 1765 017e 13       		.uleb128 0x13
+ 1766 017f 02       		.uleb128 0x2
+ 1767 0180 18       		.uleb128 0x18
+ 1768 0181 00       		.byte	0
+ 1769 0182 00       		.byte	0
+ 1770 0183 1D       		.uleb128 0x1d
+ 1771 0184 26       		.uleb128 0x26
+ 1772 0185 00       		.byte	0
+ 1773 0186 49       		.uleb128 0x49
+ 1774 0187 13       		.uleb128 0x13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 37
+
+
+ 1775 0188 00       		.byte	0
+ 1776 0189 00       		.byte	0
+ 1777 018a 1E       		.uleb128 0x1e
+ 1778 018b 34       		.uleb128 0x34
+ 1779 018c 00       		.byte	0
+ 1780 018d 03       		.uleb128 0x3
+ 1781 018e 0E       		.uleb128 0xe
+ 1782 018f 3A       		.uleb128 0x3a
+ 1783 0190 0B       		.uleb128 0xb
+ 1784 0191 3B       		.uleb128 0x3b
+ 1785 0192 0B       		.uleb128 0xb
+ 1786 0193 49       		.uleb128 0x49
+ 1787 0194 13       		.uleb128 0x13
+ 1788 0195 3F       		.uleb128 0x3f
+ 1789 0196 19       		.uleb128 0x19
+ 1790 0197 3C       		.uleb128 0x3c
+ 1791 0198 19       		.uleb128 0x19
+ 1792 0199 00       		.byte	0
+ 1793 019a 00       		.byte	0
+ 1794 019b 1F       		.uleb128 0x1f
+ 1795 019c 34       		.uleb128 0x34
+ 1796 019d 00       		.byte	0
+ 1797 019e 03       		.uleb128 0x3
+ 1798 019f 0E       		.uleb128 0xe
+ 1799 01a0 3A       		.uleb128 0x3a
+ 1800 01a1 0B       		.uleb128 0xb
+ 1801 01a2 3B       		.uleb128 0x3b
+ 1802 01a3 05       		.uleb128 0x5
+ 1803 01a4 49       		.uleb128 0x49
+ 1804 01a5 13       		.uleb128 0x13
+ 1805 01a6 3F       		.uleb128 0x3f
+ 1806 01a7 19       		.uleb128 0x19
+ 1807 01a8 3C       		.uleb128 0x3c
+ 1808 01a9 19       		.uleb128 0x19
+ 1809 01aa 00       		.byte	0
+ 1810 01ab 00       		.byte	0
+ 1811 01ac 20       		.uleb128 0x20
+ 1812 01ad 35       		.uleb128 0x35
+ 1813 01ae 00       		.byte	0
+ 1814 01af 49       		.uleb128 0x49
+ 1815 01b0 13       		.uleb128 0x13
+ 1816 01b1 00       		.byte	0
+ 1817 01b2 00       		.byte	0
+ 1818 01b3 21       		.uleb128 0x21
+ 1819 01b4 2E       		.uleb128 0x2e
+ 1820 01b5 00       		.byte	0
+ 1821 01b6 3F       		.uleb128 0x3f
+ 1822 01b7 19       		.uleb128 0x19
+ 1823 01b8 3C       		.uleb128 0x3c
+ 1824 01b9 19       		.uleb128 0x19
+ 1825 01ba 6E       		.uleb128 0x6e
+ 1826 01bb 0E       		.uleb128 0xe
+ 1827 01bc 03       		.uleb128 0x3
+ 1828 01bd 0E       		.uleb128 0xe
+ 1829 01be 3A       		.uleb128 0x3a
+ 1830 01bf 0B       		.uleb128 0xb
+ 1831 01c0 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 38
+
+
+ 1832 01c1 0B       		.uleb128 0xb
+ 1833 01c2 00       		.byte	0
+ 1834 01c3 00       		.byte	0
+ 1835 01c4 00       		.byte	0
+ 1836              		.section	.debug_loc,"",%progbits
+ 1837              	.Ldebug_loc0:
+ 1838              	.LLST0:
+ 1839 0000 00000000 		.4byte	.LVL0
+ 1840 0004 14000000 		.4byte	.LVL1
+ 1841 0008 0100     		.2byte	0x1
+ 1842 000a 50       		.byte	0x50
+ 1843 000b 14000000 		.4byte	.LVL1
+ 1844 000f 20000000 		.4byte	.LVL3
+ 1845 0013 0400     		.2byte	0x4
+ 1846 0015 F3       		.byte	0xf3
+ 1847 0016 01       		.uleb128 0x1
+ 1848 0017 50       		.byte	0x50
+ 1849 0018 9F       		.byte	0x9f
+ 1850 0019 20000000 		.4byte	.LVL3
+ 1851 001d 22000000 		.4byte	.LVL4
+ 1852 0021 0100     		.2byte	0x1
+ 1853 0023 50       		.byte	0x50
+ 1854 0024 22000000 		.4byte	.LVL4
+ 1855 0028 2E000000 		.4byte	.LVL6
+ 1856 002c 0400     		.2byte	0x4
+ 1857 002e F3       		.byte	0xf3
+ 1858 002f 01       		.uleb128 0x1
+ 1859 0030 50       		.byte	0x50
+ 1860 0031 9F       		.byte	0x9f
+ 1861 0032 2E000000 		.4byte	.LVL6
+ 1862 0036 30000000 		.4byte	.LVL7
+ 1863 003a 0100     		.2byte	0x1
+ 1864 003c 50       		.byte	0x50
+ 1865 003d 30000000 		.4byte	.LVL7
+ 1866 0041 4A000000 		.4byte	.LVL13
+ 1867 0045 0400     		.2byte	0x4
+ 1868 0047 F3       		.byte	0xf3
+ 1869 0048 01       		.uleb128 0x1
+ 1870 0049 50       		.byte	0x50
+ 1871 004a 9F       		.byte	0x9f
+ 1872 004b 4A000000 		.4byte	.LVL13
+ 1873 004f 4C000000 		.4byte	.LVL14
+ 1874 0053 0100     		.2byte	0x1
+ 1875 0055 50       		.byte	0x50
+ 1876 0056 4C000000 		.4byte	.LVL14
+ 1877 005a 54000000 		.4byte	.LVL15
+ 1878 005e 0400     		.2byte	0x4
+ 1879 0060 F3       		.byte	0xf3
+ 1880 0061 01       		.uleb128 0x1
+ 1881 0062 50       		.byte	0x50
+ 1882 0063 9F       		.byte	0x9f
+ 1883 0064 54000000 		.4byte	.LVL15
+ 1884 0068 58000000 		.4byte	.LVL16
+ 1885 006c 0100     		.2byte	0x1
+ 1886 006e 50       		.byte	0x50
+ 1887 006f 58000000 		.4byte	.LVL16
+ 1888 0073 60000000 		.4byte	.LFE111
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 39
+
+
+ 1889 0077 0400     		.2byte	0x4
+ 1890 0079 F3       		.byte	0xf3
+ 1891 007a 01       		.uleb128 0x1
+ 1892 007b 50       		.byte	0x50
+ 1893 007c 9F       		.byte	0x9f
+ 1894 007d 00000000 		.4byte	0
+ 1895 0081 00000000 		.4byte	0
+ 1896              	.LLST1:
+ 1897 0085 00000000 		.4byte	.LVL0
+ 1898 0089 17000000 		.4byte	.LVL2-1
+ 1899 008d 0100     		.2byte	0x1
+ 1900 008f 51       		.byte	0x51
+ 1901 0090 17000000 		.4byte	.LVL2-1
+ 1902 0094 20000000 		.4byte	.LVL3
+ 1903 0098 0400     		.2byte	0x4
+ 1904 009a F3       		.byte	0xf3
+ 1905 009b 01       		.uleb128 0x1
+ 1906 009c 51       		.byte	0x51
+ 1907 009d 9F       		.byte	0x9f
+ 1908 009e 20000000 		.4byte	.LVL3
+ 1909 00a2 25000000 		.4byte	.LVL5-1
+ 1910 00a6 0100     		.2byte	0x1
+ 1911 00a8 51       		.byte	0x51
+ 1912 00a9 25000000 		.4byte	.LVL5-1
+ 1913 00ad 2E000000 		.4byte	.LVL6
+ 1914 00b1 0400     		.2byte	0x4
+ 1915 00b3 F3       		.byte	0xf3
+ 1916 00b4 01       		.uleb128 0x1
+ 1917 00b5 51       		.byte	0x51
+ 1918 00b6 9F       		.byte	0x9f
+ 1919 00b7 2E000000 		.4byte	.LVL6
+ 1920 00bb 33000000 		.4byte	.LVL8-1
+ 1921 00bf 0100     		.2byte	0x1
+ 1922 00c1 51       		.byte	0x51
+ 1923 00c2 33000000 		.4byte	.LVL8-1
+ 1924 00c6 4A000000 		.4byte	.LVL13
+ 1925 00ca 0400     		.2byte	0x4
+ 1926 00cc F3       		.byte	0xf3
+ 1927 00cd 01       		.uleb128 0x1
+ 1928 00ce 51       		.byte	0x51
+ 1929 00cf 9F       		.byte	0x9f
+ 1930 00d0 4A000000 		.4byte	.LVL13
+ 1931 00d4 4C000000 		.4byte	.LVL14
+ 1932 00d8 0100     		.2byte	0x1
+ 1933 00da 51       		.byte	0x51
+ 1934 00db 4C000000 		.4byte	.LVL14
+ 1935 00df 54000000 		.4byte	.LVL15
+ 1936 00e3 0400     		.2byte	0x4
+ 1937 00e5 F3       		.byte	0xf3
+ 1938 00e6 01       		.uleb128 0x1
+ 1939 00e7 51       		.byte	0x51
+ 1940 00e8 9F       		.byte	0x9f
+ 1941 00e9 54000000 		.4byte	.LVL15
+ 1942 00ed 60000000 		.4byte	.LFE111
+ 1943 00f1 0100     		.2byte	0x1
+ 1944 00f3 51       		.byte	0x51
+ 1945 00f4 00000000 		.4byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 40
+
+
+ 1946 00f8 00000000 		.4byte	0
+ 1947              	.LLST2:
+ 1948 00fc 3C000000 		.4byte	.LVL9
+ 1949 0100 46000000 		.4byte	.LVL11
+ 1950 0104 0100     		.2byte	0x1
+ 1951 0106 54       		.byte	0x54
+ 1952 0107 48000000 		.4byte	.LVL12
+ 1953 010b 4A000000 		.4byte	.LVL13
+ 1954 010f 0100     		.2byte	0x1
+ 1955 0111 54       		.byte	0x54
+ 1956 0112 4C000000 		.4byte	.LVL14
+ 1957 0116 54000000 		.4byte	.LVL15
+ 1958 011a 0100     		.2byte	0x1
+ 1959 011c 54       		.byte	0x54
+ 1960 011d 00000000 		.4byte	0
+ 1961 0121 00000000 		.4byte	0
+ 1962              	.LLST3:
+ 1963 0125 02000000 		.4byte	.LVL17
+ 1964 0129 08000000 		.4byte	.LVL18
+ 1965 012d 0200     		.2byte	0x2
+ 1966 012f 30       		.byte	0x30
+ 1967 0130 9F       		.byte	0x9f
+ 1968 0131 08000000 		.4byte	.LVL18
+ 1969 0135 30000000 		.4byte	.LVL26
+ 1970 0139 0100     		.2byte	0x1
+ 1971 013b 55       		.byte	0x55
+ 1972 013c 00000000 		.4byte	0
+ 1973 0140 00000000 		.4byte	0
+ 1974              	.LLST4:
+ 1975 0144 02000000 		.4byte	.LVL17
+ 1976 0148 08000000 		.4byte	.LVL18
+ 1977 014c 0200     		.2byte	0x2
+ 1978 014e 30       		.byte	0x30
+ 1979 014f 9F       		.byte	0x9f
+ 1980 0150 08000000 		.4byte	.LVL18
+ 1981 0154 1A000000 		.4byte	.LVL21
+ 1982 0158 0100     		.2byte	0x1
+ 1983 015a 54       		.byte	0x54
+ 1984 015b 1C000000 		.4byte	.LVL22
+ 1985 015f 30000000 		.4byte	.LVL26
+ 1986 0163 0100     		.2byte	0x1
+ 1987 0165 54       		.byte	0x54
+ 1988 0166 00000000 		.4byte	0
+ 1989 016a 00000000 		.4byte	0
+ 1990              	.LLST5:
+ 1991 016e 14000000 		.4byte	.LVL19
+ 1992 0172 1C000000 		.4byte	.LVL22
+ 1993 0176 0100     		.2byte	0x1
+ 1994 0178 50       		.byte	0x50
+ 1995 0179 00000000 		.4byte	0
+ 1996 017d 00000000 		.4byte	0
+ 1997              	.LLST6:
+ 1998 0181 00000000 		.4byte	.LVL27
+ 1999 0185 22000000 		.4byte	.LVL32
+ 2000 0189 0100     		.2byte	0x1
+ 2001 018b 50       		.byte	0x50
+ 2002 018c 22000000 		.4byte	.LVL32
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 41
+
+
+ 2003 0190 2A000000 		.4byte	.LVL34
+ 2004 0194 0400     		.2byte	0x4
+ 2005 0196 F3       		.byte	0xf3
+ 2006 0197 01       		.uleb128 0x1
+ 2007 0198 50       		.byte	0x50
+ 2008 0199 9F       		.byte	0x9f
+ 2009 019a 2A000000 		.4byte	.LVL34
+ 2010 019e 3E000000 		.4byte	.LVL39
+ 2011 01a2 0100     		.2byte	0x1
+ 2012 01a4 50       		.byte	0x50
+ 2013 01a5 3E000000 		.4byte	.LVL39
+ 2014 01a9 46000000 		.4byte	.LVL41
+ 2015 01ad 0400     		.2byte	0x4
+ 2016 01af F3       		.byte	0xf3
+ 2017 01b0 01       		.uleb128 0x1
+ 2018 01b1 50       		.byte	0x50
+ 2019 01b2 9F       		.byte	0x9f
+ 2020 01b3 46000000 		.4byte	.LVL41
+ 2021 01b7 5A000000 		.4byte	.LVL46
+ 2022 01bb 0100     		.2byte	0x1
+ 2023 01bd 50       		.byte	0x50
+ 2024 01be 5A000000 		.4byte	.LVL46
+ 2025 01c2 6E000000 		.4byte	.LVL52
+ 2026 01c6 0400     		.2byte	0x4
+ 2027 01c8 F3       		.byte	0xf3
+ 2028 01c9 01       		.uleb128 0x1
+ 2029 01ca 50       		.byte	0x50
+ 2030 01cb 9F       		.byte	0x9f
+ 2031 01cc 6E000000 		.4byte	.LVL52
+ 2032 01d0 70000000 		.4byte	.LVL53
+ 2033 01d4 0100     		.2byte	0x1
+ 2034 01d6 50       		.byte	0x50
+ 2035 01d7 70000000 		.4byte	.LVL53
+ 2036 01db 78000000 		.4byte	.LVL54
+ 2037 01df 0400     		.2byte	0x4
+ 2038 01e1 F3       		.byte	0xf3
+ 2039 01e2 01       		.uleb128 0x1
+ 2040 01e3 50       		.byte	0x50
+ 2041 01e4 9F       		.byte	0x9f
+ 2042 01e5 78000000 		.4byte	.LVL54
+ 2043 01e9 7C000000 		.4byte	.LVL55
+ 2044 01ed 0100     		.2byte	0x1
+ 2045 01ef 50       		.byte	0x50
+ 2046 01f0 7C000000 		.4byte	.LVL55
+ 2047 01f4 84000000 		.4byte	.LFE112
+ 2048 01f8 0400     		.2byte	0x4
+ 2049 01fa F3       		.byte	0xf3
+ 2050 01fb 01       		.uleb128 0x1
+ 2051 01fc 50       		.byte	0x50
+ 2052 01fd 9F       		.byte	0x9f
+ 2053 01fe 00000000 		.4byte	0
+ 2054 0202 00000000 		.4byte	0
+ 2055              	.LLST7:
+ 2056 0206 12000000 		.4byte	.LVL28
+ 2057 020a 18000000 		.4byte	.LVL29
+ 2058 020e 0100     		.2byte	0x1
+ 2059 0210 53       		.byte	0x53
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 42
+
+
+ 2060 0211 18000000 		.4byte	.LVL29
+ 2061 0215 1A000000 		.4byte	.LVL30
+ 2062 0219 0800     		.2byte	0x8
+ 2063 021b 70       		.byte	0x70
+ 2064 021c 00       		.sleb128 0
+ 2065 021d 03       		.byte	0x3
+ 2066 021e 00000000 		.4byte	.LANCHOR0
+ 2067 0222 22       		.byte	0x22
+ 2068 0223 1A000000 		.4byte	.LVL30
+ 2069 0227 1C000000 		.4byte	.LVL31
+ 2070 022b 0100     		.2byte	0x1
+ 2071 022d 53       		.byte	0x53
+ 2072 022e 00000000 		.4byte	0
+ 2073 0232 00000000 		.4byte	0
+ 2074              	.LLST8:
+ 2075 0236 2E000000 		.4byte	.LVL35
+ 2076 023a 34000000 		.4byte	.LVL36
+ 2077 023e 0100     		.2byte	0x1
+ 2078 0240 53       		.byte	0x53
+ 2079 0241 34000000 		.4byte	.LVL36
+ 2080 0245 36000000 		.4byte	.LVL37
+ 2081 0249 0800     		.2byte	0x8
+ 2082 024b 70       		.byte	0x70
+ 2083 024c 00       		.sleb128 0
+ 2084 024d 03       		.byte	0x3
+ 2085 024e 00000000 		.4byte	.LANCHOR0
+ 2086 0252 22       		.byte	0x22
+ 2087 0253 36000000 		.4byte	.LVL37
+ 2088 0257 38000000 		.4byte	.LVL38
+ 2089 025b 0100     		.2byte	0x1
+ 2090 025d 53       		.byte	0x53
+ 2091 025e 00000000 		.4byte	0
+ 2092 0262 00000000 		.4byte	0
+ 2093              	.LLST9:
+ 2094 0266 4A000000 		.4byte	.LVL42
+ 2095 026a 50000000 		.4byte	.LVL43
+ 2096 026e 0100     		.2byte	0x1
+ 2097 0270 53       		.byte	0x53
+ 2098 0271 50000000 		.4byte	.LVL43
+ 2099 0275 52000000 		.4byte	.LVL44
+ 2100 0279 0800     		.2byte	0x8
+ 2101 027b 70       		.byte	0x70
+ 2102 027c 00       		.sleb128 0
+ 2103 027d 03       		.byte	0x3
+ 2104 027e 00000000 		.4byte	.LANCHOR0
+ 2105 0282 22       		.byte	0x22
+ 2106 0283 52000000 		.4byte	.LVL44
+ 2107 0287 54000000 		.4byte	.LVL45
+ 2108 028b 0100     		.2byte	0x1
+ 2109 028d 53       		.byte	0x53
+ 2110 028e 00000000 		.4byte	0
+ 2111 0292 00000000 		.4byte	0
+ 2112              	.LLST10:
+ 2113 0296 62000000 		.4byte	.LVL48
+ 2114 029a 6A000000 		.4byte	.LVL50
+ 2115 029e 0100     		.2byte	0x1
+ 2116 02a0 54       		.byte	0x54
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 43
+
+
+ 2117 02a1 6C000000 		.4byte	.LVL51
+ 2118 02a5 6E000000 		.4byte	.LVL52
+ 2119 02a9 0100     		.2byte	0x1
+ 2120 02ab 54       		.byte	0x54
+ 2121 02ac 70000000 		.4byte	.LVL53
+ 2122 02b0 78000000 		.4byte	.LVL54
+ 2123 02b4 0100     		.2byte	0x1
+ 2124 02b6 54       		.byte	0x54
+ 2125 02b7 00000000 		.4byte	0
+ 2126 02bb 00000000 		.4byte	0
+ 2127              	.LLST11:
+ 2128 02bf 00000000 		.4byte	.LVL56
+ 2129 02c3 0C000000 		.4byte	.LVL57
+ 2130 02c7 0100     		.2byte	0x1
+ 2131 02c9 50       		.byte	0x50
+ 2132 02ca 0C000000 		.4byte	.LVL57
+ 2133 02ce 28000000 		.4byte	.LFE114
+ 2134 02d2 0400     		.2byte	0x4
+ 2135 02d4 F3       		.byte	0xf3
+ 2136 02d5 01       		.uleb128 0x1
+ 2137 02d6 50       		.byte	0x50
+ 2138 02d7 9F       		.byte	0x9f
+ 2139 02d8 00000000 		.4byte	0
+ 2140 02dc 00000000 		.4byte	0
+ 2141              	.LLST12:
+ 2142 02e0 00000000 		.4byte	.LVL56
+ 2143 02e4 0F000000 		.4byte	.LVL58-1
+ 2144 02e8 0100     		.2byte	0x1
+ 2145 02ea 51       		.byte	0x51
+ 2146 02eb 0F000000 		.4byte	.LVL58-1
+ 2147 02ef 28000000 		.4byte	.LFE114
+ 2148 02f3 0400     		.2byte	0x4
+ 2149 02f5 F3       		.byte	0xf3
+ 2150 02f6 01       		.uleb128 0x1
+ 2151 02f7 51       		.byte	0x51
+ 2152 02f8 9F       		.byte	0x9f
+ 2153 02f9 00000000 		.4byte	0
+ 2154 02fd 00000000 		.4byte	0
+ 2155              	.LLST13:
+ 2156 0301 00000000 		.4byte	.LVL56
+ 2157 0305 0F000000 		.4byte	.LVL58-1
+ 2158 0309 0100     		.2byte	0x1
+ 2159 030b 52       		.byte	0x52
+ 2160 030c 0F000000 		.4byte	.LVL58-1
+ 2161 0310 28000000 		.4byte	.LFE114
+ 2162 0314 0400     		.2byte	0x4
+ 2163 0316 F3       		.byte	0xf3
+ 2164 0317 01       		.uleb128 0x1
+ 2165 0318 52       		.byte	0x52
+ 2166 0319 9F       		.byte	0x9f
+ 2167 031a 00000000 		.4byte	0
+ 2168 031e 00000000 		.4byte	0
+ 2169              		.section	.debug_aranges,"",%progbits
+ 2170 0000 34000000 		.4byte	0x34
+ 2171 0004 0200     		.2byte	0x2
+ 2172 0006 00000000 		.4byte	.Ldebug_info0
+ 2173 000a 04       		.byte	0x4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 44
+
+
+ 2174 000b 00       		.byte	0
+ 2175 000c 0000     		.2byte	0
+ 2176 000e 0000     		.2byte	0
+ 2177 0010 00000000 		.4byte	.LFB111
+ 2178 0014 60000000 		.4byte	.LFE111-.LFB111
+ 2179 0018 00000000 		.4byte	.LFB110
+ 2180 001c 34000000 		.4byte	.LFE110-.LFB110
+ 2181 0020 00000000 		.4byte	.LFB112
+ 2182 0024 84000000 		.4byte	.LFE112-.LFB112
+ 2183 0028 00000000 		.4byte	.LFB114
+ 2184 002c 28000000 		.4byte	.LFE114-.LFB114
+ 2185 0030 00000000 		.4byte	0
+ 2186 0034 00000000 		.4byte	0
+ 2187              		.section	.debug_ranges,"",%progbits
+ 2188              	.Ldebug_ranges0:
+ 2189 0000 3C000000 		.4byte	.LBB9
+ 2190 0004 4A000000 		.4byte	.LBE9
+ 2191 0008 4C000000 		.4byte	.LBB10
+ 2192 000c 50000000 		.4byte	.LBE10
+ 2193 0010 52000000 		.4byte	.LBB11
+ 2194 0014 54000000 		.4byte	.LBE11
+ 2195 0018 00000000 		.4byte	0
+ 2196 001c 00000000 		.4byte	0
+ 2197 0020 02000000 		.4byte	.LBB12
+ 2198 0024 04000000 		.4byte	.LBE12
+ 2199 0028 06000000 		.4byte	.LBB14
+ 2200 002c 20000000 		.4byte	.LBE14
+ 2201 0030 00000000 		.4byte	0
+ 2202 0034 00000000 		.4byte	0
+ 2203 0038 62000000 		.4byte	.LBB21
+ 2204 003c 6E000000 		.4byte	.LBE21
+ 2205 0040 70000000 		.4byte	.LBB22
+ 2206 0044 74000000 		.4byte	.LBE22
+ 2207 0048 76000000 		.4byte	.LBB23
+ 2208 004c 78000000 		.4byte	.LBE23
+ 2209 0050 00000000 		.4byte	0
+ 2210 0054 00000000 		.4byte	0
+ 2211 0058 00000000 		.4byte	.LFB111
+ 2212 005c 60000000 		.4byte	.LFE111
+ 2213 0060 00000000 		.4byte	.LFB110
+ 2214 0064 34000000 		.4byte	.LFE110
+ 2215 0068 00000000 		.4byte	.LFB112
+ 2216 006c 84000000 		.4byte	.LFE112
+ 2217 0070 00000000 		.4byte	.LFB114
+ 2218 0074 28000000 		.4byte	.LFE114
+ 2219 0078 00000000 		.4byte	0
+ 2220 007c 00000000 		.4byte	0
+ 2221              		.section	.debug_line,"",%progbits
+ 2222              	.Ldebug_line0:
+ 2223 0000 59030000 		.section	.debug_str,"MS",%progbits,1
+ 2223      02007C02 
+ 2223      00000201 
+ 2223      FB0E0D00 
+ 2223      01010101 
+ 2224              	.LASF66:
+ 2225 0000 4C45445F 		.ascii	"LED_Toggle\000"
+ 2225      546F6767 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 45
+
+
+ 2225      6C6500
+ 2226              	.LASF63:
+ 2227 000b 72657375 		.ascii	"result\000"
+ 2227      6C7400
+ 2228              	.LASF85:
+ 2229 0012 5247425F 		.ascii	"RGB_PWM_green_WriteCompare\000"
+ 2229      50574D5F 
+ 2229      67726565 
+ 2229      6E5F5772 
+ 2229      69746543 
+ 2230              	.LASF70:
+ 2231 002d 4C45445F 		.ascii	"LED__state\000"
+ 2231      5F737461 
+ 2231      746500
+ 2232              	.LASF38:
+ 2233 0038 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 2233      52524F52 
+ 2233      5F524541 
+ 2233      445F4F4E 
+ 2233      4C5900
+ 2234              	.LASF24:
+ 2235 004b 52435F53 		.ascii	"RC_SUCCESS\000"
+ 2235      55434345 
+ 2235      535300
+ 2236              	.LASF90:
+ 2237 0056 4C45445F 		.ascii	"LED__toggleValue\000"
+ 2237      5F746F67 
+ 2237      676C6556 
+ 2237      616C7565 
+ 2237      00
+ 2238              	.LASF78:
+ 2239 0067 4C45445F 		.ascii	"LED_red_Write\000"
+ 2239      7265645F 
+ 2239      57726974 
+ 2239      6500
+ 2240              	.LASF39:
+ 2241 0075 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 2241      52524F52 
+ 2241      5F575249 
+ 2241      54455F4F 
+ 2241      4E4C5900 
+ 2242              	.LASF2:
+ 2243 0089 73686F72 		.ascii	"short int\000"
+ 2243      7420696E 
+ 2243      7400
+ 2244              	.LASF30:
+ 2245 0093 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 2245      52524F52 
+ 2245      5F4F5645 
+ 2245      5252554E 
+ 2245      00
+ 2246              	.LASF42:
+ 2247 00a4 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 2247      52524F52 
+ 2247      5F575249 
+ 2247      54455F46 
+ 2247      41494C53 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 46
+
+
+ 2248              	.LASF18:
+ 2249 00b9 73697A65 		.ascii	"sizetype\000"
+ 2249      74797065 
+ 2249      00
+ 2250              	.LASF50:
+ 2251 00c2 52435F74 		.ascii	"RC_t\000"
+ 2251      00
+ 2252              	.LASF76:
+ 2253 00c7 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 2253      52515F6E 
+ 2253      65737469 
+ 2253      6E675F6C 
+ 2253      6576656C 
+ 2254              	.LASF27:
+ 2255 00dc 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 2255      52524F52 
+ 2255      5F5A4552 
+ 2255      4F00
+ 2256              	.LASF22:
+ 2257 00ea 45455F46 		.ascii	"EE_FREG\000"
+ 2257      52454700 
+ 2258              	.LASF40:
+ 2259 00f2 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 2259      52524F52 
+ 2259      5F494E56 
+ 2259      414C4944 
+ 2259      00
+ 2260              	.LASF20:
+ 2261 0103 45455F55 		.ascii	"EE_UINT32\000"
+ 2261      494E5433 
+ 2261      3200
+ 2262              	.LASF64:
+ 2263 010d 636C6561 		.ascii	"clearResult\000"
+ 2263      72526573 
+ 2263      756C7400 
+ 2264              	.LASF23:
+ 2265 0119 45455F54 		.ascii	"EE_TID\000"
+ 2265      494400
+ 2266              	.LASF69:
+ 2267 0120 626C7565 		.ascii	"blue\000"
+ 2267      00
+ 2268              	.LASF13:
+ 2269 0125 75696E74 		.ascii	"uint16\000"
+ 2269      313600
+ 2270              	.LASF57:
+ 2271 012c 654C4544 		.ascii	"eLED_ONOFF\000"
+ 2271      5F4F4E4F 
+ 2271      464600
+ 2272              	.LASF11:
+ 2273 0137 75696E74 		.ascii	"uint8_t\000"
+ 2273      385F7400 
+ 2274              	.LASF47:
+ 2275 013f 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 2275      52524F52 
+ 2275      5F494E56 
+ 2275      414C4944 
+ 2275      5F535441 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 47
+
+
+ 2276              	.LASF88:
+ 2277 0156 736F7572 		.ascii	"sources\\bsw\\led.c\000"
+ 2277      6365735C 
+ 2277      6273775C 
+ 2277      6C65642E 
+ 2277      6300
+ 2278              	.LASF75:
+ 2279 0168 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 2279      74645F65 
+ 2279      6E646379 
+ 2279      636C655F 
+ 2279      6E657874 
+ 2280              	.LASF29:
+ 2281 0181 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 2281      52524F52 
+ 2281      5F52414E 
+ 2281      474500
+ 2282              	.LASF14:
+ 2283 0190 666C6F61 		.ascii	"float\000"
+ 2283      7400
+ 2284              	.LASF49:
+ 2285 0196 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 2285      52524F52 
+ 2285      5F4E4F54 
+ 2285      5F494D50 
+ 2285      4C454D45 
+ 2286              	.LASF8:
+ 2287 01af 6C6F6E67 		.ascii	"long long int\000"
+ 2287      206C6F6E 
+ 2287      6720696E 
+ 2287      7400
+ 2288              	.LASF56:
+ 2289 01bd 654C4544 		.ascii	"eLED_id\000"
+ 2289      5F696400 
+ 2290              	.LASF73:
+ 2291 01c5 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 2291      6F5F4952 
+ 2291      515F7375 
+ 2291      7370656E 
+ 2291      645F7374 
+ 2292              	.LASF43:
+ 2293 01de 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 2293      52524F52 
+ 2293      5F4E4F54 
+ 2293      5F4D4154 
+ 2293      434800
+ 2294              	.LASF48:
+ 2295 01f1 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 2295      52524F52 
+ 2295      5F554E4B 
+ 2295      4E4F574E 
+ 2295      00
+ 2296              	.LASF6:
+ 2297 0202 6C6F6E67 		.ascii	"long int\000"
+ 2297      20696E74 
+ 2297      00
+ 2298              	.LASF31:
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 48
+
+
+ 2299 020b 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 2299      52524F52 
+ 2299      5F554E44 
+ 2299      45525255 
+ 2299      4E00
+ 2300              	.LASF34:
+ 2301 021d 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 2301      52524F52 
+ 2301      5F425553 
+ 2301      5900
+ 2302              	.LASF61:
+ 2303 022b 6C656449 		.ascii	"ledId\000"
+ 2303      6400
+ 2304              	.LASF83:
+ 2305 0231 5247425F 		.ascii	"RGB_PWM_red_Start\000"
+ 2305      50574D5F 
+ 2305      7265645F 
+ 2305      53746172 
+ 2305      7400
+ 2306              	.LASF68:
+ 2307 0243 67726565 		.ascii	"green\000"
+ 2307      6E00
+ 2308              	.LASF45:
+ 2309 0249 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 2309      52524F52 
+ 2309      5F424144 
+ 2309      5F444154 
+ 2309      4100
+ 2310              	.LASF84:
+ 2311 025b 5247425F 		.ascii	"RGB_PWM_red_WriteCompare\000"
+ 2311      50574D5F 
+ 2311      7265645F 
+ 2311      57726974 
+ 2311      65436F6D 
+ 2312              	.LASF81:
+ 2313 0274 5247425F 		.ascii	"RGB_PWM_blue_Start\000"
+ 2313      50574D5F 
+ 2313      626C7565 
+ 2313      5F537461 
+ 2313      727400
+ 2314              	.LASF17:
+ 2315 0287 6C6F6E67 		.ascii	"long double\000"
+ 2315      20646F75 
+ 2315      626C6500 
+ 2316              	.LASF80:
+ 2317 0293 4C45445F 		.ascii	"LED_green_Write\000"
+ 2317      67726565 
+ 2317      6E5F5772 
+ 2317      69746500 
+ 2318              	.LASF1:
+ 2319 02a3 756E7369 		.ascii	"unsigned char\000"
+ 2319      676E6564 
+ 2319      20636861 
+ 2319      7200
+ 2320              	.LASF44:
+ 2321 02b1 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 2321      52524F52 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 49
+
+
+ 2321      5F424144 
+ 2321      5F504152 
+ 2321      414D00
+ 2322              	.LASF60:
+ 2323 02c4 4C45445F 		.ascii	"LED_ONOFF_t\000"
+ 2323      4F4E4F46 
+ 2323      465F7400 
+ 2324              	.LASF0:
+ 2325 02d0 7369676E 		.ascii	"signed char\000"
+ 2325      65642063 
+ 2325      68617200 
+ 2326              	.LASF9:
+ 2327 02dc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2327      206C6F6E 
+ 2327      6720756E 
+ 2327      7369676E 
+ 2327      65642069 
+ 2328              	.LASF59:
+ 2329 02f3 4C45445F 		.ascii	"LED_ON\000"
+ 2329      4F4E00
+ 2330              	.LASF55:
+ 2331 02fa 4C45445F 		.ascii	"LED_id_t\000"
+ 2331      69645F74 
+ 2331      00
+ 2332              	.LASF10:
+ 2333 0303 756E7369 		.ascii	"unsigned int\000"
+ 2333      676E6564 
+ 2333      20696E74 
+ 2333      00
+ 2334              	.LASF36:
+ 2335 0310 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 2335      52524F52 
+ 2335      5F4F5045 
+ 2335      4E00
+ 2336              	.LASF65:
+ 2337 031e 4C45445F 		.ascii	"LED_Set\000"
+ 2337      53657400 
+ 2338              	.LASF58:
+ 2339 0326 4C45445F 		.ascii	"LED_OFF\000"
+ 2339      4F464600 
+ 2340              	.LASF52:
+ 2341 032e 4C45445F 		.ascii	"LED_YELLOW\000"
+ 2341      59454C4C 
+ 2341      4F5700
+ 2342              	.LASF26:
+ 2343 0339 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 2343      52524F52 
+ 2343      5F4E554C 
+ 2343      4C00
+ 2344              	.LASF33:
+ 2345 0347 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 2345      52524F52 
+ 2345      5F425546 
+ 2345      4645525F 
+ 2345      454D5450 
+ 2346              	.LASF19:
+ 2347 035d 45455F49 		.ascii	"EE_INT32\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 50
+
+
+ 2347      4E543332 
+ 2347      00
+ 2348              	.LASF71:
+ 2349 0366 4C45445F 		.ascii	"LED__Pulse_Width\000"
+ 2349      5F50756C 
+ 2349      73655F57 
+ 2349      69647468 
+ 2349      00
+ 2350              	.LASF89:
+ 2351 0377 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 2351      73657273 
+ 2351      5C417375 
+ 2351      735C4465 
+ 2351      736B746F 
+ 2352 03a3 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 2352      30315C45 
+ 2352      6C656374 
+ 2352      726F6E69 
+ 2352      635F4761 
+ 2353 03d2 4C616230 		.ascii	"Lab01.cydsn\000"
+ 2353      312E6379 
+ 2353      64736E00 
+ 2354              	.LASF62:
+ 2355 03de 6C65644F 		.ascii	"ledOnOff\000"
+ 2355      6E4F6666 
+ 2355      00
+ 2356              	.LASF3:
+ 2357 03e7 73686F72 		.ascii	"short unsigned int\000"
+ 2357      7420756E 
+ 2357      7369676E 
+ 2357      65642069 
+ 2357      6E7400
+ 2358              	.LASF87:
+ 2359 03fa 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2359      43313120 
+ 2359      352E342E 
+ 2359      31203230 
+ 2359      31363036 
+ 2360 042d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2360      20726576 
+ 2360      6973696F 
+ 2360      6E203233 
+ 2360      37373135 
+ 2361 0460 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2361      66756E63 
+ 2361      74696F6E 
+ 2361      2D736563 
+ 2361      74696F6E 
+ 2362              	.LASF86:
+ 2363 0488 5247425F 		.ascii	"RGB_PWM_blue_WriteCompare\000"
+ 2363      50574D5F 
+ 2363      626C7565 
+ 2363      5F577269 
+ 2363      7465436F 
+ 2364              	.LASF16:
+ 2365 04a2 63686172 		.ascii	"char\000"
+ 2365      00
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 51
+
+
+ 2366              	.LASF32:
+ 2367 04a7 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 2367      52524F52 
+ 2367      5F425546 
+ 2367      4645525F 
+ 2367      46554C4C 
+ 2368              	.LASF12:
+ 2369 04bc 696E7433 		.ascii	"int32_t\000"
+ 2369      325F7400 
+ 2370              	.LASF41:
+ 2371 04c4 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 2371      52524F52 
+ 2371      5F524541 
+ 2371      445F4641 
+ 2371      494C5300 
+ 2372              	.LASF67:
+ 2373 04d8 4C45445F 		.ascii	"LED_RGB_Set\000"
+ 2373      5247425F 
+ 2373      53657400 
+ 2374              	.LASF53:
+ 2375 04e4 4C45445F 		.ascii	"LED_GREEN\000"
+ 2375      47524545 
+ 2375      4E00
+ 2376              	.LASF74:
+ 2377 04ee 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 2377      70706C69 
+ 2377      63617469 
+ 2377      6F6E4D6F 
+ 2377      646500
+ 2378              	.LASF7:
+ 2379 0501 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2379      20756E73 
+ 2379      69676E65 
+ 2379      6420696E 
+ 2379      7400
+ 2380              	.LASF91:
+ 2381 0513 4C45445F 		.ascii	"LED_Init\000"
+ 2381      496E6974 
+ 2381      00
+ 2382              	.LASF37:
+ 2383 051c 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 2383      52524F52 
+ 2383      5F434845 
+ 2383      434B5355 
+ 2383      4D00
+ 2384              	.LASF21:
+ 2385 052e 45455F55 		.ascii	"EE_UREG\000"
+ 2385      52454700 
+ 2386              	.LASF54:
+ 2387 0536 4C45445F 		.ascii	"LED_ALL\000"
+ 2387      414C4C00 
+ 2388              	.LASF5:
+ 2389 053e 5F5F696E 		.ascii	"__int32_t\000"
+ 2389      7433325F 
+ 2389      7400
+ 2390              	.LASF82:
+ 2391 0548 5247425F 		.ascii	"RGB_PWM_green_Start\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\ccl8Qo4m.s 			page 52
+
+
+ 2391      50574D5F 
+ 2391      67726565 
+ 2391      6E5F5374 
+ 2391      61727400 
+ 2392              	.LASF46:
+ 2393 055c 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 2393      52524F52 
+ 2393      5F43414E 
+ 2393      43454C45 
+ 2393      4400
+ 2394              	.LASF15:
+ 2395 056e 646F7562 		.ascii	"double\000"
+ 2395      6C6500
+ 2396              	.LASF77:
+ 2397 0575 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2397      52784275 
+ 2397      66666572 
+ 2397      00
+ 2398              	.LASF25:
+ 2399 0582 52435F45 		.ascii	"RC_ERROR\000"
+ 2399      52524F52 
+ 2399      00
+ 2400              	.LASF79:
+ 2401 058b 4C45445F 		.ascii	"LED_yellow_Write\000"
+ 2401      79656C6C 
+ 2401      6F775F57 
+ 2401      72697465 
+ 2401      00
+ 2402              	.LASF51:
+ 2403 059c 4C45445F 		.ascii	"LED_RED\000"
+ 2403      52454400 
+ 2404              	.LASF28:
+ 2405 05a4 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 2405      52524F52 
+ 2405      5F4D454D 
+ 2405      4F525900 
+ 2406              	.LASF72:
+ 2407 05b4 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 2407      6F5F4952 
+ 2407      515F6469 
+ 2407      7361626C 
+ 2407      655F636F 
+ 2408              	.LASF4:
+ 2409 05cc 5F5F7569 		.ascii	"__uint8_t\000"
+ 2409      6E74385F 
+ 2409      7400
+ 2410              	.LASF35:
+ 2411 05d6 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 2411      52524F52 
+ 2411      5F54494D 
+ 2411      455F4F55 
+ 2411      5400
+ 2412              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

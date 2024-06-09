@@ -1,0 +1,3208 @@
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2564
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 04       		.byte	4
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 5B       		.byte	91
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 64       		.byte	100
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 03       		.byte	3
+  46 0011 65       		.byte	101
+  47 0012 00       		.byte	0
+  48 0013 40       		.byte	64
+  49 0014 12       		.byte	18
+  50 0015 02       		.byte	2
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 24       		.byte	36
+  54 0019 03       		.byte	3
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 08       		.byte	8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 2
+
+
+  58 001d 04       		.byte	4
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 26       		.byte	38
+  62 0021 05       		.byte	5
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 08       		.byte	8
+  66 0025 06       		.byte	6
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 37       		.byte	55
+  70 0029 07       		.byte	7
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 26       		.byte	38
+  74 002d 08       		.byte	8
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 44       		.byte	68
+  78 0031 09       		.byte	9
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 56       		.byte	86
+  82 0035 0A       		.byte	10
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 43       		.byte	67
+  86 0039 0B       		.byte	11
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 3B       		.byte	59
+  90 003d 0C       		.byte	12
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 37       		.byte	55
+  94 0041 0D       		.byte	13
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 37       		.byte	55
+  98 0045 0E       		.byte	14
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 26       		.byte	38
+ 102 0049 0F       		.byte	15
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 30       		.byte	48
+ 106 004d 14       		.byte	20
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 41       		.byte	65
+ 110 0051 15       		.byte	21
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 38       		.byte	56
+ 114 0055 16       		.byte	22
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 36       		.byte	54
+ 118 0059 17       		.byte	23
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 39       		.byte	57
+ 122 005d 18       		.byte	24
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 3B       		.byte	59
+ 126 0061 19       		.byte	25
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 39       		.byte	57
+ 130 0065 1A       		.byte	26
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 45       		.byte	69
+ 134 0069 1B       		.byte	27
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 08       		.byte	8
+ 138 006d 40       		.byte	64
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 07       		.byte	7
+ 142 0071 41       		.byte	65
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 08       		.byte	8
+ 146 0075 42       		.byte	66
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 03       		.byte	3
+ 150 0079 43       		.byte	67
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 09       		.byte	9
+ 154 007d 45       		.byte	69
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 08       		.byte	8
+ 158 0081 46       		.byte	70
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 06       		.byte	6
+ 162 0085 47       		.byte	71
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 02       		.byte	2
+ 166 0089 48       		.byte	72
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 01       		.byte	1
+ 170 008d 49       		.byte	73
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 01       		.byte	1
+ 174 0091 4C       		.byte	76
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 09       		.byte	9
+ 178 0095 4D       		.byte	77
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 0A       		.byte	10
+ 182 0099 50       		.byte	80
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 02       		.byte	2
+ 186 009d 51       		.byte	81
+ 187 009e 01       		.byte	1
+ 188 009f 40       		.byte	64
+ 189 00a0 03       		.byte	3
+ 190 00a1 01       		.byte	1
+ 191 00a2 00       		.byte	0
+ 192 00a3 02       		.byte	2
+ 193 00a4 01       		.byte	1
+ 194 00a5 02       		.byte	2
+ 195 00a6 10       		.byte	16
+ 196 00a7 38       		.byte	56
+ 197 00a8 11       		.byte	17
+ 198 00a9 10       		.byte	16
+ 199 00aa 27       		.byte	39
+ 200 00ab 84       		.byte	-124
+ 201 00ac 89       		.byte	-119
+ 202 00ad 01       		.byte	1
+ 203 00ae 87       		.byte	-121
+ 204 00af 0F       		.byte	15
+ 205 00b0 88       		.byte	-120
+ 206 00b1 38       		.byte	56
+ 207 00b2 8A       		.byte	-118
+ 208 00b3 72       		.byte	114
+ 209 00b4 04       		.byte	4
+ 210 00b5 03       		.byte	3
+ 211 00b6 08       		.byte	8
+ 212 00b7 03       		.byte	3
+ 213 00b8 0C       		.byte	12
+ 214 00b9 03       		.byte	3
+ 215 00ba 14       		.byte	20
+ 216 00bb 02       		.byte	2
+ 217 00bc 16       		.byte	22
+ 218 00bd 01       		.byte	1
+ 219 00be 18       		.byte	24
+ 220 00bf 03       		.byte	3
+ 221 00c0 20       		.byte	32
+ 222 00c1 03       		.byte	3
+ 223 00c2 2A       		.byte	42
+ 224 00c3 03       		.byte	3
+ 225 00c4 32       		.byte	50
+ 226 00c5 02       		.byte	2
+ 227 00c6 36       		.byte	54
+ 228 00c7 01       		.byte	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 5
+
+
+ 229 00c8 58       		.byte	88
+ 230 00c9 04       		.byte	4
+ 231 00ca 59       		.byte	89
+ 232 00cb 04       		.byte	4
+ 233 00cc 5C       		.byte	92
+ 234 00cd 11       		.byte	17
+ 235 00ce 5F       		.byte	95
+ 236 00cf 01       		.byte	1
+ 237 00d0 D8       		.byte	-40
+ 238 00d1 04       		.byte	4
+ 239 00d2 D9       		.byte	-39
+ 240 00d3 04       		.byte	4
+ 241 00d4 DC       		.byte	-36
+ 242 00d5 11       		.byte	17
+ 243 00d6 DF       		.byte	-33
+ 244 00d7 01       		.byte	1
+ 245 00d8 01       		.byte	1
+ 246 00d9 08       		.byte	8
+ 247 00da 02       		.byte	2
+ 248 00db 01       		.byte	1
+ 249 00dc 05       		.byte	5
+ 250 00dd 18       		.byte	24
+ 251 00de 06       		.byte	6
+ 252 00df 01       		.byte	1
+ 253 00e0 08       		.byte	8
+ 254 00e1 88       		.byte	-120
+ 255 00e2 09       		.byte	9
+ 256 00e3 40       		.byte	64
+ 257 00e4 0B       		.byte	11
+ 258 00e5 08       		.byte	8
+ 259 00e6 0C       		.byte	12
+ 260 00e7 04       		.byte	4
+ 261 00e8 0F       		.byte	15
+ 262 00e9 24       		.byte	36
+ 263 00ea 10       		.byte	16
+ 264 00eb 04       		.byte	4
+ 265 00ec 11       		.byte	17
+ 266 00ed 08       		.byte	8
+ 267 00ee 12       		.byte	18
+ 268 00ef 10       		.byte	16
+ 269 00f0 13       		.byte	19
+ 270 00f1 04       		.byte	4
+ 271 00f2 14       		.byte	20
+ 272 00f3 80       		.byte	-128
+ 273 00f4 16       		.byte	22
+ 274 00f5 08       		.byte	8
+ 275 00f6 1E       		.byte	30
+ 276 00f7 10       		.byte	16
+ 277 00f8 1F       		.byte	31
+ 278 00f9 40       		.byte	64
+ 279 00fa 28       		.byte	40
+ 280 00fb 84       		.byte	-124
+ 281 00fc 29       		.byte	41
+ 282 00fd 08       		.byte	8
+ 283 00fe 2E       		.byte	46
+ 284 00ff 02       		.byte	2
+ 285 0100 2F       		.byte	47
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 31       		.byte	49
+ 288 0103 10       		.byte	16
+ 289 0104 35       		.byte	53
+ 290 0105 18       		.byte	24
+ 291 0106 38       		.byte	56
+ 292 0107 04       		.byte	4
+ 293 0108 3A       		.byte	58
+ 294 0109 1B       		.byte	27
+ 295 010a 3B       		.byte	59
+ 296 010b 08       		.byte	8
+ 297 010c 3D       		.byte	61
+ 298 010d 88       		.byte	-120
+ 299 010e 3F       		.byte	63
+ 300 010f 20       		.byte	32
+ 301 0110 8C       		.byte	-116
+ 302 0111 08       		.byte	8
+ 303 0112 8D       		.byte	-115
+ 304 0113 10       		.byte	16
+ 305 0114 C0       		.byte	-64
+ 306 0115 E5       		.byte	-27
+ 307 0116 C2       		.byte	-62
+ 308 0117 67       		.byte	103
+ 309 0118 C4       		.byte	-60
+ 310 0119 56       		.byte	86
+ 311 011a CA       		.byte	-54
+ 312 011b A7       		.byte	-89
+ 313 011c CC       		.byte	-52
+ 314 011d 64       		.byte	100
+ 315 011e CE       		.byte	-50
+ 316 011f 77       		.byte	119
+ 317 0120 58       		.byte	88
+ 318 0121 04       		.byte	4
+ 319 0122 59       		.byte	89
+ 320 0123 04       		.byte	4
+ 321 0124 5C       		.byte	92
+ 322 0125 11       		.byte	17
+ 323 0126 5F       		.byte	95
+ 324 0127 01       		.byte	1
+ 325 0128 D8       		.byte	-40
+ 326 0129 04       		.byte	4
+ 327 012a D9       		.byte	-39
+ 328 012b 04       		.byte	4
+ 329 012c DC       		.byte	-36
+ 330 012d 11       		.byte	17
+ 331 012e DF       		.byte	-33
+ 332 012f 01       		.byte	1
+ 333 0130 01       		.byte	1
+ 334 0131 08       		.byte	8
+ 335 0132 02       		.byte	2
+ 336 0133 01       		.byte	1
+ 337 0134 05       		.byte	5
+ 338 0135 08       		.byte	8
+ 339 0136 06       		.byte	6
+ 340 0137 01       		.byte	1
+ 341 0138 08       		.byte	8
+ 342 0139 80       		.byte	-128
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 7
+
+
+ 343 013a 0F       		.byte	15
+ 344 013b A0       		.byte	-96
+ 345 013c 10       		.byte	16
+ 346 013d 04       		.byte	4
+ 347 013e 11       		.byte	17
+ 348 013f 4A       		.byte	74
+ 349 0140 14       		.byte	20
+ 350 0141 04       		.byte	4
+ 351 0142 15       		.byte	21
+ 352 0143 40       		.byte	64
+ 353 0144 17       		.byte	23
+ 354 0145 12       		.byte	18
+ 355 0146 29       		.byte	41
+ 356 0147 28       		.byte	40
+ 357 0148 2B       		.byte	43
+ 358 0149 40       		.byte	64
+ 359 014a 2C       		.byte	44
+ 360 014b 04       		.byte	4
+ 361 014c 2D       		.byte	45
+ 362 014d 08       		.byte	8
+ 363 014e 32       		.byte	50
+ 364 014f 40       		.byte	64
+ 365 0150 37       		.byte	55
+ 366 0151 0A       		.byte	10
+ 367 0152 38       		.byte	56
+ 368 0153 24       		.byte	36
+ 369 0154 39       		.byte	57
+ 370 0155 40       		.byte	64
+ 371 0156 3D       		.byte	61
+ 372 0157 48       		.byte	72
+ 373 0158 3F       		.byte	63
+ 374 0159 20       		.byte	32
+ 375 015a 94       		.byte	-108
+ 376 015b 04       		.byte	4
+ 377 015c 9C       		.byte	-100
+ 378 015d 80       		.byte	-128
+ 379 015e 9D       		.byte	-99
+ 380 015f 08       		.byte	8
+ 381 0160 9E       		.byte	-98
+ 382 0161 01       		.byte	1
+ 383 0162 A5       		.byte	-91
+ 384 0163 04       		.byte	4
+ 385 0164 A7       		.byte	-89
+ 386 0165 10       		.byte	16
+ 387 0166 AA       		.byte	-86
+ 388 0167 10       		.byte	16
+ 389 0168 B3       		.byte	-77
+ 390 0169 40       		.byte	64
+ 391 016a C0       		.byte	-64
+ 392 016b A5       		.byte	-91
+ 393 016c C2       		.byte	-62
+ 394 016d 31       		.byte	49
+ 395 016e C4       		.byte	-60
+ 396 016f DF       		.byte	-33
+ 397 0170 CA       		.byte	-54
+ 398 0171 67       		.byte	103
+ 399 0172 CC       		.byte	-52
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 8
+
+
+ 400 0173 C8       		.byte	-56
+ 401 0174 CE       		.byte	-50
+ 402 0175 7E       		.byte	126
+ 403 0176 E6       		.byte	-26
+ 404 0177 01       		.byte	1
+ 405 0178 EC       		.byte	-20
+ 406 0179 40       		.byte	64
+ 407 017a EE       		.byte	-18
+ 408 017b 80       		.byte	-128
+ 409 017c 58       		.byte	88
+ 410 017d 04       		.byte	4
+ 411 017e 59       		.byte	89
+ 412 017f 04       		.byte	4
+ 413 0180 5C       		.byte	92
+ 414 0181 11       		.byte	17
+ 415 0182 5F       		.byte	95
+ 416 0183 01       		.byte	1
+ 417 0184 D8       		.byte	-40
+ 418 0185 04       		.byte	4
+ 419 0186 D9       		.byte	-39
+ 420 0187 04       		.byte	4
+ 421 0188 DC       		.byte	-36
+ 422 0189 11       		.byte	17
+ 423 018a DF       		.byte	-33
+ 424 018b 01       		.byte	1
+ 425 018c 00       		.byte	0
+ 426 018d 04       		.byte	4
+ 427 018e 01       		.byte	1
+ 428 018f 40       		.byte	64
+ 429 0190 03       		.byte	3
+ 430 0191 30       		.byte	48
+ 431 0192 05       		.byte	5
+ 432 0193 08       		.byte	8
+ 433 0194 08       		.byte	8
+ 434 0195 80       		.byte	-128
+ 435 0196 09       		.byte	9
+ 436 0197 01       		.byte	1
+ 437 0198 0A       		.byte	10
+ 438 0199 20       		.byte	32
+ 439 019a 0E       		.byte	14
+ 440 019b 40       		.byte	64
+ 441 019c 0F       		.byte	15
+ 442 019d A0       		.byte	-96
+ 443 019e 11       		.byte	17
+ 444 019f 08       		.byte	8
+ 445 01a0 12       		.byte	18
+ 446 01a1 01       		.byte	1
+ 447 01a2 14       		.byte	20
+ 448 01a3 80       		.byte	-128
+ 449 01a4 15       		.byte	21
+ 450 01a5 40       		.byte	64
+ 451 01a6 17       		.byte	23
+ 452 01a7 18       		.byte	24
+ 453 01a8 29       		.byte	41
+ 454 01a9 04       		.byte	4
+ 455 01aa 2B       		.byte	43
+ 456 01ab 50       		.byte	80
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 9
+
+
+ 457 01ac 2D       		.byte	45
+ 458 01ad 08       		.byte	8
+ 459 01ae 2E       		.byte	46
+ 460 01af 40       		.byte	64
+ 461 01b0 30       		.byte	48
+ 462 01b1 40       		.byte	64
+ 463 01b2 32       		.byte	50
+ 464 01b3 10       		.byte	16
+ 465 01b4 34       		.byte	52
+ 466 01b5 C0       		.byte	-64
+ 467 01b6 35       		.byte	53
+ 468 01b7 04       		.byte	4
+ 469 01b8 37       		.byte	55
+ 470 01b9 10       		.byte	16
+ 471 01ba 38       		.byte	56
+ 472 01bb 24       		.byte	36
+ 473 01bc 39       		.byte	57
+ 474 01bd 40       		.byte	64
+ 475 01be 3D       		.byte	61
+ 476 01bf 40       		.byte	64
+ 477 01c0 3E       		.byte	62
+ 478 01c1 20       		.byte	32
+ 479 01c2 80       		.byte	-128
+ 480 01c3 10       		.byte	16
+ 481 01c4 81       		.byte	-127
+ 482 01c5 08       		.byte	8
+ 483 01c6 82       		.byte	-126
+ 484 01c7 31       		.byte	49
+ 485 01c8 83       		.byte	-125
+ 486 01c9 08       		.byte	8
+ 487 01ca 94       		.byte	-108
+ 488 01cb 24       		.byte	36
+ 489 01cc 95       		.byte	-107
+ 490 01cd 40       		.byte	64
+ 491 01ce 98       		.byte	-104
+ 492 01cf 80       		.byte	-128
+ 493 01d0 9D       		.byte	-99
+ 494 01d1 08       		.byte	8
+ 495 01d2 9E       		.byte	-98
+ 496 01d3 01       		.byte	1
+ 497 01d4 9F       		.byte	-97
+ 498 01d5 18       		.byte	24
+ 499 01d6 A1       		.byte	-95
+ 500 01d7 05       		.byte	5
+ 501 01d8 A3       		.byte	-93
+ 502 01d9 50       		.byte	80
+ 503 01da A9       		.byte	-87
+ 504 01db 05       		.byte	5
+ 505 01dc AA       		.byte	-86
+ 506 01dd 40       		.byte	64
+ 507 01de AB       		.byte	-85
+ 508 01df 50       		.byte	80
+ 509 01e0 AC       		.byte	-84
+ 510 01e1 80       		.byte	-128
+ 511 01e2 AD       		.byte	-83
+ 512 01e3 20       		.byte	32
+ 513 01e4 AF       		.byte	-81
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 10
+
+
+ 514 01e5 02       		.byte	2
+ 515 01e6 C0       		.byte	-64
+ 516 01e7 25       		.byte	37
+ 517 01e8 C2       		.byte	-62
+ 518 01e9 3D       		.byte	61
+ 519 01ea C4       		.byte	-60
+ 520 01eb F5       		.byte	-11
+ 521 01ec CA       		.byte	-54
+ 522 01ed 53       		.byte	83
+ 523 01ee CC       		.byte	-52
+ 524 01ef 7C       		.byte	124
+ 525 01f0 CE       		.byte	-50
+ 526 01f1 3E       		.byte	62
+ 527 01f2 E2       		.byte	-30
+ 528 01f3 04       		.byte	4
+ 529 01f4 E6       		.byte	-26
+ 530 01f5 06       		.byte	6
+ 531 01f6 EA       		.byte	-22
+ 532 01f7 04       		.byte	4
+ 533 01f8 EE       		.byte	-18
+ 534 01f9 03       		.byte	3
+ 535 01fa 13       		.byte	19
+ 536 01fb 02       		.byte	2
+ 537 01fc 14       		.byte	20
+ 538 01fd 01       		.byte	1
+ 539 01fe 15       		.byte	21
+ 540 01ff 04       		.byte	4
+ 541 0200 1B       		.byte	27
+ 542 0201 01       		.byte	1
+ 543 0202 1D       		.byte	29
+ 544 0203 04       		.byte	4
+ 545 0204 21       		.byte	33
+ 546 0205 01       		.byte	1
+ 547 0206 2A       		.byte	42
+ 548 0207 03       		.byte	3
+ 549 0208 32       		.byte	50
+ 550 0209 02       		.byte	2
+ 551 020a 33       		.byte	51
+ 552 020b 03       		.byte	3
+ 553 020c 36       		.byte	54
+ 554 020d 01       		.byte	1
+ 555 020e 37       		.byte	55
+ 556 020f 04       		.byte	4
+ 557 0210 39       		.byte	57
+ 558 0211 80       		.byte	-128
+ 559 0212 3F       		.byte	63
+ 560 0213 40       		.byte	64
+ 561 0214 54       		.byte	84
+ 562 0215 01       		.byte	1
+ 563 0216 58       		.byte	88
+ 564 0217 0C       		.byte	12
+ 565 0218 59       		.byte	89
+ 566 0219 04       		.byte	4
+ 567 021a 5B       		.byte	91
+ 568 021b 0C       		.byte	12
+ 569 021c 5C       		.byte	92
+ 570 021d 91       		.byte	-111
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 11
+
+
+ 571 021e 5D       		.byte	93
+ 572 021f 10       		.byte	16
+ 573 0220 5F       		.byte	95
+ 574 0221 01       		.byte	1
+ 575 0222 8B       		.byte	-117
+ 576 0223 02       		.byte	2
+ 577 0224 97       		.byte	-105
+ 578 0225 01       		.byte	1
+ 579 0226 A2       		.byte	-94
+ 580 0227 04       		.byte	4
+ 581 0228 A6       		.byte	-90
+ 582 0229 02       		.byte	2
+ 583 022a AE       		.byte	-82
+ 584 022b 01       		.byte	1
+ 585 022c B0       		.byte	-80
+ 586 022d 02       		.byte	2
+ 587 022e B1       		.byte	-79
+ 588 022f 01       		.byte	1
+ 589 0230 B2       		.byte	-78
+ 590 0231 01       		.byte	1
+ 591 0232 B3       		.byte	-77
+ 592 0233 02       		.byte	2
+ 593 0234 B4       		.byte	-76
+ 594 0235 04       		.byte	4
+ 595 0236 D6       		.byte	-42
+ 596 0237 02       		.byte	2
+ 597 0238 D7       		.byte	-41
+ 598 0239 32       		.byte	50
+ 599 023a D8       		.byte	-40
+ 600 023b 04       		.byte	4
+ 601 023c D9       		.byte	-39
+ 602 023d 04       		.byte	4
+ 603 023e DB       		.byte	-37
+ 604 023f 0C       		.byte	12
+ 605 0240 DC       		.byte	-36
+ 606 0241 11       		.byte	17
+ 607 0242 DD       		.byte	-35
+ 608 0243 10       		.byte	16
+ 609 0244 DF       		.byte	-33
+ 610 0245 01       		.byte	1
+ 611 0246 00       		.byte	0
+ 612 0247 40       		.byte	64
+ 613 0248 03       		.byte	3
+ 614 0249 A0       		.byte	-96
+ 615 024a 08       		.byte	8
+ 616 024b 22       		.byte	34
+ 617 024c 0A       		.byte	10
+ 618 024d 02       		.byte	2
+ 619 024e 0E       		.byte	14
+ 620 024f 20       		.byte	32
+ 621 0250 10       		.byte	16
+ 622 0251 A2       		.byte	-94
+ 623 0252 12       		.byte	18
+ 624 0253 08       		.byte	8
+ 625 0254 17       		.byte	23
+ 626 0255 20       		.byte	32
+ 627 0256 18       		.byte	24
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 12
+
+
+ 628 0257 40       		.byte	64
+ 629 0258 19       		.byte	25
+ 630 0259 1D       		.byte	29
+ 631 025a 1B       		.byte	27
+ 632 025b 20       		.byte	32
+ 633 025c 1E       		.byte	30
+ 634 025d 20       		.byte	32
+ 635 025e 1F       		.byte	31
+ 636 025f 40       		.byte	64
+ 637 0260 21       		.byte	33
+ 638 0261 04       		.byte	4
+ 639 0262 22       		.byte	34
+ 640 0263 09       		.byte	9
+ 641 0264 23       		.byte	35
+ 642 0265 10       		.byte	16
+ 643 0266 26       		.byte	38
+ 644 0267 80       		.byte	-128
+ 645 0268 27       		.byte	39
+ 646 0269 20       		.byte	32
+ 647 026a 28       		.byte	40
+ 648 026b 02       		.byte	2
+ 649 026c 29       		.byte	41
+ 650 026d 11       		.byte	17
+ 651 026e 2F       		.byte	47
+ 652 026f 40       		.byte	64
+ 653 0270 32       		.byte	50
+ 654 0271 01       		.byte	1
+ 655 0272 33       		.byte	51
+ 656 0273 84       		.byte	-124
+ 657 0274 34       		.byte	52
+ 658 0275 01       		.byte	1
+ 659 0276 37       		.byte	55
+ 660 0277 A8       		.byte	-88
+ 661 0278 38       		.byte	56
+ 662 0279 20       		.byte	32
+ 663 027a 39       		.byte	57
+ 664 027b 08       		.byte	8
+ 665 027c 3B       		.byte	59
+ 666 027d 02       		.byte	2
+ 667 027e 4B       		.byte	75
+ 668 027f C0       		.byte	-64
+ 669 0280 5B       		.byte	91
+ 670 0281 08       		.byte	8
+ 671 0282 5F       		.byte	95
+ 672 0283 40       		.byte	64
+ 673 0284 62       		.byte	98
+ 674 0285 80       		.byte	-128
+ 675 0286 68       		.byte	104
+ 676 0287 A2       		.byte	-94
+ 677 0288 69       		.byte	105
+ 678 0289 80       		.byte	-128
+ 679 028a 6B       		.byte	107
+ 680 028b 04       		.byte	4
+ 681 028c 70       		.byte	112
+ 682 028d 10       		.byte	16
+ 683 028e 71       		.byte	113
+ 684 028f C0       		.byte	-64
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 13
+
+
+ 685 0290 79       		.byte	121
+ 686 0291 40       		.byte	64
+ 687 0292 7D       		.byte	125
+ 688 0293 40       		.byte	64
+ 689 0294 81       		.byte	-127
+ 690 0295 10       		.byte	16
+ 691 0296 82       		.byte	-126
+ 692 0297 08       		.byte	8
+ 693 0298 83       		.byte	-125
+ 694 0299 80       		.byte	-128
+ 695 029a 87       		.byte	-121
+ 696 029b 40       		.byte	64
+ 697 029c 93       		.byte	-109
+ 698 029d 02       		.byte	2
+ 699 029e 94       		.byte	-108
+ 700 029f 20       		.byte	32
+ 701 02a0 95       		.byte	-107
+ 702 02a1 88       		.byte	-120
+ 703 02a2 96       		.byte	-106
+ 704 02a3 02       		.byte	2
+ 705 02a4 98       		.byte	-104
+ 706 02a5 21       		.byte	33
+ 707 02a6 9D       		.byte	-99
+ 708 02a7 55       		.byte	85
+ 709 02a8 9F       		.byte	-97
+ 710 02a9 04       		.byte	4
+ 711 02aa A3       		.byte	-93
+ 712 02ab 80       		.byte	-128
+ 713 02ac A4       		.byte	-92
+ 714 02ad A0       		.byte	-96
+ 715 02ae A5       		.byte	-91
+ 716 02af 80       		.byte	-128
+ 717 02b0 A9       		.byte	-87
+ 718 02b1 05       		.byte	5
+ 719 02b2 AB       		.byte	-85
+ 720 02b3 08       		.byte	8
+ 721 02b4 AE       		.byte	-82
+ 722 02b5 01       		.byte	1
+ 723 02b6 AF       		.byte	-81
+ 724 02b7 40       		.byte	64
+ 725 02b8 B4       		.byte	-76
+ 726 02b9 25       		.byte	37
+ 727 02ba C0       		.byte	-64
+ 728 02bb 0D       		.byte	13
+ 729 02bc C2       		.byte	-62
+ 730 02bd 2B       		.byte	43
+ 731 02be C4       		.byte	-60
+ 732 02bf 4F       		.byte	79
+ 733 02c0 CA       		.byte	-54
+ 734 02c1 8D       		.byte	-115
+ 735 02c2 CC       		.byte	-52
+ 736 02c3 FB       		.byte	-5
+ 737 02c4 CE       		.byte	-50
+ 738 02c5 07       		.byte	7
+ 739 02c6 D6       		.byte	-42
+ 740 02c7 12       		.byte	18
+ 741 02c8 D8       		.byte	-40
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 14
+
+
+ 742 02c9 08       		.byte	8
+ 743 02ca DE       		.byte	-34
+ 744 02cb 18       		.byte	24
+ 745 02cc E2       		.byte	-30
+ 746 02cd 01       		.byte	1
+ 747 02ce 03       		.byte	3
+ 748 02cf 02       		.byte	2
+ 749 02d0 06       		.byte	6
+ 750 02d1 08       		.byte	8
+ 751 02d2 07       		.byte	7
+ 752 02d3 01       		.byte	1
+ 753 02d4 08       		.byte	8
+ 754 02d5 01       		.byte	1
+ 755 02d6 09       		.byte	9
+ 756 02d7 01       		.byte	1
+ 757 02d8 0D       		.byte	13
+ 758 02d9 80       		.byte	-128
+ 759 02da 0E       		.byte	14
+ 760 02db 10       		.byte	16
+ 761 02dc 0F       		.byte	15
+ 762 02dd 40       		.byte	64
+ 763 02de 11       		.byte	17
+ 764 02df 10       		.byte	16
+ 765 02e0 13       		.byte	19
+ 766 02e1 20       		.byte	32
+ 767 02e2 15       		.byte	21
+ 768 02e3 20       		.byte	32
+ 769 02e4 17       		.byte	23
+ 770 02e5 10       		.byte	16
+ 771 02e6 18       		.byte	24
+ 772 02e7 02       		.byte	2
+ 773 02e8 19       		.byte	25
+ 774 02e9 08       		.byte	8
+ 775 02ea 1D       		.byte	29
+ 776 02eb 04       		.byte	4
+ 777 02ec 1E       		.byte	30
+ 778 02ed 02       		.byte	2
+ 779 02ee 22       		.byte	34
+ 780 02ef 04       		.byte	4
+ 781 02f0 23       		.byte	35
+ 782 02f1 08       		.byte	8
+ 783 02f2 24       		.byte	36
+ 784 02f3 04       		.byte	4
+ 785 02f4 25       		.byte	37
+ 786 02f5 40       		.byte	64
+ 787 02f6 27       		.byte	39
+ 788 02f7 80       		.byte	-128
+ 789 02f8 2A       		.byte	42
+ 790 02f9 01       		.byte	1
+ 791 02fa 2B       		.byte	43
+ 792 02fb 04       		.byte	4
+ 793 02fc 2C       		.byte	44
+ 794 02fd 08       		.byte	8
+ 795 02fe 2D       		.byte	45
+ 796 02ff 02       		.byte	2
+ 797 0300 31       		.byte	49
+ 798 0301 FF       		.byte	-1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 15
+
+
+ 799 0302 36       		.byte	54
+ 800 0303 1F       		.byte	31
+ 801 0304 38       		.byte	56
+ 802 0305 80       		.byte	-128
+ 803 0306 3E       		.byte	62
+ 804 0307 40       		.byte	64
+ 805 0308 3F       		.byte	63
+ 806 0309 01       		.byte	1
+ 807 030a 40       		.byte	64
+ 808 030b 20       		.byte	32
+ 809 030c 41       		.byte	65
+ 810 030d 03       		.byte	3
+ 811 030e 49       		.byte	73
+ 812 030f FF       		.byte	-1
+ 813 0310 4A       		.byte	74
+ 814 0311 FF       		.byte	-1
+ 815 0312 4B       		.byte	75
+ 816 0313 FF       		.byte	-1
+ 817 0314 4D       		.byte	77
+ 818 0315 A0       		.byte	-96
+ 819 0316 4F       		.byte	79
+ 820 0317 04       		.byte	4
+ 821 0318 50       		.byte	80
+ 822 0319 18       		.byte	24
+ 823 031a 58       		.byte	88
+ 824 031b 04       		.byte	4
+ 825 031c 59       		.byte	89
+ 826 031d 04       		.byte	4
+ 827 031e 5A       		.byte	90
+ 828 031f 04       		.byte	4
+ 829 0320 5C       		.byte	92
+ 830 0321 01       		.byte	1
+ 831 0322 5F       		.byte	95
+ 832 0323 01       		.byte	1
+ 833 0324 60       		.byte	96
+ 834 0325 40       		.byte	64
+ 835 0326 62       		.byte	98
+ 836 0327 C0       		.byte	-64
+ 837 0328 64       		.byte	100
+ 838 0329 40       		.byte	64
+ 839 032a 65       		.byte	101
+ 840 032b 40       		.byte	64
+ 841 032c 66       		.byte	102
+ 842 032d C0       		.byte	-64
+ 843 032e 68       		.byte	104
+ 844 032f C0       		.byte	-64
+ 845 0330 6A       		.byte	106
+ 846 0331 C0       		.byte	-64
+ 847 0332 6C       		.byte	108
+ 848 0333 C0       		.byte	-64
+ 849 0334 6E       		.byte	110
+ 850 0335 C0       		.byte	-64
+ 851 0336 87       		.byte	-121
+ 852 0337 02       		.byte	2
+ 853 0338 9B       		.byte	-101
+ 854 0339 02       		.byte	2
+ 855 033a 9F       		.byte	-97
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 16
+
+
+ 856 033b 01       		.byte	1
+ 857 033c B3       		.byte	-77
+ 858 033d 01       		.byte	1
+ 859 033e B5       		.byte	-75
+ 860 033f 02       		.byte	2
+ 861 0340 C0       		.byte	-64
+ 862 0341 20       		.byte	32
+ 863 0342 C1       		.byte	-63
+ 864 0343 03       		.byte	3
+ 865 0344 C5       		.byte	-59
+ 866 0345 01       		.byte	1
+ 867 0346 C6       		.byte	-58
+ 868 0347 20       		.byte	32
+ 869 0348 C8       		.byte	-56
+ 870 0349 09       		.byte	9
+ 871 034a C9       		.byte	-55
+ 872 034b FF       		.byte	-1
+ 873 034c CA       		.byte	-54
+ 874 034d FF       		.byte	-1
+ 875 034e CB       		.byte	-53
+ 876 034f FF       		.byte	-1
+ 877 0350 CD       		.byte	-51
+ 878 0351 AF       		.byte	-81
+ 879 0352 CE       		.byte	-50
+ 880 0353 0F       		.byte	15
+ 881 0354 CF       		.byte	-49
+ 882 0355 04       		.byte	4
+ 883 0356 D0       		.byte	-48
+ 884 0357 18       		.byte	24
+ 885 0358 D6       		.byte	-42
+ 886 0359 08       		.byte	8
+ 887 035a D8       		.byte	-40
+ 888 035b 04       		.byte	4
+ 889 035c D9       		.byte	-39
+ 890 035d 04       		.byte	4
+ 891 035e DA       		.byte	-38
+ 892 035f 04       		.byte	4
+ 893 0360 DB       		.byte	-37
+ 894 0361 04       		.byte	4
+ 895 0362 DC       		.byte	-36
+ 896 0363 01       		.byte	1
+ 897 0364 DD       		.byte	-35
+ 898 0365 90       		.byte	-112
+ 899 0366 DF       		.byte	-33
+ 900 0367 01       		.byte	1
+ 901 0368 E0       		.byte	-32
+ 902 0369 40       		.byte	64
+ 903 036a E2       		.byte	-30
+ 904 036b C0       		.byte	-64
+ 905 036c E4       		.byte	-28
+ 906 036d 40       		.byte	64
+ 907 036e E5       		.byte	-27
+ 908 036f 40       		.byte	64
+ 909 0370 E6       		.byte	-26
+ 910 0371 C0       		.byte	-64
+ 911 0372 E8       		.byte	-24
+ 912 0373 C0       		.byte	-64
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 17
+
+
+ 913 0374 EA       		.byte	-22
+ 914 0375 C0       		.byte	-64
+ 915 0376 EC       		.byte	-20
+ 916 0377 C0       		.byte	-64
+ 917 0378 EE       		.byte	-18
+ 918 0379 C0       		.byte	-64
+ 919 037a 00       		.byte	0
+ 920 037b 40       		.byte	64
+ 921 037c 02       		.byte	2
+ 922 037d 44       		.byte	68
+ 923 037e 03       		.byte	3
+ 924 037f A0       		.byte	-96
+ 925 0380 04       		.byte	4
+ 926 0381 02       		.byte	2
+ 927 0382 05       		.byte	5
+ 928 0383 10       		.byte	16
+ 929 0384 08       		.byte	8
+ 930 0385 24       		.byte	36
+ 931 0386 09       		.byte	9
+ 932 0387 80       		.byte	-128
+ 933 0388 0B       		.byte	11
+ 934 0389 40       		.byte	64
+ 935 038a 0C       		.byte	12
+ 936 038b 10       		.byte	16
+ 937 038c 0F       		.byte	15
+ 938 038d 40       		.byte	64
+ 939 038e 10       		.byte	16
+ 940 038f 80       		.byte	-128
+ 941 0390 11       		.byte	17
+ 942 0391 14       		.byte	20
+ 943 0392 12       		.byte	18
+ 944 0393 11       		.byte	17
+ 945 0394 15       		.byte	21
+ 946 0395 08       		.byte	8
+ 947 0396 16       		.byte	22
+ 948 0397 41       		.byte	65
+ 949 0398 1B       		.byte	27
+ 950 0399 80       		.byte	-128
+ 951 039a 20       		.byte	32
+ 952 039b 40       		.byte	64
+ 953 039c 24       		.byte	36
+ 954 039d 08       		.byte	8
+ 955 039e 27       		.byte	39
+ 956 039f 10       		.byte	16
+ 957 03a0 28       		.byte	40
+ 958 03a1 10       		.byte	16
+ 959 03a2 29       		.byte	41
+ 960 03a3 55       		.byte	85
+ 961 03a4 2A       		.byte	42
+ 962 03a5 11       		.byte	17
+ 963 03a6 30       		.byte	48
+ 964 03a7 A0       		.byte	-96
+ 965 03a8 32       		.byte	50
+ 966 03a9 01       		.byte	1
+ 967 03aa 33       		.byte	51
+ 968 03ab 24       		.byte	36
+ 969 03ac 34       		.byte	52
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 18
+
+
+ 970 03ad 04       		.byte	4
+ 971 03ae 35       		.byte	53
+ 972 03af 04       		.byte	4
+ 973 03b0 37       		.byte	55
+ 974 03b1 50       		.byte	80
+ 975 03b2 38       		.byte	56
+ 976 03b3 22       		.byte	34
+ 977 03b4 39       		.byte	57
+ 978 03b5 98       		.byte	-104
+ 979 03b6 3A       		.byte	58
+ 980 03b7 04       		.byte	4
+ 981 03b8 3B       		.byte	59
+ 982 03b9 02       		.byte	2
+ 983 03ba 3F       		.byte	63
+ 984 03bb 08       		.byte	8
+ 985 03bc 42       		.byte	66
+ 986 03bd 20       		.byte	32
+ 987 03be 43       		.byte	67
+ 988 03bf 10       		.byte	16
+ 989 03c0 46       		.byte	70
+ 990 03c1 20       		.byte	32
+ 991 03c2 47       		.byte	71
+ 992 03c3 10       		.byte	16
+ 993 03c4 4F       		.byte	79
+ 994 03c5 08       		.byte	8
+ 995 03c6 56       		.byte	86
+ 996 03c7 20       		.byte	32
+ 997 03c8 5E       		.byte	94
+ 998 03c9 40       		.byte	64
+ 999 03ca 64       		.byte	100
+ 1000 03cb 01       		.byte	1
+ 1001 03cc 7A       		.byte	122
+ 1002 03cd 80       		.byte	-128
+ 1003 03ce 7B       		.byte	123
+ 1004 03cf 80       		.byte	-128
+ 1005 03d0 90       		.byte	-112
+ 1006 03d1 02       		.byte	2
+ 1007 03d2 92       		.byte	-110
+ 1008 03d3 40       		.byte	64
+ 1009 03d4 95       		.byte	-107
+ 1010 03d5 04       		.byte	4
+ 1011 03d6 97       		.byte	-105
+ 1012 03d7 40       		.byte	64
+ 1013 03d8 9B       		.byte	-101
+ 1014 03d9 40       		.byte	64
+ 1015 03da 9C       		.byte	-100
+ 1016 03db 10       		.byte	16
+ 1017 03dc 9D       		.byte	-99
+ 1018 03dd 01       		.byte	1
+ 1019 03de 9E       		.byte	-98
+ 1020 03df 05       		.byte	5
+ 1021 03e0 A5       		.byte	-91
+ 1022 03e1 80       		.byte	-128
+ 1023 03e2 A6       		.byte	-90
+ 1024 03e3 80       		.byte	-128
+ 1025 03e4 A7       		.byte	-89
+ 1026 03e5 08       		.byte	8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 19
+
+
+ 1027 03e6 B4       		.byte	-76
+ 1028 03e7 40       		.byte	64
+ 1029 03e8 B6       		.byte	-74
+ 1030 03e9 40       		.byte	64
+ 1031 03ea C0       		.byte	-64
+ 1032 03eb 5F       		.byte	95
+ 1033 03ec C2       		.byte	-62
+ 1034 03ed 5F       		.byte	95
+ 1035 03ee C4       		.byte	-60
+ 1036 03ef BF       		.byte	-65
+ 1037 03f0 CA       		.byte	-54
+ 1038 03f1 0F       		.byte	15
+ 1039 03f2 CC       		.byte	-52
+ 1040 03f3 3F       		.byte	63
+ 1041 03f4 CE       		.byte	-50
+ 1042 03f5 4F       		.byte	79
+ 1043 03f6 D0       		.byte	-48
+ 1044 03f7 66       		.byte	102
+ 1045 03f8 D6       		.byte	-42
+ 1046 03f9 10       		.byte	16
+ 1047 03fa D8       		.byte	-40
+ 1048 03fb 10       		.byte	16
+ 1049 03fc E6       		.byte	-26
+ 1050 03fd 01       		.byte	1
+ 1051 03fe EC       		.byte	-20
+ 1052 03ff 40       		.byte	64
+ 1053 0400 40       		.byte	64
+ 1054 0401 30       		.byte	48
+ 1055 0402 41       		.byte	65
+ 1056 0403 06       		.byte	6
+ 1057 0404 49       		.byte	73
+ 1058 0405 FF       		.byte	-1
+ 1059 0406 4A       		.byte	74
+ 1060 0407 FF       		.byte	-1
+ 1061 0408 4B       		.byte	75
+ 1062 0409 FF       		.byte	-1
+ 1063 040a 4D       		.byte	77
+ 1064 040b A0       		.byte	-96
+ 1065 040c 4F       		.byte	79
+ 1066 040d 04       		.byte	4
+ 1067 040e 50       		.byte	80
+ 1068 040f 18       		.byte	24
+ 1069 0410 52       		.byte	82
+ 1070 0411 80       		.byte	-128
+ 1071 0412 58       		.byte	88
+ 1072 0413 04       		.byte	4
+ 1073 0414 59       		.byte	89
+ 1074 0415 04       		.byte	4
+ 1075 0416 5A       		.byte	90
+ 1076 0417 04       		.byte	4
+ 1077 0418 5B       		.byte	91
+ 1078 0419 04       		.byte	4
+ 1079 041a 5C       		.byte	92
+ 1080 041b 11       		.byte	17
+ 1081 041c 5F       		.byte	95
+ 1082 041d 01       		.byte	1
+ 1083 041e 60       		.byte	96
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 20
+
+
+ 1084 041f 40       		.byte	64
+ 1085 0420 62       		.byte	98
+ 1086 0421 C0       		.byte	-64
+ 1087 0422 64       		.byte	100
+ 1088 0423 40       		.byte	64
+ 1089 0424 65       		.byte	101
+ 1090 0425 40       		.byte	64
+ 1091 0426 66       		.byte	102
+ 1092 0427 C0       		.byte	-64
+ 1093 0428 68       		.byte	104
+ 1094 0429 C0       		.byte	-64
+ 1095 042a 6A       		.byte	106
+ 1096 042b C0       		.byte	-64
+ 1097 042c 6C       		.byte	108
+ 1098 042d C0       		.byte	-64
+ 1099 042e 6E       		.byte	110
+ 1100 042f C0       		.byte	-64
+ 1101 0430 8B       		.byte	-117
+ 1102 0431 02       		.byte	2
+ 1103 0432 8F       		.byte	-113
+ 1104 0433 02       		.byte	2
+ 1105 0434 93       		.byte	-109
+ 1106 0435 01       		.byte	1
+ 1107 0436 9E       		.byte	-98
+ 1108 0437 01       		.byte	1
+ 1109 0438 B1       		.byte	-79
+ 1110 0439 02       		.byte	2
+ 1111 043a B5       		.byte	-75
+ 1112 043b 01       		.byte	1
+ 1113 043c B6       		.byte	-74
+ 1114 043d 01       		.byte	1
+ 1115 043e C0       		.byte	-64
+ 1116 043f 20       		.byte	32
+ 1117 0440 C1       		.byte	-63
+ 1118 0441 06       		.byte	6
+ 1119 0442 C6       		.byte	-58
+ 1120 0443 01       		.byte	1
+ 1121 0444 C7       		.byte	-57
+ 1122 0445 02       		.byte	2
+ 1123 0446 C8       		.byte	-56
+ 1124 0447 14       		.byte	20
+ 1125 0448 C9       		.byte	-55
+ 1126 0449 FF       		.byte	-1
+ 1127 044a CA       		.byte	-54
+ 1128 044b FF       		.byte	-1
+ 1129 044c CB       		.byte	-53
+ 1130 044d FF       		.byte	-1
+ 1131 044e CD       		.byte	-51
+ 1132 044f AF       		.byte	-81
+ 1133 0450 CE       		.byte	-50
+ 1134 0451 0F       		.byte	15
+ 1135 0452 CF       		.byte	-49
+ 1136 0453 04       		.byte	4
+ 1137 0454 D0       		.byte	-48
+ 1138 0455 18       		.byte	24
+ 1139 0456 D2       		.byte	-46
+ 1140 0457 80       		.byte	-128
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 21
+
+
+ 1141 0458 D8       		.byte	-40
+ 1142 0459 04       		.byte	4
+ 1143 045a D9       		.byte	-39
+ 1144 045b 04       		.byte	4
+ 1145 045c DA       		.byte	-38
+ 1146 045d 04       		.byte	4
+ 1147 045e DB       		.byte	-37
+ 1148 045f 04       		.byte	4
+ 1149 0460 DC       		.byte	-36
+ 1150 0461 01       		.byte	1
+ 1151 0462 DF       		.byte	-33
+ 1152 0463 01       		.byte	1
+ 1153 0464 E0       		.byte	-32
+ 1154 0465 40       		.byte	64
+ 1155 0466 E2       		.byte	-30
+ 1156 0467 C0       		.byte	-64
+ 1157 0468 E4       		.byte	-28
+ 1158 0469 40       		.byte	64
+ 1159 046a E5       		.byte	-27
+ 1160 046b 40       		.byte	64
+ 1161 046c E6       		.byte	-26
+ 1162 046d C0       		.byte	-64
+ 1163 046e E8       		.byte	-24
+ 1164 046f C0       		.byte	-64
+ 1165 0470 EA       		.byte	-22
+ 1166 0471 C0       		.byte	-64
+ 1167 0472 EC       		.byte	-20
+ 1168 0473 C0       		.byte	-64
+ 1169 0474 EE       		.byte	-18
+ 1170 0475 C0       		.byte	-64
+ 1171 0476 02       		.byte	2
+ 1172 0477 01       		.byte	1
+ 1173 0478 03       		.byte	3
+ 1174 0479 08       		.byte	8
+ 1175 047a 06       		.byte	6
+ 1176 047b 01       		.byte	1
+ 1177 047c 08       		.byte	8
+ 1178 047d 20       		.byte	32
+ 1179 047e 09       		.byte	9
+ 1180 047f 80       		.byte	-128
+ 1181 0480 0C       		.byte	12
+ 1182 0481 10       		.byte	16
+ 1183 0482 0E       		.byte	14
+ 1184 0483 01       		.byte	1
+ 1185 0484 0F       		.byte	15
+ 1186 0485 40       		.byte	64
+ 1187 0486 11       		.byte	17
+ 1188 0487 04       		.byte	4
+ 1189 0488 12       		.byte	18
+ 1190 0489 84       		.byte	-124
+ 1191 048a 13       		.byte	19
+ 1192 048b 42       		.byte	66
+ 1193 048c 15       		.byte	21
+ 1194 048d 14       		.byte	20
+ 1195 048e 16       		.byte	22
+ 1196 048f 04       		.byte	4
+ 1197 0490 17       		.byte	23
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 22
+
+
+ 1198 0491 02       		.byte	2
+ 1199 0492 18       		.byte	24
+ 1200 0493 02       		.byte	2
+ 1201 0494 1A       		.byte	26
+ 1202 0495 01       		.byte	1
+ 1203 0496 1B       		.byte	27
+ 1204 0497 80       		.byte	-128
+ 1205 0498 20       		.byte	32
+ 1206 0499 40       		.byte	64
+ 1207 049a 21       		.byte	33
+ 1208 049b 10       		.byte	16
+ 1209 049c 23       		.byte	35
+ 1210 049d 08       		.byte	8
+ 1211 049e 2C       		.byte	44
+ 1212 049f 10       		.byte	16
+ 1213 04a0 2D       		.byte	45
+ 1214 04a1 10       		.byte	16
+ 1215 04a2 2F       		.byte	47
+ 1216 04a3 80       		.byte	-128
+ 1217 04a4 30       		.byte	48
+ 1218 04a5 02       		.byte	2
+ 1219 04a6 35       		.byte	53
+ 1220 04a7 01       		.byte	1
+ 1221 04a8 36       		.byte	54
+ 1222 04a9 80       		.byte	-128
+ 1223 04aa 38       		.byte	56
+ 1224 04ab 80       		.byte	-128
+ 1225 04ac 39       		.byte	57
+ 1226 04ad 20       		.byte	32
+ 1227 04ae 3D       		.byte	61
+ 1228 04af 04       		.byte	4
+ 1229 04b0 3F       		.byte	63
+ 1230 04b1 40       		.byte	64
+ 1231 04b2 41       		.byte	65
+ 1232 04b3 10       		.byte	16
+ 1233 04b4 47       		.byte	71
+ 1234 04b5 08       		.byte	8
+ 1235 04b6 4A       		.byte	74
+ 1236 04b7 08       		.byte	8
+ 1237 04b8 4E       		.byte	78
+ 1238 04b9 08       		.byte	8
+ 1239 04ba 50       		.byte	80
+ 1240 04bb 40       		.byte	64
+ 1241 04bc 52       		.byte	82
+ 1242 04bd 08       		.byte	8
+ 1243 04be 70       		.byte	112
+ 1244 04bf 02       		.byte	2
+ 1245 04c0 77       		.byte	119
+ 1246 04c1 40       		.byte	64
+ 1247 04c2 8C       		.byte	-116
+ 1248 04c3 21       		.byte	33
+ 1249 04c4 94       		.byte	-108
+ 1250 04c5 02       		.byte	2
+ 1251 04c6 95       		.byte	-107
+ 1252 04c7 04       		.byte	4
+ 1253 04c8 97       		.byte	-105
+ 1254 04c9 40       		.byte	64
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 23
+
+
+ 1255 04ca 9C       		.byte	-100
+ 1256 04cb 30       		.byte	48
+ 1257 04cc 9E       		.byte	-98
+ 1258 04cd 05       		.byte	5
+ 1259 04ce A6       		.byte	-90
+ 1260 04cf 80       		.byte	-128
+ 1261 04d0 B0       		.byte	-80
+ 1262 04d1 10       		.byte	16
+ 1263 04d2 C0       		.byte	-64
+ 1264 04d3 83       		.byte	-125
+ 1265 04d4 C2       		.byte	-62
+ 1266 04d5 D3       		.byte	-45
+ 1267 04d6 C4       		.byte	-60
+ 1268 04d7 7F       		.byte	127
+ 1269 04d8 CA       		.byte	-54
+ 1270 04d9 E0       		.byte	-32
+ 1271 04da CC       		.byte	-52
+ 1272 04db 91       		.byte	-111
+ 1273 04dc CE       		.byte	-50
+ 1274 04dd 5C       		.byte	92
+ 1275 04de D0       		.byte	-48
+ 1276 04df 44       		.byte	68
+ 1277 04e0 D2       		.byte	-46
+ 1278 04e1 24       		.byte	36
+ 1279 04e2 E2       		.byte	-30
+ 1280 04e3 40       		.byte	64
+ 1281 04e4 40       		.byte	64
+ 1282 04e5 20       		.byte	32
+ 1283 04e6 41       		.byte	65
+ 1284 04e7 01       		.byte	1
+ 1285 04e8 49       		.byte	73
+ 1286 04e9 FF       		.byte	-1
+ 1287 04ea 4A       		.byte	74
+ 1288 04eb FF       		.byte	-1
+ 1289 04ec 4B       		.byte	75
+ 1290 04ed FF       		.byte	-1
+ 1291 04ee 4D       		.byte	77
+ 1292 04ef A0       		.byte	-96
+ 1293 04f0 4F       		.byte	79
+ 1294 04f1 04       		.byte	4
+ 1295 04f2 50       		.byte	80
+ 1296 04f3 18       		.byte	24
+ 1297 04f4 58       		.byte	88
+ 1298 04f5 04       		.byte	4
+ 1299 04f6 59       		.byte	89
+ 1300 04f7 04       		.byte	4
+ 1301 04f8 5A       		.byte	90
+ 1302 04f9 04       		.byte	4
+ 1303 04fa 5C       		.byte	92
+ 1304 04fb 11       		.byte	17
+ 1305 04fc 5F       		.byte	95
+ 1306 04fd 01       		.byte	1
+ 1307 04fe 60       		.byte	96
+ 1308 04ff 40       		.byte	64
+ 1309 0500 62       		.byte	98
+ 1310 0501 C0       		.byte	-64
+ 1311 0502 64       		.byte	100
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 24
+
+
+ 1312 0503 40       		.byte	64
+ 1313 0504 65       		.byte	101
+ 1314 0505 40       		.byte	64
+ 1315 0506 66       		.byte	102
+ 1316 0507 C0       		.byte	-64
+ 1317 0508 68       		.byte	104
+ 1318 0509 C0       		.byte	-64
+ 1319 050a 6A       		.byte	106
+ 1320 050b C0       		.byte	-64
+ 1321 050c 6C       		.byte	108
+ 1322 050d C0       		.byte	-64
+ 1323 050e 6E       		.byte	110
+ 1324 050f C0       		.byte	-64
+ 1325 0510 86       		.byte	-122
+ 1326 0511 02       		.byte	2
+ 1327 0512 9A       		.byte	-102
+ 1328 0513 02       		.byte	2
+ 1329 0514 AE       		.byte	-82
+ 1330 0515 01       		.byte	1
+ 1331 0516 B2       		.byte	-78
+ 1332 0517 02       		.byte	2
+ 1333 0518 B4       		.byte	-76
+ 1334 0519 01       		.byte	1
+ 1335 051a C0       		.byte	-64
+ 1336 051b 20       		.byte	32
+ 1337 051c C1       		.byte	-63
+ 1338 051d 05       		.byte	5
+ 1339 051e C5       		.byte	-59
+ 1340 051f 01       		.byte	1
+ 1341 0520 C6       		.byte	-58
+ 1342 0521 02       		.byte	2
+ 1343 0522 C8       		.byte	-56
+ 1344 0523 05       		.byte	5
+ 1345 0524 C9       		.byte	-55
+ 1346 0525 FF       		.byte	-1
+ 1347 0526 CA       		.byte	-54
+ 1348 0527 FF       		.byte	-1
+ 1349 0528 CB       		.byte	-53
+ 1350 0529 FF       		.byte	-1
+ 1351 052a CD       		.byte	-51
+ 1352 052b AF       		.byte	-81
+ 1353 052c CE       		.byte	-50
+ 1354 052d 0F       		.byte	15
+ 1355 052e CF       		.byte	-49
+ 1356 052f 04       		.byte	4
+ 1357 0530 D0       		.byte	-48
+ 1358 0531 18       		.byte	24
+ 1359 0532 D2       		.byte	-46
+ 1360 0533 80       		.byte	-128
+ 1361 0534 D8       		.byte	-40
+ 1362 0535 04       		.byte	4
+ 1363 0536 D9       		.byte	-39
+ 1364 0537 04       		.byte	4
+ 1365 0538 DA       		.byte	-38
+ 1366 0539 04       		.byte	4
+ 1367 053a DB       		.byte	-37
+ 1368 053b 04       		.byte	4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 25
+
+
+ 1369 053c DC       		.byte	-36
+ 1370 053d 10       		.byte	16
+ 1371 053e DF       		.byte	-33
+ 1372 053f 01       		.byte	1
+ 1373 0540 E0       		.byte	-32
+ 1374 0541 40       		.byte	64
+ 1375 0542 E2       		.byte	-30
+ 1376 0543 C0       		.byte	-64
+ 1377 0544 E4       		.byte	-28
+ 1378 0545 40       		.byte	64
+ 1379 0546 E5       		.byte	-27
+ 1380 0547 40       		.byte	64
+ 1381 0548 E6       		.byte	-26
+ 1382 0549 C0       		.byte	-64
+ 1383 054a E8       		.byte	-24
+ 1384 054b C0       		.byte	-64
+ 1385 054c EA       		.byte	-22
+ 1386 054d C0       		.byte	-64
+ 1387 054e EC       		.byte	-20
+ 1388 054f C0       		.byte	-64
+ 1389 0550 EE       		.byte	-18
+ 1390 0551 C0       		.byte	-64
+ 1391 0552 01       		.byte	1
+ 1392 0553 04       		.byte	4
+ 1393 0554 02       		.byte	2
+ 1394 0555 11       		.byte	17
+ 1395 0556 04       		.byte	4
+ 1396 0557 04       		.byte	4
+ 1397 0558 08       		.byte	8
+ 1398 0559 20       		.byte	32
+ 1399 055a 0B       		.byte	11
+ 1400 055b 04       		.byte	4
+ 1401 055c 0F       		.byte	15
+ 1402 055d 08       		.byte	8
+ 1403 055e 10       		.byte	16
+ 1404 055f 10       		.byte	16
+ 1405 0560 11       		.byte	17
+ 1406 0561 10       		.byte	16
+ 1407 0562 12       		.byte	18
+ 1408 0563 84       		.byte	-124
+ 1409 0564 13       		.byte	19
+ 1410 0565 40       		.byte	64
+ 1411 0566 17       		.byte	23
+ 1412 0567 40       		.byte	64
+ 1413 0568 1C       		.byte	28
+ 1414 0569 24       		.byte	36
+ 1415 056a 1D       		.byte	29
+ 1416 056b 20       		.byte	32
+ 1417 056c 2A       		.byte	42
+ 1418 056d 13       		.byte	19
+ 1419 056e 2D       		.byte	45
+ 1420 056f 14       		.byte	20
+ 1421 0570 2E       		.byte	46
+ 1422 0571 02       		.byte	2
+ 1423 0572 30       		.byte	48
+ 1424 0573 10       		.byte	16
+ 1425 0574 32       		.byte	50
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 26
+
+
+ 1426 0575 80       		.byte	-128
+ 1427 0576 34       		.byte	52
+ 1428 0577 10       		.byte	16
+ 1429 0578 36       		.byte	54
+ 1430 0579 80       		.byte	-128
+ 1431 057a 38       		.byte	56
+ 1432 057b 02       		.byte	2
+ 1433 057c 3A       		.byte	58
+ 1434 057d 04       		.byte	4
+ 1435 057e 3B       		.byte	59
+ 1436 057f 40       		.byte	64
+ 1437 0580 3F       		.byte	63
+ 1438 0581 44       		.byte	68
+ 1439 0582 40       		.byte	64
+ 1440 0583 04       		.byte	4
+ 1441 0584 43       		.byte	67
+ 1442 0585 80       		.byte	-128
+ 1443 0586 45       		.byte	69
+ 1444 0587 20       		.byte	32
+ 1445 0588 4F       		.byte	79
+ 1446 0589 88       		.byte	-120
+ 1447 058a 57       		.byte	87
+ 1448 058b C0       		.byte	-64
+ 1449 058c 77       		.byte	119
+ 1450 058d 40       		.byte	64
+ 1451 058e C0       		.byte	-64
+ 1452 058f 25       		.byte	37
+ 1453 0590 C2       		.byte	-62
+ 1454 0591 42       		.byte	66
+ 1455 0592 C4       		.byte	-60
+ 1456 0593 8F       		.byte	-113
+ 1457 0594 CA       		.byte	-54
+ 1458 0595 E5       		.byte	-27
+ 1459 0596 CC       		.byte	-52
+ 1460 0597 3C       		.byte	60
+ 1461 0598 CE       		.byte	-50
+ 1462 0599 5B       		.byte	91
+ 1463 059a D0       		.byte	-48
+ 1464 059b 2C       		.byte	44
+ 1465 059c D2       		.byte	-46
+ 1466 059d 10       		.byte	16
+ 1467 059e 00       		.byte	0
+ 1468 059f 10       		.byte	16
+ 1469 05a0 04       		.byte	4
+ 1470 05a1 09       		.byte	9
+ 1471 05a2 05       		.byte	5
+ 1472 05a3 04       		.byte	4
+ 1473 05a4 06       		.byte	6
+ 1474 05a5 10       		.byte	16
+ 1475 05a6 0B       		.byte	11
+ 1476 05a7 02       		.byte	2
+ 1477 05a8 10       		.byte	16
+ 1478 05a9 2C       		.byte	44
+ 1479 05aa 11       		.byte	17
+ 1480 05ab 01       		.byte	1
+ 1481 05ac 12       		.byte	18
+ 1482 05ad 11       		.byte	17
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 27
+
+
+ 1483 05ae 14       		.byte	20
+ 1484 05af 40       		.byte	64
+ 1485 05b0 15       		.byte	21
+ 1486 05b1 06       		.byte	6
+ 1487 05b2 18       		.byte	24
+ 1488 05b3 1C       		.byte	28
+ 1489 05b4 1A       		.byte	26
+ 1490 05b5 22       		.byte	34
+ 1491 05b6 1D       		.byte	29
+ 1492 05b7 06       		.byte	6
+ 1493 05b8 1E       		.byte	30
+ 1494 05b9 03       		.byte	3
+ 1495 05ba 20       		.byte	32
+ 1496 05bb 14       		.byte	20
+ 1497 05bc 28       		.byte	40
+ 1498 05bd 30       		.byte	48
+ 1499 05be 2A       		.byte	42
+ 1500 05bf 0C       		.byte	12
+ 1501 05c0 34       		.byte	52
+ 1502 05c1 60       		.byte	96
+ 1503 05c2 35       		.byte	53
+ 1504 05c3 06       		.byte	6
+ 1505 05c4 36       		.byte	54
+ 1506 05c5 1F       		.byte	31
+ 1507 05c6 37       		.byte	55
+ 1508 05c7 01       		.byte	1
+ 1509 05c8 38       		.byte	56
+ 1510 05c9 20       		.byte	32
+ 1511 05ca 39       		.byte	57
+ 1512 05cb 20       		.byte	32
+ 1513 05cc 3F       		.byte	63
+ 1514 05cd 50       		.byte	80
+ 1515 05ce 40       		.byte	64
+ 1516 05cf 02       		.byte	2
+ 1517 05d0 46       		.byte	70
+ 1518 05d1 04       		.byte	4
+ 1519 05d2 49       		.byte	73
+ 1520 05d3 FF       		.byte	-1
+ 1521 05d4 4A       		.byte	74
+ 1522 05d5 07       		.byte	7
+ 1523 05d6 4B       		.byte	75
+ 1524 05d7 FF       		.byte	-1
+ 1525 05d8 4C       		.byte	76
+ 1526 05d9 40       		.byte	64
+ 1527 05da 4D       		.byte	77
+ 1528 05db 20       		.byte	32
+ 1529 05dc 4E       		.byte	78
+ 1530 05dd F0       		.byte	-16
+ 1531 05de 4F       		.byte	79
+ 1532 05df 05       		.byte	5
+ 1533 05e0 50       		.byte	80
+ 1534 05e1 08       		.byte	8
+ 1535 05e2 58       		.byte	88
+ 1536 05e3 04       		.byte	4
+ 1537 05e4 59       		.byte	89
+ 1538 05e5 04       		.byte	4
+ 1539 05e6 5A       		.byte	90
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 28
+
+
+ 1540 05e7 04       		.byte	4
+ 1541 05e8 5C       		.byte	92
+ 1542 05e9 12       		.byte	18
+ 1543 05ea 5D       		.byte	93
+ 1544 05eb 02       		.byte	2
+ 1545 05ec 5F       		.byte	95
+ 1546 05ed 01       		.byte	1
+ 1547 05ee 60       		.byte	96
+ 1548 05ef 40       		.byte	64
+ 1549 05f0 61       		.byte	97
+ 1550 05f1 A8       		.byte	-88
+ 1551 05f2 62       		.byte	98
+ 1552 05f3 40       		.byte	64
+ 1553 05f4 63       		.byte	99
+ 1554 05f5 20       		.byte	32
+ 1555 05f6 D8       		.byte	-40
+ 1556 05f7 04       		.byte	4
+ 1557 05f8 D9       		.byte	-39
+ 1558 05f9 04       		.byte	4
+ 1559 05fa DC       		.byte	-36
+ 1560 05fb 11       		.byte	17
+ 1561 05fc DF       		.byte	-33
+ 1562 05fd 01       		.byte	1
+ 1563 05fe 02       		.byte	2
+ 1564 05ff 40       		.byte	64
+ 1565 0600 03       		.byte	3
+ 1566 0601 20       		.byte	32
+ 1567 0602 06       		.byte	6
+ 1568 0603 81       		.byte	-127
+ 1569 0604 07       		.byte	7
+ 1570 0605 40       		.byte	64
+ 1571 0606 0A       		.byte	10
+ 1572 0607 85       		.byte	-123
+ 1573 0608 0B       		.byte	11
+ 1574 0609 20       		.byte	32
+ 1575 060a 0D       		.byte	13
+ 1576 060b 20       		.byte	32
+ 1577 060c 0F       		.byte	15
+ 1578 060d 20       		.byte	32
+ 1579 060e 10       		.byte	16
+ 1580 060f 84       		.byte	-124
+ 1581 0610 14       		.byte	20
+ 1582 0611 40       		.byte	64
+ 1583 0612 15       		.byte	21
+ 1584 0613 40       		.byte	64
+ 1585 0614 16       		.byte	22
+ 1586 0615 20       		.byte	32
+ 1587 0616 19       		.byte	25
+ 1588 0617 10       		.byte	16
+ 1589 0618 1A       		.byte	26
+ 1590 0619 03       		.byte	3
+ 1591 061a 1B       		.byte	27
+ 1592 061b 20       		.byte	32
+ 1593 061c 20       		.byte	32
+ 1594 061d 06       		.byte	6
+ 1595 061e 28       		.byte	40
+ 1596 061f 40       		.byte	64
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 29
+
+
+ 1597 0620 29       		.byte	41
+ 1598 0621 08       		.byte	8
+ 1599 0622 2A       		.byte	42
+ 1600 0623 A0       		.byte	-96
+ 1601 0624 2B       		.byte	43
+ 1602 0625 10       		.byte	16
+ 1603 0626 2C       		.byte	44
+ 1604 0627 40       		.byte	64
+ 1605 0628 2D       		.byte	45
+ 1606 0629 48       		.byte	72
+ 1607 062a 30       		.byte	48
+ 1608 062b 04       		.byte	4
+ 1609 062c 31       		.byte	49
+ 1610 062d 28       		.byte	40
+ 1611 062e 32       		.byte	50
+ 1612 062f 51       		.byte	81
+ 1613 0630 33       		.byte	51
+ 1614 0631 10       		.byte	16
+ 1615 0632 37       		.byte	55
+ 1616 0633 50       		.byte	80
+ 1617 0634 38       		.byte	56
+ 1618 0635 28       		.byte	40
+ 1619 0636 39       		.byte	57
+ 1620 0637 40       		.byte	64
+ 1621 0638 3A       		.byte	58
+ 1622 0639 01       		.byte	1
+ 1623 063a 3B       		.byte	59
+ 1624 063b 01       		.byte	1
+ 1625 063c 3E       		.byte	62
+ 1626 063d 20       		.byte	32
+ 1627 063e 3F       		.byte	63
+ 1628 063f 01       		.byte	1
+ 1629 0640 40       		.byte	64
+ 1630 0641 04       		.byte	4
+ 1631 0642 50       		.byte	80
+ 1632 0643 10       		.byte	16
+ 1633 0644 52       		.byte	82
+ 1634 0645 40       		.byte	64
+ 1635 0646 53       		.byte	83
+ 1636 0647 10       		.byte	16
+ 1637 0648 81       		.byte	-127
+ 1638 0649 40       		.byte	64
+ 1639 064a 84       		.byte	-124
+ 1640 064b 01       		.byte	1
+ 1641 064c 8F       		.byte	-113
+ 1642 064d 40       		.byte	64
+ 1643 064e 90       		.byte	-112
+ 1644 064f 08       		.byte	8
+ 1645 0650 92       		.byte	-110
+ 1646 0651 A4       		.byte	-92
+ 1647 0652 95       		.byte	-107
+ 1648 0653 40       		.byte	64
+ 1649 0654 97       		.byte	-105
+ 1650 0655 20       		.byte	32
+ 1651 0656 98       		.byte	-104
+ 1652 0657 40       		.byte	64
+ 1653 0658 9A       		.byte	-102
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 30
+
+
+ 1654 0659 21       		.byte	33
+ 1655 065a 9B       		.byte	-101
+ 1656 065b 40       		.byte	64
+ 1657 065c 9D       		.byte	-99
+ 1658 065d 10       		.byte	16
+ 1659 065e 9E       		.byte	-98
+ 1660 065f 40       		.byte	64
+ 1661 0660 9F       		.byte	-97
+ 1662 0661 10       		.byte	16
+ 1663 0662 A0       		.byte	-96
+ 1664 0663 80       		.byte	-128
+ 1665 0664 A1       		.byte	-95
+ 1666 0665 08       		.byte	8
+ 1667 0666 A3       		.byte	-93
+ 1668 0667 10       		.byte	16
+ 1669 0668 AA       		.byte	-86
+ 1670 0669 20       		.byte	32
+ 1671 066a C0       		.byte	-64
+ 1672 066b 9C       		.byte	-100
+ 1673 066c C2       		.byte	-62
+ 1674 066d 6F       		.byte	111
+ 1675 066e C4       		.byte	-60
+ 1676 066f BA       		.byte	-70
+ 1677 0670 CA       		.byte	-54
+ 1678 0671 DF       		.byte	-33
+ 1679 0672 CC       		.byte	-52
+ 1680 0673 3F       		.byte	63
+ 1681 0674 CE       		.byte	-50
+ 1682 0675 AF       		.byte	-81
+ 1683 0676 D0       		.byte	-48
+ 1684 0677 04       		.byte	4
+ 1685 0678 E4       		.byte	-28
+ 1686 0679 08       		.byte	8
+ 1687 067a E6       		.byte	-26
+ 1688 067b 04       		.byte	4
+ 1689 067c EA       		.byte	-22
+ 1690 067d 04       		.byte	4
+ 1691 067e EC       		.byte	-20
+ 1692 067f 20       		.byte	32
+ 1693 0680 58       		.byte	88
+ 1694 0681 04       		.byte	4
+ 1695 0682 59       		.byte	89
+ 1696 0683 04       		.byte	4
+ 1697 0684 5C       		.byte	92
+ 1698 0685 11       		.byte	17
+ 1699 0686 5F       		.byte	95
+ 1700 0687 01       		.byte	1
+ 1701 0688 85       		.byte	-123
+ 1702 0689 0A       		.byte	10
+ 1703 068a 86       		.byte	-122
+ 1704 068b 1C       		.byte	28
+ 1705 068c 87       		.byte	-121
+ 1706 068d 04       		.byte	4
+ 1707 068e 88       		.byte	-120
+ 1708 068f 41       		.byte	65
+ 1709 0690 8A       		.byte	-118
+ 1710 0691 16       		.byte	22
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 31
+
+
+ 1711 0692 8B       		.byte	-117
+ 1712 0693 05       		.byte	5
+ 1713 0694 90       		.byte	-112
+ 1714 0695 41       		.byte	65
+ 1715 0696 92       		.byte	-110
+ 1716 0697 0E       		.byte	14
+ 1717 0698 95       		.byte	-107
+ 1718 0699 03       		.byte	3
+ 1719 069a 96       		.byte	-106
+ 1720 069b 43       		.byte	67
+ 1721 069c 97       		.byte	-105
+ 1722 069d 04       		.byte	4
+ 1723 069e 98       		.byte	-104
+ 1724 069f 1C       		.byte	28
+ 1725 06a0 9A       		.byte	-102
+ 1726 06a1 43       		.byte	67
+ 1727 06a2 9C       		.byte	-100
+ 1728 06a3 20       		.byte	32
+ 1729 06a4 9D       		.byte	-99
+ 1730 06a5 03       		.byte	3
+ 1731 06a6 9F       		.byte	-97
+ 1732 06a7 04       		.byte	4
+ 1733 06a8 A2       		.byte	-94
+ 1734 06a9 08       		.byte	8
+ 1735 06aa A5       		.byte	-91
+ 1736 06ab 03       		.byte	3
+ 1737 06ac A7       		.byte	-89
+ 1738 06ad 0C       		.byte	12
+ 1739 06ae AA       		.byte	-86
+ 1740 06af 40       		.byte	64
+ 1741 06b0 AB       		.byte	-85
+ 1742 06b1 08       		.byte	8
+ 1743 06b2 B0       		.byte	-80
+ 1744 06b3 1A       		.byte	26
+ 1745 06b4 B2       		.byte	-78
+ 1746 06b5 20       		.byte	32
+ 1747 06b6 B3       		.byte	-77
+ 1748 06b7 0F       		.byte	15
+ 1749 06b8 B4       		.byte	-76
+ 1750 06b9 0F       		.byte	15
+ 1751 06ba B6       		.byte	-74
+ 1752 06bb 40       		.byte	64
+ 1753 06bc BA       		.byte	-70
+ 1754 06bd 22       		.byte	34
+ 1755 06be BB       		.byte	-69
+ 1756 06bf 08       		.byte	8
+ 1757 06c0 BE       		.byte	-66
+ 1758 06c1 44       		.byte	68
+ 1759 06c2 C0       		.byte	-64
+ 1760 06c3 36       		.byte	54
+ 1761 06c4 C1       		.byte	-63
+ 1762 06c5 05       		.byte	5
+ 1763 06c6 C5       		.byte	-59
+ 1764 06c7 E0       		.byte	-32
+ 1765 06c8 C6       		.byte	-58
+ 1766 06c9 0B       		.byte	11
+ 1767 06ca C7       		.byte	-57
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 32
+
+
+ 1768 06cb 0C       		.byte	12
+ 1769 06cc C8       		.byte	-56
+ 1770 06cd 16       		.byte	22
+ 1771 06ce C9       		.byte	-55
+ 1772 06cf FF       		.byte	-1
+ 1773 06d0 CA       		.byte	-54
+ 1774 06d1 FF       		.byte	-1
+ 1775 06d2 CB       		.byte	-53
+ 1776 06d3 FF       		.byte	-1
+ 1777 06d4 CE       		.byte	-50
+ 1778 06d5 F0       		.byte	-16
+ 1779 06d6 CF       		.byte	-49
+ 1780 06d7 44       		.byte	68
+ 1781 06d8 D0       		.byte	-48
+ 1782 06d9 0C       		.byte	12
+ 1783 06da D4       		.byte	-44
+ 1784 06db 01       		.byte	1
+ 1785 06dc D8       		.byte	-40
+ 1786 06dd 04       		.byte	4
+ 1787 06de D9       		.byte	-39
+ 1788 06df 04       		.byte	4
+ 1789 06e0 DA       		.byte	-38
+ 1790 06e1 04       		.byte	4
+ 1791 06e2 DB       		.byte	-37
+ 1792 06e3 04       		.byte	4
+ 1793 06e4 DC       		.byte	-36
+ 1794 06e5 22       		.byte	34
+ 1795 06e6 DD       		.byte	-35
+ 1796 06e7 22       		.byte	34
+ 1797 06e8 DF       		.byte	-33
+ 1798 06e9 01       		.byte	1
+ 1799 06ea E6       		.byte	-26
+ 1800 06eb C0       		.byte	-64
+ 1801 06ec EA       		.byte	-22
+ 1802 06ed 40       		.byte	64
+ 1803 06ee EB       		.byte	-21
+ 1804 06ef 02       		.byte	2
+ 1805 06f0 00       		.byte	0
+ 1806 06f1 20       		.byte	32
+ 1807 06f2 02       		.byte	2
+ 1808 06f3 14       		.byte	20
+ 1809 06f4 07       		.byte	7
+ 1810 06f5 58       		.byte	88
+ 1811 06f6 0A       		.byte	10
+ 1812 06f7 84       		.byte	-124
+ 1813 06f8 0B       		.byte	11
+ 1814 06f9 62       		.byte	98
+ 1815 06fa 0C       		.byte	12
+ 1816 06fb 04       		.byte	4
+ 1817 06fc 0F       		.byte	15
+ 1818 06fd 20       		.byte	32
+ 1819 06fe 10       		.byte	16
+ 1820 06ff 08       		.byte	8
+ 1821 0700 12       		.byte	18
+ 1822 0701 40       		.byte	64
+ 1823 0702 13       		.byte	19
+ 1824 0703 20       		.byte	32
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 33
+
+
+ 1825 0704 14       		.byte	20
+ 1826 0705 40       		.byte	64
+ 1827 0706 15       		.byte	21
+ 1828 0707 40       		.byte	64
+ 1829 0708 16       		.byte	22
+ 1830 0709 20       		.byte	32
+ 1831 070a 18       		.byte	24
+ 1832 070b 08       		.byte	8
+ 1833 070c 19       		.byte	25
+ 1834 070d 44       		.byte	68
+ 1835 070e 1A       		.byte	26
+ 1836 070f 84       		.byte	-124
+ 1837 0710 20       		.byte	32
+ 1838 0711 20       		.byte	32
+ 1839 0712 21       		.byte	33
+ 1840 0713 08       		.byte	8
+ 1841 0714 29       		.byte	41
+ 1842 0715 10       		.byte	16
+ 1843 0716 2A       		.byte	42
+ 1844 0717 14       		.byte	20
+ 1845 0718 2C       		.byte	44
+ 1846 0719 44       		.byte	68
+ 1847 071a 2D       		.byte	45
+ 1848 071b 40       		.byte	64
+ 1849 071c 30       		.byte	48
+ 1850 071d 08       		.byte	8
+ 1851 071e 32       		.byte	50
+ 1852 071f 40       		.byte	64
+ 1853 0720 34       		.byte	52
+ 1854 0721 80       		.byte	-128
+ 1855 0722 37       		.byte	55
+ 1856 0723 58       		.byte	88
+ 1857 0724 38       		.byte	56
+ 1858 0725 08       		.byte	8
+ 1859 0726 3B       		.byte	59
+ 1860 0727 20       		.byte	32
+ 1861 0728 3E       		.byte	62
+ 1862 0729 20       		.byte	32
+ 1863 072a 41       		.byte	65
+ 1864 072b 08       		.byte	8
+ 1865 072c 49       		.byte	73
+ 1866 072d 01       		.byte	1
+ 1867 072e 4B       		.byte	75
+ 1868 072f 62       		.byte	98
+ 1869 0730 50       		.byte	80
+ 1870 0731 88       		.byte	-120
+ 1871 0732 59       		.byte	89
+ 1872 0733 45       		.byte	69
+ 1873 0734 5B       		.byte	91
+ 1874 0735 20       		.byte	32
+ 1875 0736 84       		.byte	-124
+ 1876 0737 40       		.byte	64
+ 1877 0738 87       		.byte	-121
+ 1878 0739 20       		.byte	32
+ 1879 073a 92       		.byte	-110
+ 1880 073b 20       		.byte	32
+ 1881 073c 95       		.byte	-107
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 34
+
+
+ 1882 073d 40       		.byte	64
+ 1883 073e 98       		.byte	-104
+ 1884 073f 80       		.byte	-128
+ 1885 0740 9A       		.byte	-102
+ 1886 0741 01       		.byte	1
+ 1887 0742 9B       		.byte	-101
+ 1888 0743 08       		.byte	8
+ 1889 0744 A3       		.byte	-93
+ 1890 0745 10       		.byte	16
+ 1891 0746 A7       		.byte	-89
+ 1892 0747 20       		.byte	32
+ 1893 0748 C0       		.byte	-64
+ 1894 0749 76       		.byte	118
+ 1895 074a C2       		.byte	-62
+ 1896 074b 2F       		.byte	47
+ 1897 074c C4       		.byte	-60
+ 1898 074d BA       		.byte	-70
+ 1899 074e CA       		.byte	-54
+ 1900 074f B6       		.byte	-74
+ 1901 0750 CC       		.byte	-52
+ 1902 0751 7A       		.byte	122
+ 1903 0752 CE       		.byte	-50
+ 1904 0753 26       		.byte	38
+ 1905 0754 D0       		.byte	-48
+ 1906 0755 02       		.byte	2
+ 1907 0756 D2       		.byte	-46
+ 1908 0757 0C       		.byte	12
+ 1909 0758 D6       		.byte	-42
+ 1910 0759 0F       		.byte	15
+ 1911 075a E6       		.byte	-26
+ 1912 075b 08       		.byte	8
+ 1913 075c 54       		.byte	84
+ 1914 075d 18       		.byte	24
+ 1915 075e 58       		.byte	88
+ 1916 075f 04       		.byte	4
+ 1917 0760 59       		.byte	89
+ 1918 0761 04       		.byte	4
+ 1919 0762 5B       		.byte	91
+ 1920 0763 04       		.byte	4
+ 1921 0764 5C       		.byte	92
+ 1922 0765 11       		.byte	17
+ 1923 0766 5D       		.byte	93
+ 1924 0767 20       		.byte	32
+ 1925 0768 5F       		.byte	95
+ 1926 0769 01       		.byte	1
+ 1927 076a 83       		.byte	-125
+ 1928 076b 01       		.byte	1
+ 1929 076c 85       		.byte	-123
+ 1930 076d 24       		.byte	36
+ 1931 076e 87       		.byte	-121
+ 1932 076f 8A       		.byte	-118
+ 1933 0770 8B       		.byte	-117
+ 1934 0771 01       		.byte	1
+ 1935 0772 8D       		.byte	-115
+ 1936 0773 08       		.byte	8
+ 1937 0774 8E       		.byte	-114
+ 1938 0775 01       		.byte	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 35
+
+
+ 1939 0776 8F       		.byte	-113
+ 1940 0777 70       		.byte	112
+ 1941 0778 95       		.byte	-107
+ 1942 0779 3E       		.byte	62
+ 1943 077a 99       		.byte	-103
+ 1944 077b 3E       		.byte	62
+ 1945 077c 9E       		.byte	-98
+ 1946 077d 01       		.byte	1
+ 1947 077e A5       		.byte	-91
+ 1948 077f 12       		.byte	18
+ 1949 0780 A7       		.byte	-89
+ 1950 0781 8C       		.byte	-116
+ 1951 0782 B1       		.byte	-79
+ 1952 0783 38       		.byte	56
+ 1953 0784 B3       		.byte	-77
+ 1954 0785 01       		.byte	1
+ 1955 0786 B4       		.byte	-76
+ 1956 0787 01       		.byte	1
+ 1957 0788 B5       		.byte	-75
+ 1958 0789 06       		.byte	6
+ 1959 078a B7       		.byte	-73
+ 1960 078b C0       		.byte	-64
+ 1961 078c BE       		.byte	-66
+ 1962 078d 10       		.byte	16
+ 1963 078e BF       		.byte	-65
+ 1964 078f 44       		.byte	68
+ 1965 0790 C0       		.byte	-64
+ 1966 0791 62       		.byte	98
+ 1967 0792 C1       		.byte	-63
+ 1968 0793 05       		.byte	5
+ 1969 0794 C2       		.byte	-62
+ 1970 0795 04       		.byte	4
+ 1971 0796 C4       		.byte	-60
+ 1972 0797 01       		.byte	1
+ 1973 0798 C6       		.byte	-58
+ 1974 0799 CE       		.byte	-50
+ 1975 079a C8       		.byte	-56
+ 1976 079b 0C       		.byte	12
+ 1977 079c C9       		.byte	-55
+ 1978 079d FF       		.byte	-1
+ 1979 079e CA       		.byte	-54
+ 1980 079f FF       		.byte	-1
+ 1981 07a0 CB       		.byte	-53
+ 1982 07a1 FF       		.byte	-1
+ 1983 07a2 CC       		.byte	-52
+ 1984 07a3 62       		.byte	98
+ 1985 07a4 CD       		.byte	-51
+ 1986 07a5 A0       		.byte	-96
+ 1987 07a6 CE       		.byte	-50
+ 1988 07a7 F0       		.byte	-16
+ 1989 07a8 CF       		.byte	-49
+ 1990 07a9 41       		.byte	65
+ 1991 07aa D0       		.byte	-48
+ 1992 07ab 0C       		.byte	12
+ 1993 07ac D2       		.byte	-46
+ 1994 07ad 03       		.byte	3
+ 1995 07ae D3       		.byte	-45
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 36
+
+
+ 1996 07af 02       		.byte	2
+ 1997 07b0 D8       		.byte	-40
+ 1998 07b1 04       		.byte	4
+ 1999 07b2 D9       		.byte	-39
+ 2000 07b3 04       		.byte	4
+ 2001 07b4 DA       		.byte	-38
+ 2002 07b5 04       		.byte	4
+ 2003 07b6 DB       		.byte	-37
+ 2004 07b7 04       		.byte	4
+ 2005 07b8 DC       		.byte	-36
+ 2006 07b9 21       		.byte	33
+ 2007 07ba DD       		.byte	-35
+ 2008 07bb 12       		.byte	18
+ 2009 07bc DF       		.byte	-33
+ 2010 07bd 01       		.byte	1
+ 2011 07be E6       		.byte	-26
+ 2012 07bf 40       		.byte	64
+ 2013 07c0 E7       		.byte	-25
+ 2014 07c1 02       		.byte	2
+ 2015 07c2 E9       		.byte	-23
+ 2016 07c3 10       		.byte	16
+ 2017 07c4 EA       		.byte	-22
+ 2018 07c5 30       		.byte	48
+ 2019 07c6 EB       		.byte	-21
+ 2020 07c7 10       		.byte	16
+ 2021 07c8 ED       		.byte	-19
+ 2022 07c9 10       		.byte	16
+ 2023 07ca EE       		.byte	-18
+ 2024 07cb 10       		.byte	16
+ 2025 07cc EF       		.byte	-17
+ 2026 07cd 12       		.byte	18
+ 2027 07ce 01       		.byte	1
+ 2028 07cf 89       		.byte	-119
+ 2029 07d0 05       		.byte	5
+ 2030 07d1 19       		.byte	25
+ 2031 07d2 06       		.byte	6
+ 2032 07d3 42       		.byte	66
+ 2033 07d4 07       		.byte	7
+ 2034 07d5 80       		.byte	-128
+ 2035 07d6 09       		.byte	9
+ 2036 07d7 80       		.byte	-128
+ 2037 07d8 0B       		.byte	11
+ 2038 07d9 08       		.byte	8
+ 2039 07da 0C       		.byte	12
+ 2040 07db 02       		.byte	2
+ 2041 07dc 0F       		.byte	15
+ 2042 07dd 10       		.byte	16
+ 2043 07de 10       		.byte	16
+ 2044 07df 12       		.byte	18
+ 2045 07e0 12       		.byte	18
+ 2046 07e1 40       		.byte	64
+ 2047 07e2 13       		.byte	19
+ 2048 07e3 10       		.byte	16
+ 2049 07e4 14       		.byte	20
+ 2050 07e5 80       		.byte	-128
+ 2051 07e6 15       		.byte	21
+ 2052 07e7 01       		.byte	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 37
+
+
+ 2053 07e8 19       		.byte	25
+ 2054 07e9 20       		.byte	32
+ 2055 07ea 20       		.byte	32
+ 2056 07eb 45       		.byte	69
+ 2057 07ec 22       		.byte	34
+ 2058 07ed 01       		.byte	1
+ 2059 07ee 23       		.byte	35
+ 2060 07ef 20       		.byte	32
+ 2061 07f0 28       		.byte	40
+ 2062 07f1 20       		.byte	32
+ 2063 07f2 2C       		.byte	44
+ 2064 07f3 02       		.byte	2
+ 2065 07f4 2D       		.byte	45
+ 2066 07f5 09       		.byte	9
+ 2067 07f6 2F       		.byte	47
+ 2068 07f7 05       		.byte	5
+ 2069 07f8 33       		.byte	51
+ 2070 07f9 14       		.byte	20
+ 2071 07fa 34       		.byte	52
+ 2072 07fb 10       		.byte	16
+ 2073 07fc 35       		.byte	53
+ 2074 07fd 10       		.byte	16
+ 2075 07fe 37       		.byte	55
+ 2076 07ff 80       		.byte	-128
+ 2077 0800 38       		.byte	56
+ 2078 0801 64       		.byte	100
+ 2079 0802 39       		.byte	57
+ 2080 0803 02       		.byte	2
+ 2081 0804 3F       		.byte	63
+ 2082 0805 10       		.byte	16
+ 2083 0806 40       		.byte	64
+ 2084 0807 01       		.byte	1
+ 2085 0808 41       		.byte	65
+ 2086 0809 01       		.byte	1
+ 2087 080a 42       		.byte	66
+ 2088 080b 04       		.byte	4
+ 2089 080c 4A       		.byte	74
+ 2090 080d 08       		.byte	8
+ 2091 080e 4B       		.byte	75
+ 2092 080f 80       		.byte	-128
+ 2093 0810 50       		.byte	80
+ 2094 0811 10       		.byte	16
+ 2095 0812 51       		.byte	81
+ 2096 0813 80       		.byte	-128
+ 2097 0814 5F       		.byte	95
+ 2098 0815 02       		.byte	2
+ 2099 0816 65       		.byte	101
+ 2100 0817 20       		.byte	32
+ 2101 0818 66       		.byte	102
+ 2102 0819 80       		.byte	-128
+ 2103 081a 69       		.byte	105
+ 2104 081b 40       		.byte	64
+ 2105 081c 6B       		.byte	107
+ 2106 081d 08       		.byte	8
+ 2107 081e 86       		.byte	-122
+ 2108 081f 02       		.byte	2
+ 2109 0820 87       		.byte	-121
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 38
+
+
+ 2110 0821 84       		.byte	-124
+ 2111 0822 93       		.byte	-109
+ 2112 0823 12       		.byte	18
+ 2113 0824 95       		.byte	-107
+ 2114 0825 40       		.byte	64
+ 2115 0826 99       		.byte	-103
+ 2116 0827 19       		.byte	25
+ 2117 0828 9F       		.byte	-97
+ 2118 0829 08       		.byte	8
+ 2119 082a A3       		.byte	-93
+ 2120 082b 80       		.byte	-128
+ 2121 082c B4       		.byte	-76
+ 2122 082d 02       		.byte	2
+ 2123 082e B5       		.byte	-75
+ 2124 082f 04       		.byte	4
+ 2125 0830 C0       		.byte	-64
+ 2126 0831 FD       		.byte	-3
+ 2127 0832 C2       		.byte	-62
+ 2128 0833 33       		.byte	51
+ 2129 0834 C4       		.byte	-60
+ 2130 0835 1F       		.byte	31
+ 2131 0836 CA       		.byte	-54
+ 2132 0837 F2       		.byte	-14
+ 2133 0838 CC       		.byte	-52
+ 2134 0839 36       		.byte	54
+ 2135 083a CE       		.byte	-50
+ 2136 083b 2F       		.byte	47
+ 2137 083c D0       		.byte	-48
+ 2138 083d 0D       		.byte	13
+ 2139 083e D2       		.byte	-46
+ 2140 083f 0C       		.byte	12
+ 2141 0840 D6       		.byte	-42
+ 2142 0841 80       		.byte	-128
+ 2143 0842 D8       		.byte	-40
+ 2144 0843 30       		.byte	48
+ 2145 0844 00       		.byte	0
+ 2146 0845 04       		.byte	4
+ 2147 0846 02       		.byte	2
+ 2148 0847 80       		.byte	-128
+ 2149 0848 04       		.byte	4
+ 2150 0849 3C       		.byte	60
+ 2151 084a 05       		.byte	5
+ 2152 084b 82       		.byte	-126
+ 2153 084c 06       		.byte	6
+ 2154 084d 42       		.byte	66
+ 2155 084e 09       		.byte	9
+ 2156 084f 04       		.byte	4
+ 2157 0850 0A       		.byte	10
+ 2158 0851 04       		.byte	4
+ 2159 0852 0C       		.byte	12
+ 2160 0853 7F       		.byte	127
+ 2161 0854 0D       		.byte	13
+ 2162 0855 FF       		.byte	-1
+ 2163 0856 11       		.byte	17
+ 2164 0857 C3       		.byte	-61
+ 2165 0858 14       		.byte	20
+ 2166 0859 18       		.byte	24
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 39
+
+
+ 2167 085a 15       		.byte	21
+ 2168 085b 0C       		.byte	12
+ 2169 085c 18       		.byte	24
+ 2170 085d 3C       		.byte	60
+ 2171 085e 19       		.byte	25
+ 2172 085f 1C       		.byte	28
+ 2173 0860 1A       		.byte	26
+ 2174 0861 41       		.byte	65
+ 2175 0862 1B       		.byte	27
+ 2176 0863 E3       		.byte	-29
+ 2177 0864 1D       		.byte	29
+ 2178 0865 08       		.byte	8
+ 2179 0866 20       		.byte	32
+ 2180 0867 10       		.byte	16
+ 2181 0868 21       		.byte	33
+ 2182 0869 41       		.byte	65
+ 2183 086a 24       		.byte	36
+ 2184 086b 08       		.byte	8
+ 2185 086c 25       		.byte	37
+ 2186 086d 0F       		.byte	15
+ 2187 086e 27       		.byte	39
+ 2188 086f F0       		.byte	-16
+ 2189 0870 28       		.byte	40
+ 2190 0871 67       		.byte	103
+ 2191 0872 29       		.byte	41
+ 2192 0873 F3       		.byte	-13
+ 2193 0874 2A       		.byte	42
+ 2194 0875 18       		.byte	24
+ 2195 0876 2B       		.byte	43
+ 2196 0877 0C       		.byte	12
+ 2197 0878 2E       		.byte	46
+ 2198 0879 03       		.byte	3
+ 2199 087a 2F       		.byte	47
+ 2200 087b F3       		.byte	-13
+ 2201 087c 30       		.byte	48
+ 2202 087d 20       		.byte	32
+ 2203 087e 31       		.byte	49
+ 2204 087f 1C       		.byte	28
+ 2205 0880 32       		.byte	50
+ 2206 0881 80       		.byte	-128
+ 2207 0882 33       		.byte	51
+ 2208 0883 0F       		.byte	15
+ 2209 0884 34       		.byte	52
+ 2210 0885 1F       		.byte	31
+ 2211 0886 35       		.byte	53
+ 2212 0887 2C       		.byte	44
+ 2213 0888 36       		.byte	54
+ 2214 0889 40       		.byte	64
+ 2215 088a 37       		.byte	55
+ 2216 088b C0       		.byte	-64
+ 2217 088c 38       		.byte	56
+ 2218 088d 80       		.byte	-128
+ 2219 088e 3A       		.byte	58
+ 2220 088f 20       		.byte	32
+ 2221 0890 3B       		.byte	59
+ 2222 0891 28       		.byte	40
+ 2223 0892 3E       		.byte	62
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 40
+
+
+ 2224 0893 01       		.byte	1
+ 2225 0894 56       		.byte	86
+ 2226 0895 02       		.byte	2
+ 2227 0896 57       		.byte	87
+ 2228 0897 13       		.byte	19
+ 2229 0898 58       		.byte	88
+ 2230 0899 04       		.byte	4
+ 2231 089a 59       		.byte	89
+ 2232 089b 04       		.byte	4
+ 2233 089c 5B       		.byte	91
+ 2234 089d 04       		.byte	4
+ 2235 089e 5C       		.byte	92
+ 2236 089f 22       		.byte	34
+ 2237 08a0 5D       		.byte	93
+ 2238 08a1 20       		.byte	32
+ 2239 08a2 5F       		.byte	95
+ 2240 08a3 01       		.byte	1
+ 2241 08a4 84       		.byte	-124
+ 2242 08a5 01       		.byte	1
+ 2243 08a6 88       		.byte	-120
+ 2244 08a7 01       		.byte	1
+ 2245 08a8 AC       		.byte	-84
+ 2246 08a9 01       		.byte	1
+ 2247 08aa B4       		.byte	-76
+ 2248 08ab 01       		.byte	1
+ 2249 08ac BA       		.byte	-70
+ 2250 08ad 02       		.byte	2
+ 2251 08ae D8       		.byte	-40
+ 2252 08af 04       		.byte	4
+ 2253 08b0 D9       		.byte	-39
+ 2254 08b1 04       		.byte	4
+ 2255 08b2 DC       		.byte	-36
+ 2256 08b3 12       		.byte	18
+ 2257 08b4 DF       		.byte	-33
+ 2258 08b5 01       		.byte	1
+ 2259 08b6 00       		.byte	0
+ 2260 08b7 40       		.byte	64
+ 2261 08b8 03       		.byte	3
+ 2262 08b9 A8       		.byte	-88
+ 2263 08ba 07       		.byte	7
+ 2264 08bb 14       		.byte	20
+ 2265 08bc 08       		.byte	8
+ 2266 08bd 10       		.byte	16
+ 2267 08be 09       		.byte	9
+ 2268 08bf 28       		.byte	40
+ 2269 08c0 10       		.byte	16
+ 2270 08c1 85       		.byte	-123
+ 2271 08c2 12       		.byte	18
+ 2272 08c3 08       		.byte	8
+ 2273 08c4 13       		.byte	19
+ 2274 08c5 08       		.byte	8
+ 2275 08c6 15       		.byte	21
+ 2276 08c7 40       		.byte	64
+ 2277 08c8 19       		.byte	25
+ 2278 08c9 82       		.byte	-126
+ 2279 08ca 1B       		.byte	27
+ 2280 08cb 28       		.byte	40
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 41
+
+
+ 2281 08cc 1C       		.byte	28
+ 2282 08cd 40       		.byte	64
+ 2283 08ce 1E       		.byte	30
+ 2284 08cf 04       		.byte	4
+ 2285 08d0 21       		.byte	33
+ 2286 08d1 21       		.byte	33
+ 2287 08d2 22       		.byte	34
+ 2288 08d3 08       		.byte	8
+ 2289 08d4 23       		.byte	35
+ 2290 08d5 02       		.byte	2
+ 2291 08d6 28       		.byte	40
+ 2292 08d7 15       		.byte	21
+ 2293 08d8 2A       		.byte	42
+ 2294 08d9 80       		.byte	-128
+ 2295 08da 2B       		.byte	43
+ 2296 08db 80       		.byte	-128
+ 2297 08dc 2D       		.byte	45
+ 2298 08dd 08       		.byte	8
+ 2299 08de 2E       		.byte	46
+ 2300 08df 02       		.byte	2
+ 2301 08e0 2F       		.byte	47
+ 2302 08e1 01       		.byte	1
+ 2303 08e2 30       		.byte	48
+ 2304 08e3 80       		.byte	-128
+ 2305 08e4 31       		.byte	49
+ 2306 08e5 08       		.byte	8
+ 2307 08e6 32       		.byte	50
+ 2308 08e7 01       		.byte	1
+ 2309 08e8 33       		.byte	51
+ 2310 08e9 20       		.byte	32
+ 2311 08ea 35       		.byte	53
+ 2312 08eb 10       		.byte	16
+ 2313 08ec 37       		.byte	55
+ 2314 08ed 80       		.byte	-128
+ 2315 08ee 38       		.byte	56
+ 2316 08ef 64       		.byte	100
+ 2317 08f0 3B       		.byte	59
+ 2318 08f1 80       		.byte	-128
+ 2319 08f2 3E       		.byte	62
+ 2320 08f3 08       		.byte	8
+ 2321 08f4 3F       		.byte	63
+ 2322 08f5 10       		.byte	16
+ 2323 08f6 59       		.byte	89
+ 2324 08f7 02       		.byte	2
+ 2325 08f8 69       		.byte	105
+ 2326 08f9 40       		.byte	64
+ 2327 08fa 6B       		.byte	107
+ 2328 08fb 14       		.byte	20
+ 2329 08fc 70       		.byte	112
+ 2330 08fd 90       		.byte	-112
+ 2331 08fe 71       		.byte	113
+ 2332 08ff 08       		.byte	8
+ 2333 0900 73       		.byte	115
+ 2334 0901 08       		.byte	8
+ 2335 0902 83       		.byte	-125
+ 2336 0903 01       		.byte	1
+ 2337 0904 8A       		.byte	-118
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 42
+
+
+ 2338 0905 84       		.byte	-124
+ 2339 0906 8C       		.byte	-116
+ 2340 0907 A0       		.byte	-96
+ 2341 0908 8E       		.byte	-114
+ 2342 0909 08       		.byte	8
+ 2343 090a 8F       		.byte	-113
+ 2344 090b 80       		.byte	-128
+ 2345 090c 90       		.byte	-112
+ 2346 090d 04       		.byte	4
+ 2347 090e 92       		.byte	-110
+ 2348 090f 02       		.byte	2
+ 2349 0910 93       		.byte	-109
+ 2350 0911 12       		.byte	18
+ 2351 0912 95       		.byte	-107
+ 2352 0913 02       		.byte	2
+ 2353 0914 96       		.byte	-106
+ 2354 0915 04       		.byte	4
+ 2355 0916 97       		.byte	-105
+ 2356 0917 80       		.byte	-128
+ 2357 0918 99       		.byte	-103
+ 2358 0919 18       		.byte	24
+ 2359 091a 9A       		.byte	-102
+ 2360 091b 02       		.byte	2
+ 2361 091c 9B       		.byte	-101
+ 2362 091d 80       		.byte	-128
+ 2363 091e 9C       		.byte	-100
+ 2364 091f A0       		.byte	-96
+ 2365 0920 9D       		.byte	-99
+ 2366 0921 80       		.byte	-128
+ 2367 0922 9F       		.byte	-97
+ 2368 0923 16       		.byte	22
+ 2369 0924 A6       		.byte	-90
+ 2370 0925 08       		.byte	8
+ 2371 0926 A9       		.byte	-87
+ 2372 0927 01       		.byte	1
+ 2373 0928 B6       		.byte	-74
+ 2374 0929 80       		.byte	-128
+ 2375 092a B7       		.byte	-73
+ 2376 092b 20       		.byte	32
+ 2377 092c C0       		.byte	-64
+ 2378 092d 6F       		.byte	111
+ 2379 092e C2       		.byte	-62
+ 2380 092f 06       		.byte	6
+ 2381 0930 C4       		.byte	-60
+ 2382 0931 8F       		.byte	-113
+ 2383 0932 CA       		.byte	-54
+ 2384 0933 DF       		.byte	-33
+ 2385 0934 CC       		.byte	-52
+ 2386 0935 3F       		.byte	63
+ 2387 0936 CE       		.byte	-50
+ 2388 0937 6E       		.byte	110
+ 2389 0938 D6       		.byte	-42
+ 2390 0939 01       		.byte	1
+ 2391 093a E0       		.byte	-32
+ 2392 093b 10       		.byte	16
+ 2393 093c E4       		.byte	-28
+ 2394 093d 08       		.byte	8
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 43
+
+
+ 2395 093e EC       		.byte	-20
+ 2396 093f 20       		.byte	32
+ 2397 0940 10       		.byte	16
+ 2398 0941 80       		.byte	-128
+ 2399 0942 16       		.byte	22
+ 2400 0943 80       		.byte	-128
+ 2401 0944 31       		.byte	49
+ 2402 0945 80       		.byte	-128
+ 2403 0946 38       		.byte	56
+ 2404 0947 08       		.byte	8
+ 2405 0948 3E       		.byte	62
+ 2406 0949 80       		.byte	-128
+ 2407 094a C4       		.byte	-60
+ 2408 094b 30       		.byte	48
+ 2409 094c CC       		.byte	-52
+ 2410 094d 10       		.byte	16
+ 2411 094e CE       		.byte	-50
+ 2412 094f 60       		.byte	96
+ 2413 0950 50       		.byte	80
+ 2414 0951 08       		.byte	8
+ 2415 0952 57       		.byte	87
+ 2416 0953 02       		.byte	2
+ 2417 0954 94       		.byte	-108
+ 2418 0955 08       		.byte	8
+ 2419 0956 A0       		.byte	-96
+ 2420 0957 80       		.byte	-128
+ 2421 0958 A5       		.byte	-91
+ 2422 0959 80       		.byte	-128
+ 2423 095a D4       		.byte	-44
+ 2424 095b 20       		.byte	32
+ 2425 095c D6       		.byte	-42
+ 2426 095d 20       		.byte	32
+ 2427 095e 80       		.byte	-128
+ 2428 095f 04       		.byte	4
+ 2429 0960 94       		.byte	-108
+ 2430 0961 08       		.byte	8
+ 2431 0962 A5       		.byte	-91
+ 2432 0963 80       		.byte	-128
+ 2433 0964 A8       		.byte	-88
+ 2434 0965 08       		.byte	8
+ 2435 0966 B3       		.byte	-77
+ 2436 0967 02       		.byte	2
+ 2437 0968 B4       		.byte	-76
+ 2438 0969 80       		.byte	-128
+ 2439 096a E6       		.byte	-26
+ 2440 096b 80       		.byte	-128
+ 2441 096c EA       		.byte	-22
+ 2442 096d 80       		.byte	-128
+ 2443 096e 85       		.byte	-123
+ 2444 096f 80       		.byte	-128
+ 2445 0970 A5       		.byte	-91
+ 2446 0971 80       		.byte	-128
+ 2447 0972 E6       		.byte	-26
+ 2448 0973 40       		.byte	64
+ 2449 0974 57       		.byte	87
+ 2450 0975 04       		.byte	4
+ 2451 0976 5C       		.byte	92
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 44
+
+
+ 2452 0977 02       		.byte	2
+ 2453 0978 64       		.byte	100
+ 2454 0979 04       		.byte	4
+ 2455 097a 98       		.byte	-104
+ 2456 097b 04       		.byte	4
+ 2457 097c B0       		.byte	-80
+ 2458 097d 04       		.byte	4
+ 2459 097e D4       		.byte	-44
+ 2460 097f 02       		.byte	2
+ 2461 0980 D6       		.byte	-42
+ 2462 0981 01       		.byte	1
+ 2463 0982 D8       		.byte	-40
+ 2464 0983 01       		.byte	1
+ 2465 0984 EC       		.byte	-20
+ 2466 0985 01       		.byte	1
+ 2467 0986 1B       		.byte	27
+ 2468 0987 08       		.byte	8
+ 2469 0988 27       		.byte	39
+ 2470 0989 20       		.byte	32
+ 2471 098a 83       		.byte	-125
+ 2472 098b 08       		.byte	8
+ 2473 098c 9C       		.byte	-100
+ 2474 098d 02       		.byte	2
+ 2475 098e B7       		.byte	-73
+ 2476 098f 04       		.byte	4
+ 2477 0990 C6       		.byte	-58
+ 2478 0991 08       		.byte	8
+ 2479 0992 C8       		.byte	-56
+ 2480 0993 01       		.byte	1
+ 2481 0994 E8       		.byte	-24
+ 2482 0995 02       		.byte	2
+ 2483 0996 44       		.byte	68
+ 2484 0997 01       		.byte	1
+ 2485 0998 83       		.byte	-125
+ 2486 0999 20       		.byte	32
+ 2487 099a 9B       		.byte	-101
+ 2488 099b 20       		.byte	32
+ 2489 099c B4       		.byte	-76
+ 2490 099d 02       		.byte	2
+ 2491 099e D0       		.byte	-48
+ 2492 099f 04       		.byte	4
+ 2493 09a0 E8       		.byte	-24
+ 2494 09a1 08       		.byte	8
+ 2495 09a2 20       		.byte	32
+ 2496 09a3 80       		.byte	-128
+ 2497 09a4 C8       		.byte	-56
+ 2498 09a5 40       		.byte	64
+ 2499 09a6 B0       		.byte	-80
+ 2500 09a7 40       		.byte	64
+ 2501 09a8 9C       		.byte	-100
+ 2502 09a9 01       		.byte	1
+ 2503 09aa 12       		.byte	18
+ 2504 09ab 80       		.byte	-128
+ 2505 09ac 74       		.byte	116
+ 2506 09ad 01       		.byte	1
+ 2507 09ae 84       		.byte	-124
+ 2508 09af 01       		.byte	1
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 45
+
+
+ 2509 09b0 8E       		.byte	-114
+ 2510 09b1 80       		.byte	-128
+ 2511 09b2 B0       		.byte	-80
+ 2512 09b3 01       		.byte	1
+ 2513 09b4 C4       		.byte	-60
+ 2514 09b5 08       		.byte	8
+ 2515 09b6 DE       		.byte	-34
+ 2516 09b7 04       		.byte	4
+ 2517 09b8 E2       		.byte	-30
+ 2518 09b9 02       		.byte	2
+ 2519 09ba EC       		.byte	-20
+ 2520 09bb 04       		.byte	4
+ 2521 09bc 00       		.byte	0
+ 2522 09bd 03       		.byte	3
+ 2523 09be 01       		.byte	1
+ 2524 09bf 01       		.byte	1
+ 2525 09c0 08       		.byte	8
+ 2526 09c1 02       		.byte	2
+ 2527 09c2 0A       		.byte	10
+ 2528 09c3 02       		.byte	2
+ 2529 09c4 0C       		.byte	12
+ 2530 09c5 03       		.byte	3
+ 2531 09c6 0D       		.byte	13
+ 2532 09c7 01       		.byte	1
+ 2533 09c8 0E       		.byte	14
+ 2534 09c9 03       		.byte	3
+ 2535 09ca 10       		.byte	16
+ 2536 09cb 06       		.byte	6
+ 2537 09cc 1A       		.byte	26
+ 2538 09cd 06       		.byte	6
+ 2539 09ce 1C       		.byte	28
+ 2540 09cf 06       		.byte	6
+ 2541 09d0 00       		.byte	0
+ 2542 09d1 03       		.byte	3
+ 2543 09d2 10       		.byte	16
+ 2544 09d3 0A       		.byte	10
+ 2545 09d4 80       		.byte	-128
+ 2546 09d5 80       		.byte	-128
+ 2547 09d6 00       		.byte	0
+ 2548 09d7 00       		.byte	0
+ 2549 09d8 40       		.byte	64
+ 2550 09d9 00       		.byte	0
+ 2551 09da 00       		.byte	0
+ 2552 09db 00       		.byte	0
+ 2553 09dc 08       		.byte	8
+ 2554 09dd C0       		.byte	-64
+ 2555 09de C0       		.byte	-64
+ 2556 09df 00       		.byte	0
+ 2557 09e0 00       		.byte	0
+ 2558 09e1 03       		.byte	3
+ 2559 09e2 03       		.byte	3
+ 2560 09e3 00       		.byte	0
+ 2561 09e4 80       		.byte	-128
+ 2562 09e5 00       		.byte	0
+ 2563 09e6 40       		.byte	64
+ 2564 09e7 80       		.byte	-128
+ 2565 09e8 80       		.byte	-128
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 46
+
+
+ 2566 09e9 00       		.byte	0
+ 2567 09ea 80       		.byte	-128
+ 2568 09eb 00       		.byte	0
+ 2569 09ec 00       		.byte	0
+ 2570 09ed 00       		.byte	0
+ 2571 09ee 00       		.byte	0
+ 2572 09ef 00       		.byte	0
+ 2573 09f0 00       		.byte	0
+ 2574 09f1 0B       		.byte	11
+ 2575 09f2 0B       		.byte	11
+ 2576 09f3 00       		.byte	0
+ 2577 09f4 00       		.byte	0
+ 2578 09f5 00       		.byte	0
+ 2579 09f6 00       		.byte	0
+ 2580 09f7 00       		.byte	0
+ 2581 09f8 00       		.byte	0
+ 2582 09f9 39       		.byte	57
+ 2583 09fa 39       		.byte	57
+ 2584 09fb 00       		.byte	0
+ 2585 09fc 38       		.byte	56
+ 2586 09fd 00       		.byte	0
+ 2587 09fe 00       		.byte	0
+ 2588 09ff 00       		.byte	0
+ 2589 0a00 00       		.byte	0
+ 2590 0a01 01       		.byte	1
+ 2591 0a02 00       		.byte	0
+ 2592 0a03 00       		.byte	0
+ 2593              		.section	.cywolatch,"a",%progbits
+ 2594              		.align	2
+ 2595              		.type	cy_meta_wonvl, %object
+ 2596              		.size	cy_meta_wonvl, 4
+ 2597              	cy_meta_wonvl:
+ 2598 0000 BC       		.byte	-68
+ 2599 0001 90       		.byte	-112
+ 2600 0002 AC       		.byte	-84
+ 2601 0003 AF       		.byte	-81
+ 2602              		.section	.cycustnvl,"a",%progbits
+ 2603              		.align	2
+ 2604              		.type	cy_meta_custnvl, %object
+ 2605              		.size	cy_meta_custnvl, 4
+ 2606              	cy_meta_custnvl:
+ 2607 0000 00       		.byte	0
+ 2608 0001 00       		.byte	0
+ 2609 0002 40       		.byte	64
+ 2610 0003 05       		.byte	5
+ 2611              		.section	.cymeta,"a",%progbits
+ 2612              		.align	2
+ 2613              		.type	cy_metadata, %object
+ 2614              		.size	cy_metadata, 12
+ 2615              	cy_metadata:
+ 2616 0000 00       		.byte	0
+ 2617 0001 01       		.byte	1
+ 2618 0002 2E       		.byte	46
+ 2619 0003 16       		.byte	22
+ 2620 0004 10       		.byte	16
+ 2621 0005 69       		.byte	105
+ 2622 0006 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 47
+
+
+ 2623 0007 01       		.byte	1
+ 2624 0008 00       		.byte	0
+ 2625 0009 00       		.byte	0
+ 2626 000a 00       		.byte	0
+ 2627 000b 00       		.byte	0
+ 2628              		.section	.cyflashprotect,"a",%progbits
+ 2629              		.align	2
+ 2630              		.type	cy_meta_flashprotect, %object
+ 2631              		.size	cy_meta_flashprotect, 256
+ 2632              	cy_meta_flashprotect:
+ 2633 0000 00000000 		.space	256
+ 2633      00000000 
+ 2633      00000000 
+ 2633      00000000 
+ 2633      00000000 
+ 2634              		.text
+ 2635              	.Letext0:
+ 2636              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2637              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2638              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 2639              		.section	.debug_info,"",%progbits
+ 2640              	.Ldebug_info0:
+ 2641 0000 35010000 		.4byte	0x135
+ 2642 0004 0400     		.2byte	0x4
+ 2643 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2644 000a 04       		.byte	0x4
+ 2645 000b 01       		.uleb128 0x1
+ 2646 000c 24000000 		.4byte	.LASF17
+ 2647 0010 0C       		.byte	0xc
+ 2648 0011 E5010000 		.4byte	.LASF18
+ 2649 0015 E7000000 		.4byte	.LASF19
+ 2650 0019 00000000 		.4byte	.Ldebug_line0
+ 2651 001d 02       		.uleb128 0x2
+ 2652 001e 01       		.byte	0x1
+ 2653 001f 06       		.byte	0x6
+ 2654 0020 D9010000 		.4byte	.LASF0
+ 2655 0024 03       		.uleb128 0x3
+ 2656 0025 00000000 		.4byte	.LASF9
+ 2657 0029 01       		.byte	0x1
+ 2658 002a 1D       		.byte	0x1d
+ 2659 002b 2F000000 		.4byte	0x2f
+ 2660 002f 02       		.uleb128 0x2
+ 2661 0030 01       		.byte	0x1
+ 2662 0031 08       		.byte	0x8
+ 2663 0032 16000000 		.4byte	.LASF1
+ 2664 0036 02       		.uleb128 0x2
+ 2665 0037 02       		.byte	0x2
+ 2666 0038 05       		.byte	0x5
+ 2667 0039 C6010000 		.4byte	.LASF2
+ 2668 003d 02       		.uleb128 0x2
+ 2669 003e 02       		.byte	0x2
+ 2670 003f 07       		.byte	0x7
+ 2671 0040 C4000000 		.4byte	.LASF3
+ 2672 0044 02       		.uleb128 0x2
+ 2673 0045 04       		.byte	0x4
+ 2674 0046 05       		.byte	0x5
+ 2675 0047 D0010000 		.4byte	.LASF4
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 48
+
+
+ 2676 004b 02       		.uleb128 0x2
+ 2677 004c 04       		.byte	0x4
+ 2678 004d 07       		.byte	0x7
+ 2679 004e B2000000 		.4byte	.LASF5
+ 2680 0052 02       		.uleb128 0x2
+ 2681 0053 08       		.byte	0x8
+ 2682 0054 05       		.byte	0x5
+ 2683 0055 B8010000 		.4byte	.LASF6
+ 2684 0059 02       		.uleb128 0x2
+ 2685 005a 08       		.byte	0x8
+ 2686 005b 07       		.byte	0x7
+ 2687 005c 6D010000 		.4byte	.LASF7
+ 2688 0060 04       		.uleb128 0x4
+ 2689 0061 04       		.byte	0x4
+ 2690 0062 05       		.byte	0x5
+ 2691 0063 696E7400 		.ascii	"int\000"
+ 2692 0067 02       		.uleb128 0x2
+ 2693 0068 04       		.byte	0x4
+ 2694 0069 07       		.byte	0x7
+ 2695 006a 60010000 		.4byte	.LASF8
+ 2696 006e 03       		.uleb128 0x3
+ 2697 006f 84010000 		.4byte	.LASF10
+ 2698 0073 02       		.byte	0x2
+ 2699 0074 18       		.byte	0x18
+ 2700 0075 24000000 		.4byte	0x24
+ 2701 0079 05       		.uleb128 0x5
+ 2702 007a 91000000 		.4byte	0x91
+ 2703 007e 8A000000 		.4byte	0x8a
+ 2704 0082 06       		.uleb128 0x6
+ 2705 0083 8A000000 		.4byte	0x8a
+ 2706 0087 030A     		.2byte	0xa03
+ 2707 0089 00       		.byte	0
+ 2708 008a 02       		.uleb128 0x2
+ 2709 008b 04       		.byte	0x4
+ 2710 008c 07       		.byte	0x7
+ 2711 008d AF010000 		.4byte	.LASF11
+ 2712 0091 07       		.uleb128 0x7
+ 2713 0092 6E000000 		.4byte	0x6e
+ 2714 0096 08       		.uleb128 0x8
+ 2715 0097 4E010000 		.4byte	.LASF12
+ 2716 009b 03       		.byte	0x3
+ 2717 009c 1F       		.byte	0x1f
+ 2718 009d A7000000 		.4byte	0xa7
+ 2719 00a1 05       		.uleb128 0x5
+ 2720 00a2 03       		.byte	0x3
+ 2721 00a3 00000000 		.4byte	cy_meta_configecc
+ 2722 00a7 07       		.uleb128 0x7
+ 2723 00a8 79000000 		.4byte	0x79
+ 2724 00ac 05       		.uleb128 0x5
+ 2725 00ad 91000000 		.4byte	0x91
+ 2726 00b1 BC000000 		.4byte	0xbc
+ 2727 00b5 09       		.uleb128 0x9
+ 2728 00b6 8A000000 		.4byte	0x8a
+ 2729 00ba 03       		.byte	0x3
+ 2730 00bb 00       		.byte	0
+ 2731 00bc 0A       		.uleb128 0xa
+ 2732 00bd D7000000 		.4byte	.LASF13
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 49
+
+
+ 2733 00c1 03       		.byte	0x3
+ 2734 00c2 6D01     		.2byte	0x16d
+ 2735 00c4 CE000000 		.4byte	0xce
+ 2736 00c8 05       		.uleb128 0x5
+ 2737 00c9 03       		.byte	0x3
+ 2738 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2739 00ce 07       		.uleb128 0x7
+ 2740 00cf AC000000 		.4byte	0xac
+ 2741 00d3 0A       		.uleb128 0xa
+ 2742 00d4 A1010000 		.4byte	.LASF14
+ 2743 00d8 03       		.byte	0x3
+ 2744 00d9 7B01     		.2byte	0x17b
+ 2745 00db E5000000 		.4byte	0xe5
+ 2746 00df 05       		.uleb128 0x5
+ 2747 00e0 03       		.byte	0x3
+ 2748 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2749 00e5 07       		.uleb128 0x7
+ 2750 00e6 AC000000 		.4byte	0xac
+ 2751 00ea 05       		.uleb128 0x5
+ 2752 00eb 91000000 		.4byte	0x91
+ 2753 00ef FA000000 		.4byte	0xfa
+ 2754 00f3 09       		.uleb128 0x9
+ 2755 00f4 8A000000 		.4byte	0x8a
+ 2756 00f8 FF       		.byte	0xff
+ 2757 00f9 00       		.byte	0
+ 2758 00fa 0A       		.uleb128 0xa
+ 2759 00fb 8C010000 		.4byte	.LASF15
+ 2760 00ff 03       		.byte	0x3
+ 2761 0100 8901     		.2byte	0x189
+ 2762 0102 0C010000 		.4byte	0x10c
+ 2763 0106 05       		.uleb128 0x5
+ 2764 0107 03       		.byte	0x3
+ 2765 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2766 010c 07       		.uleb128 0x7
+ 2767 010d EA000000 		.4byte	0xea
+ 2768 0111 05       		.uleb128 0x5
+ 2769 0112 91000000 		.4byte	0x91
+ 2770 0116 21010000 		.4byte	0x121
+ 2771 011a 09       		.uleb128 0x9
+ 2772 011b 8A000000 		.4byte	0x8a
+ 2773 011f 0B       		.byte	0xb
+ 2774 0120 00       		.byte	0
+ 2775 0121 0A       		.uleb128 0xa
+ 2776 0122 0A000000 		.4byte	.LASF16
+ 2777 0126 03       		.byte	0x3
+ 2778 0127 B601     		.2byte	0x1b6
+ 2779 0129 33010000 		.4byte	0x133
+ 2780 012d 05       		.uleb128 0x5
+ 2781 012e 03       		.byte	0x3
+ 2782 012f 00000000 		.4byte	cy_metadata
+ 2783 0133 07       		.uleb128 0x7
+ 2784 0134 11010000 		.4byte	0x111
+ 2785 0138 00       		.byte	0
+ 2786              		.section	.debug_abbrev,"",%progbits
+ 2787              	.Ldebug_abbrev0:
+ 2788 0000 01       		.uleb128 0x1
+ 2789 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 50
+
+
+ 2790 0002 01       		.byte	0x1
+ 2791 0003 25       		.uleb128 0x25
+ 2792 0004 0E       		.uleb128 0xe
+ 2793 0005 13       		.uleb128 0x13
+ 2794 0006 0B       		.uleb128 0xb
+ 2795 0007 03       		.uleb128 0x3
+ 2796 0008 0E       		.uleb128 0xe
+ 2797 0009 1B       		.uleb128 0x1b
+ 2798 000a 0E       		.uleb128 0xe
+ 2799 000b 10       		.uleb128 0x10
+ 2800 000c 17       		.uleb128 0x17
+ 2801 000d 00       		.byte	0
+ 2802 000e 00       		.byte	0
+ 2803 000f 02       		.uleb128 0x2
+ 2804 0010 24       		.uleb128 0x24
+ 2805 0011 00       		.byte	0
+ 2806 0012 0B       		.uleb128 0xb
+ 2807 0013 0B       		.uleb128 0xb
+ 2808 0014 3E       		.uleb128 0x3e
+ 2809 0015 0B       		.uleb128 0xb
+ 2810 0016 03       		.uleb128 0x3
+ 2811 0017 0E       		.uleb128 0xe
+ 2812 0018 00       		.byte	0
+ 2813 0019 00       		.byte	0
+ 2814 001a 03       		.uleb128 0x3
+ 2815 001b 16       		.uleb128 0x16
+ 2816 001c 00       		.byte	0
+ 2817 001d 03       		.uleb128 0x3
+ 2818 001e 0E       		.uleb128 0xe
+ 2819 001f 3A       		.uleb128 0x3a
+ 2820 0020 0B       		.uleb128 0xb
+ 2821 0021 3B       		.uleb128 0x3b
+ 2822 0022 0B       		.uleb128 0xb
+ 2823 0023 49       		.uleb128 0x49
+ 2824 0024 13       		.uleb128 0x13
+ 2825 0025 00       		.byte	0
+ 2826 0026 00       		.byte	0
+ 2827 0027 04       		.uleb128 0x4
+ 2828 0028 24       		.uleb128 0x24
+ 2829 0029 00       		.byte	0
+ 2830 002a 0B       		.uleb128 0xb
+ 2831 002b 0B       		.uleb128 0xb
+ 2832 002c 3E       		.uleb128 0x3e
+ 2833 002d 0B       		.uleb128 0xb
+ 2834 002e 03       		.uleb128 0x3
+ 2835 002f 08       		.uleb128 0x8
+ 2836 0030 00       		.byte	0
+ 2837 0031 00       		.byte	0
+ 2838 0032 05       		.uleb128 0x5
+ 2839 0033 01       		.uleb128 0x1
+ 2840 0034 01       		.byte	0x1
+ 2841 0035 49       		.uleb128 0x49
+ 2842 0036 13       		.uleb128 0x13
+ 2843 0037 01       		.uleb128 0x1
+ 2844 0038 13       		.uleb128 0x13
+ 2845 0039 00       		.byte	0
+ 2846 003a 00       		.byte	0
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 51
+
+
+ 2847 003b 06       		.uleb128 0x6
+ 2848 003c 21       		.uleb128 0x21
+ 2849 003d 00       		.byte	0
+ 2850 003e 49       		.uleb128 0x49
+ 2851 003f 13       		.uleb128 0x13
+ 2852 0040 2F       		.uleb128 0x2f
+ 2853 0041 05       		.uleb128 0x5
+ 2854 0042 00       		.byte	0
+ 2855 0043 00       		.byte	0
+ 2856 0044 07       		.uleb128 0x7
+ 2857 0045 26       		.uleb128 0x26
+ 2858 0046 00       		.byte	0
+ 2859 0047 49       		.uleb128 0x49
+ 2860 0048 13       		.uleb128 0x13
+ 2861 0049 00       		.byte	0
+ 2862 004a 00       		.byte	0
+ 2863 004b 08       		.uleb128 0x8
+ 2864 004c 34       		.uleb128 0x34
+ 2865 004d 00       		.byte	0
+ 2866 004e 03       		.uleb128 0x3
+ 2867 004f 0E       		.uleb128 0xe
+ 2868 0050 3A       		.uleb128 0x3a
+ 2869 0051 0B       		.uleb128 0xb
+ 2870 0052 3B       		.uleb128 0x3b
+ 2871 0053 0B       		.uleb128 0xb
+ 2872 0054 49       		.uleb128 0x49
+ 2873 0055 13       		.uleb128 0x13
+ 2874 0056 3F       		.uleb128 0x3f
+ 2875 0057 19       		.uleb128 0x19
+ 2876 0058 02       		.uleb128 0x2
+ 2877 0059 18       		.uleb128 0x18
+ 2878 005a 00       		.byte	0
+ 2879 005b 00       		.byte	0
+ 2880 005c 09       		.uleb128 0x9
+ 2881 005d 21       		.uleb128 0x21
+ 2882 005e 00       		.byte	0
+ 2883 005f 49       		.uleb128 0x49
+ 2884 0060 13       		.uleb128 0x13
+ 2885 0061 2F       		.uleb128 0x2f
+ 2886 0062 0B       		.uleb128 0xb
+ 2887 0063 00       		.byte	0
+ 2888 0064 00       		.byte	0
+ 2889 0065 0A       		.uleb128 0xa
+ 2890 0066 34       		.uleb128 0x34
+ 2891 0067 00       		.byte	0
+ 2892 0068 03       		.uleb128 0x3
+ 2893 0069 0E       		.uleb128 0xe
+ 2894 006a 3A       		.uleb128 0x3a
+ 2895 006b 0B       		.uleb128 0xb
+ 2896 006c 3B       		.uleb128 0x3b
+ 2897 006d 05       		.uleb128 0x5
+ 2898 006e 49       		.uleb128 0x49
+ 2899 006f 13       		.uleb128 0x13
+ 2900 0070 3F       		.uleb128 0x3f
+ 2901 0071 19       		.uleb128 0x19
+ 2902 0072 02       		.uleb128 0x2
+ 2903 0073 18       		.uleb128 0x18
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 52
+
+
+ 2904 0074 00       		.byte	0
+ 2905 0075 00       		.byte	0
+ 2906 0076 00       		.byte	0
+ 2907              		.section	.debug_aranges,"",%progbits
+ 2908 0000 14000000 		.4byte	0x14
+ 2909 0004 0200     		.2byte	0x2
+ 2910 0006 00000000 		.4byte	.Ldebug_info0
+ 2911 000a 04       		.byte	0x4
+ 2912 000b 00       		.byte	0
+ 2913 000c 0000     		.2byte	0
+ 2914 000e 0000     		.2byte	0
+ 2915 0010 00000000 		.4byte	0
+ 2916 0014 00000000 		.4byte	0
+ 2917              		.section	.debug_line,"",%progbits
+ 2918              	.Ldebug_line0:
+ 2919 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2919      02003701 
+ 2919      00000201 
+ 2919      FB0E0D00 
+ 2919      01010101 
+ 2920              	.LASF9:
+ 2921 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2921      6E74385F 
+ 2921      7400
+ 2922              	.LASF16:
+ 2923 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 2923      65746164 
+ 2923      61746100 
+ 2924              	.LASF1:
+ 2925 0016 756E7369 		.ascii	"unsigned char\000"
+ 2925      676E6564 
+ 2925      20636861 
+ 2925      7200
+ 2926              	.LASF17:
+ 2927 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2927      43313120 
+ 2927      352E342E 
+ 2927      31203230 
+ 2927      31363036 
+ 2928 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2928      20726576 
+ 2928      6973696F 
+ 2928      6E203233 
+ 2928      37373135 
+ 2929 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2929      66756E63 
+ 2929      74696F6E 
+ 2929      2D736563 
+ 2929      74696F6E 
+ 2930              	.LASF5:
+ 2931 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2931      20756E73 
+ 2931      69676E65 
+ 2931      6420696E 
+ 2931      7400
+ 2932              	.LASF3:
+ 2933 00c4 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 53
+
+
+ 2933      7420756E 
+ 2933      7369676E 
+ 2933      65642069 
+ 2933      6E7400
+ 2934              	.LASF13:
+ 2935 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2935      6574615F 
+ 2935      63757374 
+ 2935      6E766C00 
+ 2936              	.LASF19:
+ 2937 00e7 433A5C55 		.ascii	"C:\\Users\\Asus\\Desktop\\HDA\\Semester_2\\EAA\\Lab"
+ 2937      73657273 
+ 2937      5C417375 
+ 2937      735C4465 
+ 2937      736B746F 
+ 2938 0113 5C4C6162 		.ascii	"\\Lab01\\Electronic_Gaspedal\\Electronic_Gaspedal\\"
+ 2938      30315C45 
+ 2938      6C656374 
+ 2938      726F6E69 
+ 2938      635F4761 
+ 2939 0142 4C616230 		.ascii	"Lab01.cydsn\000"
+ 2939      312E6379 
+ 2939      64736E00 
+ 2940              	.LASF12:
+ 2941 014e 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2941      6574615F 
+ 2941      636F6E66 
+ 2941      69676563 
+ 2941      6300
+ 2942              	.LASF8:
+ 2943 0160 756E7369 		.ascii	"unsigned int\000"
+ 2943      676E6564 
+ 2943      20696E74 
+ 2943      00
+ 2944              	.LASF7:
+ 2945 016d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2945      206C6F6E 
+ 2945      6720756E 
+ 2945      7369676E 
+ 2945      65642069 
+ 2946              	.LASF10:
+ 2947 0184 75696E74 		.ascii	"uint8_t\000"
+ 2947      385F7400 
+ 2948              	.LASF15:
+ 2949 018c 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2949      6574615F 
+ 2949      666C6173 
+ 2949      6870726F 
+ 2949      74656374 
+ 2950              	.LASF14:
+ 2951 01a1 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2951      6574615F 
+ 2951      776F6E76 
+ 2951      6C00
+ 2952              	.LASF11:
+ 2953 01af 73697A65 		.ascii	"sizetype\000"
+ 2953      74797065 
+ARM GAS  C:\Users\Asus\AppData\Local\Temp\cciGPQOk.s 			page 54
+
+
+ 2953      00
+ 2954              	.LASF6:
+ 2955 01b8 6C6F6E67 		.ascii	"long long int\000"
+ 2955      206C6F6E 
+ 2955      6720696E 
+ 2955      7400
+ 2956              	.LASF2:
+ 2957 01c6 73686F72 		.ascii	"short int\000"
+ 2957      7420696E 
+ 2957      7400
+ 2958              	.LASF4:
+ 2959 01d0 6C6F6E67 		.ascii	"long int\000"
+ 2959      20696E74 
+ 2959      00
+ 2960              	.LASF0:
+ 2961 01d9 7369676E 		.ascii	"signed char\000"
+ 2961      65642063 
+ 2961      68617200 
+ 2962              	.LASF18:
+ 2963 01e5 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2963      72617465 
+ 2963      645F536F 
+ 2963      75726365 
+ 2963      5C50536F 
+ 2964              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

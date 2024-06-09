@@ -1,0 +1,212 @@
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_multi_context.s 			page 1
+
+
+   1              	/* ###*B*###
+   2              	; ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3              	;
+   4              	; Copyright (C) 2002-2011  Evidence Srl
+   5              	;
+   6              	; This file is part of ERIKA Enterprise.
+   7              	;
+   8              	; ERIKA Enterprise is free software; you can redistribute it
+   9              	; and/or modify it under the terms of the GNU General Public License
+  10              	; version 2 as published by the Free Software Foundation, 
+  11              	; (with a special exception described below).
+  12              	;
+  13              	; Linking this code statically or dynamically with other modules is
+  14              	; making a combined work based on this code.  Thus, the terms and
+  15              	; conditions of the GNU General Public License cover the whole
+  16              	; combination.
+  17              	;
+  18              	; As a special exception, the copyright holders of this library give you
+  19              	; permission to link this code with independent modules to produce an
+  20              	; executable, regardless of the license terms of these independent
+  21              	; modules, and to copy and distribute the resulting executable under
+  22              	; terms of your choice, provided that you also meet, for each linked
+  23              	; independent module, the terms and conditions of the license of that
+  24              	; module.  An independent module is a module which is not derived from
+  25              	; or based on this library.  If you modify this code, you may extend
+  26              	; this exception to your version of the code, but you are not
+  27              	; obligated to do so.  If you do not wish to do so, delete this
+  28              	; exception statement from your version.
+  29              	;
+  30              	; ERIKA Enterprise is distributed in the hope that it will be
+  31              	; useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32              	; of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33              	; GNU General Public License version 2 for more details.
+  34              	;
+  35              	; You should have received a copy of the GNU General Public License
+  36              	; version 2 along with ERIKA Enterprise; if not, write to the
+  37              	; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38              	; Boston, MA 02110-1301 USA.
+  39              	; ###*E*###
+  40              	
+  41              	; /** 
+  42              	; 	@file ee_keil_multi_context.s
+  43              	; 	@brief Context switch function for multistack on Cortex MX
+  44              	; 	Implementation of EE_cortex_mx_change_context as described in
+  45              	; 	pkg/cpu/common/inc/ee_context.inc
+  46              	; 	@author Gianluca Franchino
+  47              	; 	@author Giuseppe Serano
+  48              	; 	@author Alessandro Biondi
+  49              	; 	@date 2013
+  50              	*/ 
+  51              	
+  52              	/*
+  53              	; PSoC Port and API Generation
+  54              	; Carlos Fernando Meier Martinez
+  55              	; Hochschule Darmstadt, Germany. 2017.
+  56              	*/
+  57              	
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_multi_context.s 			page 2
+
+
+  58              	@*******************************************************************************
+  59              	@                         PUBLIC FUNCTIONS
+  60              	@*******************************************************************************
+  61              		.global	EE_cortex_mx_change_context
+  62              		.global	EE_std_run_task_code
+  63              		.global	EE_std_thread_tos
+  64              		.global	EE_cortex_mx_active_tos
+  65              		.global	EE_cortex_mx_system_tos
+  66              	
+  67              	@*******************************************************************************
+  68              	@                              CODE SECTION
+  69              	@*******************************************************************************	
+  70              		.text
+  71              	
+  72              	@ kernel code is in ARM-mode
+  73              		.syntax unified
+  74              		.arch armv7e-m
+  75              		.cpu cortex-m4
+  76              	
+  77              	@Pseudo code for EE_cortex_mx_change_context():
+  78              	@  begin:
+  79              	@    tos_index = EE_std_thread_tos[tid+1];
+  80              	@    if is_not_the_current_stack(tos_index) {
+  81              	@      save_caller_saved_registers();
+  82              	@      switch_stacks(tos_index);
+  83              	@      restore_caller_saved_registers();
+  84              	@    }
+  85              	@    if (is_not_marked_stacked(tid)) {
+  86              	@      tid = EE_std_run_task_code(tid);
+  87              	@      goto begin;
+  88              	@    }
+  89              	@
+  90              	
+  91              	@void EE_cortex_mx_change_context(EE_TID tid);
+  92              	        .type   EE_cortex_mx_change_context, #function
+  93              	EE_cortex_mx_change_context:
+  94              		@ R0 == tid
+  95              		@ tos_index = EE_std_thread_tos[tid+1];
+  96 0000 411C     		ADDS	R1, R0, #1		@ R1 = tid+1
+  97 0002 8900     		LSLS	R1, R1, #2		@ R1 = (tid+1)*4= correct offset in  EE_std_thread_tos
+  98              								@ The last shift, also gets rid of the `stacked' mark
+  99 0004 154A     		LDR	R2, =EE_std_thread_tos
+ 100 0006 1144     		ADD	R1, R2, R1
+ 101 0008 0968     		LDR	R1, [R1]			@R1 == tos_index
+ 102              	
+ 103              		@*
+ 104              		@* if is_not_the_current_stack(tos_index) { 
+ 105              		@*
+ 106 000a 154A     		LDR	R2, =EE_cortex_mx_active_tos	@R2 = & EE_cortex_mx_active_tos;
+ 107 000c 1368     		LDR	R3, [R2]						@ R3 = EE_cortex_mx_active_tos;
+ 108 000e 9942     		CMP	R1, R3
+ 109 0010 1AD0     		BEQ	end_change_stacks
+ 110              	
+ 111              		@save_caller_saved_registers();
+ 112              	
+ 113              		@Save all callee-saved registers
+ 114              		@R0-R3 and R12 are scratch registers, R13 ->(MSP), R14 ->(LR), R15 -> (PC)
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_multi_context.s 			page 3
+
+
+ 115 0012 F0B4     		PUSH	{R4-R7}			@ Store R4, R5, R6, R7 onto stack 
+ 116 0014 4446     		MOV	R4, R8
+ 117 0016 4D46     		MOV	R5, R9
+ 118 0018 5646     		MOV	R6, R10
+ 119 001a 5F46     		MOV	R7, R11
+ 120 001c F0B4     		PUSH	{R4-R7}			@ Store R8, R9, R10, R11 onto stack
+ 121 001e 00B5     		PUSH	{LR}			@ Store link register (return address)
+ 122              	
+ 123              		@!!!!!!!!!!!!!!!
+ 124              		@ At this point the non scratch registers (R4...R11) are pushed into stack,
+ 125              		@ hence I can use them in the following.
+ 126              		@!!!!!!!!!!!!!!!!
+ 127              	
+ 128              		@ switch_stacks(tos_index);
+ 129 0020 104C     		LDR	R4, =EE_cortex_mx_system_tos	@ R4 = & cortex_mx_system_tos[0];
+ 130              		@ Note: although R4 is not a scratch register, it has been saved onto stack,
+ 131              		@ therefore we can used it in the follow without problem
+ 132              		@ EE_cortex_mx_system_tos[R3] = MSP;
+ 133 0022 9B00     		LSLS	R3, R3, #2
+ 134 0024 2344     		ADD	R3, R4, R3
+ 135 0026 EFF30885 		MRS	R5, MSP
+ 136              		@ Note STR can only use the register range -> R0 to R4.
+ 137 002a 1D60     		STR	R5, [R3]		@ save stack pointer
+ 138              	
+ 139              		@ EE_cortex_mx_active_tos = tos_index;
+ 140 002c 1160     		STR	R1, [R2]
+ 141              		@ MSP= EE_cortex_mx_system_tos[R1];
+ 142 002e 8900     		LSLS	R1, R1, #2
+ 143 0030 2144     		ADD	R1, R4, R1
+ 144 0032 0968     		LDR	R1, [R1]
+ 145 0034 81F30888 		MSR	MSP, R1
+ 146              		@; restore_caller_saved_registers();
+ 147 0038 02BC     		POP	{R1}			@ Get link register from stack
+ 148 003a 8E46     		MOV	LR, R1			@ Restore the link register
+ 149              		@ Restore R8, R9, R10, R11 from stack
+ 150 003c F0BC     		POP	{R4-R7}
+ 151 003e A046     		MOV	R8, R4
+ 152 0040 A946     		MOV	R9, R5
+ 153 0042 B246     		MOV	R10, R6
+ 154 0044 BB46     		MOV	R11, R7
+ 155 0046 F0BC     		POP	{R4-R7}			@ Restore R4, R5, R6, R7 from stack
+ 156              		@ *
+ 157              		@ * } 
+ 158              		@ *
+ 159              		
+ 160              			
+ 161              	
+ 162              	end_change_stacks:
+ 163              		@ R0 == tid
+ 164              	
+ 165              		@ *
+ 166              		@ *if (is_not_marked_stacked(tid)) {
+ 167              		@ *
+ 168              	
+ 169 0048 0028     		CMP	R0, #0
+ 170 004a 06DB     		BLT	end_run_thread
+ 171              	
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_multi_context.s 			page 4
+
+
+ 172              		@ tid = EE_std_run_task_code(tid);
+ 173 004c 00B5     		PUSH	{LR}
+ 174 004e FFF7FEFF 		BL EE_std_run_task_code
+ 175              		@ R0 == tid
+ 176 0052 02BC     		POP {R1}
+ 177 0054 8E46     		MOV LR, R1
+ 178              	
+ 179 0056 FFF7FEBF 		B EE_cortex_mx_change_context
+ 180              		@ goto begin
+ 181              	
+ 182              		@ *
+ 183              		@ * } 
+ 184              		@ *
+ 185              	
+ 186              	end_run_thread:
+ 187              	
+ 188 005a 7047     		BX	LR			@ Return
+ 189              		
+ 190              		.size	EE_cortex_mx_change_context, . - EE_cortex_mx_change_context
+ 191              		
+ 192              	
+ 193              	@******************************************************************************
+ 194              	@
+ 195              	@ Tell the assembler that we're done.
+ 196              	@
+ 197              	@******************************************************************************
+ 198 005c 00000000 		.end
+ 198      00000000 
+ 198      00000000 

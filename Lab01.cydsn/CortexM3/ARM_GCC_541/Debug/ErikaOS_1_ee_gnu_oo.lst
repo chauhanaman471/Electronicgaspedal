@@ -1,0 +1,194 @@
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_oo.s 			page 1
+
+
+   1              	/* ###*B*###
+   2              	; ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3              	;
+   4              	; Copyright (C) 2002-2011  Evidence Srl
+   5              	;
+   6              	; This file is part of ERIKA Enterprise.
+   7              	;
+   8              	; ERIKA Enterprise is free software; you can redistribute it
+   9              	; and/or modify it under the terms of the GNU General Public License
+  10              	; version 2 as published by the Free Software Foundation, 
+  11              	; (with a special exception described below).
+  12              	;
+  13              	; Linking this code statically or dynamically with other modules is
+  14              	; making a combined work based on this code.  Thus, the terms and
+  15              	; conditions of the GNU General Public License cover the whole
+  16              	; combination.
+  17              	;
+  18              	; As a special exception, the copyright holders of this library give you
+  19              	; permission to link this code with independent modules to produce an
+  20              	; executable, regardless of the license terms of these independent
+  21              	; modules, and to copy and distribute the resulting executable under
+  22              	; terms of your choice, provided that you also meet, for each linked
+  23              	; independent module, the terms and conditions of the license of that
+  24              	; module.  An independent module is a module which is not derived from
+  25              	; or based on this library.  If you modify this code, you may extend
+  26              	; this exception to your version of the code, but you are not
+  27              	; obligated to do so.  If you do not wish to do so, delete this
+  28              	; exception statement from your version.
+  29              	;
+  30              	; ERIKA Enterprise is distributed in the hope that it will be
+  31              	; useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32              	; of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33              	; GNU General Public License version 2 for more details.
+  34              	;
+  35              	; You should have received a copy of the GNU General Public License
+  36              	; version 2 along with ERIKA Enterprise; if not, write to the
+  37              	; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38              	; Boston, MA 02110-1301 USA.
+  39              	; ###*E*###
+  40              	
+  41              	; /** 
+  42              	; 	@file ee_keil_oo.S
+  43              	; 	@brief Functions to save and restore registers for OSEK TerminateTask().
+  44              	; 	@author Gianluca Franchino
+  45              	; 	@author Giuseppe Serano
+  46              	; 	@author Alessandro Biondi
+  47              	; 	@date 2013
+  48              	*/
+  49              	
+  50              	/*
+  51              	; PSoC Port and API Generation
+  52              	; Carlos Fernando Meier Martinez
+  53              	; Hochschule Darmstadt, Germany. 2017.
+  54              	*/
+  55              	
+  56              	@*******************************************************************************
+  57              	@                         PUBLIC FUNCTIONS
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_oo.s 			page 2
+
+
+  58              	@*******************************************************************************
+  59              		@ Functions declared in this file 
+  60              		.global	EE_hal_terminate_savestk	@ void EE_hal_terminate_savestk(EE_TID tid)
+  61              		.global	EE_hal_terminate_task		@ NORETURN void EE_hal_terminate_task(EE_TID tid);
+  62              	
+  63              		.global	EE_terminate_real_th_body
+  64              		.global	EE_terminate_data
+  65              		.global	EE_thread_not_terminated
+  66              	
+  67              	@*******************************************************************************
+  68              	@                              EQUATES
+  69              	@*******************************************************************************
+  70              	.set	EPSR_T_BIT_VAL, 0x01000000	@ Value to set the T-bit in EPSR (always Thumb mode)
+  71              	
+  72              	
+  73              	@*******************************************************************************
+  74              	@                              CODE SECTION
+  75              	@*******************************************************************************	
+  76              	
+  77              		.text
+  78              	
+  79              	@ kernel code is in ARM-mode
+  80              		.syntax unified
+  81              		.arch armv7e-m
+  82              		.cpu cortex-m4
+  83              		
+  84              		
+  85              	@void EE_hal_terminate_savestk(EE_TID tid);
+  86              	        .type   EE_hal_terminate_savestk, #function
+  87              	EE_hal_terminate_savestk:
+  88              		@ Save all callee-saved registers
+  89              		@ R0-R3 and R12 are scratch registers, R13 ->(MSP), R14 ->(LR), R15 -> (PC)
+  90 0000 F0B4     		PUSH	{R4-R7}			@ Store R4, R5, R6, R7 onto stack 
+  91 0002 4446     		MOV	R4, R8
+  92 0004 4D46     		MOV	R5, R9
+  93 0006 5646     		MOV	R6, R10
+  94 0008 5F46     		MOV	R7, R11
+  95 000a F0B4     		PUSH	{R4-R7}			@ Store R8, R9, R10, R11 onto stack
+  96 000c 00B5     		PUSH	{LR}			@ Store link register (return address)
+  97 000e EFF30383 		MRS	R3, PSR			@ Store xPSR to 8-bytes stack aligment
+  98 0012 08B4     		PUSH	{R3}
+  99              		@R0 == tid
+ 100 0014 8000     		LSLS	R0, R0, #2		@ R0 = tid << 2
+ 101 0016 1749     		LDR	R1, =EE_terminate_real_th_body	@ R1 == EE_terminate_real_th_body[tid]
+ 102 0018 0144     		ADD	R1, R1, R0
+ 103 001a 0968     		LDR	R1, [R1]
+ 104              		@ Save the stack pointer (including space for registers)
+ 105              		@ R2 == & EE_terminate_data[tid]
+ 106 001c 164A     		LDR	R2, =EE_terminate_data
+ 107 001e 0244     		ADD	R2, R2, R0
+ 108 0020 EFF30883 		MRS	R3, MSP			@ Get the stack pointer
+ 109 0024 1360     		STR	R3, [R2]		@ Save stack pointer
+ 110              	
+ 111              		@Start the thread body
+ 112 0026 8847     		BLX	R1
+ 113              	
+ 114              		@ The task terminated with a return: do the usual cleanup
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_oo.s 			page 3
+
+
+ 115 0028 1448     		LDR	R0, =EE_thread_not_terminated
+ 116 002a 8047     		BLX	R0
+ 117              	
+ 118              		@ NOTE: code never executed because EE_thread_not_terminated()
+ 119 002c 04BC     		POP	{R2}			@ Get xPSR from stack
+ 120 002e 4FF08070 		LDR	R0, =EPSR_T_BIT_VAL	@ R0 = 0x01000000
+ 121 0032 0243     		ORRS	R2, R2, R0		@ R2 = (xPSR OR 0x01000000). This guarantees that Thumbs bit is set
+ 122              						@ to avoid an hard_fault exception
+ 123 0034 82F30388 		MSR	XPSR_NZCVQ, R2		@ Restore xPSR register
+ 124 0038 01BC     		POP	{R0}			@ Get link register from stack
+ 125 003a 8646     		MOV	LR, R0			@ Restore the link register
+ 126              		@ Restore R8, R9, R10, R11 from stack
+ 127 003c F0BC     		POP	{R4-R7}
+ 128 003e A046     		MOV	R8, R4
+ 129 0040 A946     		MOV	R9, R5
+ 130 0042 B246     		MOV	R10, R6
+ 131 0044 BB46     		MOV	R11, R7
+ 132 0046 F0BC     		POP	{R4-R7}			@ Restore R4, R5, R6, R7 from stack
+ 133              	
+ 134 0048 7047     		BX	LR			@ Return
+ 135              		
+ 136              		.size	EE_hal_terminate_savestk, . - EE_hal_terminate_savestk
+ 137              	
+ 138              		
+ 139              	@*******************************************************************************	
+ 140              		
+ 141              	@void EE_hal_terminate_task(EE_TID tid)  NORETURN
+ 142              	        .type   EE_hal_terminate_task, #function
+ 143              	EE_hal_terminate_task:	
+ 144              	
+ 145              		@ R0 == tid
+ 146              	
+ 147              		@ Restore the stack pointer
+ 148              		@ R1 == & EE_terminate_data[tid]
+ 149 004a 8000     		LSLS	R0, R0, #2		@ R0 = tid << 2	
+ 150 004c 0A49     		LDR	R1, =EE_terminate_data	@ R1 == & EE_terminate_data[tid]
+ 151 004e 0144     		ADD	R1, R1, R0
+ 152 0050 0A68     		LDR	R2, [R1]
+ 153 0052 82F30888 		MSR	MSP, R2
+ 154              	
+ 155 0056 04BC     		POP	{R2}			@ Get xPSR from stack
+ 156 0058 4FF08070 		LDR	R0, =EPSR_T_BIT_VAL	@ R0 = 0x01000000
+ 157 005c 0243     		ORRS	R2, R2, R0		@ R2 = (xPSR OR 0x01000000). This guarantees that Thumbs bit is set
+ 158              						@ to avoid an hard_fault exception
+ 159 005e 82F30388 		MSR	XPSR_NZCVQ, R2		@ Restore xPSR register
+ 160 0062 08BC     		POP	{R3}			@ Get link register from stack
+ 161 0064 9E46     		MOV	LR, R3			@ Restore the link register
+ 162              		@ Restore R8, R9, R10, R11 from stack
+ 163 0066 F0BC     		POP	{R4-R7}
+ 164 0068 A046     		MOV	R8, R4
+ 165 006a A946     		MOV	R9, R5
+ 166 006c B246     		MOV	R10, R6
+ 167 006e BB46     		MOV	R11, R7
+ 168 0070 F0BC     		POP	{R4-R7}			@ Restore R4, R5, R6, R7 from stack
+ 169              	
+ 170 0072 7047     		BX	LR			@ Return
+ 171              		
+ARM GAS  Generated_Source\PSoC5\ErikaOS_1_ee_gnu_oo.s 			page 4
+
+
+ 172              		.size	EE_hal_terminate_task, . - EE_hal_terminate_task
+ 173              	
+ 174              	
+ 175              	@******************************************************************************
+ 176              	@
+ 177              	@ Tell the assembler that we're done.
+ 178              	@
+ 179              	@******************************************************************************
+ 180 0074 00000000 		.end
+ 180      00000000 
+ 180      00000000 
